@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo "iCheck is running..."
+((a=1))
+while [ true ]; do
+	host -W 1 google.com > /dev/null
+	((a=$?))
+
+	if [ $a -eq 0 ]; then
+		alarm
+	fi
+	sleep 10 
+done

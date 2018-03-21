@@ -1,0 +1,5 @@
+import requests
+magic=requests.get('http://216.58.197.56/generate_204').text[1372:1388]
+print(magic)
+parameters={'magic': magic, 'username':'esd15i016', 'password': '1111'}
+requests.post('http://192.168.2.1:1000', data=parameters)
