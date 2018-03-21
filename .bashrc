@@ -334,11 +334,11 @@ alias sdota='sdot add'
 alias sdotc='sdot commit -m'
 alias sdotp='sdot push origin master'
 
-alias .dot='sudo git --git-dir=/.dot/ --work-tree=/'
-alias .dots='.dot status'
-alias .dota='.dot add'
-alias .dotc='.dot commit -m'
-alias .dotp='.dot push origin master'
+alias gdot='sudo git --git-dir=/.dot/ --work-tree=/'
+alias gdots='gdot status'
+alias gdota='gdot add'
+alias gdotc='gdot commit -m'
+alias gdotp='gdot push origin master'
 
 # Change directory aliases
 alias cd..='cd ..'
