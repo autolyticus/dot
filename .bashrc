@@ -210,12 +210,12 @@ zat() {
 	fi
 }
 
-alias rstnet='sudo systemctl restart systemd-networkd'
-alias netctl='sudo netctl'
 alias systemctl='sudo systemctl'
-alias srestart='sudo systemctl restart'
+alias srestart='systemctl restart'
+alias status='systemctl status'
+alias senable='systemctl enable'
+alias netctl='sudo netctl'
 alias dstart='sudo systemctl restart docker'
-alias status='sudo systemctl status'
 alias adb='sudo adb'
 alias adbsh='sudo adb shell'
 alias wifi-menu='sudo wifi-menu'
