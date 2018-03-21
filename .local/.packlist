@@ -11,9 +11,6 @@ arc-icon-theme
 arduino
 arduino-avr-core
 aria2
-arm-none-eabi-gcc
-arm-none-eabi-gdb
-arm-none-eabi-newlib
 atftp
 autoconf
 automake
@@ -27,6 +24,7 @@ breeze
 btrfs-progs
 bzip2
 calc
+chromium
 clang
 cmake
 cmus
@@ -53,13 +51,13 @@ expac
 f2fs-tools
 fakeroot
 file
+file-roller
 filesystem
 findutils
 firefox
 fish
 flex
 fluidsynth
-freemind
 fzf
 gawk
 gcc
@@ -89,6 +87,7 @@ inetutils
 intel-ucode
 iproute2
 iputils
+irqbalance
 iverilog
 jfsutils
 kipi-plugins
@@ -108,7 +107,6 @@ m4
 make
 man-db
 man-pages
-mariadb
 mdadm
 mono
 mpc
@@ -138,6 +136,7 @@ pacman
 patch
 pciutils
 pcmciautils
+pdnsd
 perl
 pinta
 pkg-config
