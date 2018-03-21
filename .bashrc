@@ -322,7 +322,7 @@ alias gits='git status'
 alias gita='git add'
 alias gitc='git commit -a -m'
 
-alias dot='git --git-dir=$HOME/dot/ --work-tree=$HOME'
+alias dot='git --git-dir=$HOME/.dot/ --work-tree=$HOME'
 alias dots='dot status'
 alias dota='dot add'
 alias dotc='dot commit -m'
