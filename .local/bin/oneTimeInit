@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+#Firefox Tab bar remove
+cd $(find  /home/g/.mozilla/firefox/ -maxdepth 1 -type d | grep default)
+mkdir -p chrome
+echo '#TabsToolbar { visibility: collapse !important; }' > chrome/userChrome.css
