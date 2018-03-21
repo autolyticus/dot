@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+songList=$(mpc playlist)
+songName=$(echo "$songList" | fzf --prompt "Song: " --reverse --ansi --tabstop 4)
+[[ -z "$songName" ]] && exit 1
+echo "$songName"
+songNo=$(mpc playlist | grep -n -F "$songName" | awk -F':' '{print $1}' | tail -n1)
+# [[ -z "$songNo" ]] &&
+# 	mpc findadd filename "$songName" &&
+# 	songNo=$(mpc playlist | grep -n "$songName" | awk -F':' '{print $1}' | tail -n1)
+echo "$songNo"
+mpc play "$songNo"

@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+
+hourNames=('one'
+'two'
+'three'
+'four'
+'five'
+'six'
+'seven'
+'eight'
+'nine'
+'ten'
+'eleven'
+'noon'
+'midnight')
+
+message=('%s o'"'"' clock'
+'five past %s'
+'ten past %s'
+'quarter past %s'
+'twenty past %s'
+'twenty five past %s'
+'half past %s'
+'twenty five to %s'
+'twenty to %s'
+'quarter to %s'
+'ten to %s'
+'five to %s'
+'%s')
+
+curHour=$( date +%_I | tr -d '[:space:]' )
+if [ -n "$1" ]; then
+	curHour="$1"
+fi
+(( hourIndex=curHour-1 ))
+
+curMin=$( date +%_M | tr -d '[:space:]' )
+if [ -n "$1" ]; then
+	curMin="$2"
+fi
+(( messageIndex=curMin/5 ))
+
+PM=$( date +%p | grep "PM" )
+
+if [[ $((curMin % 5)) -gt 2 ]]; then # Rounding off to the nearest 5
+	(( messageIndex=(messageIndex + 1) % 13 ))
+fi
+
+if [ "$messageIndex" -gt 6 ]; then # Rounding off to the nearest hour
+	(( hourIndex=(hourIndex + 1) % 12 ))
+fi
+
+if [ "$hourIndex" -eq 11  ]; then # Midnight and noon are special cases (Need to check AM/PM)
+	if [ -n "$PM" ]; then
+		(( hourIndex=12 ))
+	fi
+	if [ "$messageIndex" -eq 0 ]; then
+		messageIndex="12"
+	fi
+fi
+
+if [ -n "$1" ]; then
+	echo $hourIndex
+	echo $messageIndex
+fi
+
+printf " ${message[$messageIndex]}" ${hourNames[$hourIndex]}

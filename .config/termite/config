@@ -1,0 +1,426 @@
+[options]
+font = FontAwesome 12
+font = Source Code Pro for Powerline SemiBold 12
+
+cursor_blink = system
+scrollback_lines = 100000
+search_wrap = true
+
+[colors]
+# # Base16 Tomorrow Night
+# # Author: Chris Kempson (http://chriskempson.com)
+#
+# foreground      = #c5c8c6
+# foreground_bold = #e0e0e0
+# cursor          = #e0e0e0
+# background      = #1d1f21
+#
+# # 16 color space
+#
+# # Black, Gray, Silver, White
+# color0  = #1d1f21
+# color8  = #969896
+# color7  = #c5c8c6
+# color15 = #ffffff
+#
+# # Red
+# color1  = #cc6666
+# color9  = #cc6666
+#
+# # Green
+# color2  = #b5bd68
+# color10 = #b5bd68
+#
+# # Yellow
+# color3  = #f0c674
+# color11 = #f0c674
+#
+# # Blue
+# color4  = #81a2be
+# color12 = #81a2be
+#
+# # Purple
+# color5  = #b294bb
+# color13 = #b294bb
+#
+# # Teal
+# color6  = #8abeb7
+# color14 = #8abeb7
+#
+# # Extra colors
+# color16 = #de935f
+# color17 = #a3685a
+# color18 = #282a2e
+# color19 = #373b41
+# color20 = #b4b7b4
+# color21 = #e0e0e0
+
+# #Flatcolor
+#
+# # special
+# foreground      = #cbe3e7
+# foreground_bold = #cbe3e7
+# cursor          = #cbe3e7
+# background      = #1e1c31
+#
+# # black
+# color0  = #565575
+# color8  = #100e23
+#
+# # red
+# color1  = #ff8080
+# color9  = #ff5458
+#
+# # green
+# color2  = #95ffa4
+# color10 = #62d196
+#
+# # yellow
+# color3  = #ffe9aa
+# color11 = #ffb378
+#
+# # blue
+# color4  = #91ddff
+# color12 = #65b2ff
+#
+# # magenta
+# color5  = #c991e1
+# color13 = #906cff
+#
+# # cyan
+# color6  = #aaffe4
+# color14 = #63f2f1
+#
+# # white
+# color7  = #cbe3e7
+# color15 = #a6b3cc
+
+# # Base16 IR Black
+# # Author: Timothée Poisot (http://timotheepoisot.fr)
+#
+# foreground      = #b5b3aa
+# foreground_bold = #d9d7cc
+# cursor          = #d9d7cc
+# background      = #000000
+#
+# # 16 color space
+#
+# # Black, Gray, Silver, White
+# color0  = #000000
+# color8  = #6c6c66
+# color7  = #b5b3aa
+# color15 = #fdfbee
+#
+# # Red
+# color1  = #ff6c60
+# color9  = #ff6c60
+#
+# # Green
+# color2  = #a8ff60
+# color10 = #a8ff60
+#
+# # Yellow
+# color3  = #ffffb6
+# color11 = #ffffb6
+#
+# # Blue
+# color4  = #96cbfe
+# color12 = #96cbfe
+#
+# # Purple
+# color5  = #ff73fd
+# color13 = #ff73fd
+#
+# # Teal
+# color6  = #c6c5fe
+# color14 = #c6c5fe
+#
+# # Extra colors
+# color16 = #e9c062
+# color17 = #b18a3d
+# color18 = #242422
+# color19 = #484844
+# color20 = #918f88
+# color21 = #d9d7cc
+
+# # Gruvbox Light
+# # hard contrast:
+# # background = #f9f5d7
+# # background = #fbf1c7
+# # soft contrast:
+# background = #f2e5bc
+# foreground = #3c3836
+# foreground_bold = #3c3836
+#
+# # light0 + gray
+# color0 = #fbf1c7
+# color8 = #928374
+#
+# # neutral_red + faded_red
+# color1 = #cc241d
+# color9 = #9d0006
+#
+# # neutral_green + faded_green
+# color2 = #98971a
+# color10 = #79740e
+#
+# # neutral_yellow + faded_yellow
+# color3 = #d79921
+# color11 = #b57614
+#
+# # neutral_blue + faded_blue
+# color4 = #458588
+# color12 = #076678
+#
+# # neutral_purple + faded_purple
+# color5 = #b16286
+# color13 = #8f3f71
+#
+# # neutral_aqua + faded_aqua
+# color6 = #689d6a
+# color14 = #427b58
+#
+# # dark4 + dark1
+# color7 = #7c6f64
+# color15 = #3c3836
+
+
+# # Gruvbox
+#
+# # special
+# foreground      = #a39e9b
+# foreground_bold = #a39e9b
+# cursor          = #a39e9b
+# background      = #2f1e2e
+#
+# # black
+# color0  = #2f1e2e
+# color8  = #776e71
+#
+# # red
+# color1  = #ef6155
+# color9  = #ef6155
+#
+# # green
+# color2  = #48b685
+# color10 = #48b685
+#
+# # yellow
+# color3  = #fec418
+# color11 = #fec418
+#
+# # blue
+# color4  = #06b6ef
+# color12 = #06b6ef
+#
+# # magenta
+# color5  = #815ba4
+# color13 = #815ba4
+#
+# # cyan
+# color6  = #5bc4bf
+# color14 = #5bc4bf
+#
+# # white
+# color7  = #a39e9b
+# color15 = #e7e9db
+#
+# # hard contrast:
+# # background = #1d2021
+# # background = #282828
+# # soft contrast:
+# background = #32302f
+# foreground = #ebdbb2
+# foreground_bold = #ebdbb2
+#
+# # dark0 + gray
+# color0 = #282828
+# color8 = #928374
+#
+# # neutral_red + bright_red
+# color1 = #cc241d
+# color9 = #fb4934
+#
+# # neutral_green + bright_green
+# color2 = #98971a
+# color10 = #b8bb26
+#
+# # neutral_yellow + bright_yellow
+# color3 = #d79921
+# color11 = #fabd2f
+#
+# # neutral_blue + bright_blue
+# color4 = #458588
+# color12 = #83a598
+#
+# # neutral_purple + bright_purple
+# color5 = #b16286
+# color13 = #d3869b
+#
+# # neutral_aqua + faded_aqua
+# color6 = #689d6a
+# color14 = #8ec07c
+#
+# # light4 + light1
+# color7 = #a89984
+# color15 = #ebdbb2
+
+# PaperColor Light
+# special
+foreground      = #4d4d4c
+foreground_bold = #4d4d4c
+cursor          = #4d4d4c
+background      = #eeeeee
+
+# black
+color0  = #ededed
+color8  = #969694
+
+# red
+color1  = #d7005f
+color9  = #d7005f
+
+# green
+color2  = #718c00
+color10 = #718c00
+
+# yellow
+color3  = #d75f00
+color11 = #d75f00
+
+# blue
+color4  = #4271ae
+color12 = #4271ae
+
+# magenta
+color5  = #8959a8
+color13 = #8959a8
+
+# cyan
+color6  = #3e999f
+color14 = #3e999f
+
+# white
+color7  = #4d4d4c
+color15 = #f5f5f5
+
+# # one dark
+#
+# # special
+# foreground      = #abb2bf
+# foreground_bold = #abb2bf
+# # cursor          = #111111
+# background      = #111111
+#
+# # black
+# color0  = #282c34
+# color8  = #5c6370
+#
+# # red
+# color1  = #e06c75
+# color9  = #be5046
+#
+# # green
+# color2  = #98c379
+# color10 = #7a9f60
+#
+# # yellow
+# color3  = #e5c07b
+# color11 = #d19a66
+#
+# # blue
+# color4  = #61afef
+# color12 = #3b84c0
+#
+# # magenta
+# color5  = #c678dd
+# color13 = #9a52af
+#
+# # cyan
+# color6  = #56b6c2
+# color14 = #3c909b
+#
+# # white
+# color7  = #abb2bf
+# color15 = #828997
+
+# # Shapeshifter
+# # special
+# foreground      = #ababab
+# foreground_bold = #ababab
+# cursor          = #ababab
+# background      = #000000
+#
+# # black
+# color0  = #000000
+# color8  = #343434
+#
+# # red
+# color1  = #e92f2f
+# color9  = #e92f2f
+#
+# # green
+# color2  = #0ed839
+# color10 = #0ed839
+#
+# # yellow
+# color3  = #dddd13
+# color11 = #dddd13
+#
+# # blue
+# color4  = #3b48e3
+# color12 = #3b48e3
+#
+# # magenta
+# color5  = #f996e2
+# color13 = #f996e2
+#
+# # cyan
+# color6  = #23edda
+# color14 = #23edda
+#
+# # white
+# color7  = #ababab
+# color15 = #f9f9f9
+
+# # Challenger Deep
+#
+# # special
+# foreground      = #cbe3e7
+# foreground_bold = #cbe3e7
+# cursor          = #cbe3e7
+# background      = #1e1c31
+#
+# # black
+# color0  = #565575
+# color8  = #100e23
+#
+# # red
+# color1  = #ff8080
+# color9  = #ff5458
+#
+# # green
+# color2  = #95ffa4
+# color10 = #62d196
+#
+# # yellow
+# color3  = #ffe9aa
+# color11 = #ffb378
+#
+# # blue
+# color4  = #91ddff
+# color12 = #65b2ff
+#
+# # magenta
+# color5  = #c991e1
+# color13 = #906cff
+#
+# # cyan
+# color6  = #aaffe4
+# color14 = #63f2f1
+#
+# # white
+# color7  = #cbe3e7
+# color15 = #a6b3cc
+
+# vim:ft=awk cms=#%s
