@@ -5,6 +5,7 @@ alsa-firmware
 alsa-tools
 alsa-utils
 android-tools
+apache-ant
 arc-gtk-theme
 arch-install-scripts
 arc-icon-theme
@@ -122,7 +123,9 @@ networkmanager
 network-manager-applet
 networkmanager-pptp
 nmap
+nodejs
 noto-fonts-emoji
+npm
 ntfs-3g
 numlockx
 nvidia-dkms
@@ -149,6 +152,7 @@ pv
 pympd
 pyrit
 python
+python2-pip
 python-ipdb
 python-neovim
 python-numpy

@@ -138,7 +138,13 @@ alias y5='tmux a -t y5 || tmux new-session -s y5 sudo create_ap --no-virt --dhcp
 alias vmux="abduco -e '^g' -A nvim-session nvim"
 alias smn='ssh -Y root@mnHost'
 alias spi='ssh -Y root@192.168.1.200 || ssh -Y root@192.168.1.10'
-alias py2on='virtualenv -p /usr/bin/python2.7 --distribute temp-python && source temp-python/bin/activate'
+
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
+export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv2
+export WORKON_HOME=~/.virtualenvs
+source /usr/bin/virtualenvwrapper_lazy.sh
+
+alias py2on='workon py2env'
 alias py2off='deactivate'
 # alias gdrived=''
 
@@ -240,10 +246,11 @@ alias cls='clear'
 alias pacman='sudo pacman'
 type powerpill &> /dev/null && alias pacman='sudo powerpill'
 alias pac='pacaur --noedit -a -S'
-alias pm='pacman -S'
-alias pmm='pacman -Sy'
-alias pmu='pacman -Syu'
+alias pmm='pacman -S'
+alias pm='pacman -Syu'
 alias pmr='pacman -Rns'
+alias pq='pacman -Q'
+alias pr='pacman -R'
 
 
 alias docker='sudo docker'
@@ -629,6 +636,7 @@ if type fzf > /dev/null ; then
 	if type rg > /dev/null; then
 		export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 		export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+		# export FZF_ALT_C_COMMAND='rg --files --no-ignore --hidden --type d --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+
 	fi
 fi
-[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh

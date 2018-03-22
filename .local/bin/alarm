@@ -2,6 +2,6 @@
 
 ((n = 1))
 while [ $n -lt 4 ]; do
-	play /usr/share/sounds/alarm.mp3
+	play ~/.local/.notif.ogg
 	((n += 1))
 done

@@ -5,7 +5,7 @@ call plug#begin('~/.config/nvim/plugins')
 		\ 'branch': 'next',
 		\ 'do': 'bash install.sh',
 		\ }
-	" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	" Plug 'zchee/deoplete-clang'
 	" Plug 'zchee/deoplete-jedi'
 	" Plug 'roxma/nvim-completion-manager'
@@ -17,7 +17,7 @@ call plug#begin('~/.config/nvim/plugins')
 	"
 	Plug 'neomake/neomake'
 	let g:ale_emit_conflict_warnings = 0
-	Plug 'w0rp/ale' ", { 'for': ['c', 'cpp', 'python', 'go'] }
+	" Plug 'w0rp/ale' ", { 'for': ['c', 'cpp', 'python', 'go'] }
 	" Plug 'fntlnz/atags.vim'
 	" Plug 'jsfaint/gen_tags.vim'
 	" Plug 'c0r73x/neotags.nvim'

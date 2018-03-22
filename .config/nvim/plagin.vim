@@ -5,18 +5,21 @@ let g:EasyMotion_enter_jump_first = 1
 let g:EasyMotion_space_jump_first = 1
 " let g:EasyMotion_inc_highlight = 0
 
-map <Space>f <Plug>(easymotion-f)
-map <Space><Space> <Plug>(easymotion-s)
-map <Space>s <Plug>(easymotion-s2)
-map <Space>t <Plug>(easymotion-t)
-map <Space>j <Plug>(easymotion-j)
-map <Space>k <Plug>(easymotion-k)
-" These `n` & `N` map[pings[ are options.] You] do not have to map `n` & `N` to EasyMotion.
-" Without these mappings, `n` & `N` works fine. (These mappings just provide
-" different highlight method and have some other features )
-map / <Plug>(easymotion-sn)
-map n <Plug>(easymotion-next)
-map N <Plug>(easymotion-prev)
+if has_key(plugs, 'vim-easymotion')
+	map <Space>f <Plug>(easymotion-f)
+	map <Space><Space> <Plug>(easymotion-s)
+	map <Space>s <Plug>(easymotion-s2)
+	map <Space>t <Plug>(easymotion-t)
+	map <Space>j <Plug>(easymotion-j)
+	map <Space>k <Plug>(easymotion-k)
+	" These `n` & `N` map[pings[ are options.] You] do not have to map `n` & `N` to EasyMotion.
+	" Without these mappings, `n` & `N` works fine. (These mappings just provide
+	" different highlight method and have some other features )
+	map / <Plug>(easymotion-sn)
+	map n <Plug>(easymotion-next)
+	map N <Plug>(easymotion-prev)
+endif
+
 
 " ale-specific
 let g:ale_linters = {'text': ['proselint'], 'go': ['go build'], 'c': ['clang'], 'python': ['pyflakes']}
@@ -40,38 +43,41 @@ nmap <silent> <F12> :ALEToggle<CR>
 " let g:chromatica#highlight_feature_level=1
 " let g:chromatica#responsive_mode=1
 
+
 let g:mp="make\ -r\ -f\ ./makefile\ \%.out"
-autocmd! BufWritePost * execute ':NeomakeSh!' g:mp
-autocmd BufEnter * silent! lcd %:p:h
-" autocmd BufWritePost * call atags#generate()
-autocmd User NeomakeFinished echo "Compiled"
-let g:neomake_enabled_makers=[]
+if file_readable('makefile')
+	autocmd! BufWritePost * execute ':NeomakeSh!' g:mp
+	autocmd BufEnter * silent! lcd %:p:h
+	" autocmd BufWritePost * call atags#generate()
+	autocmd User NeomakeFinished echo "Compiled"
+	let g:neomake_enabled_makers=[]
+endif
 
 " Deoplete
-" let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
 " let g:deoplete#auto_complete_delay = 25
-" call deoplete#custom#set('neosnippet', 'rank', 1000)
-" inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-" autocmd CompleteDone * pclose " To close preview window of deoplete automagically
+call deoplete#custom#set('neosnippet', 'rank', 1000)
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+autocmd CompleteDone * pclose " To close preview window of deoplete automagically
 " let g:deoplete#sources#clang#libclang_path='/usr/lib/libclang.so'
 " let g:deoplete#sources#clang#clang_header='/usr/lib/clang'
-" inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
-" inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
-" inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-" function! s:my_cr_function() abort
-" 	return deoplete#close_popup() . "\<CR>"
-" endfunction
+inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function() abort
+	return deoplete#close_popup() . "\<CR>"
+endfunction
 
 " nvim-completion-manager
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 
 " Neosnippet
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
-inoremap <silent> <c-k> <c-r>=cm#sources#neosnippet#trigger_or_popup("\<Plug>(neosnippet_expand_or_jump)")<cr>
+" inoremap <silent> <c-k> <c-r>=cm#sources#neosnippet#trigger_or_popup("\<Plug>(neosnippet_expand_or_jump)")<cr>
 
 let g:neosnippet#enable_completed_snippet=1
 
@@ -80,7 +86,9 @@ set hidden
 let g:LanguageClient_serverCommands = {
 	\ 'python': ['pyls'],
 	\ 'c': ['cquery'],
-	\ 'cpp': ['cquery', '--log-file=/tmp/cq.log']
+	\ 'cpp': ['cquery', '--log-file=/tmp/cq.log'],
+	\ 'bash': ['bash-lanuguage-server'],
+	\ 'sh': ['bash-lanuguage-server'],
     \ }
     " \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
     " \ 'javascript': ['javascript-typescript-stdio'],
