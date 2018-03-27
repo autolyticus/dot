@@ -143,10 +143,10 @@ alias smn='ssh -Y root@mnHost'
 alias spi='ssh -Y root@192.168.1.200'
 
 alias py='python'
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
-export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv2
-export WORKON_HOME=~/.virtualenvs
-source /usr/bin/virtualenvwrapper_lazy.sh
+# export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
+# export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv2
+# export WORKON_HOME=~/.virtualenvs
+# source /usr/bin/virtualenvwrapper_lazy.sh
 
 alias py2on='workon py2env'
 alias py2off='deactivate'
@@ -366,7 +366,7 @@ alias dot='git --git-dir=$HOME/.dot/ --work-tree=$HOME'
 alias dots='dot status'
 alias dota='dot add'
 alias dotc='dot commit -m'
-alias dotp='dot push origin master'
+alias dotp='dot push origin rpi'
 
 alias sdot='git --git-dir=$HOME/.sdot/ --work-tree=$HOME'
 alias sdots='sdot status'
