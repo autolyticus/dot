@@ -86,6 +86,9 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
+# Get x - ID of touchpad for easy enable/disable
+export touchID=$(xinput list | grep Touchpad | cut -f 2 | cut -d'=' -f 2)
+
 #######################################################
 # MACHINE SPECIFIC ALIAS'S
 #######################################################
@@ -137,8 +140,9 @@ alias iCheck='abduco -n -A iCheck iC'
 alias y5='tmux a -t y5 || tmux new-session -s y5 sudo create_ap --no-virt --dhcp-dns 192.168.12.1,8.8.4.4 wlan1 eth0 y5 whyyphyy'
 alias vmux="abduco -e '^g' -A nvim-session nvim"
 alias smn='ssh -Y root@mnHost'
-alias spi='ssh -Y root@192.168.1.200 || ssh -Y root@192.168.1.10'
+alias spi='ssh -Y root@192.168.1.200'
 
+alias py='python'
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
 export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv2
 export WORKON_HOME=~/.virtualenvs
@@ -242,7 +246,6 @@ alias mkdir='mkdir -p'
 alias ps='ps auxf'
 alias ping='ping -c 10'
 alias less='less -R'
-alias cls='clear'
 alias pacman='sudo pacman'
 type powerpill &> /dev/null && alias pacman='sudo powerpill'
 alias pac='pacaur --noedit -a -S'
@@ -251,6 +254,7 @@ alias pm='pacman -Syu'
 alias pmr='pacman -Rns'
 alias pq='pacman -Q'
 alias pr='pacman -R'
+alias rmlock='sudo rm /var/lib/pacman/db.lck'
 
 
 alias docker='sudo docker'
@@ -277,10 +281,10 @@ apack() {
 alias epack='e ~/.local/.packlist'
 alias restow='sudo stow -vvv -R -d /home g -t /root'
 
-
 astack() {
 	echo "$@" >> ~/.local/.stack
 }
+
 alias estack='e .local/.stack'
 
 alias apt='sudo apt'
@@ -292,6 +296,9 @@ alias reboot='sudo reboot'
 alias susp='(sleep 2; systemctl suspend)&'
 alias hibernate='(sleep 2; systemctl hibernate)&'
 alias vis='vim "+set si"'
+
+alias touchstart='xinput enable $touchID; xinput set-prop $touchID 307 1; xinput set-prop $touchID 315 1'
+alias touchstop='xinput disable $touchID'
 
 alias umnt='sudo umount'
 alias mntd='sudo mount LABEL=D'
@@ -305,7 +312,6 @@ alias mntff='sudo mount /dev/sdc2 /mnt/2; sudo mount /dev/sdc1 /mnt/2/boot'
 alias umntff='sudo umount -R /mnt/2'
 
 alias umntall='for i in /mnt/*; do sudo umount $i; done;'
-
 
 alias youtube-dl='youtube-dl --external-downloader aria2c'
 alias yd='youtube-dl -o '"'"'/mnt/d/Music/%(title)s.%(ext)s'"'"' -x --audio-format mp3 --audio-quality 0'
@@ -393,7 +399,7 @@ alias h="history | grep "
 alias topcpu="/bin/ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10"
 
 # Search files in the current folder
-alias f="find . | grep "
+alias f="find -regex "
 
 # Count all files (recursively) in the current folder
 alias countfiles="for t in files links directories; do echo \`find . -type \${t:0:1} | wc -l\` \$t; done 2> /dev/null"
@@ -421,6 +427,7 @@ alias mkgz='tar -cvzf'
 alias untar='tar -xvf'
 alias unbz2='tar -xvjf'
 alias ungz='tar -xvzf'
+alias mmake='make -B'
 
 alias sha1='openssl sha1'
 
@@ -486,13 +493,11 @@ rot13 () {
 	fi
 }
 
-motd() {
-	curl -s --connect-timeout 5 -A 'chrome' 'https://www.reddit.com/r/quotes/top.json?sort=top&t=week&limit=100' | \
-	python2.7 -c 'import sys, random, json; randnum = random.randint(0,99); response = json.load(sys.stdin)["data"]["children"][randnum]["data"]; print response["title"].encode('"'"'ascii'"'"'); print "\n\n";'
-}
-
 motdupdate() {
-	motd | sudo tee /etc/motd
+	if [ ! -f /tmp/motd ]; then
+		curl -s --connect-timeout 1 -A 'chrome' 'https://www.reddit.com/r/quotes/top.json?sort=top&t=week&limit=100' > /tmp/motd
+	fi
+	motd 2>/dev/null | cowsay | sudo tee /etc/motd > /dev/null
 }
 
 # Trim leading and trailing spaces (for scripts)
@@ -630,7 +635,7 @@ __setprompt() {
 }
 PROMPT_COMMAND='__setprompt'
 
-if type fzf > /dev/null ; then
+if type fzf &> /dev/null ; then
 	source /usr/share/fzf/key-bindings.bash
 	source /usr/share/fzf/completion.bash
 	if type rg > /dev/null; then
@@ -640,3 +645,5 @@ if type fzf > /dev/null ; then
 
 	fi
 fi
+
+motdupdate

@@ -48,11 +48,12 @@ if [ $(xrandr --listmonitors | wc -l) -eq 3 ]; then
 	# 	[Nn*] ) ;;
 	# esac
 fi
-xmodmap ~/.Xmodmap
 export touchID=$(xinput list | grep Touchpad | cut -f 2 | cut -d'=' -f 2)
-xinput set-prop $touchID 307 1
-xinput set-prop $touchID 315 1
 xinput disable $touchID
+
+# remap caps to escape
+xmodmap -e 'clear Lock' #ensures you're not stuck in CAPS on mode
+xmodmap -e 'keycode 0x42=Escape' #remaps the keyboard so CAPS LOCK=ESC
 
 xset dpms 0 0 0 && xset s noblank && xset s off
 (xautolock -time 5 -locker ~/.local/bin/locker -corners +000 -cornerdelay 1 -cornerredelay 5) &

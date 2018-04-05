@@ -2,6 +2,7 @@
 
 echo "iCheck is running..."
 ((a=1))
+
 while [ true ]; do
 	host -W 1 google.com > /dev/null
 	((a=$?))

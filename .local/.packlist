@@ -154,6 +154,7 @@ pyrit
 python
 python2-pip
 python-ipdb
+python-mccabe
 python-neovim
 python-numpy
 python-pandas
@@ -180,6 +181,7 @@ scrot
 sed
 shadow
 s-nail
+socat
 sox
 sshfs
 stow
