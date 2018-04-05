@@ -1,7 +1,4 @@
-source ~/.config/nvim/plug.vim
-source ~/.config/nvim/pls.vim
-source ~/.config/nvim/map.vim
-source ~/.config/nvim/interface.vim
+
 
 set cindent
 
@@ -29,13 +26,8 @@ if !exists("my_auto_commands_loaded")
 	augroup LargeFile
 		autocmd BufReadPre * let f=expand("<afile>") | if getfsize(f) > g:LargeFile | set eventignore+=FileType | setlocal noswapfile bufhidden=unload undolevels=-1 | else | set eventignore-=FileType | endif
 	augroup END
-	augroup filetypedetect
-		autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-		autocmd FileType spec set commentstring=#\ %s
-		autocmd FileType cpp set keywordprg=:Term\ cppman
-		autocmd FileType *.in setfiletype armasm | set commentstring=;\ %s
-	augroup END
 	autocmd BufReadPost * if line("'\"") >= 1 && line("'\"") <= line("$") |		exe "normal! g`\"" | endif
+	autocmd BufEnter * silent! lcd %:p:h
 endif
 
 set timeout		" time out for key codes
@@ -83,6 +75,7 @@ endif
 " Suffixes that get lower priority when doing tab completion for filenames.
 " These are files we are not likely to want to edit or read.
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.png,.jpg
+let g:mp="make\ -r\ -f\ ./makefile\ \%.out"
 
 " autocmd TermOpen * setlocal laststatus=0
 fun! CleanExtraSpaces()
@@ -92,3 +85,10 @@ fun! CleanExtraSpaces()
 	call setpos('.', save_cursor)
 	call setreg('/', old_query)
 endfun
+
+source ~/.config/nvim/map.vim
+source ~/.config/nvim/plug.vim
+source ~/.config/nvim/pls.vim
+source ~/.config/nvim/plagin.vim
+source ~/.config/nvim/interface.vim
+source ~/.config/nvim/post.vim

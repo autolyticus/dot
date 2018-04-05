@@ -57,12 +57,14 @@ map <expr> <Space>q &mod ? ':q!' : ':q<CR>'
 map <Space>` :w<CR>
 map <Space>w <C-w>
 autocmd BufWinEnter,WinEnter,BufNewFile term://* startinsert
-map <F5> :w<CR>:execute<Space>"NeomakeSh!"<Space>g:mp<CR>
+
+map <F5> :w<CR>:execute<Space>g:mp<CR>
+
 map <silent> <Space>d :term<CR>i
 map <F6> :botright<Space>vspl<CR>:terminal<Space>gdb<Space>./%.out<CR>
 map <F9> :botright<Space>vspl<CR>:terminal<Space>./%.out<CR>
 
-map <F12> :Neoformat<CR>:set<Space>ts=2<CR>:retab!<CR>:set<Space>ts=4<CR>
+" map <F12> :Neoformat<CR>:set<Space>ts=2<CR>:retab!<CR>:set<Space>ts=4<CR>
 
 nnoremap <CR> <NOP>
 map <C-j>j <C-W><C-]>
