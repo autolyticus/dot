@@ -8,7 +8,7 @@ call plug#begin('~/.config/nvim/plugins')
 	" Plug 'zchee/deoplete-clang'
 	" Plug 'zchee/deoplete-jedi'
 	" Plug 'ervandew/supertab'
-	Plug 'roxma/nvim-completion-manager'
+	" Plug 'roxma/nvim-completion-manager'
 	Plug 'Shougo/neco-syntax'
 	Plug 'Shougo/neoinclude.vim'
 	Plug 'Shougo/neosnippet.vim' | Plug 'Shougo/neosnippet-snippets'
@@ -36,7 +36,7 @@ call plug#begin('~/.config/nvim/plugins')
 	Plug 'Yggdroot/indentLine'
 
 	" Efficiency Helpers
-	" Plug 'easymotion/vim-easymotion'
+	Plug 'easymotion/vim-easymotion'
 	Plug 'tpope/vim-surround'
 	Plug 'Raimondi/delimitMate'
 	" Plug 'tweekmonster/braceless.vim'
@@ -66,7 +66,7 @@ call plug#begin('~/.config/nvim/plugins')
 	" Plug 'durgaswaroop/vim-mpc'
 
 	" Interface changes
-	Plug 'vim-airline/vim-airline'
+	" Plug 'vim-airline/vim-airline'
 	" Plug 'majutsushi/tagbar'
 	" Plug 'itchyny/lightline.vim'
 	" Plug 'mhinz/vim-startify'

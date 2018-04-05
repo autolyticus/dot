@@ -39,7 +39,7 @@ set ts=4
 set shiftwidth=4
 set softtabstop=4
 set lazyredraw
-set updatetime=2000
+" set updatetime=2000
 " set rnu
 " set nuw=3
 set scrolloff=4
@@ -54,10 +54,10 @@ set scrolloff=4
 set mouse=a
 
 " Do incremental searching when it's possible to timeout
-if has('reltime')
-	set incsearch
-	set hlsearch
-endif
+" if has('reltime')
+	" set incsearch
+	" set hlsearch
+" endif
 set gdefault
 
 " I like highlighting strings inside C comments.
