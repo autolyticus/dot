@@ -152,6 +152,33 @@ alias py2on='workon py2env'
 alias py2off='deactivate'
 # alias gdrived=''
 
+yaourtInstall() {
+	# Create a tmp-working-dir and navigate into it
+	mkdir -p /tmp/yaourt_install
+	cd /tmp/yaourt_install
+
+	# If you didn't install the "base-devel" group,
+	# we'll need those.
+
+	# Install "cower" from AUR
+	if [ ! -n "$(pacman -Qs package-query)" ]; then
+		git clone https://aur.archlinux.org/package-query.git
+		cd package-query/
+		makepkg -si --skippgpcheck --needed --noconfirm
+	fi
+	cd ..
+
+	if [ ! -n "$(pacman -Qs yaourt)" ]; then
+		git clone https://aur.archlinux.org/yaourt.git
+		cd yaourt
+		makepkg -si --skippgpcheck --needed --noconfirm
+	fi
+
+	# Clean up...
+	cd ~
+	rm -r /tmp/yaourt_install
+}
+
 pacInstall() {
 	# Create a tmp-working-dir and navigate into it
 	mkdir -p /tmp/pacaur_install
@@ -248,9 +275,9 @@ alias ping='ping -c 10'
 alias less='less -R'
 alias pacman='sudo pacman'
 type powerpill &> /dev/null && alias pacman='sudo powerpill'
-alias pac='pacaur --noedit -a -S'
-alias pmm='pacman -S'
-alias pm='pacman -Syu'
+alias pac='sudo -u alarm yaourt --noconfirm -a -S'
+alias pmm='pacman -Syu'
+alias pm='pacman -S'
 alias pmr='pacman -Rns'
 alias pq='pacman -Q'
 alias pr='pacman -R'
@@ -645,5 +672,4 @@ if type fzf &> /dev/null ; then
 
 	fi
 fi
-
-motdupdate
+# motdupdate
