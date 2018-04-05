@@ -1,5 +1,5 @@
 " Easy-motion remap
-if has_key(plugs, 'vim-easymotion')
+if exists('g:EasyMotion_loaded')
 	let g:EasyMotion_do_mapping = 0
 	let g:EasyMotion_smartcase = 1
 	let g:EasyMotion_enter_jump_first = 1
@@ -20,7 +20,7 @@ if has_key(plugs, 'vim-easymotion')
 endif
 
 " ale-specific
-if has_key(plugs, 'ale')
+if exists('g:loaded_ale')
 	let g:ale_linters = {'text': ['proselint'], 'go': ['go build'], 'c': ['clang'], 'python': ['pyflakes']}
 	" let g:ale_c_gcc_options = '-std=gnu11 -Wall'
 	" 'cpp': ['clang'], 'c': ['clang'], 'vim': ['vint'], }
@@ -44,7 +44,7 @@ endif
 " let g:chromatica#highlight_feature_level=1
 " let g:chromatica#responsive_mode=1
 
-if has_key(plugs, 'neomake')
+if exists('g:loaded_neomake')
 	map <F5> :w<CR>:execute<Space>"NeomakeSh!"<Space>g:mp<CR>
 	autocmd! BufWritePost * execute ':NeomakeSh!' g:mp
 	" autocmd BufWritePost * call atags#generate()
@@ -53,7 +53,7 @@ if has_key(plugs, 'neomake')
 endif
 
 " Deoplete
-if has_key(plugs, 'deoplete.nvim')
+if exists('g:loaded_deoplete')
 	let g:deoplete#enable_at_startup = 1
 	" let g:deoplete#auto_complete_delay = 25
 	call deoplete#custom#set('neosnippet', 'rank', 1000)
@@ -78,14 +78,14 @@ if has_key(plugs, 'nvim-completion-manager')
 endif
 
 " Neosnippet
-if has_key(plugs, 'neosnippet.vim')
+if exists('g:loaded_neosnippet')
 	imap <C-k> <Plug>(neosnippet_expand_or_jump)
 	smap <C-k> <Plug>(neosnippet_expand_or_jump)
 	xmap <C-k> <Plug>(neosnippet_expand_target)
 	let g:neosnippet#enable_completed_snippet=1
 endif
 
-if has_key(plugs, 'vim-easyclip')
+if exists('g:loaded_EasyClip')
 	nnoremap gm m
 	let g:EasyClipUseSubstituteDefaults=1
 	let g:EasyClipUsePasteDefaults = 0
@@ -93,7 +93,7 @@ if has_key(plugs, 'vim-easyclip')
 	" nmap <c-p> <plug>EasyClipSwapPasteBackwards
 endif
 
-if has_key(plugs, 'neosnippet.vim')
+if exists('g:loaded_targets')
 	let g:targets_jumpRanges = 'rr rb rB bb bB BB ll al Al aa Aa AA'
 endif
 
@@ -122,7 +122,7 @@ if has_key(plugs, 'LanguageClient-neovim')
 endif
 
 " Neotags
-if has_key(plugs, 'neotags.nvim')
+if exists('g:loaded_neotags')
 	let g:neotags#cpp#order = 'ced'
 	let g:neotags#c#order = 'ced'
 	let g:neotags_file = 'tags'
