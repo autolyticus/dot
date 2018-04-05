@@ -14,7 +14,7 @@ call plug#begin('~/.config/nvim/plugins')
 	Plug 'Shougo/neosnippet.vim' | Plug 'Shougo/neosnippet-snippets'
 
 	" Linters/Builders
-	Plug 'neomake/neomake'
+	" Plug 'neomake/neomake'
 	let g:ale_emit_conflict_warnings = 0
 	Plug 'w0rp/ale' ", { 'for': ['c', 'cpp', 'python', 'go'] }
 	" Plug 'fntlnz/atags.vim'
@@ -24,22 +24,22 @@ call plug#begin('~/.config/nvim/plugins')
 	" Syntax Highlighting
 	Plug 'sheerun/vim-polyglot'
 	" Plug 'arakashic/chromatica.nvim'
-	Plug 'jalvesaq/Nvim-R' , { 'for': [ 'r' ] }
-	Plug 'vim-scripts/armasm'
+	" Plug 'jalvesaq/Nvim-R' , { 'for': [ 'r' ] }
+	" Plug 'vim-scripts/armasm'
 	" Plug 'neovim/node-host', { 'do': 'npm install' }
 	" Plug 'vimlab/mdown.vim', { 'do': 'npm install' }
 
 	" Code Formatting
 	Plug 'sbdchd/neoformat'
-	Plug 'godlygeek/tabular'
-	Plug 'ntpeters/vim-better-whitespace'
+	" Plug 'godlygeek/tabular'
+	" Plug 'ntpeters/vim-better-whitespace'
 	Plug 'Yggdroot/indentLine'
 
 	" Efficiency Helpers
-	Plug 'easymotion/vim-easymotion'
+	" Plug 'easymotion/vim-easymotion'
 	Plug 'tpope/vim-surround'
 	Plug 'Raimondi/delimitMate'
-	Plug 'tweekmonster/braceless.vim'
+	" Plug 'tweekmonster/braceless.vim'
 	" Plug 'jiangmiao/auto-pairs'
 
 	" Code commenting
@@ -49,28 +49,28 @@ call plug#begin('~/.config/nvim/plugins')
 
 	" Other
 	" Plug 'junegunn/vim-easy-align'
-	Plug 'Konfekt/FastFold'
+	" Plug 'Konfekt/FastFold'
 	Plug 'wellle/targets.vim'
-	Plug '/bin/fzf'
-	Plug 'junegunn/fzf.vim'
-	Plug 'junegunn/fzf'
+	" Plug '/bin/fzf'
+	" Plug 'junegunn/fzf.vim'
+	" Plug 'junegunn/fzf'
 	Plug 'tpope/vim-repeat'
 	Plug 'tpope/vim-unimpaired'
 	Plug 'svermeulen/vim-easyclip'
 
 
 	" Terminal related
-	Plug 'BurningEther/nvimux'
-	Plug 'kassio/neoterm'
-	Plug 'mklabs/split-term.vim'
+	" Plug 'BurningEther/nvimux'
+	" Plug 'kassio/neoterm'
+	" Plug 'mklabs/split-term.vim'
 	" Plug 'durgaswaroop/vim-mpc'
 
 	" Interface changes
 	Plug 'vim-airline/vim-airline'
-	Plug 'majutsushi/tagbar'
+	" Plug 'majutsushi/tagbar'
 	" Plug 'itchyny/lightline.vim'
-	Plug 'mhinz/vim-startify'
-	Plug 'Shougo/denite.nvim'
+	" Plug 'mhinz/vim-startify'
+	" Plug 'Shougo/denite.nvim'
 
 	" Colours
 	Plug 'rafi/awesome-vim-colorschemes'
