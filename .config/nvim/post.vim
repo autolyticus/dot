@@ -5,3 +5,4 @@ augroup filetypedetect
 	autocmd FileType *.in setfiletype armasm | set commentstring=;\ %s
 	autocmd FileType kivy set commentstring=#\ %s
 augroup END
+set completeopt="menuone,preview"

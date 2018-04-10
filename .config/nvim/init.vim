@@ -7,7 +7,9 @@ set history=50					" keep 50 lines of command line history
 " set ruler						" show the cursor position all the time
 set showcmd		" display incomplete commands
 set wildmenu		" display completion matches in a status line
-set complete-=1
+set splitright
+" set splitbelow
+" set complete-=1
 " set shada=""
 set undofile
 set undodir=~/.local/share/nvim/undo

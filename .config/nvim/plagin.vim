@@ -1,5 +1,5 @@
 " Easy-motion remap
-if exists('g:EasyMotion_loaded')
+" if exists('g:EasyMotion_loaded')
 	let g:EasyMotion_do_mapping = 0
 	let g:EasyMotion_smartcase = 1
 	let g:EasyMotion_enter_jump_first = 1
@@ -17,23 +17,25 @@ if exists('g:EasyMotion_loaded')
 	map / <Plug>(easymotion-sn)
 	map n <Plug>(easymotion-next)
 	map N <Plug>(easymotion-prev)
-endif
+" endif
 
 " ale-specific
-if exists('g:loaded_ale')
-	let g:ale_linters = {'text': ['proselint'], 'go': ['go build'], 'c': ['clang'], 'python': ['pyflakes']}
+" if exists('g:loaded_ale')
 	" let g:ale_c_gcc_options = '-std=gnu11 -Wall'
-	" 'cpp': ['clang'], 'c': ['clang'], 'vim': ['vint'], }
+	let g:ale_linters = {'text': ['proselint', 'vale'], 'go': ['go build'], 'c': ['clang'], 'python': ['pyflakes', 'pyls'],
+					\ 'cpp': ['clang'], 'vim': ['vint'], }
 	" let airline#extensions#ale#error_symbol = '⨉ '
 	" let airline#extensions#ale#warning_symbol = '⚠ '
+	let g:ale_fixers = { 'python': ['autopep8'] }
 	let g:ale_sign_column_always = 1
+	let g:ale_lint_on_save = 1
+	let g:ale_lint_on_text_changed = 'never'
 	let g:ale_sign_error = '⨉ '
 	let g:ale_sign_warning = '⚠ '
-	let g:ale_lint_delay=1000
+	let g:ale_fix_on_save = 1
 	nmap <silent> <F4> <Plug>(ale_next_wrap)
 	nmap <silent> <F12> :ALEToggle<CR>
-endif
-
+" endif
 
 " Expand region plugin.
 " call expand_region#custom_text_objects()
@@ -44,13 +46,13 @@ endif
 " let g:chromatica#highlight_feature_level=1
 " let g:chromatica#responsive_mode=1
 
-if exists('g:loaded_neomake')
+" if exists('g:loaded_neomake')
 	map <F5> :w<CR>:execute<Space>"NeomakeSh!"<Space>g:mp<CR>
-	autocmd! BufWritePost * execute ':NeomakeSh!' g:mp
+	autocmd BufWritePost * execute ':NeomakeSh!' g:mp
 	" autocmd BufWritePost * call atags#generate()
 	autocmd User NeomakeFinished echo "Compiled"
 	let g:neomake_enabled_makers=[]
-endif
+" endif
 
 " Deoplete
 if exists('g:loaded_deoplete')
@@ -70,32 +72,37 @@ if exists('g:loaded_deoplete')
 endif
 
 " nvim-completion-manager
-if has_key(plugs, 'nvim-completion-manager')
+" if has_key(plugs, 'nvim-completion-manager')
 	" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 	" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 	" inoremap <silent> <c-k> <c-r>=cm#sources#neosnippet#trigger_or_popup("\<Plug>(neosnippet_expand_or_jump)")<cr>
 	set shortmess+=c
-endif
+	let g:cm_completeopt='menuone,noinsert,noselect,preview'
+	autocmd CompleteDone * pclose " To close preview window of deoplete automagically
+	let g:SuperTabClosePreviewOnPopupClose= 1
+" endif
 
 " Neosnippet
-if exists('g:loaded_neosnippet')
+" if exists('g:loaded_neosnippet')
 	imap <C-k> <Plug>(neosnippet_expand_or_jump)
+	vmap <c-k> <Plug>(neosnippet_expand_or_jump)
 	smap <C-k> <Plug>(neosnippet_expand_or_jump)
+	inoremap <silent> <c-k> <c-r>=cm#sources#neosnippet#trigger_or_popup("\<Plug>(neosnippet_expand_or_jump)")<cr>
 	xmap <C-k> <Plug>(neosnippet_expand_target)
 	let g:neosnippet#enable_completed_snippet=1
-endif
+" endif
 
-if exists('g:loaded_EasyClip')
+" if exists('g:loaded_EasyClip')
 	nnoremap gm m
 	let g:EasyClipUseSubstituteDefaults=1
 	let g:EasyClipUsePasteDefaults = 0
-	" nmap <c-n> <plug>EasyClipSwapPasteForward
-	" nmap <c-p> <plug>EasyClipSwapPasteBackwards
-endif
+	nmap <c-n> <plug>EasyClipSwapPasteForward
+	nmap <c-p> <plug>EasyClipSwapPasteBackwards
+" endif
 
-if exists('g:loaded_targets')
+" if exists('g:loaded_targets')
 	let g:targets_jumpRanges = 'rr rb rB bb bB BB ll al Al aa Aa AA'
-endif
+" endif
 
 " LSP
 if has_key(plugs, 'LanguageClient-neovim')

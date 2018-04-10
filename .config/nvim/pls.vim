@@ -17,7 +17,7 @@ call plug#begin('~/.config/nvim/plugins')
 	Plug 'neomake/neomake'
 	let g:ale_emit_conflict_warnings = 0
 	Plug 'w0rp/ale' ", { 'for': ['c', 'cpp', 'python', 'go'] }
-	" Plug 'fntlnz/atags.vim'
+	Plug 'fntlnz/atags.vim'
 	" Plug 'jsfaint/gen_tags.vim'
 	" Plug 'c0r73x/neotags.nvim'
 
@@ -31,7 +31,8 @@ call plug#begin('~/.config/nvim/plugins')
 
 	" Code Formatting
 	Plug 'sbdchd/neoformat'
-	Plug 'godlygeek/tabular'
+	" Plug 'junegunn/vim-easy-align'
+	" Plug 'godlygeek/tabular'
 	Plug 'ntpeters/vim-better-whitespace'
 	Plug 'Yggdroot/indentLine'
 
@@ -41,23 +42,26 @@ call plug#begin('~/.config/nvim/plugins')
 	Plug 'Raimondi/delimitMate'
 	Plug 'tweekmonster/braceless.vim'
 	" Plug 'jiangmiao/auto-pairs'
+	Plug 'Konfekt/FastFold'
+	Plug 'wellle/targets.vim'
+	Plug 'tpope/vim-repeat'
+	Plug 'tpope/vim-unimpaired'
+	Plug 'svermeulen/vim-easyclip'
 
 	" Code commenting
 	" Plug 'scrooloose/nerdcommenter'
 	Plug 'tpope/vim-commentary'
 	" Plug 'tomtom/tcomment_vim'
 
-	" Other
-	" Plug 'junegunn/vim-easy-align'
-	Plug 'Konfekt/FastFold'
-	Plug 'wellle/targets.vim'
+	" FZF
 	Plug '/bin/fzf'
 	Plug 'junegunn/fzf.vim'
 	Plug 'junegunn/fzf'
-	Plug 'tpope/vim-repeat'
-	Plug 'tpope/vim-unimpaired'
-	Plug 'svermeulen/vim-easyclip'
 
+	" Git
+	Plug 'tpope/vim-fugitive'
+	Plug 'junegunn/gv.vim'
+	Plug 'airblade/vim-gitgutter'
 
 	" Terminal related
 	Plug 'BurningEther/nvimux'
@@ -65,7 +69,7 @@ call plug#begin('~/.config/nvim/plugins')
 	Plug 'mklabs/split-term.vim'
 	" Plug 'durgaswaroop/vim-mpc'
 
-	" Interface changes
+	" Interface
 	Plug 'vim-airline/vim-airline'
 	Plug 'majutsushi/tagbar'
 	" Plug 'itchyny/lightline.vim'
