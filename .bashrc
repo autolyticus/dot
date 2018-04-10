@@ -58,11 +58,11 @@ cd() {
 }
 
 edit() {
-	nvim "$@" || vim "$@"
+	nvim "$@"
 }
 
 sedit() {
-	sudo nvim "$@" || sudo vim "$@"
+	sudo nvim "$@"
 }
 
 # Show auto-completion list automatically, without double tab
@@ -87,7 +87,7 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
 # Get x - ID of touchpad for easy enable/disable
-export touchID=$(xinput list | grep Touchpad | cut -f 2 | cut -d'=' -f 2)
+export touchID=$( (xinput list 2>/dev/null; true) | grep Touchpad | cut -f 2 | cut -d'=' -f 2)
 
 #######################################################
 # MACHINE SPECIFIC ALIAS'S
@@ -121,8 +121,8 @@ ec() {
 }
 
 archInit() {
-	sudo pacman -Syuw
-	cat ~/.local/.packlist | xargs -n 5 sudo pacman --noconfirm -S --needed
+	'sudo pacman -Syuw'
+	'cat ~/.local/.paclist | xargs -n 5 sudo pacman --noconfirm -S --needed'
 }
 
 # Show help for this .bashrc file
@@ -140,7 +140,7 @@ alias iCheck='abduco -n -A iCheck iC'
 alias y5='tmux a -t y5 || tmux new-session -s y5 sudo create_ap --no-virt --dhcp-dns 192.168.12.1,8.8.4.4 wlan1 eth0 y5 whyyphyy'
 alias vmux="abduco -e '^g' -A nvim-session nvim"
 alias smn='ssh -Y root@mnHost'
-alias spi='ssh -Y root@192.168.1.200'
+alias spi='ssh -Y root@192.168.1.100'
 
 alias py='python'
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
@@ -155,7 +155,7 @@ alias py2off='deactivate'
 pacInstall() {
 	# Create a tmp-working-dir and navigate into it
 	mkdir -p /tmp/pacaur_install
-	cd /tmp/pacaur_install
+	cd /tmp/pacaur_install || return
 
 	# If you didn't install the "base-devel" group,
 	# we'll need those.
@@ -177,7 +177,7 @@ pacInstall() {
 	fi
 
 	# Clean up...
-	cd ~
+	cd ~ || return
 	rm -r /tmp/pacaur_install
 }
 
@@ -194,12 +194,12 @@ adbps() {
 }
 
 M() {
-	cd /mnt/"$@"
+	cd /mnt/"$@" || return
 	ls
 }
 
 C() {
-	cd ~/"$@"
+	cd ~/"$@" || return
 	ls
 }
 
@@ -211,8 +211,7 @@ alias zathura="zathura --fork"
 
 zat() {
 	if [ -z "$@" ]; then
-		a=$(find -regex '.*\.pdf' -type f | fzf)
-		if [ $? -eq 0 ]; then
+		if a=$(find . -regex '.*\.pdf' -type f | fzf); then
 			zathura "$a"
 		fi
 	else
@@ -489,20 +488,20 @@ rot13 () {
 	if [ $# -eq 0 ]; then
 		tr '[a-m][n-z][A-M][N-Z]' '[n-z][a-m][N-Z][A-M]'
 	else
-		echo $* | tr '[a-m][n-z][A-M][N-Z]' '[n-z][a-m][N-Z][A-M]'
+		echo "$@" | tr '[a-m][n-z][A-M][N-Z]' '[n-z][a-m][N-Z][A-M]'
 	fi
 }
 
 motdupdate() {
-	if [ ! -f /tmp/motd ]; then
+	if [ ! -s /tmp/motd ]; then
 		curl -s --connect-timeout 1 -A 'chrome' 'https://www.reddit.com/r/quotes/top.json?sort=top&t=week&limit=100' > /tmp/motd
 	fi
-	motd 2>/dev/null | cowsay | sudo tee /etc/motd > /dev/null
+	motd 2>/dev/null | cowsay | sudo tee /etc/motd
 }
 
 # Trim leading and trailing spaces (for scripts)
 trim() {
-	local var=$@
+	local var="$@"
 	var="${var#"${var%%[![:space:]]*}"}"	# remove leading whitespace characters
 	var="${var%"${var##*[![:space:]]}"}"	# remove trailing whitespace characters
 	echo -n "$var"
@@ -510,7 +509,7 @@ trim() {
 
 fe() {
 	local files
-	IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+	IFS=$'\n' files=( $( fzf-tmux --query="$1" --multi --select-1 --exit-0 ) )
 	[[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
 
@@ -598,10 +597,10 @@ __setprompt() {
 	PS1+="\[${DARKGRAY}\])-"
 
 	# User and server
-	local SSH_IP=`echo $SSH_CLIENT | awk '{ print $1 }'`
-	local SSH2_IP=`echo $SSH2_CLIENT | awk '{ print $1 }'`
-	if [ $SSH2_IP ] || [ $SSH_IP ] ; then
-		PS1+="(\[${RED}\]\u@\h"
+	local SSH_IP=$(echo "$SSH_CONNECTION" | awk '{ print $3 }')
+	local SSH_PORT=$(echo "$SSH_CONNECTION" | awk '{ print $4 }')
+	if [  -n "$SSH_IP" ] ; then
+		PS1+="(\[${RED}\]\u@$SSH_IP:$SSH_PORT"
 	else
 		PS1+="(\[${RED}\]\u"
 	fi
@@ -614,6 +613,10 @@ __setprompt() {
 
 	# Number of files
 	PS1+="\[${GREEN}\]\$(/bin/ls -A -1 | /usr/bin/wc -l)\[${DARKGRAY}\])"
+
+	if [ -n "$SSH_IP" ] ; then
+		PS1+="\[${RED}\] - SSH"
+	fi
 
 	# Skip to the next line
 	PS1+="\n"

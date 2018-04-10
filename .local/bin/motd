@@ -1,0 +1,10 @@
+#!/usr/bin/env python3
+
+from random import randint
+from json import loads
+
+with open('/tmp/motd', 'r') as f:
+    randnum = randint(0, 99)
+    response = loads(f.read())['data']['children'][randnum]['data']
+    print('\t' + response['title'] + '\n\n')
+
