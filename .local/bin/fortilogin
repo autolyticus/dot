@@ -1,7 +1,19 @@
-#!/usr/bin/env python3
+#!/usr/bin/env bash
 
-import requests
-magic = requests.get('http://216.58.197.56/generate_204').text[1372:1388]
-print(magic)
-parameters = {'magic': magic, 'username': 'esd15i016', 'password': '1111'}
-requests.post('http://192.168.2.1:1000', data=parameters)
+magic=$(curl -L google.com 2>/dev/null | grep magic | cut -d' ' -f10 | cut -d\" -f2)
+username='esd15i016'
+password='1111'
+
+if [ -n "$1" ]; then
+	username="$1"
+	password="$2"
+fi
+
+if (curl -d "magic=$magic&username=$username&password=$password" 192.168.2.1:1000 2>/dev/null | grep Suc); then
+	echo "Uname = $username, password= $password"
+	exit
+else
+	echo $magic
+	echo -n .
+	exit 1
+fi
