@@ -329,7 +329,7 @@ putf() {
 }
 
 alias clone='git clone'
-alias gitp='git push origin master'
+alias gitp='git push origin'
 alias gits='git status'
 alias gita='git add'
 alias gitc='git commit -a -m'
@@ -338,19 +338,21 @@ alias dot='git --git-dir=$HOME/.dot/ --work-tree=$HOME'
 alias dots='dot status'
 alias dota='dot add'
 alias dotc='dot commit -m'
-alias dotp='dot push origin master'
+alias dotp='dot push origin'
 
 alias sdot='git --git-dir=$HOME/.sdot/ --work-tree=$HOME'
 alias sdots='sdot status'
 alias sdota='sdot add'
 alias sdotc='sdot commit -m'
-alias sdotp='sdot push origin master'
+alias sdotp='sdot push origin'
 
 alias gdot='sudo git --git-dir=/.dot/ --work-tree=/'
 alias gdots='gdot status'
 alias gdota='gdot add'
 alias gdotc='gdot commit -m'
-alias gdotp='gdot push origin master'
+alias gdotp='gdot push origin'
+
+alias ggraph='git log --graph --abbrev-commit --decorate --format=format:'"'"'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'"'"' --all'
 
 # Change directory aliases
 alias cd..='cd ..'
