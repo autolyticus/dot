@@ -90,9 +90,9 @@ guieditor    = "atom"
 awful.util.terminal = terminal
 awful.util.tagnames = { "W", "2", "3", "4", "5", "6" }
 awful.layout.layouts = {
-    awful.layout.suit.max,
-    lain.layout.termfair,
     awful.layout.suit.spiral,
+    awful.layout.suit.max,
+    -- lain.layout.termfair,
     -- awful.layout.suit.floating,
     -- awful.layout.suit.tile,
     -- awful.layout.suit.tile.left,

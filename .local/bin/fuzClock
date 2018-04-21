@@ -88,7 +88,7 @@ meri | m)
 		th=$"midnight"
 		;;
 	12)
-		th=$"midday"
+		th=$"noon"
 		;;
 	esac
 	# French and Spanish use an hour declaration all the time
@@ -156,16 +156,16 @@ meri | m)
 	fi
 
 	if [[ -z "$adv" && -z "$adj" ]]; then
-		printf $"$th $manner\n"
+		printf $" $th $manner"
 	fi
 	if [[ -z "$adv" && -n "$adj" ]]; then
-		printf $"$adj $th $manner\n"
+		printf $" $adj $th $manner"
 	fi
 	if [[ -n "$adv" && -z "$adj" ]]; then
-		printf $"$adv $th $manner\n"
+		printf $" $th $manner"
 	fi
 	if [[ -n "$adv" && -n "$adj" ]]; then
-		printf $"$adv $adj $th $manner\n"
+		printf $" $adj $th $manner"
 	fi
 	;;
 esac

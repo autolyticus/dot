@@ -19,14 +19,32 @@
 	map N <Plug>(easymotion-prev)
 " endif
 
+" Accelerated j/k
+if has_key(plugs, 'accelerated-jk')
+	let g:accelerated_jk_acceleration_table=[30, 50]
+	nmap j <Plug>(accelerated_jk_gj)
+	nmap k <Plug>(accelerated_jk_gk)
+endif
+
 " ale-specific
 " if exists('g:loaded_ale')
 	" let g:ale_c_gcc_options = '-std=gnu11 -Wall'
-	let g:ale_linters = {'text': ['proselint', 'vale'], 'go': ['go build'], 'c': ['clang'], 'python': ['pyflakes', 'pyls'],
-					\ 'cpp': ['clang'], 'vim': ['vint'], }
+	let g:ale_linters = {
+				\	'text': ['proselint', 'vale'],
+				\	'go': ['go build'],
+				\	'c': ['clang', 'flawfinder', 'clang-tidy'],
+				\	'python': ['pyflakes', 'pyls'],
+				\	'cpp': ['clang', 'flawfinder', 'clang-tidy'],
+				\	'vim': ['vint'],
+				\	}
 	" let airline#extensions#ale#error_symbol = '⨉ '
 	" let airline#extensions#ale#warning_symbol = '⚠ '
-	let g:ale_fixers = { 'python': ['autopep8'] }
+	let g:ale_fixers = {
+				\	'python': ['autopep8'],
+				\	'c': ['clang-format'],
+				\	'cpp': ['clang-format'],
+				\	'sh': ['shfmt'],
+				\	}
 	let g:ale_sign_column_always = 1
 	let g:ale_lint_on_save = 1
 	let g:ale_lint_on_text_changed = 'never'
@@ -94,10 +112,14 @@ endif
 
 " if exists('g:loaded_EasyClip')
 	nnoremap gm m
-	let g:EasyClipUseSubstituteDefaults=1
-	let g:EasyClipUsePasteDefaults = 0
+	let g:EasyClipUseSubstituteDefaults=0
+	let g:EasyClipUsePasteDefaults=0
 	nmap <c-n> <plug>EasyClipSwapPasteForward
 	nmap <c-p> <plug>EasyClipSwapPasteBackwards
+	" let g:yankstack_yank_keys = ['y', 'd']
+	let g:yankstack_map_keys = 0
+	" nmap <c-p> <Plug>yankstack_substitute_older_paste
+	" nmap <c-n> <Plug>yankstack_substitute_newer_paste
 " endif
 
 " if exists('g:loaded_targets')

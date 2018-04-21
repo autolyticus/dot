@@ -1,5 +1,9 @@
 call plug#begin('~/.config/nvim/plugins')
 	" AutoCompletion Framework
+	Plug 'roxma/nvim-completion-manager'
+	Plug 'Shougo/neco-syntax'
+	Plug 'Shougo/neoinclude.vim'
+	Plug 'Shougo/neosnippet.vim' | Plug 'Shougo/neosnippet-snippets'
 	" Plug 'autozimu/LanguageClient-neovim', {
 	" 	\ 'branch': 'next',
 	" 	\ 'do': 'bash install.sh',
@@ -8,10 +12,6 @@ call plug#begin('~/.config/nvim/plugins')
 	" Plug 'zchee/deoplete-clang'
 	" Plug 'zchee/deoplete-jedi'
 	" Plug 'ervandew/supertab'
-	Plug 'roxma/nvim-completion-manager'
-	Plug 'Shougo/neco-syntax'
-	Plug 'Shougo/neoinclude.vim'
-	Plug 'Shougo/neosnippet.vim' | Plug 'Shougo/neosnippet-snippets'
 
 	" Linters/Builders
 	Plug 'neomake/neomake'
@@ -23,35 +23,45 @@ call plug#begin('~/.config/nvim/plugins')
 
 	" Syntax Highlighting
 	Plug 'sheerun/vim-polyglot'
-	" Plug 'arakashic/chromatica.nvim'
 	Plug 'jalvesaq/Nvim-R' , { 'for': [ 'r' ] }
 	Plug 'vim-scripts/armasm'
 	" Plug 'neovim/node-host', { 'do': 'npm install' }
 	" Plug 'vimlab/mdown.vim', { 'do': 'npm install' }
+	" Plug 'arakashic/chromatica.nvim'
 
 	" Code Formatting
 	Plug 'sbdchd/neoformat'
-	" Plug 'junegunn/vim-easy-align'
-	" Plug 'godlygeek/tabular'
 	Plug 'ntpeters/vim-better-whitespace'
 	Plug 'Yggdroot/indentLine'
+	Plug 'tpope/vim-sleuth'
+	" Plug 'junegunn/vim-easy-align'
+	" Plug 'godlygeek/tabular'
 
 	" Efficiency Helpers
 	Plug 'easymotion/vim-easymotion'
 	Plug 'tpope/vim-surround'
-	Plug 'Raimondi/delimitMate'
 	Plug 'tweekmonster/braceless.vim'
-	" Plug 'jiangmiao/auto-pairs'
 	Plug 'Konfekt/FastFold'
 	Plug 'wellle/targets.vim'
 	Plug 'tpope/vim-repeat'
 	Plug 'tpope/vim-unimpaired'
 	Plug 'svermeulen/vim-easyclip'
+	" Plug 'maxbrunsfeld/vim-yankstack'
+	Plug 'AndrewRadev/linediff.vim'
+	Plug 'rhysd/accelerated-jk'
+	Plug 'AndrewRadev/sideways.vim'
+	" Plug 'Raimondi/delimitMate'
+	" Plug 'jiangmiao/auto-pairs'
+
+	" Miscallaneous
+	Plug 'metakirby5/codi.vim'
+	Plug 'junegunn/limelight.vim'
+	Plug 'Shougo/vinarise.vim'
 
 	" Code commenting
-	" Plug 'scrooloose/nerdcommenter'
 	Plug 'tpope/vim-commentary'
 	" Plug 'tomtom/tcomment_vim'
+	" Plug 'scrooloose/nerdcommenter'
 
 	" FZF
 	Plug '/bin/fzf'
@@ -72,9 +82,10 @@ call plug#begin('~/.config/nvim/plugins')
 	" Interface
 	Plug 'vim-airline/vim-airline'
 	Plug 'majutsushi/tagbar'
-	" Plug 'itchyny/lightline.vim'
 	Plug 'mhinz/vim-startify'
-	Plug 'Shougo/denite.nvim'
+	" Plug 'Shougo/echodoc.vim'
+	" Plug 'Shougo/denite.nvim'
+	" Plug 'itchyny/lightline.vim'
 
 	" Colours
 	Plug 'rafi/awesome-vim-colorschemes'

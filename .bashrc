@@ -27,12 +27,11 @@
 #if [[ $iatest > 0 ]]; then bind "set bell-style visible"; fi
 
 # Expand the history size
-export HISTFILESIZE=
-export HISTSIZE=
+export HISTFILESIZE
+export HISTSIZE
 
 # Don't put duplicate lines in the history and do not add lines that start with a space
 export HISTCONTROL=erasedups:ignoredups:ignorespace
-
 
 # Check the window size after each command and, if necessary, update the values of LINES and COLUMNS
 # shopt -s checkwinsize
@@ -50,7 +49,7 @@ stty -ixon
 
 cd() {
 	if [ -z "$@" ]; then
-		builtin cd - &> /dev/null
+		builtin cd - &>/dev/null
 		true
 	else
 		builtin cd "$@"
@@ -70,7 +69,6 @@ sedit() {
 alias e='edit'
 alias se='sedit'
 
-
 alias i='iverilog test.v && ./a.out'
 
 # To have colors for ls and all grep commands such as grep, egrep and zgrep
@@ -87,7 +85,10 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
 # Get x - ID of touchpad for easy enable/disable
-export touchID=$( (xinput list 2>/dev/null; true) | grep Touchpad | cut -f 2 | cut -d'=' -f 2)
+export touchID=$( (
+	xinput list 2>/dev/null
+	true
+) | grep Touchpad | cut -f 2 | cut -d'=' -f 2)
 
 #######################################################
 # MACHINE SPECIFIC ALIAS'S
@@ -140,7 +141,22 @@ alias iCheck='abduco -n -A iCheck iC'
 alias y5='tmux a -t y5 || tmux new-session -s y5 sudo create_ap --no-virt --dhcp-dns 192.168.12.1,8.8.4.4 wlan1 eth0 y5 whyyphyy'
 alias vmux="abduco -e '^g' -A nvim-session nvim"
 alias smn='ssh -Y root@mnHost'
-alias spi='ssh -Y root@192.168.1.100'
+
+pi=192.168.1.8
+piy5=192.168.1.7
+
+alias spi="ssh -Y root@$pi"
+alias spiy5="ssh -Y root@$piy5"
+
+mntpifs() {
+	sudo mkdir -p /rpi
+	sudo chown g /rpi
+	sshfs root@$pi:/ /rpi || sshfs root@$piy5:/ /rpi
+}
+
+umntpifs() {
+	sudo umount /rpi
+}
 
 alias py='python'
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
@@ -246,7 +262,7 @@ alias ps='ps auxf'
 alias ping='ping -c 10'
 alias less='less -R'
 alias pacman='sudo pacman'
-type powerpill &> /dev/null && alias pacman='sudo powerpill'
+type powerpill &>/dev/null && alias pacman='sudo powerpill'
 alias pac='pacaur --noedit -a -S'
 alias pmm='pacman -S'
 alias pm='pacman -Syu'
@@ -254,7 +270,6 @@ alias pmr='pacman -Rns'
 alias pq='pacman -Q'
 alias pr='pacman -R'
 alias rmlock='sudo rm /var/lib/pacman/db.lck'
-
 
 alias docker='sudo docker'
 # alias dsh='sudo docker exec -it bash'
@@ -272,16 +287,16 @@ dsh() {
 
 apack() {
 	pacman -S --needed "$@" && (
-	echo "$@" >> ~/.local/.packlist
-	sort ~/.local/.packlist | uniq > ~/.local/.packlist.new
-	mv -f ~/.local/.packlist.new ~/.local/.packlist
+		echo "$@" >>~/.local/.packlist
+		sort ~/.local/.packlist | uniq >~/.local/.packlist.new
+		mv -f ~/.local/.packlist.new ~/.local/.packlist
 	)
 }
 alias epack='e ~/.local/.packlist'
 alias restow='sudo stow -vvv -R -d /home g -t /root'
 
 astack() {
-	echo "$@" >> ~/.local/.stack
+	echo "$@" >>~/.local/.stack
 }
 
 alias estack='e .local/.stack'
@@ -334,17 +349,18 @@ alias gits='git status'
 alias gita='git add'
 alias gitc='git commit -a -m'
 
+export dot="--git-dir=$HOME/.dot --work-tree=$HOME"
 alias dot='git --git-dir=$HOME/.dot/ --work-tree=$HOME'
 alias dots='dot status'
 alias dota='dot add'
 alias dotc='dot commit -m'
 alias dotp='dot push origin'
 
-alias sdot='git --git-dir=$HOME/.sdot/ --work-tree=$HOME'
-alias sdots='sdot status'
-alias sdota='sdot add'
-alias sdotc='sdot commit -m'
-alias sdotp='sdot push origin'
+alias pdot='git --git-dir=$HOME/.pdot/ --work-tree=$HOME'
+alias pdots='pdot status'
+alias pdota='pdot add'
+alias pdotc='pdot commit -m'
+alias pdotp='pdot push origin'
 
 alias gdot='sudo git --git-dir=/.dot/ --work-tree=/'
 alias gdots='gdot status'
@@ -352,7 +368,9 @@ alias gdota='gdot add'
 alias gdotc='gdot commit -m'
 alias gdotp='gdot push origin'
 
-alias ggraph='git log --graph --abbrev-commit --decorate --format=format:'"'"'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'"'"' --all'
+ggraph() {
+	git "$@" log --graph --abbrev-commit --decorate '--format=format:'"'"'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'"'"' ' --all
+}
 
 # Change directory aliases
 alias cd..='cd ..'
@@ -368,20 +386,20 @@ alias bd='cd "$OLDPWD"'
 alias rmd='rm  -rfv'
 
 # Alias's for multiple directory listing commands
-alias la='ls -Alh' # show hidden files
-alias ls='ls -Fh --color=auto' # add colors and file type extensions
-alias lx='ls -lXBh' # sort by extension
-alias lk='ls -lSrh' # sort by size
-alias lc='ls -lcrh' # sort by change time
-alias lu='ls -lurh' # sort by access time
-alias lr='ls -lRh' # recursive ls
-alias lt='ls -ltrh' # sort by date
-alias lm='ls -alh |more' # pipe through 'more'
-alias lw='ls -xAh' # wide listing format
-alias ll='ls -Fls' # long listing format
-alias labc='ls -lap' #alphabetical sort
+alias la='ls -Alh'               # show hidden files
+alias ls='ls -Fh --color=auto'   # add colors and file type extensions
+alias lx='ls -lXBh'              # sort by extension
+alias lk='ls -lSrh'              # sort by size
+alias lc='ls -lcrh'              # sort by change time
+alias lu='ls -lurh'              # sort by access time
+alias lr='ls -lRh'               # recursive ls
+alias lt='ls -ltrh'              # sort by date
+alias lm='ls -alh |more'         # pipe through 'more'
+alias lw='ls -xAh'               # wide listing format
+alias ll='ls -Fls'               # long listing format
+alias labc='ls -lap'             #alphabetical sort
 alias lf="ls -l | egrep -v '^d'" # files only
-alias ldir="ls -l | egrep '^d'" # directories only
+alias ldir="ls -l | egrep '^d'"  # directories only
 alias l='ls'
 
 # alias chmod commands
@@ -435,18 +453,16 @@ alias sha1='openssl sha1'
 #######################################################
 # SPECIAL FUNCTIONS
 #######################################################
-secho()	{
+secho() {
 	(echo -e "$@" && cat)
 }
 
 faketty() {
-	script -qfc "$(printf "%q " "$@")" /dev/null;
+	script -qfc "$(printf "%q " "$@")" /dev/null
 }
 
-
 # Searches for text in all files in the current folder
-ftext ()
-{
+ftext() {
 	# -i case-insensitive
 	# -I ignore binary files
 	# -H causes filename to be printed
@@ -458,9 +474,8 @@ ftext ()
 }
 
 # Returns the last 2 fields of the working directory
-pwdtail ()
-{
-	pwd|awk -F/ '{nlast = NF -1;print $nlast"/"$NF}'
+pwdtail() {
+	pwd | awk -F/ '{nlast = NF -1;print $nlast"/"$NF}'
 }
 
 # IP address lookup
@@ -469,24 +484,28 @@ whatsmyip() {
 	# /sbin/ifconfig |grep -B1 "inet addr" |awk '{ if ( $1 == "inet" ) { print $2 } else if ( $2 == "Link" ) { printf "%s:" ,$1 } }' |awk -F: '{ print $1 ": " $3 }';
 
 	# Internal IP Lookup
-	echo -ne "Internal IP:\n" ; ip a | grep inet | awk '{print $2}'
+	echo -ne "Internal IP:\n"
+	ip a | grep inet | awk '{print $2}'
 
 	# External IP Lookup
-	echo -ne "External IP:\n" ; curl ipecho.net/plain; echo
+	echo -ne "External IP:\n"
+	curl ipecho.net/plain
+	echo
 }
 
 cl() {
 	local dir="$1"
 	local dir="${dir:=$HOME}"
 	if [[ -d "$dir" ]]; then
-		cd "$dir" >/dev/null; ls
+		cd "$dir" >/dev/null
+		ls
 	else
 		echo "bash: cl: $dir: Directory not found"
 	fi
 }
 
 # For some reason, rot13 pops up everywhere
-rot13 () {
+rot13() {
 	if [ $# -eq 0 ]; then
 		tr '[a-m][n-z][A-M][N-Z]' '[n-z][a-m][N-Z][A-M]'
 	else
@@ -495,26 +514,40 @@ rot13 () {
 }
 
 motdupdate() {
-	if [ ! -s /tmp/motd ]; then
-		curl -s --connect-timeout 1 -A 'chrome' 'https://www.reddit.com/r/quotes/top.json?sort=top&t=week&limit=100' > /tmp/motd
+	if [ -n "$*" ]; then
+		curl -s --connect-timeout 1 \
+			-A 'chrome' \
+			'https://www.reddit.com/r/quotes/top.json?sort=top&t=month&limit=100' >/tmp/motd
 	fi
-	motd 2>/dev/null | cowsay | sudo tee /etc/motd
+
+	if [ ! -s /tmp/motd ] && [ ! -e /tmp/.motdlock ]; then
+		if curl -s --connect-timeout 1 \
+			-A 'chrome' \
+			'https://www.reddit.com/r/quotes/top.json?sort=top&t=month&limit=100' >/tmp/motd; then
+			true
+		else
+			touch /tmp/.motdlock
+
+		fi
+	fi
+	if [ ! -e /tmp/.motdlock ]; then
+		motd 2>/dev/null | cowsay | sudo tee /etc/motd
+	fi
 }
 
 # Trim leading and trailing spaces (for scripts)
 trim() {
 	local var="$@"
-	var="${var#"${var%%[![:space:]]*}"}"	# remove leading whitespace characters
-	var="${var%"${var##*[![:space:]]}"}"	# remove trailing whitespace characters
+	var="${var#"${var%%[![:space:]]*}"}" # remove leading whitespace characters
+	var="${var%"${var##*[![:space:]]}"}" # remove trailing whitespace characters
 	echo -n "$var"
 }
 
 fe() {
 	local files
-	IFS=$'\n' files=( $( fzf-tmux --query="$1" --multi --select-1 --exit-0 ) )
+	IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
 	[[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
-
 
 #######################################################
 # Set the ultimate amazing command prompt
@@ -585,7 +618,7 @@ __setprompt() {
 
 	# Date
 	PS1+="\[${DARKGRAY}\](\[${CYAN}\]\$(date +%a), $(date +%B\ '%-d')" # Date
-	PS1+="${BLUE} $(date +'%H':%M:%S)\[${DARKGRAY}\])-" # Time
+	PS1+="${BLUE} $(date +'%H':%M:%S)\[${DARKGRAY}\])-"                # Time
 
 	## CPU
 	#PS1+="\[${MAGENTA}\]CPU $(cpu)%"
@@ -601,7 +634,7 @@ __setprompt() {
 	# User and server
 	local SSH_IP=$(echo "$SSH_CONNECTION" | awk '{ print $3 }')
 	local SSH_PORT=$(echo "$SSH_CONNECTION" | awk '{ print $4 }')
-	if [  -n "$SSH_IP" ] ; then
+	if [ -n "$SSH_IP" ]; then
 		PS1+="(\[${RED}\]\u@$SSH_IP:$SSH_PORT"
 	else
 		PS1+="(\[${RED}\]\u"
@@ -616,7 +649,7 @@ __setprompt() {
 	# Number of files
 	PS1+="\[${GREEN}\]\$(/bin/ls -A -1 | /usr/bin/wc -l)\[${DARKGRAY}\])"
 
-	if [ -n "$SSH_IP" ] ; then
+	if [ -n "$SSH_IP" ]; then
 		PS1+="\[${RED}\] - SSH"
 	fi
 
@@ -640,10 +673,10 @@ __setprompt() {
 }
 PROMPT_COMMAND='__setprompt'
 
-if type fzf &> /dev/null ; then
+if type fzf &>/dev/null; then
 	source /usr/share/fzf/key-bindings.bash
 	source /usr/share/fzf/completion.bash
-	if type rg > /dev/null; then
+	if type rg >/dev/null; then
 		export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 		export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 		# export FZF_ALT_C_COMMAND='rg --files --no-ignore --hidden --type d --follow -g "!{.git,node_modules}/*" 2> /dev/null'
