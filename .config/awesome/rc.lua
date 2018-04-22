@@ -84,8 +84,8 @@ altkey       = "Mod1"
 terminal     = "termite"
 editor       = os.getenv("EDITOR") or "nano"
 gui_editor   = "termite -e -- nvim"
-browser      = "eatmydata -- firefox"
-guieditor    = "atom"
+browser      = "vivaldi-stable"
+guieditor    = "oni"
 
 awful.util.terminal = terminal
 awful.util.tagnames = { "W", "2", "3", "4", "5", "6" }
@@ -657,7 +657,7 @@ root.keys(globalkeys)
 awful.rules.rules = {
     -- All clients will match this rule.
     { rule = { },
-      properties = { border_width = beautiful.border_width,
+      properties = { border_width = 0,
                      border_color = beautiful.border_normal,
                      focus = awful.client.focus.filter,
                      raise = true,
@@ -678,6 +678,8 @@ awful.rules.rules = {
 
     -- Set Firefox to always map on the first tag on screen 1.
     { rule = { class = "Firefox" },
+      properties = { tag = awful.util.tagnames[1] } },
+    { rule = { class = "Vivaldi-stable" },
       properties = { tag = awful.util.tagnames[1] } },
     { rule = { class = "fzf-menu" },
       properties = { focus=true, floating = true },
@@ -757,7 +759,7 @@ client.connect_signal("request::titlebars", function(c)
 end)
 
 -- Enable sloppy focus, so that focus follows mouse.
-client.connect_signal("mouse::enter", function(c)
+client.connect_signal("mouse::click", function(c)
     if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
         and awful.client.focus.filter(c) then
         client.focus = c
