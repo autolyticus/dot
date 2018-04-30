@@ -4,3 +4,5 @@
 	signingkey = 58333CC586D729B4
 [commit]
 	gpgSign = true
+[http]
+	postBuffer = 524288000

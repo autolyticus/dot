@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+all="$(wunderline all)"
+# starred="$(echo "$all" | grep ★)"
+today="$(echo "$all" | grep Today | grep -v ★)"
+# all="$(cat ~/a)"
+starred="$(echo "$all" | grep ★)"
+# starred="$(echo "$all" | grep ★)"
+next="$(wunderline list Next | grep -v ★)"
+DEF='${color7}'
+RED='${color red}'
+GREEN='${color green}'
+YELLOW='${color yellow}'
+BLUE='${color4}'
+HR='${hr 2}'
+ALIGNC='${alignc}'
+echo "$RED$HR"
+echo -e ""$ALIGNC"1-NOW\n"
+echo -e "$starred\n"$HR"\n"
+echo ""$YELLOW"$today"
+echo
+echo ""$BLUE"$next"

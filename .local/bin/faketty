@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+script -qfc "$(printf "%q " "$@")" /dev/null
