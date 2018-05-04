@@ -58,8 +58,15 @@ function run_once(cmd_arr)
     end
 end
 
-run_once({ "unclutter -root", "nm-applet", "numlockx", "mpd", "delLock", "rescuetime", "redshift -l 20.5937:78.9629"}) -- entries must be comma-separated
--- }}}
+run_once({
+        "unclutter -root",
+        "nm-applet", "numlockx",
+        "mpd",
+        "delLock",
+        "rescuetime",
+        "conky",
+        "redshift -l 20.5937:78.9629",
+    }) -- entries must be comma-separated
 
 -- {{{ Variable definitions
 
@@ -90,8 +97,8 @@ guieditor    = "oni"
 awful.util.terminal = terminal
 awful.util.tagnames = { "W", "2", "3", "4", "5", "6" }
 awful.layout.layouts = {
-    awful.layout.suit.spiral,
     awful.layout.suit.max,
+    awful.layout.suit.spiral,
     -- lain.layout.termfair,
     -- awful.layout.suit.floating,
     -- awful.layout.suit.tile,

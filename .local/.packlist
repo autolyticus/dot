@@ -15,6 +15,7 @@ aria2
 atftp
 autoconf
 automake
+autopep8
 awesome
 b43-fwcutter
 bash
@@ -22,9 +23,11 @@ bash-completion
 binutils
 bison
 breeze
+broadcom-wl
 btrfs-progs
 bzip2
 calc
+calibre
 chromium
 clang
 cmake
@@ -38,6 +41,7 @@ cryptsetup
 ctags
 cython
 darkhttpd
+dart
 device-mapper
 dhcpcd
 diffutils
@@ -128,7 +132,7 @@ noto-fonts-emoji
 npm
 ntfs-3g
 numlockx
-nvidia-dkms
+nvidia
 opencv
 openssh
 os-prober
@@ -154,6 +158,7 @@ pyrit
 python
 python2-pip
 python-ipdb
+python-matplotlib
 python-mccabe
 python-neovim
 python-numpy
@@ -270,6 +275,7 @@ xsel
 xterm
 youtube-dl
 zathura
+zathura-djvu
 zathura-pdf-poppler
 zd1211-firmware
 zeal

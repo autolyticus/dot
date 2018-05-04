@@ -54,7 +54,8 @@ xinput disable $touchID
 # remap caps to escape
 xmodmap -e 'clear Lock' -e 'keycode 0x42=Escape' #remaps the keyboard so CAPS LOCK=ESC
 
+
 xset dpms 0 0 0 && xset s noblank && xset s off
 (xautolock -time 5 -locker ~/.local/bin/locker -corners +000 -cornerdelay 1 -cornerredelay 5) &
 
-exec awesome
+exec awesome > /tmp/awesome.log 2>&1

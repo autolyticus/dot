@@ -108,12 +108,12 @@ mytextclock.font = theme.font
 local myfuzclock = wibox.widget.textbox(markup("#de5e1e", "init"))
 
 function updateClock()
-	local fuzScript = '.local/bin/fuzClock'
-	local fd = io.popen(fuzScript)
-	local output = fd:read('*all')
-	fd:close()
-	myfuzclock.markup = markup("#de5e1e", output)
-	return output
+    local fuzScript = '/home/g/.local/bin/fuzClock'
+    local fd = io.popen(fuzScript)
+    local output = fd:read('*all')
+    fd:close()
+    myfuzclock.markup = markup("#de5e1e", output)
+    return output
 end
 local curTime = updateClock()
 
@@ -216,6 +216,7 @@ theme.volume = lain.widget.alsa({
         widget:set_markup(markup.fontfg(theme.font, "#7493d2", volume_now.level .. "% "))
     end
 })
+
 
 -- Net
 local netdownicon = wibox.widget.imagebox(theme.widget_netdown)
@@ -342,7 +343,7 @@ function theme.at_screen_connect(s)
             bat.widget,
             clockicon,
             mytextclock,
-			myfuzclock,
+            myfuzclock,
         },
     }
 
