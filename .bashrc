@@ -33,6 +33,9 @@ export HISTSIZE
 # Don't put duplicate lines in the history and do not add lines that start with a space
 export HISTCONTROL=erasedups:ignoredups:ignorespace
 
+export EDITOR=nvim
+export DATAPART=/media/d
+
 # Check the window size after each command and, if necessary, update the values of LINES and COLUMNS
 # shopt -s checkwinsize
 
@@ -122,8 +125,8 @@ ec() {
 }
 
 archInit() {
-	'sudo pacman -Syuw'
-	'cat ~/.local/.paclist | xargs -n 5 sudo pacman --noconfirm -S --needed'
+	\sudo \pacman -Syuw
+	cat ~/.local/.packlist | xargs -n 5 sudo pacman --noconfirm -S --needed
 }
 
 # Show help for this .bashrc file
@@ -131,11 +134,10 @@ alias hlp='less /etc/bash.bashrc_help'
 
 # alias to show the date
 alias da='date "+%Y-%m-%d %A %T %Z"'
-alias cal='cal -m'
+alias cal='cal -3m'
 
 alias abs='abduco -A sudo sudo su'
-alias m='mntd; abduco -A m cmus'
-alias iCheck='abduco -n -A iCheck iC'
+# alias m='mntd; abduco -A m cmus'
 # alias y5='(abduco -n WaiFai sudo create_ap --hidden --no-virt --dhcp-dns 8.8.8.8,8.8.4.4 wlan0 eth0 WaiFai wayifive) || (abduco -A WaiFai sudo create_ap --hidden --no-virt --dhcp-dns 8.8.8.8,8.8.4.4 wlan0 eth0 WaiFai wayifive)'
 # alias y5='(abduco -n WaiFai sudo create_ap --hidden --no-virt wlan0 eth0 WaiFai wayifive) || (abduco -A WaiFai sudo create_ap --hidden --no-virt wlan0 eth0 WaiFai wayifive)'
 alias y5='tmux a -t y5 || tmux new-session -s y5 sudo create_ap --no-virt --dhcp-dns 192.168.12.1,8.8.4.4 wlan1 eth0 y5 whyyphyy'
@@ -210,7 +212,7 @@ adbps() {
 }
 
 M() {
-	cd /mnt/"$@" || return
+	cd /media/"$@" || return
 	ls
 }
 
@@ -228,9 +230,11 @@ alias zathura="zathura --fork"
 zat() {
 	if [ -z "$@" ]; then
 		if a=$(find . -regex '.*\.pdf' -type f | fzf); then
+			echo "zathura "$a""
 			zathura "$a"
 		fi
 	else
+		echo "zathura "$a""
 		zathura "$@"
 	fi
 }
@@ -311,7 +315,7 @@ alias susp='(sleep 2; systemctl suspend)&'
 alias hibernate='(sleep 2; systemctl hibernate)&'
 alias vis='vim "+set si"'
 
-alias touchstart='xinput enable $touchID; xinput set-prop $touchID 307 1; xinput set-prop $touchID 315 1'
+alias touchstart='xinput enable "$touchID"; xinput set-prop "$touchID" 315 1; xinput set-prop "$touchID" 324 1; xinput set-prop "$touchID" 306 1'
 alias touchstop='xinput disable $touchID'
 
 alias umnt='sudo umount'
@@ -319,24 +323,28 @@ alias mntd='sudo mount LABEL=D'
 alias mntb='sudo mount LABEL=B'
 alias mntw='sudo mount LABEL=W'
 
-alias mntf='sudo mount /dev/sdc1 /mnt/1'
-alias umntf='sudo umount /mnt/1 || (cd /; sudo umount /mnt/1)'
+alias mntf='sudo mount /dev/sdc1 /media/1'
+alias umntf='sudo umount /media/1 || (cd /; sudo umount /media/1)'
 
-alias mntff='sudo mount /dev/sdc2 /mnt/2; sudo mount /dev/sdc1 /mnt/2/boot'
-alias umntff='sudo umount -R /mnt/2'
+alias mntff='sudo mount /dev/sdc2 /media/2; sudo mount /dev/sdc1 /media/2/boot'
+alias umntff='sudo umount -R /media/2'
 
-alias umntall='for i in /mnt/*; do sudo umount $i; done;'
+alias umntall='for i in /media/*; do sudo umount $i; done;'
 
 alias youtube-dl='youtube-dl --external-downloader aria2c'
-alias yd='youtube-dl -o '"'"'/mnt/d/Music/%(title)s.%(ext)s'"'"' -x --audio-format mp3 --audio-quality 0'
-alias ysync='yd -w $(cat /mnt/b/Backup/videos.txt)'
+alias yd='youtube-dl -o '"'"'$DATAPART/Music/%(title)s.%(ext)s'"'"' -x --audio-format mp3 --audio-quality 0'
+alias ysync='yd -w $(cat /media/b/Backup/videos.txt)'
 alias netre='systemctl restart dhcpcd@eth0'
 alias eat='eatmydata'
 alias tftp='secho "timeout 1\nrexmt 1\nmode octet" | tftp 127.0.0.1'
 alias mpcr='mpc update; mpc crop; mpc ls | mpc add'
 
 gitcl() {
-	git clone ssh://git@github.com/"$@"
+	if (echo "$@" | grep github); then
+		git clone "$@"
+	else
+		git clone ssh://git@github.com/"$@"
+	fi
 }
 
 putf() {
@@ -378,6 +386,8 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
+
+alias cdh='cd '"$HOME"
 
 # cd into the old directory
 alias bd='cd "$OLDPWD"'
@@ -457,10 +467,6 @@ secho() {
 	(echo -e "$@" && cat)
 }
 
-faketty() {
-	script -qfc "$(printf "%q " "$@")" /dev/null
-}
-
 # Searches for text in all files in the current folder
 ftext() {
 	# -i case-insensitive
@@ -503,6 +509,19 @@ cl() {
 		echo "bash: cl: $dir: Directory not found"
 	fi
 }
+
+tempcd() {
+	local cddir=~/.local/tempcd
+	if [ -z "$@" ]; then
+		rm "$cddir"
+	else
+		a=$(realpath "$@")
+		if [ "$?" -eq 0 ]; then
+			echo "cd" "$a" > "$cddir"
+		fi
+	fi
+}
+
 
 # For some reason, rot13 pops up everywhere
 rot13() {
@@ -683,5 +702,8 @@ if type fzf &>/dev/null; then
 
 	fi
 fi
-
 motdupdate
+if [ -f ~/.local/tempcd ]; then
+	. ~/.local/tempcd
+fi
+xmodmap -e 'keycode 0x42=Escape' #remaps the keyboard so CAPS LOCK=ESC
