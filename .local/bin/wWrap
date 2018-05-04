@@ -1,22 +1,42 @@
 #!/usr/bin/env bash
 
-all="$(wunderline all)"
-# starred="$(echo "$all" | grep ★)"
-today="$(echo "$all" | grep Today | grep -v ★)"
+exec 2>/dev/null
 # all="$(cat ~/a)"
+all="$(wunderline all)"
+next="$(wunderline list Next)"
+today="$(echo "$all" | grep Today)"
 starred="$(echo "$all" | grep ★)"
-# starred="$(echo "$all" | grep ★)"
-next="$(wunderline list Next | grep -v ★)"
+# alltoday="$(wunderline today)"
+now="$(echo "$today" | grep ★)"
+next="$(echo "$next" | grep -v ★ | grep -v Today)"
+todaynotnow="$(echo "$today" | grep -v ★)"
+
+# if iCheck; then
+# 	script 
+# else
+
+# fi
+
 DEF='${color7}'
 RED='${color red}'
 GREEN='${color green}'
 YELLOW='${color yellow}'
 BLUE='${color4}'
-HR='${hr 2}'
+
+HR1='${hr 1}'
+HR2='${hr 2}'
+HR3='${hr 3}'
+HR4='${hr 4}'
 ALIGNC='${alignc}'
-echo "$RED$HR"
-echo -e ""$ALIGNC"1-NOW\n"
-echo -e "$starred\n"$HR"\n"
-echo ""$YELLOW"$today"
+
+echo -ne "$YELLOW""$ALIGNC"
+echo -e '1-NOW'
+echo "$HR2"
+echo -e "$now"
+echo "$HR2"
+echo -n "$RED"
+echo "$todaynotnow"
 echo
-echo ""$BLUE"$next"
+echo -n "$BLUE"
+echo "$next"
+echo "$DEF"
