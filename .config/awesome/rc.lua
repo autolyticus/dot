@@ -269,7 +269,19 @@ globalkeys = awful.util.table.join(
         end,
         {description = "focus next by index", group = "client"}
     ),
+    awful.key({ modkey,           }, "Next",
+        function ()
+            awful.client.focus.byidx( 1)
+        end,
+        {description = "focus next by index", group = "client"}
+    ),
     awful.key({ modkey,           }, "k",
+        function ()
+            awful.client.focus.byidx(-1)
+        end,
+        {description = "focus previous by index", group = "client"}
+    ),
+    awful.key({ modkey,           }, "Prior",
         function ()
             awful.client.focus.byidx(-1)
         end,
@@ -393,6 +405,24 @@ globalkeys = awful.util.table.join(
                   end
               end,
               {description = "restore minimized", group = "client"}),
+    awful.key({ modkey, }, "/",
+        function()
+            local tag = awful.tag.selected()
+                for i=1, #tag:clients() do
+                    tag:clients()[i].minimized=true
+            end
+        end,
+        {description = "Minimize everything in tag", group="client"}),
+
+ -- all minimized clients are restored
+    awful.key({ modkey, }, ".",
+        function()
+            local tag = awful.tag.selected()
+                for i=1, #tag:clients() do
+                    tag:clients()[i].minimized=false
+            end
+        end,
+        {description = "Restore all minimized clients in tag", group="client"}),
 
     -- Dropdown application
     -- awful.key({ modkey, }, "z", function () awful.screen.focused().quake:toggle() end,
