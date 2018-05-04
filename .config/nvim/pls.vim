@@ -83,6 +83,7 @@ call plug#begin('~/.config/nvim/plugins')
 	Plug 'vim-airline/vim-airline'
 	Plug 'majutsushi/tagbar'
 	Plug 'mhinz/vim-startify'
+	Plug 'scrooloose/nerdtree'
 	" Plug 'Shougo/echodoc.vim'
 	" Plug 'Shougo/denite.nvim'
 	" Plug 'itchyny/lightline.vim'

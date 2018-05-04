@@ -113,11 +113,11 @@ endif
 " if exists('g:loaded_EasyClip')
 	nnoremap gm m
 	let g:EasyClipUseSubstituteDefaults=0
-	let g:EasyClipUsePasteDefaults=0
-	nmap <c-n> <plug>EasyClipSwapPasteForward
-	nmap <c-p> <plug>EasyClipSwapPasteBackwards
+	" let g:EasyClipUsePasteDefaults=0
+	" nmap <c-n> <plug>EasyClipSwapPasteForward
+	" nmap <c-p> <plug>EasyClipSwapPasteBackwards
 	" let g:yankstack_yank_keys = ['y', 'd']
-	let g:yankstack_map_keys = 0
+	" let g:yankstack_map_keys = 0
 	" nmap <c-p> <Plug>yankstack_substitute_older_paste
 	" nmap <c-n> <Plug>yankstack_substitute_newer_paste
 " endif

@@ -83,7 +83,30 @@ nnoremap <Leader>l <C-w>l
 " Revert with ":iunmap <C-U>".
 inoremap <C-U> <C-G>u<C-U>
 
+" Visual mode indent
 vmap < <gv
 vmap > >gv
-vnoremap <Space>j :m '>+1<CR>gv=gv
-vnoremap <Space>k :m '<-2<CR>gv=gv
+
+" Visual mode search for selected text
+vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
+vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
+
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+function! VisualSelection(direction, extra_filter) range
+    let l:saved_reg = @"
+    execute "normal! vgvy"
+
+    let l:pattern = escape(@", "\\/.*'$^~[]")
+    let l:pattern = substitute(l:pattern, "\n$", "", "")
+
+    if a:direction == 'gv'
+        call CmdLine("Ack '" . l:pattern . "' " )
+    elseif a:direction == 'replace'
+        call CmdLine("%s" . '/'. l:pattern . '/')
+    endif
+
+    let @/ = l:pattern
+    let @" = l:saved_reg
+endfunction

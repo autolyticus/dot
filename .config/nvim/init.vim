@@ -46,7 +46,7 @@ set updatetime=2000
 " set nuw=3
 set scrolloff=4
 
-" set title
+set title
 " set regexpengine=1
 
 " syntax on
