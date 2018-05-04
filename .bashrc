@@ -562,6 +562,11 @@ trim() {
 	echo -n "$var"
 }
 
+backup() {
+	sudo mount /media/LBackup &&
+	sudo rsync -aAXvr --partial /* /media/LBackup --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/tmp,/var/tmp/*,/run/*,/mnt/*,/media/*,/lost+found,/var,/home/g/Downloads,/boot,'*.cache*'}
+}
+
 fe() {
 	local files
 	IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
