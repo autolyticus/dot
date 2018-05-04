@@ -2,6 +2,7 @@
 # ~/.bash_profile
 #
 export USE_SDK_WRAPPER=yes
+export EDITOR="nvim"
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
