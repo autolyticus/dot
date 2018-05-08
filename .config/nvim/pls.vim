@@ -23,8 +23,8 @@ call plug#begin('~/.config/nvim/plugins')
 
 	" Syntax Highlighting
 	Plug 'sheerun/vim-polyglot'
-	Plug 'jalvesaq/Nvim-R' , { 'for': [ 'r' ] }
-	Plug 'vim-scripts/armasm'
+	" Plug 'jalvesaq/Nvim-R' , { 'for': [ 'r' ] }
+	" Plug 'vim-scripts/armasm'
 	" Plug 'neovim/node-host', { 'do': 'npm install' }
 	" Plug 'vimlab/mdown.vim', { 'do': 'npm install' }
 	" Plug 'arakashic/chromatica.nvim'
@@ -69,7 +69,7 @@ call plug#begin('~/.config/nvim/plugins')
 	Plug 'junegunn/fzf'
 
 	" Git
-	Plug 'tpope/vim-fugitive'
+	" Plug 'tpope/vim-fugitive'
 	Plug 'junegunn/gv.vim'
 	Plug 'airblade/vim-gitgutter'
 
@@ -90,12 +90,13 @@ call plug#begin('~/.config/nvim/plugins')
 
 	" Colours
 	Plug 'rafi/awesome-vim-colorschemes'
-	" Plug 'vim-airline/vim-airline-themes'
+	Plug 'vim-airline/vim-airline-themes'
 	" Plug 'bluz71/vim-moonfly-colors'
 	" Plug 'jlesquembre/base16-neovim'
 	" Plug 'chriskempson/base16-vim'
 	" Plug 'MaxSt/FlatColor'
 	" Plug 'mhinz/vim-janah'
+	Plug 'josuegaleas/jay'
 	" Plug 'joshdick/onedark.vim'
 
 call plug#end()
