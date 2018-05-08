@@ -565,6 +565,7 @@ trim() {
 backup() {
 	sudo mount /media/LBackup &&
 	sudo rsync -aAXvr --partial /* /media/LBackup --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/tmp,/var/tmp/*,/run/*,/mnt/*,/media/*,/lost+found,/var,/home/g/Downloads,/boot,'*.cache*'}
+	sudo umount /media/LBackup
 }
 
 fe() {
