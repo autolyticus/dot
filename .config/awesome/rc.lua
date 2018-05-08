@@ -81,7 +81,7 @@ themes = {
     "rainbow",           -- 8
     "steamburn",         -- 9
     "vertex",            -- 10
-	"multicolor-icons",  -- 11
+    "multicolor-icons",  -- 11
 }
 
 themeIndex   = 5
@@ -91,7 +91,7 @@ altkey       = "Mod1"
 terminal     = "termite"
 editor       = os.getenv("EDITOR") or "nano"
 gui_editor   = "termite -e -- nvim"
-browser      = "vivaldi-stable"
+browser      = "chromium"
 guieditor    = "oni"
 
 awful.util.terminal = terminal
@@ -183,9 +183,9 @@ lain.layout.cascade.tile.nmaster       = 5
 lain.layout.cascade.tile.ncol          = 2
 
 if themeIndex~=5 then
-	theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme)
+    theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme)
 else
-	theme_path = string.format("%s/.config/awesome/themes/%s/theme-personal.lua", os.getenv("HOME"), chosen_theme)
+    theme_path = string.format("%s/.config/awesome/themes/%s/theme-personal.lua", os.getenv("HOME"), chosen_theme)
 end
 
 beautiful.init(theme_path)
@@ -327,19 +327,19 @@ globalkeys = awful.util.table.join(
               {description = "focus the previous screen", group = "screen"}),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
               {description = "jump to urgent client", group = "client"}),
-	awful.key({ modkey,			  }, "Tab",
-		function ()
-			awful.screen.focus_relative(1)
-		end,
-		{description = "go back", group = "screen"}),
-	awful.key({ altkey,			  }, "Tab",
-		function ()
-			awful.client.focus.history.previous()
-			if client.focus then
-				client.focus:raise()
-			end
-		end,
-		{description = "go back", group = "client"}),
+    awful.key({ modkey,			  }, "Tab",
+        function ()
+            awful.screen.focus_relative(1)
+        end,
+        {description = "go back", group = "screen"}),
+    awful.key({ altkey,			  }, "Tab",
+        function ()
+            awful.client.focus.history.previous()
+            if client.focus then
+                client.focus:raise()
+            end
+        end,
+        {description = "go back", group = "client"}),
 
     -- Show/Hide Wibox
     awful.key({ modkey }, "b", function ()
@@ -443,21 +443,21 @@ globalkeys = awful.util.table.join(
     --           {description = "-10%", group = "hotkeys"}),
 
     -- ALSA volume control
-	awful.key({  }, "XF86AudioRaiseVolume",
-		function ()
-			os.execute(string.format("amixer -q set %s 1%%+", beautiful.volume.channel))
-			beautiful.volume.update()
-		end),
-	awful.key({  }, "XF86AudioLowerVolume",
-		function ()
-			os.execute(string.format("amixer -q set %s 1%%-", beautiful.volume.channel))
-			beautiful.volume.update()
-		end),
-	awful.key({  }, "XF86AudioMute",
-		function ()
-			os.execute(string.format("amixer -q set %s toggle", beautiful.volume.togglechannel or beautiful.volume.channel))
-			beautiful.volume.update()
-		end),
+    awful.key({  }, "XF86AudioRaiseVolume",
+        function ()
+            os.execute(string.format("amixer -q set %s 1%%+", beautiful.volume.channel))
+            beautiful.volume.update()
+        end),
+        awful.key({  }, "XF86AudioLowerVolume",
+            function ()
+                os.execute(string.format("amixer -q set %s 1%%-", beautiful.volume.channel))
+                beautiful.volume.update()
+            end),
+            awful.key({  }, "XF86AudioMute",
+                function ()
+                    os.execute(string.format("amixer -q set %s toggle", beautiful.volume.togglechannel or beautiful.volume.channel))
+                    beautiful.volume.update()
+                end),
 
     -- MPD control
     awful.key({ altkey, "Control" }, "Up",
@@ -534,59 +534,59 @@ globalkeys = awful.util.table.join(
     --           {description = "show the menubar", group = "launcher"}),
     -- dmenu
     awful.key({ modkey }, "d", function ()
-		local dmenu='dmenu_run'
-		if rofi==true then
-			dmenu='rofi -show window'
-		end
+        local dmenu='dmenu_run'
+        if rofi==true then
+            dmenu='rofi -show window'
+        end
         awful.spawn(string.format("%s -i -fn 'Monospace' -nb '%s' -nf '%s' -sb '%s' -sf '%s'", dmenu,
         beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus))
-		end,
-        {description = "show dmenu(rofi)", group = "launcher"}),
-    --
-    -- Prompt
+    end,
+    {description = "show dmenu(rofi)", group = "launcher"}),
+
     awful.key({ modkey }, "r", function ()
-		if rofi==true then
-			awful.spawn("rofi -modi combi -show combi -combi-modi drun,run")
-		else
-			awful.screen.focused().mypromptbox:run()
-		end
-		end,
-              {description = "run prompt", group = "launcher"}),
+        if rofi==true then
+            awful.spawn("rofi -modi combi -show combi -combi-modi drun,run")
+        else
+            awful.screen.focused().mypromptbox:run()
+        end
+    end,
+        {description = "run prompt", group = "launcher"}),
+
     awful.key({ modkey }, "g", function ()
-		if rofi==true then
-			awful.spawn("rofi -show run")
-		else
-			awful.screen.focused().mypromptbox:run()
-		end
-		end,
-              {description = "run prompt", group = "launcher"}),
+        if rofi==true then
+            awful.spawn("rofi -show run")
+        else
+            awful.screen.focused().mypromptbox:run()
+        end
+    end,
+        {description = "run prompt", group = "launcher"}),
 
-	awful.key({ "Control", modkey }, "l", function () awful.spawn("xautolock -locknow") end,
-				{description = "Lock the screen", group = "screen"}),
+    awful.key({ "Control", modkey }, "l", function () awful.spawn("xautolock -locknow") end,
+        {description = "Lock the screen", group = "screen"}),
 
-	awful.key({ "Control", modkey }, "s", function () awful.spawn("systemctl suspend") end,
-				{description = "Sleep", group = "screen"}),
-	awful.key({ "Control", modkey }, "h", function () awful.spawn("systemctl hibernate") end,
-				{description = "Hibernate", group = "screen"}),
+    awful.key({ "Control", modkey }, "s", function () awful.spawn("systemctl suspend") end,
+        {description = "Sleep", group = "screen"}),
+    awful.key({ "Control", modkey }, "h", function () awful.spawn("systemctl hibernate") end,
+        {description = "Hibernate", group = "screen"}),
 
-	awful.key({ modkey }, "s", function () awful.spawn.with_shell("termite --class 'fzf-menu' --geometry 640x480 -e ~/.local/bin/songChooser") end,
-				{description = "Fzf based Song Chooser", group = "launcher"}),
+    awful.key({ modkey }, "s", function () awful.spawn.with_shell("termite --class 'fzf-menu' --geometry 640x480 -e ~/.local/bin/songChooser") end,
+        {description = "Fzf based Song Chooser", group = "launcher"}),
 
-	awful.key({ modkey }, "z", function () awful.spawn.with_shell("termite --class 'fzf-menu' --geometry 640x480 -e ~/.local/bin/scratche") end,
-				{description = "ScratchPad", group = "launcher"}),
+    awful.key({ modkey }, "z", function () awful.spawn.with_shell("termite --class 'fzf-menu' --geometry 640x480 -e ~/.local/bin/scratche") end,
+        {description = "ScratchPad", group = "launcher"}),
 
     awful.key({ modkey }, "a",
-              function ()
-                  awful.prompt.run {
-                    prompt       = "Run Lua code: ",
-                    textbox      = awful.screen.focused().mypromptbox.widget,
-                    exe_callback = awful.util.eval,
-                    history_path = awful.util.get_cache_dir() .. "/history_eval"
-                  }
-              end,
-              {description = "lua execute prompt", group = "awesome"})
+        function ()
+            awful.prompt.run {
+                prompt       = "Run Lua code: ",
+                textbox      = awful.screen.focused().mypromptbox.widget,
+                exe_callback = awful.util.eval,
+                history_path = awful.util.get_cache_dir() .. "/history_eval"
+            }
+        end,
+        {description = "lua execute prompt", group = "awesome"})
     --]]
-)
+    )
 
 clientkeys = awful.util.table.join(
     awful.key({ altkey, "Shift"   }, "m",      lain.util.magnify_client,
@@ -718,12 +718,18 @@ awful.rules.rules = {
       properties = { tag = awful.util.tagnames[1] } },
     { rule = { class = "Vivaldi-stable" },
       properties = { tag = awful.util.tagnames[1] } },
+    { rule = { class = "selenium-chrome" },
+      properties = { tag = awful.util.tagnames[6] },
+      callback=function(c)
+        c.minimized=true
+      end
+    },
     { rule = { class = "fzf-menu" },
       properties = { focus=true, floating = true },
-	  callback=function(c)
-		  awful.placement.centered(c,nil)
-	  end
-	  },
+      callback=function(c)
+          awful.placement.centered(c,nil)
+      end
+  },
 
 
     { rule = { class = "Gimp", role = "gimp-image-window" },
