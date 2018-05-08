@@ -8,11 +8,11 @@ today="$(echo "$all" | grep Today)"
 starred="$(echo "$all" | grep ★)"
 # alltoday="$(wunderline today)"
 now="$(echo "$today" | grep ★)"
-next="$(echo "$next" | grep -v ★ | grep -v Today)"
+next="$(echo "$next" | grep -v Today)"
 todaynotnow="$(echo "$today" | grep -v ★)"
 
 # if iCheck; then
-# 	script 
+# 	script
 # else
 
 # fi

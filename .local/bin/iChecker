@@ -1,0 +1,2 @@
+#!/bin/sh
+ping -w0 -c1 google.com > /dev/null 2>&1

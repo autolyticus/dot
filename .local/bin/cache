@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+if [ -z "$@" ]; then
+	exit 1
+fi
+
+tmpfile=/tmp/"$@".tmp
+iCheck='ping -w0 -c1 google.com'
+
+if $iCheck > /dev/null 2>&1; then
+	# Execute the command and get the output along with the script overhead
+	script -qc "$@" "$tmpfile" 1>/dev/null 2>&1
+	dos2unix "$tmpfile" 2>/dev/null 1>/dev/null
+	# Remove starting line
+	output=$(tail -n+2 "$tmpfile")
+
+
+	# Commit to file
+	echo "$output" > "$tmpfile"
+
+	# Remove lastline from output
+	output=$(echo "$output" | head -n-1 -)
+
+	if [ -z "$output" ]; then
+		rm "$tmpfile"
+		exit 0
+	fi
+
+	output=$(echo -e "$output\nLast updated Now")
+
+	echo "$output"
+
+	# echo "$output" | tee "$tmpfile"
+
+else
+	output="$(cat "$tmpfile")"
+
+	# Extract lastline
+	lastline=$(echo "$output" | tail -n1 -)
+
+	# Remove lastline from output
+	output=$(echo "$output" | head -n-1 -)
+
+	# Extract timestamp
+	timestamp=$(echo "$lastline" | cut -d' ' -f 4-)
+
+	# Find timeThen in seconds
+	timeThen=$(date  -d "$timestamp" +%s)
+
+	if type humanTimeDiff 1>/dev/null 2>&1; then
+		output=$(echo -e "$output\nLast updated $(humanTimeDiff "$timeThen")")
+	else
+		output=$(echo -e "$output\nLast updated $timestamp")
+	fi
+
+	echo "$output"
+	# cat "$tmpfile"
+fi

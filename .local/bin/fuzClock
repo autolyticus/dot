@@ -3,8 +3,6 @@
 # by Corey Mwamba
 #
 
-export TEXTDOMAINDIR="/usr/share/locale"
-export TEXTDOMAIN=bash-fuzzy-clock
 hr=($(date '+%_H'))
 min=10#$(date '+%M')
 nearly=$"nearly"
