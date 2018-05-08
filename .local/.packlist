@@ -77,6 +77,7 @@ glibc
 gnome-keyring
 gnu-netcat
 gparted
+gperf
 grep
 groff
 grub
@@ -157,7 +158,9 @@ pympd
 pyrit
 python
 python2-pip
+python-beautifulsoup4
 python-ipdb
+python-lxml
 python-matplotlib
 python-mccabe
 python-neovim
@@ -167,7 +170,9 @@ python-pip
 python-pudb
 python-pyflakes
 python-pytables
+python-pytest
 python-scipy
+python-selenium
 python-virtualenv
 qbittorrent
 qemu
@@ -179,6 +184,7 @@ rfkill
 ripgrep
 rofi
 rsync
+ruby
 sakura
 samba
 screenfetch
