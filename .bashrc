@@ -160,11 +160,11 @@ umntpifs() {
 	sudo umount /rpi
 }
 
-alias py='python'
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
-export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv2
-export WORKON_HOME=~/.virtualenvs
-source /usr/bin/virtualenvwrapper_lazy.sh
+# alias py='python'
+# export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
+# export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv2
+# export WORKON_HOME=~/.virtualenvs
+# source /usr/bin/virtualenvwrapper_lazy.sh
 
 alias py2on='workon py2env'
 alias py2off='deactivate'
@@ -267,9 +267,10 @@ alias ping='ping -c 10'
 alias less='less -R'
 alias pacman='sudo pacman'
 type powerpill &>/dev/null && alias pacman='sudo powerpill'
+type yum &>/dev/null && alias pacman='sudo pacapt'
 alias pac='pacaur --noedit -a -S'
-alias pmm='pacman -S'
-alias pm='pacman -Syu'
+alias pm='pacman -S'
+alias pmm='pacman -Syu'
 alias pmr='pacman -Rns'
 alias pq='pacman -Q'
 alias pr='pacman -R'
