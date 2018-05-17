@@ -71,6 +71,7 @@ sedit() {
 # if [[ $iatest > 0 ]]; then bind "set show-all-if-ambiguous On"; fi
 alias e='edit'
 alias se='sedit'
+alias r='ranger'
 
 alias i='iverilog test.v && ./a.out'
 
@@ -115,7 +116,7 @@ export touchID=$( (
 
 # Add an "alert" alias for long running commands.  Use like so:
 #		sleep 10; alert
-alias alert='play -q ~/.local/.notif.ogg && notify-send --urgency=critical -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\''; date)" && sendNotification "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\''; date) "'
+alias alert='alarm && notify-send --urgency=critical -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\''; date)" && sendNotification "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\''; date) "'
 
 # Edit this .bashrc file
 alias eb='e ~/.bashrc'
@@ -140,11 +141,11 @@ alias abs='abduco -A sudo sudo su'
 # alias m='mntd; abduco -A m cmus'
 # alias y5='(abduco -n WaiFai sudo create_ap --hidden --no-virt --dhcp-dns 8.8.8.8,8.8.4.4 wlan0 eth0 WaiFai wayifive) || (abduco -A WaiFai sudo create_ap --hidden --no-virt --dhcp-dns 8.8.8.8,8.8.4.4 wlan0 eth0 WaiFai wayifive)'
 # alias y5='(abduco -n WaiFai sudo create_ap --hidden --no-virt wlan0 eth0 WaiFai wayifive) || (abduco -A WaiFai sudo create_ap --hidden --no-virt wlan0 eth0 WaiFai wayifive)'
-alias y5='tmux a -t y5 || tmux new-session -s y5 sudo create_ap --no-virt --dhcp-dns 192.168.12.1,8.8.4.4 wlan1 eth0 y5 whyyphyy'
+alias y5='tmux a -t y5 || tmux new-session -s y5 sudo create_ap --no-virt --dhcp-dns 192.168.12.1,8.8.4.4 wlan0 eth0 y5 whyyphyy'
 alias vmux="abduco -e '^g' -A nvim-session nvim"
 alias smn='ssh -Y root@mnHost'
 
-pi=192.168.1.8
+pi=192.168.12.123
 piy5=192.168.1.7
 
 alias spi="ssh -Y root@$pi"
@@ -276,12 +277,13 @@ alias pq='pacman -Q'
 alias pr='pacman -R'
 alias rmlock='sudo rm /var/lib/pacman/db.lck'
 
-alias docker='sudo docker'
+# alias docker='sudo docker'
 # alias dsh='sudo docker exec -it bash'
-alias docker-compose='sudo docker-compose'
+# alias docker-compose='sudo docker-compose'
 alias compose='sudo docker-compose'
 alias cup='sudo systemctl start docker && sudo docker-compose up'
 alias d='sudo docker'
+alias Dstop='sudo docker ps | cut -d\  -f 1 | tail +2 | xargs sudo docker kill'
 # alias cp='cp --reflink=auto'
 
 # (nohup bash -c 'systemctl status docker' &> /dev/null ) || (systemctl start docker) &
@@ -324,10 +326,10 @@ alias mntd='sudo mount LABEL=D'
 alias mntb='sudo mount LABEL=B'
 alias mntw='sudo mount LABEL=W'
 
-alias mntf='sudo mount /dev/sdc1 /media/1'
+alias mntf='sudo mount /dev/sdb1 /media/1'
 alias umntf='sudo umount /media/1 || (cd /; sudo umount /media/1)'
 
-alias mntff='sudo mount /dev/sdc2 /media/2; sudo mount /dev/sdc1 /media/2/boot'
+alias mntff='sudo mount /dev/sdb2 /media/2; sudo mount /dev/sdb1 /media/2/boot'
 alias umntff='sudo umount -R /media/2'
 
 alias umntall='for i in /media/*; do sudo umount $i; done;'
@@ -714,3 +716,4 @@ if [ -f ~/.local/tempcd ]; then
 	. ~/.local/tempcd
 fi
 xmodmap -e 'keycode 0x42=Escape' #remaps the keyboard so CAPS LOCK=ESC
+# ranger

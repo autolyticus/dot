@@ -3,6 +3,7 @@
 #
 export USE_SDK_WRAPPER=yes
 export EDITOR="nvim"
+export GOPATH="$HOME/.go"
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
