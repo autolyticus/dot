@@ -2,6 +2,8 @@ default:
 	@echo "No targets specified."
 %.cpp.out: %.cpp
 	g++ -g -o $@ $<
+%.go.out: %.go
+	go build -o $@
 %.c.out: %.c
 	gcc -g -o $@ $< -lrt -lreadline
 clean:
@@ -22,3 +24,5 @@ clean:
 %.m.out: %.m
 	cp $< $@
 	chmod +x $@
+%.hs.out: %.hs
+	ghc -dynamic -outputdir /tmp/$@/ -o $@ $<

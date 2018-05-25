@@ -4,13 +4,15 @@ call plug#begin('~/.config/nvim/plugins')
 	Plug 'Shougo/neco-syntax'
 	Plug 'Shougo/neoinclude.vim'
 	Plug 'Shougo/neosnippet.vim' | Plug 'Shougo/neosnippet-snippets'
-	" Plug 'autozimu/LanguageClient-neovim', {
-	" 	\ 'branch': 'next',
-	" 	\ 'do': 'bash install.sh',
-	" 	\ }
+	Plug 'autozimu/LanguageClient-neovim', {
+		\ 'branch': 'next',
+		\ 'do': 'bash install.sh',
+		\ }
 	" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	" Plug 'zchee/deoplete-clang'
+	" Plug 'zchee/deoplete-go', {'do' : 'make' }
 	" Plug 'zchee/deoplete-jedi'
+	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 	" Plug 'ervandew/supertab'
 
 	" Linters/Builders
@@ -57,6 +59,8 @@ call plug#begin('~/.config/nvim/plugins')
 	Plug 'metakirby5/codi.vim'
 	Plug 'junegunn/limelight.vim'
 	Plug 'Shougo/vinarise.vim'
+	Plug 'diepm/vim-rest-console'
+	Plug 'wakatime/vim-wakatime'
 
 	" Code commenting
 	Plug 'tpope/vim-commentary'
@@ -92,7 +96,7 @@ call plug#begin('~/.config/nvim/plugins')
 	Plug 'rafi/awesome-vim-colorschemes'
 	Plug 'vim-airline/vim-airline-themes'
 	" Plug 'bluz71/vim-moonfly-colors'
-	" Plug 'jlesquembre/base16-neovim'
+	Plug 'jlesquembre/base16-neovim'
 	" Plug 'chriskempson/base16-vim'
 	" Plug 'MaxSt/FlatColor'
 	" Plug 'mhinz/vim-janah'

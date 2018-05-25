@@ -5,3 +5,6 @@ while [ $n -lt 4 ]; do
 	play ~/.local/.notif.ogg
 	((n += 1))
 done
+beep -f 500 -l 20; sleep 0.1; beep -f 500 -l 200; sleep 0.1; beep -f 500 -l 20; sleep 1; beep -f 800
+# echo -e '\a' > /dev/tty1
+# locker

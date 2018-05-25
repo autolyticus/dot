@@ -20,6 +20,7 @@ awesome
 b43-fwcutter
 bash
 bash-completion
+beep
 binutils
 bison
 breeze
@@ -67,6 +68,7 @@ fzf
 gawk
 gcc
 gcc-libs
+gconf
 gdb
 gettext
 gftp
@@ -224,6 +226,7 @@ winetricks
 wireshark-qt
 wol
 xautolock
+xf86-video-intel
 xf86-video-vesa
 xfsprogs
 xorg-bdftopcf

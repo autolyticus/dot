@@ -1,7 +1,7 @@
 " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
-  \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
-  \,sm:block-blinkwait175-blinkoff150-blinkon175
+" set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
+"   \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
+"   \,sm:block-blinkwait175-blinkoff150-blinkon175
 
 set noshowmode
 filetype plugin on
@@ -19,8 +19,8 @@ endif
 " let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16" : "7" }
 " autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": s:white }) " `bg` will not be styled since there is no `bg` setting
 " let g:onedark_termcolors=16
-" set background=light
-colorscheme jay
+set background=dark
+colorscheme challenger_deep
 let g:airline_powerline_fonts = 1
 let g:airline_theme="alduin"
 let g:airline#extensions#tabline#enabled = 1

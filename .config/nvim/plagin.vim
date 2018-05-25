@@ -26,24 +26,29 @@ if has_key(plugs, 'accelerated-jk')
 	nmap k <Plug>(accelerated_jk_gk)
 endif
 
+let g:go_metalinter_autosave = 0
+let g:go_fmt_autosave = 0
+let g:go_list_type = "quickfix"
 " ale-specific
 " if exists('g:loaded_ale')
 	" let g:ale_c_gcc_options = '-std=gnu11 -Wall'
 	let g:ale_linters = {
-				\	'text': ['proselint', 'vale'],
-				\	'go': ['go build'],
 				\	'c': ['clang', 'flawfinder', 'clang-tidy'],
-				\	'python': ['pyflakes', 'pyls'],
 				\	'cpp': ['clang', 'flawfinder', 'clang-tidy'],
+				\	'python': ['pyflakes', 'pyls'],
+				\	'text': ['proselint', 'vale'],
 				\	'vim': ['vint'],
+				\	'go': ['go build', 'gosimple', 'go vet', 'staticcheck'],
 				\	}
 	" let airline#extensions#ale#error_symbol = '⨉ '
 	" let airline#extensions#ale#warning_symbol = '⚠ '
 	let g:ale_fixers = {
-				\	'python': ['autopep8'],
 				\	'c': ['clang-format'],
 				\	'cpp': ['clang-format'],
+				\	'go': ['gofmt'],
+				\	'python': ['autopep8'],
 				\	'sh': ['shfmt'],
+				\	'haskell': ['brittany'],
 				\	}
 	let g:ale_sign_column_always = 1
 	let g:ale_lint_on_save = 1
@@ -135,6 +140,7 @@ if has_key(plugs, 'LanguageClient-neovim')
 		\ 'cpp': ['cquery', '--log-file=/tmp/cq.log'],
 		\ 'bash': ['bash-lanuguage-server'],
 		\ 'sh': ['bash-lanuguage-server'],
+		\ 'go': ['go-langserver'],
 		\ }
 		" \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
 		" \ 'javascript': ['javascript-typescript-stdio'],
@@ -197,3 +203,10 @@ endif
 " 	let g:nvimux_quickterm_size = '80'
 " 	lua require('nvimux').bootstrap()
 " endif
+
+" Vim rest console
+let g:vrc_output_buffer_name = '__VRC_OUTPUT.json'
+" let g:vrc_response_default_content_type = 'json'
+let g:vrc_show_command = 1
+let g:vrc_set_default_mapping = 0
+map <Space>r :call VrcQuery()<CR><C-w>l

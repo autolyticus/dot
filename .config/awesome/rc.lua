@@ -716,6 +716,8 @@ awful.rules.rules = {
     -- Set Firefox to always map on the first tag on screen 1.
     { rule = { class = "Firefox" },
       properties = { tag = awful.util.tagnames[1] } },
+    { rule = { class = "Chromium" },
+      properties = { tag = awful.util.tagnames[1] } },
     { rule = { class = "Vivaldi-stable" },
       properties = { tag = awful.util.tagnames[1] } },
     { rule = { class = "selenium-chrome" },

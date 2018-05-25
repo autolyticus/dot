@@ -145,8 +145,8 @@ alias y5='tmux a -t y5 || tmux new-session -s y5 sudo create_ap --no-virt --dhcp
 alias vmux="abduco -e '^g' -A nvim-session nvim"
 alias smn='ssh -Y root@mnHost'
 
-pi=192.168.12.123
-piy5=192.168.1.7
+export pi=192.168.12.123
+export piy5=192.168.1.7
 
 alias spi="ssh -Y root@$pi"
 alias spiy5="ssh -Y root@$piy5"
@@ -277,6 +277,16 @@ alias pq='pacman -Q'
 alias pr='pacman -R'
 alias rmlock='sudo rm /var/lib/pacman/db.lck'
 
+organize() {
+	dir="${@: $#}"
+	mkdir -p "$dir"
+	mv "$@"
+}
+
+refresh() {
+	. ~/.bash_profile
+	. ~/.bashrc
+}
 # alias docker='sudo docker'
 # alias dsh='sudo docker exec -it bash'
 # alias docker-compose='sudo docker-compose'
@@ -358,7 +368,7 @@ alias clone='git clone'
 alias gitp='git push origin'
 alias gits='git status'
 alias gita='git add'
-alias gitc='git commit -a -m'
+alias gitc='git commit -s -m'
 
 export dot="--git-dir=$HOME/.dot --work-tree=$HOME"
 alias dot='git --git-dir=$HOME/.dot/ --work-tree=$HOME'
@@ -470,6 +480,10 @@ secho() {
 	(echo -e "$@" && cat)
 }
 
+bashflux() {
+	"$HOME"/.go/bin/bashflux "$@" 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MjY1NjU4ODEsImlhdCI6MTUyNjUyOTg4MSwiaXNzIjoibWFpbmZsdXgiLCJzdWIiOiJhdmFuY2VyQGdtYWlsLmNvbSJ9.9yNN9dTD8-x9CgTezLhbos27LJeBZAnuxUndyBBJ2Bs'
+}
+
 # Searches for text in all files in the current folder
 ftext() {
 	# -i case-insensitive
@@ -524,6 +538,12 @@ tempcd() {
 		fi
 	fi
 }
+
+getdir() {
+	echo "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+}
+
+alias stripColors="sed 's/\x1b\[[0-9;]*[a-zA-Z]//g'"
 
 
 # For some reason, rot13 pops up everywhere
