@@ -1,0 +1,3 @@
+[submodule ".config/termite"]
+	path = .config/termite
+	url = https://github.com/reisub0/termite-color
