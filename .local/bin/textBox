@@ -3,5 +3,4 @@
 pushd . > /dev/null 2>&1 || exit
 cd ~/.local/textBox || exit
 find . -follow -type f -executable -exec \{\} \;
-# for i in $HOME/.local/textBox/*; do "$i"; done
 popd > /dev/null 2>&1 || exit
