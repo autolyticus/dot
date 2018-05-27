@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 MYDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-COLORDIR="$MYDIR/colors"
+# COLORDIR="$MYDIR/colors"
 
 CONFIGDIR="$HOME/.config/termite"
 CONFIGFILE="$CONFIGDIR/config"
@@ -11,37 +11,39 @@ ENDDELIM='###END###termite-color###'
 COLORTAG='\[colors\]'
 
 insertColor() {
-	colorName="$@"
+	colorFile="$@"
 	{
 		echo "$BEGDELIM"
 		echo
 		echo "###COLOR###$colorName###"
-		cat "$COLORDIR/$colorName"
+		cat "$colorFile"
 		echo
 		echo "$ENDDELIM"
 	} >> "$CONFIGFILE"
 }
 
-UserColor="default"
+if [ -z "$@" ]; then
+	UserColor="colors/default"
+else
+	UserColor="$@"
+	echo "Setting color $@"
+fi
 
-while getopts "c:d:" opt; do
-	case "${opt}" in
-		c)
-			echo "Colour = $OPTARG"
-			UserColor="$OPTARG"
-			;;
-		d)
-			echo "Directory = $OPTARG"
-			CONFIGDIR="$(realpath "$OPTARG")"
-			;;
-		:)
-			echo "Option -$OPTARG requires an argument"
-			;;
-		\?)	echo "Usage incorrect"
-			exit 1
-			;;
-	esac
-done
+# while getopts "c:d:" opt; do
+# 	case "${opt}" in
+# 		c)
+# 			echo "Colour = $OPTARG"
+# 			UserColor="$OPTARG"
+# 			;;
+# 		:)
+# 			echo "Option -$OPTARG requires an argument"
+# 			;;
+# 		\?)	echo "Usage incorrect"
+# 			exit 1
+# 			;;
+# 	esac
+# done
+
 
 if [ ! -d "$CONFIGDIR" ]; then
 	echo "Termite config folder doesn't exist"

@@ -20,7 +20,7 @@ endif
 " autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": s:white }) " `bg` will not be styled since there is no `bg` setting
 " let g:onedark_termcolors=16
 set background=dark
-colorscheme challenger_deep
+colorscheme OceanicNext
 let g:airline_powerline_fonts = 1
 let g:airline_theme="alduin"
 let g:airline#extensions#tabline#enabled = 1
