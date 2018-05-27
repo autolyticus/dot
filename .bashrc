@@ -128,7 +128,7 @@ ec() {
 
 archInit() {
 	\sudo \pacman -Syuw
-	cat ~/.local/.packlist | xargs -n 5 sudo pacman --noconfirm -S --needed
+	grep -Ev '^#' ~/.local/.packlist | xargs -n 5 \sudo \pacman --noconfirm -S --needed
 }
 
 # Show help for this .bashrc file
