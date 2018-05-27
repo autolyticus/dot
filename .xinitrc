@@ -35,12 +35,16 @@ fi
 xrandr --setprovideroutputsource modesetting NVIDIA-0
 xrandr --auto
 xrandr --dpi 96
+xrandr --output HDMI-1-1 --mode 1600x900
+# xrandr --output eDP-1-1 --off
 if [ $(xrandr --listmonitors | wc -l) -eq 3 ]; then
-	xrandr --output HDMI-1 --mode 1920x1080 --pos 0x0 --output eDP-1 --primary --mode 1366x768 --pos 1920x528
-	xrandr --output eDP-1-1 --mode 1366x768 --pos 1920x472 --output HDMI-1-1 --off --output DP-1-1 --off --output HDMI-1-2 --mode 1920x1080 --pos 0x0 --rotate normal
-	# xrandr --output eDP-1 --off
+	# true
+	# xrandr --output HDMI-1 --mode 1920x1080 --pos 0x0 --output eDP-1 --primary --mode 1366x768 --pos 1920x528
+	# xrandr --output eDP-1-1 --mode 1366x768 --pos 1920x472 --off --output HDMI-1-1 --mode 1366x768 --output DP-1-1 --off --output HDMI-1-2 --mode 1920x1080 --pos 0x0 --rotate normal
+	xrandr --output HDMI-1-1 --mode 1366x768
+	# xrandr --output eDP-1-1 --off
 	# xrandr --output HDMI-1 --off
-	xrandr --output HDMI-1-1 --off
+	# xrandr --output HDMI-1-1 --off
 	# xrandr --output eDP-1-1 --off
 	# read -p "Multi-monitor detected, switch off one?" ch
 	# case $ch in

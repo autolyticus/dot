@@ -35,6 +35,7 @@ export HISTCONTROL=erasedups:ignoredups:ignorespace
 
 export EDITOR=nvim
 export DATAPART=/media/d
+# export PATH="$HOME/.local/bin":"$PATH"
 
 # Check the window size after each command and, if necessary, update the values of LINES and COLUMNS
 # shopt -s checkwinsize
@@ -260,7 +261,7 @@ alias mv='mv -i'
 alias rsync='rsync -aAXvrPh --info=progress2'
 alias free='free -h'
 alias rm='rm -v'
-alias du='du -h'
+alias du='du -hs'
 alias ncdu='ncdu -xq'
 alias mkdir='mkdir -p'
 alias ps='ps auxf'
@@ -324,7 +325,6 @@ alias multitail='multitail --no-repeat -c'
 alias freshclam='sudo freshclam'
 alias svi='sudo vi'
 alias reboot='sudo reboot'
-alias susp='(sleep 2; systemctl suspend)&'
 alias hibernate='(sleep 2; systemctl hibernate)&'
 alias vis='vim "+set si"'
 

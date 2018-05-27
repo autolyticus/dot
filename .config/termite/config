@@ -1,5 +1,6 @@
 [options]
 font = FontAwesome 12
+<<<<<<< HEAD
 font = InconsolataGo Nerd Font 15
 
 cursor_blink = system
