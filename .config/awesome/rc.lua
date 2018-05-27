@@ -564,7 +564,7 @@ globalkeys = awful.util.table.join(
     awful.key({ "Control", modkey }, "l", function () awful.spawn("xautolock -locknow") end,
         {description = "Lock the screen", group = "screen"}),
 
-    awful.key({ "Control", modkey }, "s", function () awful.spawn("systemctl suspend") end,
+    awful.key({ "Control", modkey }, "s", function () awful.spawn("susp") end,
         {description = "Sleep", group = "screen"}),
     awful.key({ "Control", modkey }, "h", function () awful.spawn("systemctl hibernate") end,
         {description = "Hibernate", group = "screen"}),
@@ -719,6 +719,12 @@ awful.rules.rules = {
     { rule = { class = "Vivaldi-stable" },
       properties = { tag = awful.util.tagnames[1] } },
     { rule = { class = "selenium-chrome" },
+      properties = { tag = awful.util.tagnames[6] },
+      callback=function(c)
+        c.minimized=true
+      end
+    },
+    { rule = { name = "Headset - Player" },
       properties = { tag = awful.util.tagnames[6] },
       callback=function(c)
         c.minimized=true

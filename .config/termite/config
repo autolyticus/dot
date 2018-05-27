@@ -1,6 +1,6 @@
 [options]
 font = FontAwesome 12
-font = Source Code Pro for Powerline SemiBold 12
+font = Meslo LG M DZ for Powerline 12
 
 cursor_blink = system
 scrollback_lines = 100000

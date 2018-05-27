@@ -1,7 +1,6 @@
 #!/bin/sh
 
-((n = 1))
-while [ $n -lt 4 ]; do
+exec 1>/dev/null 2>&1
+for _ in $(seq 3); do
 	play ~/.local/.notif.ogg
-	((n += 1))
 done

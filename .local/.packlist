@@ -25,6 +25,7 @@ bison
 breeze
 broadcom-wl
 btrfs-progs
+bup
 bzip2
 calc
 calibre
@@ -32,9 +33,11 @@ chromium
 clang
 cmake
 cmus
+conky
 coreutils
 cower
 cowpatty
+cowsay
 create_ap
 cron
 cryptsetup
@@ -78,9 +81,11 @@ gnome-keyring
 gnu-netcat
 gparted
 gperf
+gradle
 grep
 groff
 grub
+gtkglext
 gtk-theme-switch2
 gwenview
 gzip
@@ -110,6 +115,7 @@ lshw
 lsof
 lvm2
 m4
+macchanger
 make
 man-db
 man-pages
@@ -132,6 +138,7 @@ nodejs
 noto-fonts-emoji
 npm
 ntfs-3g
+ntop
 numlockx
 nvidia
 opencv
@@ -157,9 +164,12 @@ pv
 pympd
 pyrit
 python
+python2-kivy
 python2-pip
 python-beautifulsoup4
+python-google-api-python-client
 python-ipdb
+python-kivy
 python-lxml
 python-matplotlib
 python-mccabe
@@ -177,6 +187,7 @@ python-virtualenv
 qbittorrent
 qemu
 qt5-imageformats
+ranger
 reaver
 redshift
 reiserfsprogs
@@ -185,6 +196,7 @@ ripgrep
 rofi
 rsync
 ruby
+ruby-rdoc
 sakura
 samba
 screenfetch
@@ -195,6 +207,7 @@ s-nail
 socat
 sox
 sshfs
+sshpass
 stow
 strace
 sudo
@@ -215,6 +228,7 @@ usbutils
 util-linux
 vi
 vlc
+w3m
 wget
 which
 wine_gecko
@@ -255,6 +269,7 @@ xorg-xcursorgen
 xorg-xdpyinfo
 xorg-xdriinfo
 xorg-xev
+xorg-xfontsel
 xorg-xgamma
 xorg-xhost
 xorg-xinit

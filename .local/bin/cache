@@ -4,7 +4,14 @@ if [ -z "$@" ]; then
 	exit 1
 fi
 
+if type "$@" 1>/dev/null 2>&1 ; then
+	true
+else
+	exit 1
+fi
+
 tmpfile=/tmp/"$@".tmp
+prevtmpfile=/tmp/"$@"-prev.tmp
 iCheck='ping -w0 -c1 google.com'
 
 if $iCheck > /dev/null 2>&1; then
@@ -13,6 +20,11 @@ if $iCheck > /dev/null 2>&1; then
 	dos2unix "$tmpfile" 2>/dev/null 1>/dev/null
 	# Remove starting line
 	output=$(tail -n+2 "$tmpfile")
+	if [ -f "$prevtmpfile" ]; then
+		prevoutput=$(cat "$prevtmpfile")
+	else
+		prevoutput=''
+	fi
 
 
 	# Commit to file
@@ -20,13 +32,17 @@ if $iCheck > /dev/null 2>&1; then
 
 	# Remove lastline from output
 	output=$(echo "$output" | head -n-1 -)
+	prevoutput=$(echo "$prevoutput" | head -n-1 -)
+
+	# diff <(echo "$output") <(echo "$prevoutput") 1>/dev/null 2>&1 || alarm
+	cp "$tmpfile" "$prevtmpfile"
 
 	if [ -z "$output" ]; then
 		rm "$tmpfile"
 		exit 0
 	fi
 
-	output=$(echo -e "$output\nLast updated Now")
+	output=$(echo -e "$output\n\nLast updated Now")
 
 	echo "$output"
 
