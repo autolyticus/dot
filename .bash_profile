@@ -11,6 +11,3 @@ export MAINFLUX_ID='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MjY1NjU4ODE
 if [ "$(basename "$(tty)")" = 'tty1' ]; then
 	startx
 fi
-
-e +qall
-vmtouch ~
