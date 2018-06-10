@@ -1,0 +1,1 @@
+/home/g/.config/fisherman/vte/functions/fish_preexec.fish

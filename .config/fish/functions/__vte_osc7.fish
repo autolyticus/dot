@@ -1,0 +1,1 @@
+/home/g/.config/fisherman/vte/functions/__vte_osc7.fish
