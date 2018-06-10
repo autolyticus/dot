@@ -741,9 +741,14 @@ if type fzf &>/dev/null; then
 
 	fi
 fi
-motdupdate
-if [ -f ~/.local/tempcd ]; then
-	. ~/.local/tempcd
-fi
+# motdupdate
+# if [ -f ~/.local/tempcd ]; then
+# 	. ~/.local/tempcd
+# fi
+
 xmodmap -e 'keycode 0x42=Escape' #remaps the keyboard so CAPS LOCK=ESC
+
+if [ -z "$BASH_EXECUTION_STRING" ] && [ "$SHLVL" -lt 3 ]; then
+	exec fish
+fi
 # ranger
