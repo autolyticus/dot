@@ -1,4 +1,2 @@
 #!/usr/bin/env bash
-# Author: Dolores Portalatin <hello@doloresportalatin.info>
-# Dependencies: imagemagick, i3lock-color-git, scrot, wmctrl (optional)
 i3lock-next "$@"

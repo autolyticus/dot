@@ -51,6 +51,8 @@ stty -ixon
 # Note: bind used instead of sticking these in .inputrc
 # if [[ $iatest > 0 ]]; then bind "set completion-ignore-case on"; fi
 
+alias pd='builtin cd -'
+
 cd() {
 	if [ -z "$@" ]; then
 		builtin cd - &>/dev/null
@@ -243,21 +245,19 @@ zat() {
 	fi
 }
 
-alias systemctl='sudo systemctl'
-alias srestart='systemctl restart'
-alias status='systemctl status'
-alias senable='systemctl enable'
-alias senable='systemctl enable'
-alias ard='sudo arduino & disown'
+# alias systemctl='sudo systemctl'
+# alias srestart='systemctl restart'
+# alias status='systemctl status'
+# alias senable='systemctl enable'
 alias netctl='sudo netctl'
-alias dstart='sudo systemctl restart docker'
+# alias dstart='sudo systemctl restart docker'
 alias adb='sudo adb'
 alias adbsh='sudo adb shell'
 alias wifi-menu='sudo wifi-menu'
 alias wireshark='sudo wireshark'
 alias ip='sudo ip'
 alias ipa='sudo ip a'
-alias asdr='sudo systemctl restart asd-resync'
+# alias asdr='sudo systemctl restart asd-resync'
 alias pipi='pip install --user'
 
 #alias sudo='sudo -HE'
@@ -296,7 +296,7 @@ refresh() {
 # alias dsh='sudo docker exec -it bash'
 # alias docker-compose='sudo docker-compose'
 alias compose='sudo docker-compose'
-alias cup='sudo systemctl start docker && sudo docker-compose up'
+# alias cup='sudo systemctl start docker && sudo docker-compose up'
 alias d='sudo docker'
 alias Dstop='sudo docker ps | cut -d\  -f 1 | tail +2 | xargs sudo docker kill'
 # alias cp='cp --reflink=auto'
@@ -329,7 +329,7 @@ alias multitail='multitail --no-repeat -c'
 alias freshclam='sudo freshclam'
 alias svi='sudo vi'
 alias reboot='sudo reboot'
-alias hibernate='(sleep 2; systemctl hibernate)&'
+# alias hibernate='(sleep 2; systemctl hibernate)&'
 alias vis='vim "+set si"'
 
 alias touchstart='xinput enable "$touchID"; xinput set-prop "$touchID" 315 1; xinput set-prop "$touchID" 324 1; xinput set-prop "$touchID" 306 1'
@@ -351,7 +351,7 @@ alias umntall='for i in /media/*; do sudo umount $i; done;'
 alias youtube-dl='youtube-dl --external-downloader aria2c'
 alias yd='youtube-dl -o '"'"'$DATAPART/Music/%(title)s.%(ext)s'"'"' -x --audio-format mp3 --audio-quality 0'
 alias ysync='yd -w $(cat /media/b/Backup/videos.txt)'
-alias netre='systemctl restart dhcpcd@eth0'
+# alias netre='systemctl restart dhcpcd@eth0'
 alias eat='eatmydata'
 alias tftp='secho "timeout 1\nrexmt 1\nmode octet" | tftp 127.0.0.1'
 alias mpcr='mpc update; mpc crop; mpc ls | mpc add'
@@ -414,7 +414,7 @@ alias rmd='rm  -rfv'
 
 # Alias's for multiple directory listing commands
 alias la='ls -Alh'               # show hidden files
-alias ls='ls -Fh --color=auto'   # add colors and file type extensions
+# alias ls='ls -Fh --color=auto'   # add colors and file type extensions
 alias lx='ls -lXBh'              # sort by extension
 alias lk='ls -lSrh'              # sort by size
 alias lc='ls -lcrh'              # sort by change time
