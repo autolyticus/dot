@@ -1,1 +1,1 @@
-/home/g/.config/fisherman/grc/functions/netstat.fish
+_grc_wrap netstat

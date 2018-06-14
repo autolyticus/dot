@@ -1,1 +1,1 @@
-/home/g/.config/fisherman/grc/functions/ps.fish
+_grc_wrap ps

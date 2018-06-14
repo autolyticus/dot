@@ -1,1 +1,3 @@
-/home/g/.config/fisherman/fasd/functions/sd.fish
+function sd -d "interactive directory selection"
+  command fasd -sid $argv
+end

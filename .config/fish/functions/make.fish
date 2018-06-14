@@ -1,1 +1,1 @@
-/home/g/.config/fisherman/grc/functions/make.fish
+_grc_wrap make

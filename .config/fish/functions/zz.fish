@@ -1,1 +1,3 @@
-/home/g/.config/fisherman/fasd/functions/zz.fish
+function zz -d "cd with interactive selection"
+  fasd_cd -di $argv
+end

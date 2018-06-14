@@ -1,1 +1,1 @@
-/home/g/.config/fisherman/grc/functions/gcc.fish
+_grc_wrap gcc

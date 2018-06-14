@@ -1,1 +1,1 @@
-/home/g/.config/fisherman/fasd/completions/zz.fish
+complete -c zz -a "(__fasd_print_completions -d)" -f -A

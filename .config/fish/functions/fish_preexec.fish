@@ -1,1 +1,3 @@
-/home/g/.config/fisherman/vte/functions/fish_preexec.fish
+function fish_preexec
+  __vte_osc7
+end

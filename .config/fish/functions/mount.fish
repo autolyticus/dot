@@ -1,1 +1,1 @@
-/home/g/.config/fisherman/grc/functions/mount.fish
+_grc_wrap mount

@@ -1,1 +1,3 @@
-/home/g/.config/fisherman/fasd/functions/d.fish
+function d -d "directory"
+  command fasd -d $argv
+end

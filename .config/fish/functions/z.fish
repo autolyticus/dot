@@ -1,1 +1,3 @@
-/home/g/.config/fisherman/fasd/functions/z.fish
+function z -d "cd, same functionality as j in autojump"
+  fasd_cd -d $argv
+end

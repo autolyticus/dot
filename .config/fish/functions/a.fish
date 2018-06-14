@@ -1,1 +1,3 @@
-/home/g/.config/fisherman/fasd/functions/a.fish
+function a -d "any"
+  command fasd -a $argv
+end

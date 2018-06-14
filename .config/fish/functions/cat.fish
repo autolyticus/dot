@@ -1,1 +1,1 @@
-/home/g/.config/fisherman/grc/functions/cat.fish
+_grc_wrap cat

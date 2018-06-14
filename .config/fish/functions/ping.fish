@@ -1,1 +1,1 @@
-/home/g/.config/fisherman/grc/functions/ping.fish
+_grc_wrap ping

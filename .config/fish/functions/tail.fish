@@ -1,1 +1,1 @@
-/home/g/.config/fisherman/grc/functions/tail.fish
+_grc_wrap tail

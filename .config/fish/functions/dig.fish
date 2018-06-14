@@ -1,1 +1,1 @@
-/home/g/.config/fisherman/grc/functions/dig.fish
+_grc_wrap dig
