@@ -26,3 +26,6 @@ clean:
 	chmod +x $@
 %.hs.out: %.hs
 	ghc -dynamic -outputdir /tmp/$@/ -o $@ $<
+%.coffee.out: %.coffee
+	cp $< $@
+	chmod +x $@

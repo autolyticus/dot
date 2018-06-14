@@ -245,6 +245,8 @@ alias systemctl='sudo systemctl'
 alias srestart='systemctl restart'
 alias status='systemctl status'
 alias senable='systemctl enable'
+alias senable='systemctl enable'
+alias ard='sudo arduino & disown'
 alias netctl='sudo netctl'
 alias dstart='sudo systemctl restart docker'
 alias adb='sudo adb'
@@ -353,7 +355,7 @@ alias tftp='secho "timeout 1\nrexmt 1\nmode octet" | tftp 127.0.0.1'
 alias mpcr='mpc update; mpc crop; mpc ls | mpc add'
 
 gitcl() {
-	if (echo "$@" | grep github); then
+	if (echo "$@" | grep com); then
 		git clone "$@"
 	else
 		git clone ssh://git@github.com/"$@"
@@ -597,6 +599,8 @@ fe() {
 	[[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
 
+
+
 #######################################################
 # Set the ultimate amazing command prompt
 #######################################################
@@ -718,6 +722,10 @@ __setprompt() {
 
 	# PS4 is used for tracing a script in debug mode
 	PS4='\[${DARKGRAY}\]+\[${NOCOLOR}\] '
+	if [[ $TERM == xterm-termite ]]; then
+		. /etc/profile.d/vte.sh
+		__vte_prompt_command
+	fi
 }
 PROMPT_COMMAND='__setprompt'
 

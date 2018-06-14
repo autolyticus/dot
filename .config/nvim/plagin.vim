@@ -19,6 +19,8 @@
 	map N <Plug>(easymotion-prev)
 " endif
 
+nnoremap <silent> <Space>a :ArgWrap<CR>
+
 " Accelerated j/k
 if has_key(plugs, 'accelerated-jk')
 	let g:accelerated_jk_acceleration_table=[30, 50]
@@ -33,6 +35,7 @@ let g:go_list_type = "quickfix"
 " if exists('g:loaded_ale')
 	" let g:ale_c_gcc_options = '-std=gnu11 -Wall'
 	let g:ale_linters = {
+				\	'arduino': ['clang', 'flawfinder', 'clang-tidy'],
 				\	'c': ['clang', 'flawfinder', 'clang-tidy'],
 				\	'cpp': ['clang', 'flawfinder', 'clang-tidy'],
 				\	'python': ['pyflakes', 'pyls'],

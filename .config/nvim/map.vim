@@ -57,6 +57,11 @@ map <expr> <Space>q &mod ? ':q!' : ':q<CR>'
 map <Space>` :w<CR>
 map <Space>w <C-w>
 autocmd BufWinEnter,WinEnter,BufNewFile term://* startinsert
+autocmd BufWinEnter quickfix nnoremap <silent> <buffer>
+			\   q :cclose<cr>:lclose<cr>
+autocmd BufEnter * if (winnr('$') == 1 && &buftype ==# 'quickfix' ) |
+			\   bd|
+			\   q | endif
 
 map <F5> :w<CR>:execute<Space>g:mp<CR>
 
