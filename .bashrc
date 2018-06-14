@@ -149,8 +149,10 @@ alias smn='ssh -Y root@mnHost'
 export pi=192.168.12.123
 export piy5=192.168.1.7
 
+export droplet=reisub.ddns.net
 alias spi="ssh -Y root@$pi"
 alias spiy5="ssh -Y root@$piy5"
+alias sdrop="ssh -Y root@$droplet"
 
 mntpifs() {
 	sudo mkdir -p /rpi
