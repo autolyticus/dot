@@ -51,6 +51,8 @@ stty -ixon
 # Note: bind used instead of sticking these in .inputrc
 # if [[ $iatest > 0 ]]; then bind "set completion-ignore-case on"; fi
 
+alias pd='builtin cd -'
+
 cd() {
 	if [ -z "$@" ]; then
 		builtin cd - &>/dev/null
@@ -149,10 +151,8 @@ alias smn='ssh -Y root@mnHost'
 export pi=192.168.12.123
 export piy5=192.168.1.7
 
-export droplet=reisub.ddns.net
 alias spi="ssh -Y root@$pi"
 alias spiy5="ssh -Y root@$piy5"
-alias sdrop="ssh -Y root@$droplet"
 
 mntpifs() {
 	sudo mkdir -p /rpi
@@ -174,34 +174,35 @@ alias py2on='workon py2env'
 alias py2off='deactivate'
 # alias gdrived=''
 
-pacInstall() {
+get_latest_release() {
+  curl --silent "https://api.github.com/repos/$1/releases/latest" | # Get latest release from GitHub api
+    grep '"tag_name":' |                                            # Get tag line
+    sed -E 's/.*"([^"]+)".*/\1/'                                    # Pluck JSON value
+}
+
+pakInstall() {
 	# Create a tmp-working-dir and navigate into it
-	mkdir -p /tmp/pacaur_install
-	cd /tmp/pacaur_install || return
+	mkdir -p /tmp/pakku
+	cd /tmp/pakku || return
+
 
 	# If you didn't install the "base-devel" group,
 	# we'll need those.
-	sudo pacman -S binutils make gcc fakeroot pkg-config --noconfirm --needed
-
-	# Install pacaur dependencies from arch repos
-	sudo pacman -S expac yajl git --noconfirm --needed
-
-	# Install "cower" from AUR
-	if [ ! -n "$(pacman -Qs cower)" ]; then
-		curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=cower
-		makepkg PKGBUILD --skippgpcheck --install --needed --noconfirm
-	fi
+	sudo pacman -S nim base-devel --needed
 
 	# Install "pacaur" from AUR
-	if [ ! -n "$(pacman -Qs pacaur)" ]; then
-		curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=pacaur
-		makepkg PKGBUILD --install --needed --noconfirm
+	if [ ! -n "$(pacman -Qs pakku)" ]; then
+		git clone https://aur.archlinux.org/pakku.git
+		cd pakku
+		makepkg -si
 	fi
 
 	# Clean up...
 	cd ~ || return
-	rm -r /tmp/pacaur_install
+	echo "Cleaning up"
+	rm -rv /tmp/pakku
 }
+
 
 gdrived() {
 	gdrive sync upload "$@" 0Bzq5TQN2ywxsNFhtaU1LUWNWQTQ
@@ -243,21 +244,19 @@ zat() {
 	fi
 }
 
-alias systemctl='sudo systemctl'
-alias srestart='systemctl restart'
-alias status='systemctl status'
-alias senable='systemctl enable'
-alias senable='systemctl enable'
-alias ard='sudo arduino & disown'
+# alias systemctl='sudo systemctl'
+# alias srestart='systemctl restart'
+# alias status='systemctl status'
+# alias senable='systemctl enable'
 alias netctl='sudo netctl'
-alias dstart='sudo systemctl restart docker'
+# alias dstart='sudo systemctl restart docker'
 alias adb='sudo adb'
 alias adbsh='sudo adb shell'
 alias wifi-menu='sudo wifi-menu'
 alias wireshark='sudo wireshark'
 alias ip='sudo ip'
 alias ipa='sudo ip a'
-alias asdr='sudo systemctl restart asd-resync'
+# alias asdr='sudo systemctl restart asd-resync'
 alias pipi='pip install --user'
 
 #alias sudo='sudo -HE'
@@ -296,7 +295,7 @@ refresh() {
 # alias dsh='sudo docker exec -it bash'
 # alias docker-compose='sudo docker-compose'
 alias compose='sudo docker-compose'
-alias cup='sudo systemctl start docker && sudo docker-compose up'
+# alias cup='sudo systemctl start docker && sudo docker-compose up'
 alias d='sudo docker'
 alias Dstop='sudo docker ps | cut -d\  -f 1 | tail +2 | xargs sudo docker kill'
 # alias cp='cp --reflink=auto'
@@ -329,7 +328,7 @@ alias multitail='multitail --no-repeat -c'
 alias freshclam='sudo freshclam'
 alias svi='sudo vi'
 alias reboot='sudo reboot'
-alias hibernate='(sleep 2; systemctl hibernate)&'
+# alias hibernate='(sleep 2; systemctl hibernate)&'
 alias vis='vim "+set si"'
 
 alias touchstart='xinput enable "$touchID"; xinput set-prop "$touchID" 315 1; xinput set-prop "$touchID" 324 1; xinput set-prop "$touchID" 306 1'
@@ -351,7 +350,7 @@ alias umntall='for i in /media/*; do sudo umount $i; done;'
 alias youtube-dl='youtube-dl --external-downloader aria2c'
 alias yd='youtube-dl -o '"'"'$DATAPART/Music/%(title)s.%(ext)s'"'"' -x --audio-format mp3 --audio-quality 0'
 alias ysync='yd -w $(cat /media/b/Backup/videos.txt)'
-alias netre='systemctl restart dhcpcd@eth0'
+# alias netre='systemctl restart dhcpcd@eth0'
 alias eat='eatmydata'
 alias tftp='secho "timeout 1\nrexmt 1\nmode octet" | tftp 127.0.0.1'
 alias mpcr='mpc update; mpc crop; mpc ls | mpc add'
@@ -414,7 +413,7 @@ alias rmd='rm  -rfv'
 
 # Alias's for multiple directory listing commands
 alias la='ls -Alh'               # show hidden files
-alias ls='ls -Fh --color=auto'   # add colors and file type extensions
+# alias ls='ls -Fh --color=auto'   # add colors and file type extensions
 alias lx='ls -lXBh'              # sort by extension
 alias lk='ls -lSrh'              # sort by size
 alias lc='ls -lcrh'              # sort by change time
@@ -741,9 +740,15 @@ if type fzf &>/dev/null; then
 
 	fi
 fi
-motdupdate
-if [ -f ~/.local/tempcd ]; then
-	. ~/.local/tempcd
+# motdupdate
+# if [ -f ~/.local/tempcd ]; then
+# 	. ~/.local/tempcd
+# fi
+
+xmodmap -e 'keycode 0x42=Escape' #remaps the keyboard so CAPS LOCK=ESC
+
+if [ -z "$BASH_EXECUTION_STRING" ] && [ "$SHLVL" -lt 3 ]; then
+	exec fish
 fi
 xmodmap -e 'keycode 0x42=Escape' #remaps the keyboard so CAPS LOCK=ESC
 # ranger

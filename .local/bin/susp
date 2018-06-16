@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+
+sleeper() {
+	locker
+	sleep 2 &&
+	sudo "$@"
+}
+
+if (type zzz); then
+	sleeper zzz
+else if (type systemctl); then
+		sleeper systemctl suspend
+	else
+		sleeper pm-suspend
+	fi
+fi

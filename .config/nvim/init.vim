@@ -93,4 +93,3 @@ source ~/.config/nvim/plug.vim
 source ~/.config/nvim/pls.vim
 source ~/.config/nvim/plagin.vim
 source ~/.config/nvim/interface.vim
-source ~/.config/nvim/post.vim

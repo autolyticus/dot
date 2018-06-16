@@ -1,32 +1,19 @@
-" Easy-motion remap
-" if exists('g:EasyMotion_loaded')
-	let g:EasyMotion_do_mapping = 0
-	let g:EasyMotion_smartcase = 1
-	let g:EasyMotion_enter_jump_first = 1
-	let g:EasyMotion_space_jump_first = 1
-	" let g:EasyMotion_inc_highlight = 0
-	map <Space>f <Plug>(easymotion-f)
-	map <Space><Space> <Plug>(easymotion-s)
-	map <Space>s <Plug>(easymotion-s2)
-	map <Space>t <Plug>(easymotion-t)
-	map <Space>j <Plug>(easymotion-j)
-	map <Space>k <Plug>(easymotion-k)
-	" These `n` & `N` map[pings[ are options.] You] do not have to map `n` & `N` to EasyMotion.
-	" Without these mappings, `n` & `N` works fine. (These mappings just provide
-	" different highlight method and have some other features )
-	map / <Plug>(easymotion-sn)
-	map n <Plug>(easymotion-next)
-	map N <Plug>(easymotion-prev)
-" endif
+" Check if plugin is loaded, The only reliable way to do it
+function! PlagCheck(plg)
+	let l:searchReg = 'v:val =~? "' . a:plg . '"'
+	" echom l:searchReg
+	let l:nMatches = len(filter(split(execute(':scriptnames'), "\n"), l:searchReg))
+	" let l:nMatches = split(execute('echo &rtp'), "\n")
+	" echom string(l:nMatches)
+	if l:nMatches > 1
+		" echo "SUCCESS"
+		return 1
+	else
+		" echom "FAILED"
+		return 0
+	endif
+endfunction
 
-nnoremap <silent> <Space>a :ArgWrap<CR>
-
-" Accelerated j/k
-if has_key(plugs, 'accelerated-jk')
-	let g:accelerated_jk_acceleration_table=[30, 50]
-	nmap j <Plug>(accelerated_jk_gj)
-	nmap k <Plug>(accelerated_jk_gk)
-endif
 
 let g:go_metalinter_autosave = 0
 let g:go_fmt_autosave = 0
@@ -35,7 +22,6 @@ let g:go_list_type = "quickfix"
 " if exists('g:loaded_ale')
 	" let g:ale_c_gcc_options = '-std=gnu11 -Wall'
 	let g:ale_linters = {
-				\	'arduino': ['clang', 'flawfinder', 'clang-tidy'],
 				\	'c': ['clang', 'flawfinder', 'clang-tidy'],
 				\	'cpp': ['clang', 'flawfinder', 'clang-tidy'],
 				\	'python': ['pyflakes', 'pyls'],
@@ -110,12 +96,12 @@ endif
 
 " Neosnippet
 " if exists('g:loaded_neosnippet')
-	imap <C-k> <Plug>(neosnippet_expand_or_jump)
-	vmap <c-k> <Plug>(neosnippet_expand_or_jump)
-	smap <C-k> <Plug>(neosnippet_expand_or_jump)
-	inoremap <silent> <c-k> <c-r>=cm#sources#neosnippet#trigger_or_popup("\<Plug>(neosnippet_expand_or_jump)")<cr>
+	" imap <C-k> <Plug>(neosnippet_expand_or_jump)
+	" vmap <c-k> <Plug>(neosnippet_expand_or_jump)
+	" smap <C-k> <Plug>(neosnippet_expand_or_jump)
+	" inoremap <silent> <c-k> <c-r>=cm#sources#neosnippet#trigger_or_popup("\<Plug>(neosnippet_expand_or_jump)")<cr>
 	xmap <C-k> <Plug>(neosnippet_expand_target)
-	let g:neosnippet#enable_completed_snippet=1
+	" let g:neosnippet#enable_completed_snippet=1
 " endif
 
 " if exists('g:loaded_EasyClip')
@@ -135,43 +121,43 @@ endif
 " endif
 
 " LSP
-if has_key(plugs, 'LanguageClient-neovim')
-	set hidden
-	let g:LanguageClient_serverCommands = {
-		\ 'python': ['pyls'],
-		\ 'c': ['cquery'],
-		\ 'cpp': ['cquery', '--log-file=/tmp/cq.log'],
-		\ 'bash': ['bash-lanuguage-server'],
-		\ 'sh': ['bash-lanuguage-server'],
-		\ 'go': ['go-langserver'],
-		\ }
-		" \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-		" \ 'javascript': ['javascript-typescript-stdio'],
-		" \ 'javascript.jsx': ['javascript-typescript-stdio'],
-	let g:LanguageClient_loadSettings = 1
+" if has_key(plugs, 'LanguageClient-neovim')
+" 	set hidden
+" 	let g:LanguageClient_serverCommands = {
+" 		\ 'python': ['pyls'],
+" 		\ 'c': ['cquery'],
+" 		\ 'cpp': ['cquery', '--log-file=/tmp/cq.log'],
+" 		\ 'bash': ['bash-lanuguage-server'],
+" 		\ 'sh': ['bash-lanuguage-server'],
+" 		\ 'go': ['go-langserver'],
+" 		\ }
+" 		" \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+" 		" \ 'javascript': ['javascript-typescript-stdio'],
+" 		" \ 'javascript.jsx': ['javascript-typescript-stdio'],
+" 	let g:LanguageClient_loadSettings = 1
 
-	let g:LanguageClient_selectionUI = 'fzf'
-	let g:LanguageClient_settingsPath = '/home/g/.config/nvim/settings.json'
-	nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-	nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-	nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
-	" nnoremap <silent> * :call LanguageClient_textDocument_references()<CR>
-	set formatexpr='LanguageClient_textDocument_rangeFormatting()'
-endif
+" 	let g:LanguageClient_selectionUI = 'fzf'
+" 	let g:LanguageClient_settingsPath = '/home/g/.config/nvim/settings.json'
+" 	nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+" 	nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+" 	nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+" 	" nnoremap <silent> * :call LanguageClient_textDocument_references()<CR>
+" 	set formatexpr='LanguageClient_textDocument_rangeFormatting()'
+" endif
 
 " Neotags
-if exists('g:loaded_neotags')
-	let g:neotags#cpp#order = 'ced'
-	let g:neotags#c#order = 'ced'
-	let g:neotags_file = 'tags'
-	let g:neotags_ctags_args = ['--sort=yes', '--languages=C', '--languages=+C++', '--fields=+l', '--c-kinds=+p', '--c++-kinds=+p']
-	let g:neotags_enabled = 1
-	autocmd FileType c TagbarOpen
-	autocmd FileType python TagbarOpen
-	autocmd FileType cpp TagbarOpen
-	let g:tagbar_width = 20
-	nnoremap <silent> <F8> :TagbarToggle<CR>:NeotagsToggle<CR>
-endif
+" if exists('g:loaded_neotags')
+" 	let g:neotags#cpp#order = 'ced'
+" 	let g:neotags#c#order = 'ced'
+" 	let g:neotags_file = 'tags'
+" 	let g:neotags_ctags_args = ['--sort=yes', '--languages=C', '--languages=+C++', '--fields=+l', '--c-kinds=+p', '--c++-kinds=+p']
+" 	let g:neotags_enabled = 1
+" 	autocmd FileType c TagbarOpen
+" 	autocmd FileType python TagbarOpen
+" 	autocmd FileType cpp TagbarOpen
+" 	let g:tagbar_width = 20
+" 	nnoremap <silent> <F8> :TagbarToggle<CR>:NeotagsToggle<CR>
+" endif
 
 highlight link cTypeTag Special
 highlight link cppTypeTag Special
