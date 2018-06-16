@@ -174,33 +174,33 @@ alias py2on='workon py2env'
 alias py2off='deactivate'
 # alias gdrived=''
 
-pacInstall() {
+get_latest_release() {
+  curl --silent "https://api.github.com/repos/$1/releases/latest" | # Get latest release from GitHub api
+    grep '"tag_name":' |                                            # Get tag line
+    sed -E 's/.*"([^"]+)".*/\1/'                                    # Pluck JSON value
+}
+
+pakInstall() {
 	# Create a tmp-working-dir and navigate into it
-	mkdir -p /tmp/pacaur_install
-	cd /tmp/pacaur_install || return
+	mkdir -p /tmp/pakku
+	cd /tmp/pakku || return
+
 
 	# If you didn't install the "base-devel" group,
 	# we'll need those.
-	sudo pacman -S binutils make gcc fakeroot pkg-config --noconfirm --needed
-
-	# Install pacaur dependencies from arch repos
-	sudo pacman -S expac yajl git --noconfirm --needed
-
-	# Install "cower" from AUR
-	if [ ! -n "$(pacman -Qs cower)" ]; then
-		curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=cower
-		makepkg PKGBUILD --skippgpcheck --install --needed --noconfirm
-	fi
+	sudo pacman -S nim base-devel --needed
 
 	# Install "pacaur" from AUR
-	if [ ! -n "$(pacman -Qs pacaur)" ]; then
-		curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=pacaur
-		makepkg PKGBUILD --install --needed --noconfirm
+	if [ ! -n "$(pacman -Qs pakku)" ]; then
+		git clone https://aur.archlinux.org/pakku.git
+		cd pakku
+		makepkg -si
 	fi
 
 	# Clean up...
 	cd ~ || return
-	rm -r /tmp/pacaur_install
+	echo "Cleaning up"
+	rm -rv /tmp/pakku
 }
 
 gdrived() {
