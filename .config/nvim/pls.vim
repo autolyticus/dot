@@ -1,14 +1,15 @@
 call plug#begin('~/.config/nvim/plugins')
 	" AutoCompletion Framework
-	Plug 'roxma/nvim-completion-manager'
+	" Plug 'roxma/nvim-completion-manager'
 	Plug 'Shougo/neco-syntax'
 	Plug 'Shougo/neoinclude.vim'
-	Plug 'Shougo/neosnippet.vim' | Plug 'Shougo/neosnippet-snippets'
+	" Plug 'Shougo/neosnippet.vim' | Plug 'Shougo/neosnippet-snippets'
+	Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
 	Plug 'autozimu/LanguageClient-neovim', {
 		\ 'branch': 'next',
 		\ 'do': 'bash install.sh',
 		\ }
-	" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	" Plug 'zchee/deoplete-clang'
 	" Plug 'zchee/deoplete-go', {'do' : 'make' }
 	" Plug 'zchee/deoplete-jedi'

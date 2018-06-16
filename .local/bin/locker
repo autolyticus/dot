@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-i3lock-next "$@"
+i3lock-next "Type password to unlock" "Source Sans Pro" "20" "$@"
