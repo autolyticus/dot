@@ -85,6 +85,7 @@ if exists('g:loaded_deoplete')
 	let g:deoplete#enable_at_startup = 1
 	" let g:deoplete#auto_complete_delay = 25
 	call deoplete#custom#set('neosnippet', 'rank', 1000)
+	call deoplete#custom#set('neosnippet', 'rank', 1000)
 	inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 	autocmd CompleteDone * pclose " To close preview window of deoplete automagically
 	" let g:deoplete#sources#clang#libclang_path='/usr/lib/libclang.so'
@@ -110,12 +111,12 @@ endif
 
 " Neosnippet
 " if exists('g:loaded_neosnippet')
-	imap <C-k> <Plug>(neosnippet_expand_or_jump)
-	vmap <c-k> <Plug>(neosnippet_expand_or_jump)
-	smap <C-k> <Plug>(neosnippet_expand_or_jump)
-	inoremap <silent> <c-k> <c-r>=cm#sources#neosnippet#trigger_or_popup("\<Plug>(neosnippet_expand_or_jump)")<cr>
+	" imap <C-k> <Plug>(neosnippet_expand_or_jump)
+	" vmap <c-k> <Plug>(neosnippet_expand_or_jump)
+	" smap <C-k> <Plug>(neosnippet_expand_or_jump)
+	" inoremap <silent> <c-k> <c-r>=cm#sources#neosnippet#trigger_or_popup("\<Plug>(neosnippet_expand_or_jump)")<cr>
 	xmap <C-k> <Plug>(neosnippet_expand_target)
-	let g:neosnippet#enable_completed_snippet=1
+	" let g:neosnippet#enable_completed_snippet=1
 " endif
 
 " if exists('g:loaded_EasyClip')
@@ -135,43 +136,43 @@ endif
 " endif
 
 " LSP
-if has_key(plugs, 'LanguageClient-neovim')
-	set hidden
-	let g:LanguageClient_serverCommands = {
-		\ 'python': ['pyls'],
-		\ 'c': ['cquery'],
-		\ 'cpp': ['cquery', '--log-file=/tmp/cq.log'],
-		\ 'bash': ['bash-lanuguage-server'],
-		\ 'sh': ['bash-lanuguage-server'],
-		\ 'go': ['go-langserver'],
-		\ }
-		" \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-		" \ 'javascript': ['javascript-typescript-stdio'],
-		" \ 'javascript.jsx': ['javascript-typescript-stdio'],
-	let g:LanguageClient_loadSettings = 1
+" if has_key(plugs, 'LanguageClient-neovim')
+" 	set hidden
+" 	let g:LanguageClient_serverCommands = {
+" 		\ 'python': ['pyls'],
+" 		\ 'c': ['cquery'],
+" 		\ 'cpp': ['cquery', '--log-file=/tmp/cq.log'],
+" 		\ 'bash': ['bash-lanuguage-server'],
+" 		\ 'sh': ['bash-lanuguage-server'],
+" 		\ 'go': ['go-langserver'],
+" 		\ }
+" 		" \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+" 		" \ 'javascript': ['javascript-typescript-stdio'],
+" 		" \ 'javascript.jsx': ['javascript-typescript-stdio'],
+" 	let g:LanguageClient_loadSettings = 1
 
-	let g:LanguageClient_selectionUI = 'fzf'
-	let g:LanguageClient_settingsPath = '/home/g/.config/nvim/settings.json'
-	nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-	nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-	nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
-	" nnoremap <silent> * :call LanguageClient_textDocument_references()<CR>
-	set formatexpr='LanguageClient_textDocument_rangeFormatting()'
-endif
+" 	let g:LanguageClient_selectionUI = 'fzf'
+" 	let g:LanguageClient_settingsPath = '/home/g/.config/nvim/settings.json'
+" 	nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+" 	nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+" 	nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+" 	" nnoremap <silent> * :call LanguageClient_textDocument_references()<CR>
+" 	set formatexpr='LanguageClient_textDocument_rangeFormatting()'
+" endif
 
 " Neotags
-if exists('g:loaded_neotags')
-	let g:neotags#cpp#order = 'ced'
-	let g:neotags#c#order = 'ced'
-	let g:neotags_file = 'tags'
-	let g:neotags_ctags_args = ['--sort=yes', '--languages=C', '--languages=+C++', '--fields=+l', '--c-kinds=+p', '--c++-kinds=+p']
-	let g:neotags_enabled = 1
-	autocmd FileType c TagbarOpen
-	autocmd FileType python TagbarOpen
-	autocmd FileType cpp TagbarOpen
-	let g:tagbar_width = 20
-	nnoremap <silent> <F8> :TagbarToggle<CR>:NeotagsToggle<CR>
-endif
+" if exists('g:loaded_neotags')
+" 	let g:neotags#cpp#order = 'ced'
+" 	let g:neotags#c#order = 'ced'
+" 	let g:neotags_file = 'tags'
+" 	let g:neotags_ctags_args = ['--sort=yes', '--languages=C', '--languages=+C++', '--fields=+l', '--c-kinds=+p', '--c++-kinds=+p']
+" 	let g:neotags_enabled = 1
+" 	autocmd FileType c TagbarOpen
+" 	autocmd FileType python TagbarOpen
+" 	autocmd FileType cpp TagbarOpen
+" 	let g:tagbar_width = 20
+" 	nnoremap <silent> <F8> :TagbarToggle<CR>:NeotagsToggle<CR>
+" endif
 
 highlight link cTypeTag Special
 highlight link cppTypeTag Special
