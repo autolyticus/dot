@@ -205,6 +205,7 @@ pakInstall() {
 	rm -rv /tmp/pakku
 }
 
+
 gdrived() {
 	gdrive sync upload "$@" 0Bzq5TQN2ywxsNFhtaU1LUWNWQTQ
 }
@@ -751,4 +752,5 @@ xmodmap -e 'keycode 0x42=Escape' #remaps the keyboard so CAPS LOCK=ESC
 if [ -z "$BASH_EXECUTION_STRING" ] && [ "$SHLVL" -le 3 ]; then
 	exec fish
 fi
+xmodmap -e 'keycode 0x42=Escape' #remaps the keyboard so CAPS LOCK=ESC
 # ranger
