@@ -1,21 +1,18 @@
 [submodule ".config/termite"]
 	path = .config/termite
-	url = /home/g/.config/termite
+	url = git@gitlab.com:reisub0/termite-color
 [submodule ".config/fisherman/bass"]
 	path = .config/fisherman/bass
-	url = /home/g/.config/fisherman/bass/
+	url = git@github.com:fisherman/bass
 [submodule ".config/fisherman/bobthefish"]
 	path = .config/fisherman/bobthefish
-	url = /home/g/.config/fisherman/bobthefish/
+	url = git@github.com:fisherman/bobthefish
 [submodule ".config/fisherman/fasd"]
 	path = .config/fisherman/fasd
-	url = /home/g/.config/fisherman/fasd/
+	url = git@github.com:fisherman/fasd
 [submodule ".config/fisherman/grc"]
 	path = .config/fisherman/grc
-	url = /home/g/.config/fisherman/grc
+	url = git@github.com:fisherman/gr
 [submodule ".config/fisherman/vte"]
 	path = .config/fisherman/vte
-	url = /home/g/.config/fisherman/vte
-[submodule ".config/fish/termite"]
-	path = .config/fish/termite
-	url = /home/g/.config/termite
+	url = git@github.com:fisherman/vt
