@@ -1,32 +1,19 @@
-" Easy-motion remap
-" if exists('g:EasyMotion_loaded')
-	let g:EasyMotion_do_mapping = 0
-	let g:EasyMotion_smartcase = 1
-	let g:EasyMotion_enter_jump_first = 1
-	let g:EasyMotion_space_jump_first = 1
-	" let g:EasyMotion_inc_highlight = 0
-	map <Space>f <Plug>(easymotion-f)
-	map <Space><Space> <Plug>(easymotion-s)
-	map <Space>s <Plug>(easymotion-s2)
-	map <Space>t <Plug>(easymotion-t)
-	map <Space>j <Plug>(easymotion-j)
-	map <Space>k <Plug>(easymotion-k)
-	" These `n` & `N` map[pings[ are options.] You] do not have to map `n` & `N` to EasyMotion.
-	" Without these mappings, `n` & `N` works fine. (These mappings just provide
-	" different highlight method and have some other features )
-	map / <Plug>(easymotion-sn)
-	map n <Plug>(easymotion-next)
-	map N <Plug>(easymotion-prev)
-" endif
+" Check if plugin is loaded, The only reliable way to do it
+function! PlagCheck(plg)
+	let l:searchReg = 'v:val =~? "' . a:plg . '"'
+	" echom l:searchReg
+	let l:nMatches = len(filter(split(execute(':scriptnames'), "\n"), l:searchReg))
+	" let l:nMatches = split(execute('echo &rtp'), "\n")
+	" echom string(l:nMatches)
+	if l:nMatches > 1
+		" echo "SUCCESS"
+		return 1
+	else
+		" echom "FAILED"
+		return 0
+	endif
+endfunction
 
-nnoremap <silent> <Space>a :ArgWrap<CR>
-
-" Accelerated j/k
-if has_key(plugs, 'accelerated-jk')
-	let g:accelerated_jk_acceleration_table=[30, 50]
-	nmap j <Plug>(accelerated_jk_gj)
-	nmap k <Plug>(accelerated_jk_gk)
-endif
 
 let g:go_metalinter_autosave = 0
 let g:go_fmt_autosave = 0
@@ -35,7 +22,6 @@ let g:go_list_type = "quickfix"
 " if exists('g:loaded_ale')
 	" let g:ale_c_gcc_options = '-std=gnu11 -Wall'
 	let g:ale_linters = {
-				\	'arduino': ['clang', 'flawfinder', 'clang-tidy'],
 				\	'c': ['clang', 'flawfinder', 'clang-tidy'],
 				\	'cpp': ['clang', 'flawfinder', 'clang-tidy'],
 				\	'python': ['pyflakes', 'pyls'],
