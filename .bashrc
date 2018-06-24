@@ -748,7 +748,7 @@ fi
 
 xmodmap -e 'keycode 0x42=Escape' #remaps the keyboard so CAPS LOCK=ESC
 
-if [ -z "$BASH_EXECUTION_STRING" ] && [ "$SHLVL" -lt 3 ]; then
+if [ -z "$BASH_EXECUTION_STRING" ] && [ "$SHLVL" -le 3 ]; then
 	exec fish
 fi
 # ranger
