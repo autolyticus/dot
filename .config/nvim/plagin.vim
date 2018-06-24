@@ -87,7 +87,7 @@ endif
 " if has_key(plugs, 'nvim-completion-manager')
 	" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 	" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-	" inoremap <silent> <c-k> <c-r>=cm#sources#neosnippet#trigger_or_popup("\<Plug>(neosnippet_expand_or_jump)")<cr>
+	inoremap <silent> <c-k> <c-r>=cm#sources#neosnippet#trigger_or_popup("\<Plug>(neosnippet_expand_or_jump)")<cr>
 	set shortmess+=c
 	let g:cm_completeopt='menuone,noinsert,noselect,preview'
 	autocmd CompleteDone * pclose " To close preview window of deoplete automagically
