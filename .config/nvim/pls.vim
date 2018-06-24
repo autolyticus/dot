@@ -1,6 +1,6 @@
 call plug#begin('~/.config/nvim/plugins')
 	" AutoCompletion Framework
-	" Plug 'roxma/nvim-completion-manager'
+	Plug 'roxma/nvim-completion-manager'
 	Plug 'Shougo/neco-syntax'
 	Plug 'Shougo/neoinclude.vim'
 	Plug 'Shougo/neosnippet.vim' | Plug 'Shougo/neosnippet-snippets' | Plug 'honza/vim-snippets'
