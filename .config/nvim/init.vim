@@ -40,6 +40,8 @@ set timeoutlen=2000
 set ts=4
 set shiftwidth=4
 set softtabstop=4
+set expandtab
+
 set lazyredraw
 set updatetime=2000
 " set rnu
