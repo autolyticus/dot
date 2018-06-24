@@ -62,7 +62,7 @@ run_once({
         "unclutter -root",
         "nm-applet", "numlockx",
         "mpd",
-        "delLock",
+        -- "delLock",
         "rescuetime",
         "conky",
         "redshift -l 20.5937:78.9629",
