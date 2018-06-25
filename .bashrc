@@ -747,3 +747,7 @@ if [ -f ~/.local/tempcd ]; then
 fi
 xmodmap -e 'keycode 0x42=Escape' #remaps the keyboard so CAPS LOCK=ESC
 # ranger
+
+if [ "$SHLVL" -le 3 ]; then
+	exec fish
+fi
