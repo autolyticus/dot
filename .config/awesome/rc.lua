@@ -62,7 +62,7 @@ run_once({
         "unclutter -root",
         "nm-applet", "numlockx",
         "mpd",
-        "delLock",
+        -- "delLock",
         "rescuetime",
         "conky",
         "redshift -l 20.5937:78.9629",
@@ -91,7 +91,7 @@ altkey       = "Mod1"
 terminal     = "termite"
 editor       = os.getenv("EDITOR") or "nano"
 gui_editor   = "termite -e -- nvim"
-browser      = "chromium"
+browser      = "firefox"
 guieditor    = "oni"
 
 awful.util.terminal = terminal

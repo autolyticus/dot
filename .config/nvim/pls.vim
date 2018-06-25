@@ -13,7 +13,6 @@ call plug#begin('~/.config/nvim/plugins')
 	" Plug 'zchee/deoplete-go', {'do' : 'make' }
 	" Plug 'zchee/deoplete-jedi'
 	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-	Plug 'stevearc/vim-arduino'
 	" Plug 'ervandew/supertab'
 
 	" Linters/Builders

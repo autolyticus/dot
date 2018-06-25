@@ -1,4 +1,2 @@
 #!/usr/bin/env bash
-# Author: Dolores Portalatin <hello@doloresportalatin.info>
-# Dependencies: imagemagick, i3lock-color-git, scrot, wmctrl (optional)
-i3lock-next "$@"
+i3lock-next "Type password to unlock" "Source Sans Pro" "20" "$@"

@@ -40,6 +40,8 @@ set timeoutlen=2000
 set ts=4
 set shiftwidth=4
 set softtabstop=4
+set expandtab
+
 set lazyredraw
 set updatetime=2000
 " set rnu
@@ -93,4 +95,3 @@ source ~/.config/nvim/plug.vim
 source ~/.config/nvim/pls.vim
 source ~/.config/nvim/plagin.vim
 source ~/.config/nvim/interface.vim
-source ~/.config/nvim/post.vim
