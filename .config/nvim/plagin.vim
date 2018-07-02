@@ -32,6 +32,7 @@ let g:go_list_type = "quickfix"
 	" let airline#extensions#ale#error_symbol = '⨉ '
 	" let airline#extensions#ale#warning_symbol = '⚠ '
 	let g:ale_fixers = {
+				\	'arduino': ['clang-format'],
 				\	'c': ['clang-format'],
 				\	'cpp': ['clang-format'],
 				\	'go': ['gofmt'],

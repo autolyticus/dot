@@ -91,7 +91,7 @@ altkey       = "Mod1"
 terminal     = "termite"
 editor       = os.getenv("EDITOR") or "nano"
 gui_editor   = "termite -e -- nvim"
-browser      = "firefox"
+browser      = "chromium"
 guieditor    = "oni"
 
 awful.util.terminal = terminal
