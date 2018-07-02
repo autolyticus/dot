@@ -26,4 +26,5 @@ if PlagCheck('ale')
 	let g:ale_fix_on_save = 1
 	nmap <silent> <F4> <Plug>(ale_next_wrap)
 	nmap <silent> <F12> :ALEToggle<CR>
+    let g:ale_completion_enabled = 1
 endif

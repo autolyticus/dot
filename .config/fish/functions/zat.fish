@@ -1,6 +1,6 @@
 function zat
     if test -z "$argv"
-      set fileToView (find . -regex '.*\.pdf' -type f | fzf)
+      set fileToView (bfs . -regex '.*\.pdf' -type f | fzf)
       echo "zathura $fileToView"
       zathura "$fileToView"
       endif

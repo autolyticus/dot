@@ -66,24 +66,6 @@ let g:go_list_type = "quickfix"
 	let g:neomake_enabled_makers=[]
 " endif
 
-" Deoplete
-if exists('g:loaded_deoplete')
-	let g:deoplete#enable_at_startup = 1
-	" let g:deoplete#auto_complete_delay = 25
-	call deoplete#custom#set('neosnippet', 'rank', 1000)
-	call deoplete#custom#set('neosnippet', 'rank', 1000)
-	inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-	autocmd CompleteDone * pclose " To close preview window of deoplete automagically
-	" let g:deoplete#sources#clang#libclang_path='/usr/lib/libclang.so'
-	" let g:deoplete#sources#clang#clang_header='/usr/lib/clang'
-	inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
-	inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
-	inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-	function! s:my_cr_function() abort
-		return deoplete#close_popup() . "\<CR>"
-	endfunction
-endif
-
 " nvim-completion-manager
 " if has_key(plugs, 'nvim-completion-manager')
 	" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"

@@ -35,9 +35,9 @@ fi
 # xrandr --setprovideroutputsource modesetting NVIDIA-0
 xrandr --auto
 xrandr --dpi 96
-xrandr --output HDMI-1-1 --mode 1600x900
 # xrandr --output eDP-1-1 --off
 if [ $(xrandr --listmonitors | wc -l) -eq 3 ]; then
+	xrandr --output HDMI-1-1 --mode 1600x900
 	xrandr --output eDP-1-1 --off
 	xrandr --output eDP-1 --off
 	# true

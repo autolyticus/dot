@@ -590,6 +590,18 @@ trim() {
 	echo -n "$var"
 }
 
+rpiBackup() {
+	sudo mount /media/rpi &&
+	sudo rsync -aAXvr --partial /media/rpi / --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/tmp,/var/tmp/*,/run/*,/mnt/*,/media/*,/lost+found,/var,/home/g/Downloads,/boot,'*.cache*'}
+	sudo umount /media/rpi
+}
+
+rpiRestore() {
+	sudo mount /media/rpi &&
+	sudo rsync -aAXvr --partial /rpi /media/ --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/tmp,/var/tmp/*,/run/*,/mnt/*,/media/*,/lost+found,/var,/home/g/Downloads,/boot,'*.cache*'}
+	sudo umount /media/rpi
+}
+
 backup() {
 	sudo mount /media/LBackup &&
 	sudo rsync -aAXvr --partial /* /media/LBackup --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/tmp,/var/tmp/*,/run/*,/mnt/*,/media/*,/lost+found,/var,/home/g/Downloads,/boot,'*.cache*'}
