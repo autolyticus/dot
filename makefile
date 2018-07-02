@@ -30,4 +30,4 @@ clean:
 	cp $< $@
 	chmod +x $@
 %.nim.out: %.nim
-	nim c --nimcache:~/.nimcache --parallelbuild:0 --debugger:native -o:"$@" $<
+	nim c --nimcache:/home/g/.nimcache --threads:on --parallelbuild:0 --debugger:native -o:"$@" $<
