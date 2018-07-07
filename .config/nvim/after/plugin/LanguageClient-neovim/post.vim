@@ -19,7 +19,7 @@ if PlagCheck('LanguageClient-neovim')
 		\ 'bash': ['bash-lanuguage-server'],
 		\ 'sh': ['bash-lanuguage-server'],
 		\ 'go': ['go-langserver'],
-		\ 'dart': ['dart_language_server'],'
+		\ 'dart': ['dart_language_server'],
 		\ }
 		" \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
 		" \ 'javascript': ['javascript-typescript-stdio'],
