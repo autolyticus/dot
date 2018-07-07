@@ -10,6 +10,7 @@ syntax on
 " if (has("termguicolors"))
 " 	set termguicolors
 " endif
+
 " augroup interface
 " 	autocmd ColorScheme onedark highlight Normal guibg=#090909 ctermbg=232
 " augroup END
@@ -18,18 +19,19 @@ syntax on
 " autocmd ColorScheme base16-gruvbox-hard highlight Normal guibg=#111111 ctermbg=242
 " let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16" : "7" }
 " autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": s:white }) " `bg` will not be styled since there is no `bg` setting
-" let g:onedark_termcolors=16
-set background=dark
-
+" let g:CSApprox_attr_map = { 'bold' : 'bold', 'italic' : '', 'sp' : '' }
+set t_Co=256
+let g:onedark_termcolors=256
 source ~/.config/nvim/colo.vim
+let g:onedark_termcolors=256
+" set background=dark
+set t_Co=256
+
 let g:airline_powerline_fonts = 1
-let g:airline_theme="alduin"
+" let g:airline_theme="alduin"
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 " let g:airline#extensions#tabline#buffer_nr_show = 1
-" colorscheme base16-gruvbox-dark-hard
-" colorscheme base16-paraiso
-" colorscheme onedark
 " highlight Normal guibg=#111111 ctermbg=232
 " highlight Normal guibg=#090909 ctermbg=232
 " set cursorline

@@ -759,9 +759,10 @@ fi
 # 	. ~/.local/tempcd
 # fi
 
-xmodmap -e 'keycode 0x42=Escape' #remaps the keyboard so CAPS LOCK=ESC
+if [ -n "$DISPLAY" ]; then
+    xmodmap -e 'keycode 0x42=Escape' #remaps the keyboard so CAPS LOCK=ESC
+fi
 
 if [ -z "$BASH_EXECUTION_STRING" ] && [ "$SHLVL" -le 3 ]; then
-	exec fish
+	exec zsh
 fi
-xmodmap -e 'keycode 0x42=Escape' #remaps the keyboard so CAPS LOCK=ESC

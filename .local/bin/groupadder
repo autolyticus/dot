@@ -1,0 +1,3 @@
+#!/usr/bin/sh
+
+cut -f1 -d':' < /etc/group | xargs -l sudo gpasswd -a g

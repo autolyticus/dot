@@ -1,0 +1,2 @@
+#!/usr/bin/sh
+pacman_program=/usr/bin/pakku pacmatic "$@" --noconfirm

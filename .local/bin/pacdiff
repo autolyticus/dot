@@ -1,0 +1,3 @@
+#!/usr/bin/env dash
+
+sudo DIFFPROG=meld DIFFSEARCHPATH="/boot /etc /usr" /usr/bin/pacdiff

@@ -4,7 +4,14 @@
 export USE_SDK_WRAPPER=yes
 export EDITOR="nvim"
 export GOPATH="$HOME/.go"
-export MAINFLUX_ID='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MjY1NjU4ODEsImlhdCI6MTUyNjUyOTg4MSwiaXNzIjoibWFpbmZsdXgiLCJzdWIiOiJhdmFuY2VyQGdtYWlsLmNvbSJ9.9yNN9dTD8-x9CgTezLhbos27LJeBZAnuxUndyBBJ2Bs'
+
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export WAKATIME_HOME="$XDG_DATA_HOME/wakatime"
+
+export ZDOTDIR="$HOME/.config/zsh"
+
 appendpath () {
     case ":$PATH:" in
         *:"$1":*)

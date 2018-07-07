@@ -43,8 +43,7 @@ call plug#begin('~/.config/nvim/plugins')
 
     Plug 'neomake/neomake'
     let g:ale_emit_conflict_warnings = 0
-    Plug 'reisub0/ale' "
-    " Plug 'w0rp/ale' "
+    Plug 'w0rp/ale'
 
 
     " "Coding helpers"
@@ -129,9 +128,10 @@ call plug#begin('~/.config/nvim/plugins')
 
     " "Colours"
 
+    Plug 'godlygeek/csapprox'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'jlesquembre/base16-neovim'
-    " Plug 'rafi/awesome-vim-colorschemes'
+    Plug 'rafi/awesome-vim-colorschemes'
     " Plug 'josuegaleas/jay'
     " Plug 'chriskempson/base16-vim'
     " Plug 'MaxSt/FlatColor'
