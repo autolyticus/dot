@@ -6,10 +6,14 @@ call plug#begin('~/.config/nvim/plugins')
     " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'Shougo/neco-syntax'
     Plug 'Shougo/neoinclude.vim'
-    Plug 'Shougo/neosnippet.vim' | Plug 'Shougo/neosnippet-snippets' | Plug 'honza/vim-snippets'
+    " Plug 'Shougo/neosnippet.vim' | Plug 'Shougo/neosnippet-snippets' | Plug 'honza/vim-snippets'
+    Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
     Plug 'prabirshrestha/async.vim' |  Plug 'prabirshrestha/vim-lsp'
     Plug 'prabirshrestha/asyncomplete.vim'
+    Plug 'prabirshrestha/asyncomplete-buffer.vim'
     Plug 'prabirshrestha/asyncomplete-lsp.vim'
+    Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
+
     " Plug 'natebosch/vim-lsc'
     " Plug 'autozimu/LanguageClient-neovim', {
     "   \ 'branch': 'next',
@@ -101,7 +105,7 @@ call plug#begin('~/.config/nvim/plugins')
     Plug 'junegunn/fzf.vim'
     Plug 'junegunn/fzf'
     Plug 'wincent/command-t', {
-                \   'do': 'gem install --no-user-install neovim && cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
+                \   'do': 'sudo gem install --no-user-install neovim; cd ruby/command-t/ext/command-t; ruby extconf.rb && make'
                 \ }
 
     " "Git"
