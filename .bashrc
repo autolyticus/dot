@@ -293,7 +293,7 @@ alias pr='pacman -R'
 alias rmlock='sudo rm /var/lib/pacman/db.lck'
 
 organize() {
-	dir="${@: $#}"
+	dir="${@:$#}"
 	mkdir -p "$dir"
 	mv "$@"
 }
@@ -776,7 +776,7 @@ if [ -z "$ZSH_SOURCING" ]; then
         xmodmap -e 'keycode 0x42=Escape' #remaps the keyboard so CAPS LOCK=ESC
     fi
 
-    if [ -z "$BASH_EXECUTION_STRING" ] && [ "$SHLVL" -le 4 ]; then
+    if [ -z "$BASH_EXECUTION_STRING" ] && [ "$SHLVL" -eq 3 ]; then
         exec fish
     fi
 fi
