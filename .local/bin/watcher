@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+CommandToWatch="pgrep -af $@ | grep -v grep | grep -v watcher"
+watch -g $CommandToWatch
