@@ -246,11 +246,19 @@ zat() {
 	fi
 }
 
-# alias systemctl='sudo systemctl'
-# alias srestart='systemctl restart'
-# alias status='systemctl status'
-# alias senable='systemctl enable'
-alias netctl='sudo netctl'
+alias poweroff='sudo poweroff'
+alias reboot='sudo reboot'
+
+if (type systemctl > /dev/null 2>&1); then
+    alias systemctl='sudo systemctl'
+    alias srestart='systemctl restart'
+    alias status='systemctl status'
+    alias senable='systemctl enable'
+fi
+if (type sv > /dev/null 2>&1); then
+    alias sv='sudo sv'
+fi
+    
 # alias dstart='sudo systemctl restart docker'
 alias adb='sudo adb'
 alias adbsh='sudo adb shell'
@@ -273,6 +281,7 @@ alias ps='ps auxf'
 alias ping='ping -c 10'
 alias less='less -R'
 alias pacman='sudo pacman'
+alias yay='yay --pacman powerpill'
 type powerpill &>/dev/null && alias pacman='sudo powerpill'
 type yum &>/dev/null && alias pacman='sudo pacapt'
 alias pac='pacaur --noedit -a -S'
@@ -333,7 +342,7 @@ alias reboot='sudo reboot'
 # alias hibernate='(sleep 2; systemctl hibernate)&'
 alias vis='vim "+set si"'
 
-alias touchstart='xinput enable "$touchID"; xinput set-prop "$touchID" 315 1; xinput set-prop "$touchID" 324 1; xinput set-prop "$touchID" 306 1'
+alias touchstart='xinput enable "$touchID"; xinput set-prop "$touchID" 317 1; xinput set-prop "$touchID" 324 1; xinput set-prop "$touchID" 309 1'
 alias touchstop='xinput disable $touchID'
 
 alias umnt='sudo umount'
@@ -415,7 +424,7 @@ alias rmd='rm  -rfv'
 
 # Alias's for multiple directory listing commands
 alias la='ls -Alh'               # show hidden files
-# alias ls='ls -Fh --color=auto'   # add colors and file type extensions
+alias ls='ls -Fh --color=auto'   # add colors and file type extensions
 alias lx='ls -lXBh'              # sort by extension
 alias lk='ls -lSrh'              # sort by size
 alias lc='ls -lcrh'              # sort by change time
@@ -450,6 +459,7 @@ alias f="find -regex "
 
 # Count all files (recursively) in the current folder
 alias countfiles="for t in files links directories; do echo \`find . -type \${t:0:1} | wc -l\` \$t; done 2> /dev/null"
+alias frun="flutter run --pid-file=/tmp/flutter.pid"
 
 # To see if a command is aliased, a file, or a built-in command
 alias checkcommand="type -t"
@@ -738,31 +748,35 @@ __setprompt() {
 	# PS4 is used for tracing a script in debug mode
 	PS4='\[${DARKGRAY}\]+\[${NOCOLOR}\] '
 	if [[ $TERM == xterm-termite ]]; then
-		. /etc/profile.d/vte.sh
-		__vte_prompt_command
+        "$vteThing"
 	fi
 }
 PROMPT_COMMAND='__setprompt'
 
-if type fzf &>/dev/null; then
-	source /usr/share/fzf/key-bindings.bash
-	source /usr/share/fzf/completion.bash
-	if type rg >/dev/null; then
-		export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
-		export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-		# export FZF_ALT_C_COMMAND='rg --files --no-ignore --hidden --type d --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+if [ -z "$ZSH_SOURCING" ]; then
+    if [ "$(basename "$SHELL")" = "bash" ]; then
+        if type fzf &>/dev/null; then
+            source /usr/share/fzf/key-bindings.bash
+            source /usr/share/fzf/completion.bash
+            if type rg >/dev/null; then
+                export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+                export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+                # export FZF_ALT_C_COMMAND='rg --files --no-ignore --hidden --type d --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 
-	fi
-fi
-# motdupdate
-# if [ -f ~/.local/tempcd ]; then
-# 	. ~/.local/tempcd
-# fi
+            fi
+        fi
 
-if [ -n "$DISPLAY" ]; then
-    xmodmap -e 'keycode 0x42=Escape' #remaps the keyboard so CAPS LOCK=ESC
-fi
+    fi
+    # motdupdate
+    # if [ -f ~/.local/tempcd ]; then
+    # 	. ~/.local/tempcd
+    # fi
 
-if [ -z "$BASH_EXECUTION_STRING" ] && [ "$SHLVL" -le 3 ]; then
-	exec zsh
+    if [ -n "$DISPLAY" ]; then
+        xmodmap -e 'keycode 0x42=Escape' #remaps the keyboard so CAPS LOCK=ESC
+    fi
+
+    if [ -z "$BASH_EXECUTION_STRING" ] && [ "$SHLVL" -le 4 ]; then
+        exec fish
+    fi
 fi
