@@ -293,7 +293,7 @@ alias pr='pacman -R'
 alias rmlock='sudo rm /var/lib/pacman/db.lck'
 
 organize() {
-	dir="${@:$#}"
+	dir="${@: $#}"
 	mkdir -p "$dir"
 	mv "$@"
 }
@@ -748,7 +748,8 @@ __setprompt() {
 	# PS4 is used for tracing a script in debug mode
 	PS4='\[${DARKGRAY}\]+\[${NOCOLOR}\] '
 	if [[ $TERM == xterm-termite ]]; then
-        "$vteThing"
+		. /etc/profile.d/vte.sh
+		__vte_prompt_command
 	fi
 }
 PROMPT_COMMAND='__setprompt'
@@ -776,7 +777,7 @@ if [ -z "$ZSH_SOURCING" ]; then
         xmodmap -e 'keycode 0x42=Escape' #remaps the keyboard so CAPS LOCK=ESC
     fi
 
-    if [ -z "$BASH_EXECUTION_STRING" ] && [ "$SHLVL" -eq 3 ]; then
+    if [ -z "$BASH_EXECUTION_STRING" ] && [ "$SHLVL" -le 4 ]; then
         exec fish
     fi
 fi
