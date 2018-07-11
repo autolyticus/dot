@@ -37,8 +37,8 @@ call plug#begin('~/.config/nvim/plugins')
     " ReSTFUL APIs
     Plug 'diepm/vim-rest-console'
     " LISPs
-    Plug 'guns/vim-sexp'
-    Plug 'tpope/vim-sexp-mappings-for-regular-people'
+    Plug 'guns/vim-sexp', { 'for': [ 'lisp', 'clojure' ] }
+    Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': [ 'lisp', 'clojure' ] }
     " Plug 'kien/rainbow_parentheses.vim'
     Plug 'luochen1990/rainbow'
     " Plug 'jalvesaq/Nvim-R' , { 'for': [ 'r' ] }
@@ -77,13 +77,13 @@ call plug#begin('~/.config/nvim/plugins')
     Plug 'tweekmonster/braceless.vim'
     Plug 'wellle/targets.vim'
     Plug 'tpope/vim-repeat'
-    Plug 'tpope/vim-unimpaired'
     Plug 'svermeulen/vim-easyclip'
     Plug 'AndrewRadev/linediff.vim'
     Plug 'rhysd/accelerated-jk'
     Plug 'AndrewRadev/sideways.vim'
     Plug 'FooSoft/vim-argwrap'
     Plug 'terryma/vim-multiple-cursors'
+    " Plug 'tpope/vim-unimpaired'
     " Plug 'maxbrunsfeld/vim-yankstack'
     " Plug 'Konfekt/FastFold'
     " Plug 'Raimondi/delimitMate'
