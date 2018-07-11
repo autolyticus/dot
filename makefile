@@ -31,3 +31,7 @@ clean:
 	chmod +x $@
 %.nim.out: %.nim
 	nim c -d:ssl -d:threads --nimcache:.nimcache --parallelbuild:0 --debugger:native -o:"$@" $<
+%.clj.out: %.clj
+	lein uberjar
+	echo -e "#!/usr/bin/sh\njava -jar ../../target/uberjar/*-standalone.jar" > $@
+	chmod +x $@
