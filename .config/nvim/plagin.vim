@@ -13,6 +13,7 @@ function! PlagCheck(plg)
 		return 0
 	endif
 endfunction
+let g:rainbow_active = 1
 
 
 let g:go_metalinter_autosave = 0

@@ -36,6 +36,11 @@ call plug#begin('~/.config/nvim/plugins')
     Plug 'reisub0/hot-reload.vim'
     " ReSTFUL APIs
     Plug 'diepm/vim-rest-console'
+    " LISPs
+    Plug 'guns/vim-sexp'
+    Plug 'tpope/vim-sexp-mappings-for-regular-people'
+    " Plug 'kien/rainbow_parentheses.vim'
+    Plug 'luochen1990/rainbow'
     " Plug 'jalvesaq/Nvim-R' , { 'for': [ 'r' ] }
     " Plug 'vim-scripts/armasm'
     " Plug 'neovim/node-host', { 'do': 'npm install' }
@@ -99,14 +104,14 @@ call plug#begin('~/.config/nvim/plugins')
     " Plug 'scrooloose/nerdcommenter'
 
     " "Files"
-    Plug 'scrooloose/nerdtree'
-    Plug 'jistr/vim-nerdtree-tabs'
-    Plug '/bin/fzf'
-    Plug 'junegunn/fzf.vim'
-    Plug 'junegunn/fzf'
     Plug 'wincent/command-t', {
                 \   'do': 'sudo gem install --no-user-install neovim; cd ruby/command-t/ext/command-t; ruby extconf.rb && make'
                 \ }
+    " Templates
+    Plug 'aperezdc/vim-template'
+    " Plug '/bin/fzf'
+    " Plug 'junegunn/fzf.vim'
+    " Plug 'junegunn/fzf'
 
     " "Git"
 
@@ -123,6 +128,8 @@ call plug#begin('~/.config/nvim/plugins')
 
     " "Interface"
 
+    Plug 'scrooloose/nerdtree'
+    Plug 'jistr/vim-nerdtree-tabs'
     Plug 'vim-airline/vim-airline'
     Plug 'majutsushi/tagbar'
     Plug 'mhinz/vim-startify'

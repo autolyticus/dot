@@ -1,5 +1,3 @@
-
-
 set cindent
 
 " Now we set some defaults for the editor

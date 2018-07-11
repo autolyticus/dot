@@ -12,7 +12,7 @@ if has('nvim')
 	tnoremap <A-k> <C-\><C-n><C-w>k
 	tnoremap <A-l> <C-\><C-n><C-w>l
 	tnoremap jj <C-\><C-n>
-	map <A-r> :w<CR>:source<Space>%<CR>:PlugUpdate<CR>
+	map <A-r> :w<CR>:source<Space>%<CR>:PlugInstall<CR>
 endif
 
 nnoremap <A-h> <C-w>h
