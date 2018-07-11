@@ -133,8 +133,8 @@ awful.util.taglist_buttons = awful.util.table.join(
                                                   client.focus:toggle_tag(t)
                                               end
                                           end),
-                    awful.button({ }, 4, function(t) awful.tag.viewnext(t.screen) end),
-                    awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end)
+                    awful.button({ }, 5, function(t) awful.tag.viewnext(t.screen) end),
+                    awful.button({ }, 4, function(t) awful.tag.viewprev(t.screen) end)
                 )
 awful.util.tasklist_buttons = awful.util.table.join(
                      awful.button({ }, 1, function (c)
@@ -720,6 +720,13 @@ awful.rules.rules = {
       properties = { tag = awful.util.tagnames[1] } },
     { rule = { class = "Vivaldi-stable" },
       properties = { tag = awful.util.tagnames[1] } },
+    { rule = { name = "Android Emulator" },
+      properties = {},
+      callback=function(c)
+          c.sticky=true
+          c.ontop=true
+      end
+    },
     { rule = { class = "selenium-chrome" },
       properties = { tag = awful.util.tagnames[6] },
       callback=function(c)
