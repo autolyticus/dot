@@ -1,9 +1,16 @@
 #!/bin/sh
 
 exec 1>/dev/null 2>&1
+if ! (type play); then
+    echo "Please install sox"
+    exit 1
+fi
 for _ in $(seq 3); do
 	play ~/.local/.notif.ogg
 done
-beep -f 500 -l 20; sleep 0.1; beep -f 500 -l 200; sleep 0.1; beep -f 500 -l 20; sleep 1; beep -f 800
-# echo -e '\a' > /dev/tty1
-# locker
+if (type beep); then
+    for _ in $(seq 3); do
+        beep -f 500 -l 20
+        sleep 0.5
+    done
+fi
