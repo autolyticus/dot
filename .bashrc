@@ -187,7 +187,6 @@ pakInstall() {
 	mkdir -p /tmp/pakku
 	cd /tmp/pakku || return
 
-
 	# If you didn't install the "base-devel" group,
 	# we'll need those.
 	sudo pacman -S nim base-devel --needed
@@ -204,7 +203,6 @@ pakInstall() {
 	echo "Cleaning up"
 	rm -rv /tmp/pakku
 }
-
 
 gdrived() {
 	gdrive sync upload "$@" 0Bzq5TQN2ywxsNFhtaU1LUWNWQTQ
@@ -249,16 +247,16 @@ zat() {
 alias poweroff='sudo poweroff'
 alias reboot='sudo reboot'
 
-if (type systemctl > /dev/null 2>&1); then
-    alias systemctl='sudo systemctl'
-    alias srestart='systemctl restart'
-    alias status='systemctl status'
-    alias senable='systemctl enable'
+if (type systemctl >/dev/null 2>&1); then
+	alias systemctl='sudo systemctl'
+	alias srestart='systemctl restart'
+	alias status='systemctl status'
+	alias senable='systemctl enable'
 fi
-if (type sv > /dev/null 2>&1); then
-    alias sv='sudo sv'
+if (type sv >/dev/null 2>&1); then
+	alias sv='sudo sv'
 fi
-    
+
 # alias dstart='sudo systemctl restart docker'
 alias adb='sudo adb'
 alias adbsh='sudo adb shell'
@@ -293,7 +291,7 @@ alias pr='pacman -R'
 alias rmlock='sudo rm /var/lib/pacman/db.lck'
 
 organize() {
-	dir="${@: $#}"
+	dir="${@:$#}"
 	mkdir -p "$dir"
 	mv "$@"
 }
@@ -549,17 +547,16 @@ tempcd() {
 	else
 		a=$(realpath "$@")
 		if [ "$?" -eq 0 ]; then
-			echo "cd" "$a" > "$cddir"
+			echo "cd" "$a" >"$cddir"
 		fi
 	fi
 }
 
 getdir() {
-	echo "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+	echo "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 }
 
 alias stripColors="sed 's/\x1b\[[0-9;]*[a-zA-Z]//g'"
-
 
 # For some reason, rot13 pops up everywhere
 rot13() {
@@ -602,19 +599,19 @@ trim() {
 
 rpiBackup() {
 	sudo mount /media/rpi &&
-	sudo rsync -aAXvr --partial /media/rpi / --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/tmp,/var/tmp/*,/run/*,/mnt/*,/media/*,/lost+found,/var,/home/g/Downloads,/boot,'*.cache*'}
+		sudo rsync -aAXvr --partial /media/rpi / --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/tmp,/var/tmp/*,/run/*,/mnt/*,/media/*,/lost+found,/var,/home/g/Downloads,/boot,'*.cache*'}
 	sudo umount /media/rpi
 }
 
 rpiRestore() {
 	sudo mount /media/rpi &&
-	sudo rsync -aAXvr --partial /rpi /media/ --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/tmp,/var/tmp/*,/run/*,/mnt/*,/media/*,/lost+found,/var,/home/g/Downloads,/boot,'*.cache*'}
+		sudo rsync -aAXvr --partial /rpi /media/ --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/tmp,/var/tmp/*,/run/*,/mnt/*,/media/*,/lost+found,/var,/home/g/Downloads,/boot,'*.cache*'}
 	sudo umount /media/rpi
 }
 
 backup() {
 	sudo mount /media/LBackup &&
-	sudo rsync -aAXvr --partial /* /media/LBackup --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/tmp,/var/tmp/*,/run/*,/mnt/*,/media/*,/lost+found,/var,/home/g/Downloads,/boot,'*.cache*'}
+		sudo rsync -aAXvr --partial /* /media/LBackup --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/tmp,/var/tmp/*,/run/*,/mnt/*,/media/*,/lost+found,/var,/home/g/Downloads,/boot,'*.cache*'}
 	sudo umount /media/LBackup
 }
 
@@ -623,8 +620,6 @@ fe() {
 	IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
 	[[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
-
-
 
 #######################################################
 # Set the ultimate amazing command prompt
@@ -748,36 +743,36 @@ __setprompt() {
 	# PS4 is used for tracing a script in debug mode
 	PS4='\[${DARKGRAY}\]+\[${NOCOLOR}\] '
 	if [[ $TERM == xterm-termite ]]; then
-		. /etc/profile.d/vte.sh
+		source /etc/profile.d/vte.sh
 		__vte_prompt_command
 	fi
 }
 PROMPT_COMMAND='__setprompt'
 
 if [ -z "$ZSH_SOURCING" ]; then
-    if [ "$(basename "$SHELL")" = "bash" ]; then
-        if type fzf &>/dev/null; then
-            source /usr/share/fzf/key-bindings.bash
-            source /usr/share/fzf/completion.bash
-            if type rg >/dev/null; then
-                export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
-                export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-                # export FZF_ALT_C_COMMAND='rg --files --no-ignore --hidden --type d --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+	if [ "$(basename "$SHELL")" = "bash" ]; then
+		if type fzf &>/dev/null; then
+			source /usr/share/fzf/key-bindings.bash
+			source /usr/share/fzf/completion.bash
+			if type rg >/dev/null; then
+				export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+				export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+				# export FZF_ALT_C_COMMAND='rg --files --no-ignore --hidden --type d --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 
-            fi
-        fi
+			fi
+		fi
 
-    fi
-    # motdupdate
-    # if [ -f ~/.local/tempcd ]; then
-    # 	. ~/.local/tempcd
-    # fi
+	fi
+	# motdupdate
+	# if [ -f ~/.local/tempcd ]; then
+	# 	. ~/.local/tempcd
+	# fi
 
-    if [ -n "$DISPLAY" ]; then
-        xmodmap -e 'keycode 0x42=Escape' #remaps the keyboard so CAPS LOCK=ESC
-    fi
+	if [ -n "$DISPLAY" ]; then
+		xmodmap -e 'keycode 0x42=Escape' #remaps the keyboard so CAPS LOCK=ESC
+	fi
 
-    if [ -z "$BASH_EXECUTION_STRING" ] && [ "$SHLVL" -le 4 ]; then
-        exec fish
-    fi
+	if [ -z "$BASH_EXECUTION_STRING" ] && [ "$SHLVL" -eq 3 ]; then
+		exec fish
+	fi
 fi
