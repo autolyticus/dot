@@ -3,12 +3,18 @@
 #
 export USE_SDK_WRAPPER=yes
 export EDITOR="nvim"
-export GOPATH="$HOME/.go"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
+
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export GOPATH="$XDG_DATA_HOME/go"
+export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
+export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME/httpie"
+export LESSHISTFILE=-
 export WAKATIME_HOME="$XDG_DATA_HOME/wakatime"
+
 
 export ZDOTDIR="$HOME/.config/zsh"
 
