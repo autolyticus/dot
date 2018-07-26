@@ -1,9 +1,9 @@
 #!/usr/bin/sh
 
 if [ -z "$@" ]; then
-	fileToView="$(unbuffer bfs -nocolor . -regex '.*\.pdf' -type f | fzf --bind 'return:execute(zathura {})+abort')"
+	fileToView="$(fileFinder '*.pdf')"
 	# echo "Opening Zathura on $fileToView"
-	# zathura "$fileToView"
+	zathura "$fileToView"
 else
 	zathura "$@"
 fi
