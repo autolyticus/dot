@@ -4,7 +4,7 @@ if [ -z "$@" ]; then
 	exit 1
 fi
 
-if type "$@" 1>/dev/null 2>&1 ; then
+if type "$@" 1>/dev/null 2>&1; then
 	true
 else
 	exit 1
@@ -14,7 +14,7 @@ tmpfile=/tmp/"$@".tmp
 prevtmpfile=/tmp/"$@"-prev.tmp
 iCheck='ping -w0 -c1 google.com'
 
-if $iCheck > /dev/null 2>&1; then
+if $iCheck >/dev/null 2>&1; then
 	# Execute the command and get the output along with the script overhead
 	script -qc "$@" "$tmpfile" 1>/dev/null 2>&1
 	dos2unix "$tmpfile" 2>/dev/null 1>/dev/null
@@ -26,9 +26,8 @@ if $iCheck > /dev/null 2>&1; then
 		prevoutput=''
 	fi
 
-
 	# Commit to file
-	echo "$output" > "$tmpfile"
+	echo "$output" >"$tmpfile"
 
 	# Remove lastline from output
 	output=$(echo "$output" | head -n-1 -)
@@ -61,7 +60,7 @@ else
 	timestamp=$(echo "$lastline" | cut -d' ' -f 4-)
 
 	# Find timeThen in seconds
-	timeThen=$(date  -d "$timestamp" +%s)
+	timeThen=$(date -d "$timestamp" +%s)
 
 	if type humanTimeDiff 1>/dev/null 2>&1; then
 		output=$(echo -e "$output\nLast updated $(humanTimeDiff "$timeThen")")
