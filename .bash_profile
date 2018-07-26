@@ -43,5 +43,4 @@ echo XHC | sudo tee /proc/acpi/wakeup
 if [ "$(basename "$(tty)")" = 'tty1' ]; then
 	startx
 fi
-
-[[ -f ~/.bashrc ]] && . ~/.bashrc
+[[ -f "$HOME/.bashrc" ]] && . "$HOME/.bashrc"
