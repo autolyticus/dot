@@ -39,6 +39,8 @@ call plug#begin('~/.config/nvim/plugins')
     " LISPs
     Plug 'guns/vim-sexp', { 'for': [ 'lisp', 'clojure' ] }
     Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': [ 'lisp', 'clojure' ] }
+    Plug 'venantius/vim-cljfmt', { 'for': ['clojure'] }
+    Plug 'tpope/vim-fireplace'
     " Plug 'kien/rainbow_parentheses.vim'
     Plug 'luochen1990/rainbow'
     " Plug 'jalvesaq/Nvim-R' , { 'for': [ 'r' ] }
