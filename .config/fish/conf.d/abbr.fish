@@ -105,7 +105,7 @@ if not set -q abbrs_initialized
   abbr rmlock 'sudo rm /var/lib/pacman/db.lck'
   abbr rsync 'rsync -aAXvrPh --info=progress2'
   abbr sha1 'openssl sha1'
-  abbr spi 'ssh -Y root@192.168.12.123'
+  abbr spi 'ssh -Y root@rpi'
   abbr spiy5 'ssh -Y root@192.168.1.7'
   abbr suu 'sudo -HEs'
   abbr topcpu '/bin/ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10'
