@@ -1,3 +1,8 @@
 #!/usr/bin/env sh
 
-rg --files --hidden -g "$@" | fzf
+FZFCOMMAND='fzf'
+if (type rg >/dev/null 2>&1); then
+	rg --files --hidden --color never -g "$@" | $FZFCOMMAND
+else
+	find . -type f -regex "$@" | $FZFCOMMAND
+fi
