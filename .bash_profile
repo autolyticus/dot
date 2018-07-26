@@ -28,9 +28,9 @@ appendpath () {
 }
 
 export PATH="$HOME/.local/bin:$PATH"
-appendpath "$HOME/.npm_global/bin"
 appendpath "$HOME/.pub-cache/bin"
-appendpath "$HOME/.go/bin"
+appendpath "$XDG_DATA_HOME/go/bin"
+appendpath "$XDG_DATA_HOME/npm/bin"
 export PATH
 
 unset appendpath
