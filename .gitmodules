@@ -16,3 +16,6 @@
 [submodule ".config/fisherman/vte"]
 	path = .config/fisherman/vte
 	url = git@github.com:fisherman/vt
+[submodule ".local/.repos/gitlab-init"]
+	path = .local/.repos/gitlab-init
+	url = git@gitlab.com:reisub0/gitlab-init
