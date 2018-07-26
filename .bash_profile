@@ -35,6 +35,11 @@ export PATH
 
 unset appendpath
 
+
+# Make keyboard not wake up the pc on sleep
+echo XHC | sudo tee /proc/acpi/wakeup
+
+
 if [ "$(basename "$(tty)")" = 'tty1' ]; then
 	startx
 fi
