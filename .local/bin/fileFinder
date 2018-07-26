@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+rg --files --hidden -g "$@" | fzf

@@ -1,0 +1,8 @@
+#!/usr/bin/sh
+
+
+if (type powerpill > /dev/null 2>&1); then
+    powerpill "$@"
+else
+    pacman "$@"
+fi
