@@ -14,6 +14,17 @@ function! PlagCheck(plg)
 	endif
 endfunction
 let g:rainbow_active = 1
+if PlagCheck('ultisnips')
+    let g:UltisnipsMappingsToIgnore = ["<Tab>"]
+    " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+    let g:UltiSnipsListSnippets = "<NUL>"
+    let g:UltiSnipsExpandTrigger="<c-k>"
+    let g:UltiSnipsJumpForwardTrigger="<c-k>"
+    let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+    " If you want :UltiSnipsEdit to split your window.
+    let g:UltiSnipsEditSplit="vertical"
+endif
 
 
 let g:go_metalinter_autosave = 0
