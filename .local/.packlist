@@ -10,6 +10,7 @@ alsa-tools
 alsa-utils
 alsa-utils-runit
 android-tools
+android-udev
 arandr
 arch-install-scripts
 archlinux-keyring
@@ -96,6 +97,7 @@ elvish
 eudev
 expat
 expect
+f2fs-tools
 faad2
 fakeroot
 fasd
@@ -114,6 +116,7 @@ freetype2
 fribidi
 fuse2
 fuse-common
+fzf
 gamin
 gawk
 gc
@@ -320,6 +323,7 @@ libusb
 libutil-linux
 libuv
 libva
+libva-mesa-driver
 libvdpau
 libvisual
 libvorbis
@@ -420,6 +424,7 @@ ntp-runit
 numlockx
 opencore-amr
 openjpeg2
+openmp
 openssh
 openssl
 openssl-1.0
@@ -467,6 +472,7 @@ pth
 pulseview
 pygobject2-devel
 pygtk
+pympd
 python
 python2
 python2-cairo
@@ -474,6 +480,9 @@ python2-gobject2
 python-greenlet
 python-msgpack
 python-neovim
+python-pip
+python-requests
+python-sh
 qt5-base
 qt5-declarative
 qt5-location
@@ -489,6 +498,8 @@ redshift
 reiserfsprogs
 rest
 rhash
+ripgrep
+rlwrap
 rng-tools
 rng-tools-runit
 rofi
@@ -531,6 +542,7 @@ texinfo
 thin-provisioning-tools
 time
 tk
+tmux
 tree
 tslib
 ttf-bitstream-vera
@@ -547,6 +559,7 @@ util-linux
 v4l-utils
 vi
 vid.stab
+vlc
 vte3
 vte-common
 w3m
@@ -555,6 +568,7 @@ wayland
 wayland-protocols
 wget
 which
+whois
 wpa_supplicant
 wpa_supplicant-runit
 x265
@@ -634,6 +648,9 @@ xvidcore
 xz
 yajl
 yay
+youtube-dl
+zathura
+zathura-pdf-poppler
 zeal
 zeromq
 zita-alsa-pcmi
