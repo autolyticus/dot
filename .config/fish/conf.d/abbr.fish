@@ -108,6 +108,7 @@ if not set -q abbrs_initialized
   abbr spi 'ssh -Y root@rpi'
   abbr spiy5 'ssh -Y root@192.168.1.7'
   abbr suu 'sudo -HEs'
+  abbr sy 'sudo systemctl'
   abbr topcpu '/bin/ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10'
   abbr touchstart='xinput enable "$touchID"; xinput set-prop "$touchID" 317 1; xinput set-prop "$touchID" 324 1; xinput set-prop "$touchID" 309 1'
   abbr touchstop='xinput disable $touchID'
