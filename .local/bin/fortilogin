@@ -10,10 +10,8 @@ if [ -n "$1" ]; then
 fi
 
 if (curl -d "magic=$magic&username=$username&password=$password" 192.168.2.1:1000 2>/dev/null | grep Suc); then
-	echo "Uname = $username, password= $password"
-	exit
+	exit 0
 else
-	echo $magic
-	echo -n .
+	echo "Magic = $magic"
 	exit 1
 fi
