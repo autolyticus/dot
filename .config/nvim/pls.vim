@@ -13,6 +13,7 @@ call plug#begin('~/.config/nvim/plugins')
     Plug 'prabirshrestha/asyncomplete-buffer.vim'
     Plug 'prabirshrestha/asyncomplete-lsp.vim'
     Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
+    Plug 'yami-beta/asyncomplete-omni.vim'
 
     " Plug 'natebosch/vim-lsc'
     " Plug 'autozimu/LanguageClient-neovim', {
