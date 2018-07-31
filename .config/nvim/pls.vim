@@ -42,8 +42,9 @@ call plug#begin('~/.config/nvim/plugins')
     Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': [ 'lisp', 'clojure' ] }
     Plug 'venantius/vim-cljfmt', { 'for': ['clojure'] }
     Plug 'tpope/vim-fireplace'
-    " Plug 'kien/rainbow_parentheses.vim'
     Plug 'luochen1990/rainbow'
+    " Godot
+    Plug 'calviken/vim-gdscript3'
     " Plug 'jalvesaq/Nvim-R' , { 'for': [ 'r' ] }
     " Plug 'vim-scripts/armasm'
     " Plug 'neovim/node-host', { 'do': 'npm install' }
@@ -99,7 +100,6 @@ call plug#begin('~/.config/nvim/plugins')
     Plug 'Shougo/vinarise.vim'
     " Telemetry
     Plug 'wakatime/vim-wakatime'
-    " Plug 'junegunn/limelight.vim'
 
     " Code commenting
     Plug 'tpope/vim-commentary'
