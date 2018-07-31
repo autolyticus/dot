@@ -127,4 +127,5 @@ if not set -q abbrs_initialized
   abbr youtube-dl 'youtube-dl --external-downloader aria2c'
   abbr zathura 'zathura --fork'
   abbr ys 'yay -S --noconfirm'
+  abbr yd 'youtube-dl -o '"'"'/media/d/Music/%(title)s.%(ext)s'"'"' -x --audio-format mp3 --audio-quality 0'
 end
