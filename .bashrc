@@ -144,7 +144,7 @@ alias abs='abduco -A sudo sudo su'
 # alias m='mntd; abduco -A m cmus'
 # alias y5='(abduco -n WaiFai sudo create_ap --hidden --no-virt --dhcp-dns 8.8.8.8,8.8.4.4 wlan0 eth0 WaiFai wayifive) || (abduco -A WaiFai sudo create_ap --hidden --no-virt --dhcp-dns 8.8.8.8,8.8.4.4 wlan0 eth0 WaiFai wayifive)'
 # alias y5='(abduco -n WaiFai sudo create_ap --hidden --no-virt wlan0 eth0 WaiFai wayifive) || (abduco -A WaiFai sudo create_ap --hidden --no-virt wlan0 eth0 WaiFai wayifive)'
-alias y5='tmux a -t y5 || tmux new-session -s y5 sudo create_ap --no-virt --dhcp-dns 192.168.12.1,8.8.4.4 wlan0 eth0 y5 whyyphyy'
+alias y5='tmux a -t y5 || tmux new-session -s y5 sudo create_ap --no-virt --dhcp-dns 192.168.12.1,8.8.4.4 wlan1 eth0 y5 whyyphyy'
 alias vmux="abduco -e '^g' -A nvim-session nvim"
 alias smn='ssh -Y root@mnHost'
 
@@ -457,7 +457,6 @@ alias f="find -regex "
 
 # Count all files (recursively) in the current folder
 alias countfiles="for t in files links directories; do echo \`find . -type \${t:0:1} | wc -l\` \$t; done 2> /dev/null"
-alias frun="flutter run --pid-file=/tmp/flutter.pid"
 
 # To see if a command is aliased, a file, or a built-in command
 alias checkcommand="type -t"
@@ -754,7 +753,7 @@ if [ -z "$ZSH_SOURCING" ]; then
 		if type fzf &>/dev/null; then
 			source /usr/share/fzf/key-bindings.bash
 			source /usr/share/fzf/completion.bash
-			if type rg >/dev/null; then
+			if type rg &>/dev/null; then
 				export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 				export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 				# export FZF_ALT_C_COMMAND='rg --files --no-ignore --hidden --type d --follow -g "!{.git,node_modules}/*" 2> /dev/null'
