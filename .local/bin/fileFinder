@@ -2,7 +2,11 @@
 
 FZFCOMMAND='fzf'
 if (type rg >/dev/null 2>&1); then
-	rg --files --hidden --color never -g "$@" | $FZFCOMMAND
+    if [ -z "$@" ]; then
+        rg --files --hidden --color never | $FZFCOMMAND
+    else
+        rg --files --hidden --color never -g "$@" | $FZFCOMMAND
+    fi
 else
 	find . -type f -regex "$@" | $FZFCOMMAND
 fi
