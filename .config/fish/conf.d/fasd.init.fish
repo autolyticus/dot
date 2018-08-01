@@ -1,1 +1,0 @@
-/home/g/.config/fisherman/fasd/init.fish
