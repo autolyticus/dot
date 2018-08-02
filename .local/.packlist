@@ -1,3 +1,4 @@
+
 abduco
 acl
 adobe-source-code-pro-fonts
@@ -62,6 +63,7 @@ cmake
 colord
 compiler-rt
 confuse
+conky
 coreutils
 cracklib
 create_ap
@@ -584,6 +586,7 @@ xcb-util-xrm
 xclip
 xdg-utils
 xf86-input-libinput
+xf86-video-nouveau
 xf86-video-vesa
 xfsprogs
 xkeyboard-config
