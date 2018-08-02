@@ -2,7 +2,7 @@
 
 
 if (type powerpill > /dev/null 2>&1); then
-    powerpill "$@"
+    sudo powerpill "$@"
 else
-    /usr/bin/pacman "$@"
+    sudo /usr/bin/pacman "$@"
 fi
