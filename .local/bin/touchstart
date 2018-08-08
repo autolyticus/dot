@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+
+# Get ID of touchpad
+touchID=$( (
+	xinput list 2>/dev/null
+	true
+) | grep Touchpad | cut -f 2 | cut -d'=' -f 2)
+
+
+props="$(xinput list-props $touchID)"
+echo "$props"
+
+getPropId() {
+    echo "$props" | grep "$1" | cut -f 2 -d '(' | cut -f 1 -d ')'
+}
+echo "$(getPropId 'Tapping Enabled')"
