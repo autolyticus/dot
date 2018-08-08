@@ -69,6 +69,7 @@ create_ap
 cronie
 cryptsetup
 curl
+darkhttpd
 dash
 db
 dbus
@@ -407,6 +408,7 @@ nettle
 net-tools
 networkmanager
 network-manager-applet
+networkmanager-openvpn
 networkmanager-runit
 nmap
 nm-connection-editor
@@ -430,6 +432,7 @@ openssl
 openssl-1.0
 opensysusers
 opentmpfiles
+openvpn
 opus
 orc
 os-prober
