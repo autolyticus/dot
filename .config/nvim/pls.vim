@@ -30,9 +30,9 @@ call plug#begin('~/.config/nvim/plugins')
     " Go
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     " C/C++
-    Plug 'zchee/deoplete-clang'
+    " Plug 'zchee/deoplete-clang'
     " Python
-    Plug 'zchee/deoplete-jedi'
+    " Plug 'zchee/deoplete-jedi'
     " Flutter/Dart
     Plug 'reisub0/hot-reload.vim'
     " ReSTFUL APIs
