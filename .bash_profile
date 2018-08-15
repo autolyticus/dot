@@ -13,6 +13,7 @@ export GOPATH="$XDG_DATA_HOME/go"
 export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME/httpie"
 export LESSHISTFILE=-
+export STACK_ROOT="$XDG_DATA_HOME/stack"
 export WAKATIME_HOME="$XDG_DATA_HOME/wakatime"
 
 
