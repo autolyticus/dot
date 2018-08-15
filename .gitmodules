@@ -4,3 +4,6 @@
 [submodule ".local/.repos/gitlab-init"]
 	path = .local/.repos/gitlab-init
 	url = git@gitlab.com:reisub0/gitlab-init
+[submodule ".local/.repos/tungsten"]
+	path = .local/.repos/tungsten
+	url = git@github.com:ASzc/tungsten
