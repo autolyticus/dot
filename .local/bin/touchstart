@@ -8,9 +8,18 @@ touchID=$( (
 
 
 props="$(xinput list-props $touchID)"
-echo "$props"
 
 getPropId() {
     echo "$props" | grep "$1" | cut -f 2 -d '(' | cut -f 1 -d ')'
 }
-echo "$(getPropId 'Tapping Enabled')"
+
+enableProp() {
+    for i in $(getPropId "$@"); do
+        xinput set-prop "$touchID" "$i" 1
+    done
+}
+
+exec 2>/dev/null 1>/dev/null
+xinput enable "$touchID"
+echo "$(enableProp 'Tapping Enabled')"
+echo "$(enableProp 'Natural Scrolling')"

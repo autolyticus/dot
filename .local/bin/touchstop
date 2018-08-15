@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+# Get ID of touchpad
+touchID=$( (
+	xinput list 2>/dev/null
+	true
+) | grep Touchpad | cut -f 2 | cut -d'=' -f 2)
+
+
+exec 2>/dev/null 1>/dev/null
+xinput disable "$touchID"
