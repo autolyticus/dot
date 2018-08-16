@@ -72,22 +72,22 @@ let g:go_list_type = "quickfix"
 " let g:chromatica#responsive_mode=1
 
 " if exists('g:loaded_neomake')
-	map <F5> :w<CR>:execute<Space>"NeomakeSh!"<Space>g:mp<CR>
-	autocmd BufWritePost * execute ':NeomakeSh!' g:mp
+	" map <F5> :w<CR>:execute<Space>"NeomakeSh!"<Space>g:mp<CR>
+	" autocmd BufWritePost * execute ':NeomakeSh!' g:mp
 	" autocmd BufWritePost * call atags#generate()
-	autocmd User NeomakeFinished echo "Compiled"
-	let g:neomake_enabled_makers=[]
+	" autocmd User NeomakeFinished echo "Compiled"
+	" let g:neomake_enabled_makers=[]
 " endif
 
 " nvim-completion-manager
 " if has_key(plugs, 'nvim-completion-manager')
 	" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 	" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-	inoremap <silent> <c-k> <c-r>=cm#sources#neosnippet#trigger_or_popup("\<Plug>(neosnippet_expand_or_jump)")<cr>
-	set shortmess+=c
-	let g:cm_completeopt='menuone,noinsert,noselect,preview'
-	autocmd CompleteDone * pclose " To close preview window of deoplete automagically
-	let g:SuperTabClosePreviewOnPopupClose= 1
+	" inoremap <silent> <c-k> <c-r>=cm#sources#neosnippet#trigger_or_popup("\<Plug>(neosnippet_expand_or_jump)")<cr>
+	" set shortmess+=c
+	" let g:cm_completeopt='menuone,noinsert,noselect,preview'
+	" autocmd CompleteDone * pclose " To close preview window of deoplete automagically
+	" let g:SuperTabClosePreviewOnPopupClose= 1
 " endif
 
 " Neosnippet
@@ -96,13 +96,14 @@ let g:go_list_type = "quickfix"
 	" vmap <c-k> <Plug>(neosnippet_expand_or_jump)
 	" smap <C-k> <Plug>(neosnippet_expand_or_jump)
 	" inoremap <silent> <c-k> <c-r>=cm#sources#neosnippet#trigger_or_popup("\<Plug>(neosnippet_expand_or_jump)")<cr>
-	xmap <C-k> <Plug>(neosnippet_expand_target)
+	" xmap <C-k> <Plug>(neosnippet_expand_target)
 	" let g:neosnippet#enable_completed_snippet=1
 " endif
 
 " if exists('g:loaded_EasyClip')
-	nnoremap gm m
-	let g:EasyClipUseSubstituteDefaults=0
+	" nnoremap gm m
+	" let g:EasyClipUseSubstituteDefaults=0
+	" let g:EasyClipUsePasteDefaults=0
 	" let g:EasyClipUsePasteDefaults=0
 	" nmap <c-n> <plug>EasyClipSwapPasteForward
 	" nmap <c-p> <plug>EasyClipSwapPasteBackwards
@@ -113,7 +114,7 @@ let g:go_list_type = "quickfix"
 " endif
 
 " if exists('g:loaded_targets')
-	let g:targets_jumpRanges = 'rr rb rB bb bB BB ll al Al aa Aa AA'
+	" let g:targets_jumpRanges = 'rr rb rB bb bB BB ll al Al aa Aa AA'
 " endif
 
 " LSP
@@ -185,8 +186,8 @@ vmap <Space><Enter> <Plug>(EasyAlign)
 " endif
 
 " Vim rest console
-let g:vrc_output_buffer_name = '__VRC_OUTPUT.json'
-" let g:vrc_response_default_content_type = 'json'
-let g:vrc_show_command = 1
-let g:vrc_set_default_mapping = 0
-map <Space>r :call VrcQuery()<CR><C-w>l
+" let g:vrc_output_buffer_name = '__VRC_OUTPUT.json'
+" " let g:vrc_response_default_content_type = 'json'
+" let g:vrc_show_command = 1
+" let g:vrc_set_default_mapping = 0
+" map <Space>r :call VrcQuery()<CR><C-w>l
