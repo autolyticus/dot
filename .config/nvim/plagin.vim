@@ -172,11 +172,6 @@ highlight link cppPreProcTag PreProc
 " Vim-Easy-Align
 vmap <Space><Enter> <Plug>(EasyAlign)
 
-" Split-term
-if exists(':Term')
-	map <Space>d :Term<CR>
-endif
-
 " " nvimux
 " if has_key(plugs, 'nvimux')
 " 	let g:nvimux_open_term_by_default = 'true'
