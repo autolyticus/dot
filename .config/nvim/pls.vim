@@ -3,17 +3,18 @@ call plug#begin('~/.config/nvim/plugins')
 
     " "AutoCompletion Framework"
 
-    " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    let g:deoplete#enable_at_startup = 1
     Plug 'Shougo/neco-syntax'
     Plug 'Shougo/neoinclude.vim'
     " Plug 'Shougo/neosnippet.vim' | Plug 'Shougo/neosnippet-snippets' | Plug 'honza/vim-snippets'
     Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-    Plug 'prabirshrestha/async.vim' |  Plug 'prabirshrestha/vim-lsp'
-    Plug 'prabirshrestha/asyncomplete.vim'
-    Plug 'prabirshrestha/asyncomplete-buffer.vim'
-    Plug 'prabirshrestha/asyncomplete-lsp.vim'
-    Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
-    Plug 'yami-beta/asyncomplete-omni.vim'
+    " Plug 'prabirshrestha/async.vim' |  Plug 'prabirshrestha/vim-lsp'
+    " Plug 'prabirshrestha/asyncomplete.vim'
+    " Plug 'prabirshrestha/asyncomplete-buffer.vim'
+    " Plug 'prabirshrestha/asyncomplete-lsp.vim'
+    " Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
+    " Plug 'yami-beta/asyncomplete-omni.vim'
 
     " Plug 'natebosch/vim-lsc'
     " Plug 'autozimu/LanguageClient-neovim', {
@@ -30,9 +31,9 @@ call plug#begin('~/.config/nvim/plugins')
     " Go
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     " C/C++
-    " Plug 'zchee/deoplete-clang'
+    Plug 'zchee/deoplete-clang'
     " Python
-    " Plug 'zchee/deoplete-jedi'
+    Plug 'zchee/deoplete-jedi'
     " Flutter/Dart
     Plug 'reisub0/hot-reload.vim'
     " ReSTFUL APIs
