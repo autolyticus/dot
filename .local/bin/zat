@@ -3,7 +3,7 @@
 if [ -z "$@" ]; then
 	fileToView="$(fileFinder '*.pdf')"
 	# echo "Opening Zathura on $fileToView"
-	zathura "$fileToView"
+	zathura --fork "$fileToView"
 else
-	zathura "$@"
+	zathura --fork "$@"
 fi
