@@ -29,6 +29,7 @@ audiofile
 autoconf
 autojump
 automake
+autopep8
 avahi
 awesome
 awesome-terminal-fonts
@@ -534,6 +535,7 @@ termite-terminfo
 tevent
 texinfo
 thin-provisioning-tools
+tigervnc
 time
 tk
 tmux
