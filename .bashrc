@@ -364,14 +364,6 @@ alias eat='eatmydata'
 alias tftp='secho "timeout 1\nrexmt 1\nmode octet" | tftp 127.0.0.1'
 alias mpcr='mpc update; mpc crop; mpc ls | mpc add'
 
-gitcl() {
-	if (echo "$@" | grep com); then
-		git clone "$@"
-	else
-		git clone ssh://git@github.com/"$@"
-	fi
-}
-
 putf() {
 	sudo cp -r "$@" /mnt/1
 }
