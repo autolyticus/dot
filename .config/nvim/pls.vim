@@ -99,6 +99,9 @@ call plug#begin('~/.config/nvim/plugins')
     " REPL
     Plug 'metakirby5/codi.vim'
     Plug 'Shougo/vinarise.vim'
+
+    Plug 'luochen1990/rainbow'
+    let g:rainbow_active = 1
     " Telemetry
     Plug 'wakatime/vim-wakatime'
 
