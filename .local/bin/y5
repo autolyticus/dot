@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+if [ -n "$(type tmux)" ]; then
+    tmux a -t y5 || tmux new-session -s y5 sudo create_ap --no-virt --dhcp-dns 192.168.12.1,8.8.4.4 wlan1 eth0 y5 whyyphyy
+else
+    echo "Please install tmux"
+    sudo create_ap --no-virt --dhcp-dns 192.168.12.1,8.8.4.4 wlan1 eth0 y5 whyyphyy
+fi
