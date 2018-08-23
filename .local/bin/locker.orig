@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-<<<<<<< HEAD
-# Author: Dolores Portalatin <hello@doloresportalatin.info>
-# Dependencies: imagemagick, i3lock-color-git, scrot, wmctrl (optional)
-=======
->>>>>>> Artix post install
-i3lock-next "$@"
