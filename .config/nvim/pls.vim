@@ -39,13 +39,15 @@ call plug#begin('~/.config/nvim/plugins')
     " ReSTFUL APIs
     Plug 'diepm/vim-rest-console'
     " LISPs
-    Plug 'guns/vim-sexp', { 'for': [ 'lisp', 'clojure' ] }
-    Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': [ 'lisp', 'clojure' ] }
-    Plug 'venantius/vim-cljfmt', { 'for': ['clojure'] }
-    Plug 'tpope/vim-fireplace'
-    Plug 'luochen1990/rainbow'
+    " Plug 'guns/vim-sexp', { 'for': [ 'lisp', 'clojure' ] }
+    " Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': [ 'lisp', 'clojure' ] }
+    " Plug 'venantius/vim-cljfmt', { 'for': ['clojure'] }
+    " Plug 'tpope/vim-fireplace'
     " Godot
     Plug 'calviken/vim-gdscript3'
+    " Elixir
+    Plug 'slashmili/alchemist.vim'
+
     " Plug 'jalvesaq/Nvim-R' , { 'for': [ 'r' ] }
     " Plug 'vim-scripts/armasm'
     " Plug 'neovim/node-host', { 'do': 'npm install' }
@@ -103,7 +105,7 @@ call plug#begin('~/.config/nvim/plugins')
     Plug 'luochen1990/rainbow'
     let g:rainbow_active = 1
     " Telemetry
-    Plug 'wakatime/vim-wakatime'
+    " Plug 'wakatime/vim-wakatime'
 
     " Code commenting
     Plug 'tpope/vim-commentary'
@@ -147,10 +149,11 @@ call plug#begin('~/.config/nvim/plugins')
 
     " "Colours"
 
-    Plug 'godlygeek/csapprox'
+    " Plug 'godlygeek/csapprox'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'jlesquembre/base16-neovim'
     Plug 'rafi/awesome-vim-colorschemes'
+    Plug 'Donearm/Ubaryd'
     " Plug 'josuegaleas/jay'
     " Plug 'chriskempson/base16-vim'
     " Plug 'MaxSt/FlatColor'
