@@ -522,6 +522,7 @@ speexdsp
 sqlite
 startup-notification
 stow
+strace
 sudo
 sv-helper
 sysfsutils
