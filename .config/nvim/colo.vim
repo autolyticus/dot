@@ -1,1 +1,1 @@
-colo base16-gruvbox-dark-pale
+colo onedark
