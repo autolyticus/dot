@@ -181,6 +181,7 @@ i3lock-next-git
 iana-etc
 icu
 idnkit
+imagemagick
 imlib2
 inetutils
 intel-ucode
@@ -550,6 +551,7 @@ ttf-fira-sans
 ttf-font-awesome
 ttf-ubuntu-font-family
 tzdata
+unclutter
 unibilium
 usbutils
 util-linux
