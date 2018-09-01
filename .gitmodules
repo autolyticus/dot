@@ -7,3 +7,6 @@
 [submodule ".local/.repos/tungsten"]
 	path = .local/.repos/tungsten
 	url = git@github.com:ASzc/tungsten
+[submodule ".local/.repos/competitive-helper"]
+	path = .local/.repos/competitive-helper
+	url = git@github.com:reisub0/competitive-helper
