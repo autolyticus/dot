@@ -68,7 +68,7 @@ map <F5> :w<CR>:execute<Space>g:mp<CR>
 map <silent> <Space>d :term<CR>i
 map <F6> :botright<Space>vspl<CR>:terminal<Space>gdb<Space>./%.out<CR>
 map <F9> :botright<Space>vspl<CR>:terminal<Space>./%.out<CR>i
-map <F10> :botright<Space>vspl<CR>:terminal<Space>py.test %<CR>
+map <F10> :botright<Space>vspl<CR>:terminal<Space>./tester<CR>
 
 
 " map <F12> :Neoformat<CR>:set<Space>ts=2<CR>:retab!<CR>:set<Space>ts=4<CR>
