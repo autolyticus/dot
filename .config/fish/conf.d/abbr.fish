@@ -45,6 +45,7 @@ if not set -q abbrs_initialized
     abbr gita 'git add'
     abbr gitc 'git commit -s -m'
     abbr gitp 'git push origin'
+    abbr gitpom 'git push --set-upstream origin master'
     abbr gits 'git status'
     abbr h 'history | grep '
     abbr hlp 'less /etc/bash.bashrc_help'
