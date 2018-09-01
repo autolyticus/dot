@@ -184,6 +184,7 @@ idnkit
 imagemagick
 imlib2
 inetutils
+inotify-tools
 intel-ucode
 iproute2
 iptables

@@ -1,7 +1,7 @@
 default:
 	@echo "No targets specified."
 %.cpp.out: %.cpp
-	g++ -g -o $@ $<
+	g++ -fopenmp -g -o $@ $<
 %.go.out: %.go
 	go build -o $@
 %.c.out: %.c
