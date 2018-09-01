@@ -47,6 +47,7 @@ call plug#begin('~/.config/nvim/plugins')
     Plug 'calviken/vim-gdscript3'
     " Elixir
     Plug 'slashmili/alchemist.vim'
+    Plug 'AndrewRadev/splitjoin.vim'
 
     " Plug 'jalvesaq/Nvim-R' , { 'for': [ 'r' ] }
     " Plug 'vim-scripts/armasm'
