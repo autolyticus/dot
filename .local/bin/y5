@@ -1,7 +1,12 @@
 #!/usr/bin/env sh
+y5Command="sudo create_ap --no-virt --dhcp-dns 192.168.12.1,8.8.4.4 wlan1 eth0 y5 whyyphyy"
+
 if [ -n "$(type tmux)" ]; then
-    tmux a -t y5 || tmux new-session -s y5 sudo create_ap --no-virt --dhcp-dns 192.168.12.1,8.8.4.4 wlan1 eth0 y5 whyyphyy
+        {
+            echo "Starting hotspot in background"
+            tmux new-session -Ad -s y5 "$y5Command"
+        }
 else
     echo "Please install tmux"
-    sudo create_ap --no-virt --dhcp-dns 192.168.12.1,8.8.4.4 wlan1 eth0 y5 whyyphyy
+    "$y5Command"
 fi
