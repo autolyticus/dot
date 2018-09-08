@@ -35,6 +35,7 @@ awesome
 awesome-terminal-fonts
 bash
 bash-completion
+bat
 bc
 beep
 bind
@@ -472,6 +473,7 @@ pixman
 pkgconf
 polkit
 popt
+prettyping
 procps-ng
 psmisc
 pth
