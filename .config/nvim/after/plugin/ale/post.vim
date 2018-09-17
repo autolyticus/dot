@@ -3,7 +3,7 @@ if PlagCheck('ale')
 	let g:ale_linters = {
 				\	'c': ['clang', 'flawfinder', 'clang-tidy'],
 				\	'cpp': ['clang', 'flawfinder', 'clang-tidy'],
-				\	'python': ['pyflakes', 'pyls'],
+				\	'python': ['pyflakes', 'pyls', 'mypy'],
 				\	'text': ['proselint', 'vale'],
 				\	'vim': ['vint'],
 				\	'go': ['go build', 'gosimple', 'go vet', 'staticcheck'],
