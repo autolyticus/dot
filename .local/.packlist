@@ -405,6 +405,7 @@ mpfr
 msgpack-c
 mtdev
 nano
+ncdu
 ncurses
 neovim
 netstat-nat
@@ -461,6 +462,7 @@ perl-digest-bubblebabble
 perl-digest-hmac
 perl-digest-sha1
 perl-error
+perl-file-mimeinfo
 perl-mailtools
 perl-mime-base32
 perl-net-dns
