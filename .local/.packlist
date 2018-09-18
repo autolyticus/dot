@@ -1,4 +1,3 @@
-
 abduco
 acl
 adobe-source-code-pro-fonts
@@ -391,6 +390,7 @@ make
 man-db
 man-pages
 mdadm
+meld
 mesa
 mkinitcpio
 mkinitcpio-busybox
