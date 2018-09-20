@@ -526,6 +526,7 @@ sox
 speex
 speexdsp
 sqlite
+sshfs
 startup-notification
 stow
 strace
