@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ -z "$@" ]; then
+    if iChecker; then
+        echo '✓'
+    else
+        echo '✖'
+    fi
+fi
