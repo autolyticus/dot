@@ -3,18 +3,22 @@
 echo "iCheck is running..."
 
 if [ -z "$@" ]; then
-	while true; do
-		if iChecker; then
-			echo 'Internet is up'
-		else
-			echo 'Internet is down'
-		fi
-		sleep 10
-	done
+    while true; do
+        if iChecker; then
+            echo 'Internet is up'
+        else
+            echo 'Internet is down'
+        fi
+        sleep 2
+    done
 else
-	while true; do
-		if iChecker; then alarm; fi
-		sleep 10
-	done
+    while true; do
+        if iChecker; then
+            echo 'Internet is up'
+            alarm
+        else
+            echo 'Internet is down'
+        fi
+        sleep 2
+    done
 fi
-
