@@ -14,6 +14,9 @@ clean:
 %.pl.out: %.pl
 	cp $< $@
 	chmod +x $@
+%.dart.out: %.dart
+	cp $< $@
+	chmod +x $@
 %.sh.out: %.sh
 	cp $< $@
 	chmod +x $@
