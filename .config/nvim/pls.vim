@@ -39,8 +39,8 @@ call plug#begin('~/.config/nvim/plugins')
     " ReSTFUL APIs
     Plug 'diepm/vim-rest-console'
     " LISPs
-    " Plug 'guns/vim-sexp', { 'for': [ 'lisp', 'clojure' ] }
-    " Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': [ 'lisp', 'clojure' ] }
+    Plug 'guns/vim-sexp', { 'for': [ 'lisp', 'clojure' ] }
+    Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': [ 'lisp', 'clojure' ] }
     " Plug 'venantius/vim-cljfmt', { 'for': ['clojure'] }
     " Plug 'tpope/vim-fireplace'
     " Godot
