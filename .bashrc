@@ -54,20 +54,20 @@ stty -ixon
 alias pd='builtin cd -'
 
 cd() {
-	if [ -z "$@" ]; then
-		builtin cd - &>/dev/null
-		true
-	else
-		builtin cd "$@"
-	fi
+    if [ -z "$@" ]; then
+        builtin cd - &>/dev/null
+        true
+    else
+        builtin cd "$@"
+    fi
 }
 
 edit() {
-	nvim "$@"
+    nvim "$@"
 }
 
 sedit() {
-	sudo nvim "$@"
+    sudo nvim "$@"
 }
 
 # Show auto-completion list automatically, without double tab
@@ -93,8 +93,8 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 
 # Get x - ID of touchpad for easy enable/disable
 export touchID=$( (
-	xinput list 2>/dev/null
-	true
+    xinput list 2>/dev/null
+    true
 ) | grep Touchpad | cut -f 2 | cut -d'=' -f 2)
 
 #######################################################
@@ -125,12 +125,12 @@ alias alert='alarm && notify-send --urgency=critical -i "$([ $? = 0 ] && echo te
 alias eb='e ~/.bashrc'
 
 ec() {
-	nvim ~/.config/"$@"
+    nvim ~/.config/"$@"
 }
 
 archInit() {
-	\sudo \pacman -Syuw
-	grep -Ev '^#' ~/.local/.packlist | xargs -n 5 \sudo \pacman --noconfirm -S --needed
+    \sudo \pacman -Syuw
+    grep -Ev '^#' ~/.local/.packlist | xargs -n 5 \sudo \pacman --noconfirm -S --needed
 }
 
 # Show help for this .bashrc file
@@ -156,13 +156,13 @@ alias spiy5="ssh -Y root@$piy5"
 alias sdrop="ssh -Y root@$droplet"
 
 mntpifs() {
-	sudo mkdir -p /rpi
-	sudo chown g /rpi
-	sshfs root@$pi:/ /rpi || sshfs root@$piy5:/ /rpi
+    sudo mkdir -p /rpi
+    sudo chown g /rpi
+    sshfs root@$pi:/ /rpi || sshfs root@$piy5:/ /rpi
 }
 
 umntpifs() {
-	sudo umount /rpi
+    sudo umount /rpi
 }
 
 # alias py='python'
@@ -176,84 +176,84 @@ alias py2off='deactivate'
 # alias gdrived=''
 
 get_latest_release() {
-	curl --silent "https://api.github.com/repos/$1/releases/latest" | # Get latest release from GitHub api
-		grep '"tag_name":' | # Get tag line
-		sed -E 's/.*"([^"]+)".*/\1/' # Pluck JSON value
+    curl --silent "https://api.github.com/repos/$1/releases/latest" | # Get latest release from GitHub api
+        grep '"tag_name":' | # Get tag line
+        sed -E 's/.*"([^"]+)".*/\1/' # Pluck JSON value
 }
 
 pakInstall() {
-	# Create a tmp-working-dir and navigate into it
-	mkdir -p /tmp/pakku
-	cd /tmp/pakku || return
+    # Create a tmp-working-dir and navigate into it
+    mkdir -p /tmp/pakku
+    cd /tmp/pakku || return
 
-	# If you didn't install the "base-devel" group,
-	# we'll need those.
-	sudo pacman -S nim base-devel --needed
+    # If you didn't install the "base-devel" group,
+    # we'll need those.
+    sudo pacman -S nim base-devel --needed
 
-	# Install "pacaur" from AUR
-	if [ ! -n "$(pacman -Qs pakku)" ]; then
-		git clone https://aur.archlinux.org/pakku.git
-		cd pakku
-		makepkg -si
-	fi
+    # Install "pacaur" from AUR
+    if [ ! -n "$(pacman -Qs pakku)" ]; then
+        git clone https://aur.archlinux.org/pakku.git
+        cd pakku
+        makepkg -si
+    fi
 
-	# Clean up...
-	cd ~ || return
-	echo "Cleaning up"
-	rm -rv /tmp/pakku
+    # Clean up...
+    cd ~ || return
+    echo "Cleaning up"
+    rm -rv /tmp/pakku
 }
 
 gdrived() {
-	gdrive sync upload "$@" 0Bzq5TQN2ywxsNFhtaU1LUWNWQTQ
+    gdrive sync upload "$@" 0Bzq5TQN2ywxsNFhtaU1LUWNWQTQ
 }
 
 adbp() {
-	sudo adb push "$@" /sdcard/GG/
+    sudo adb push "$@" /sdcard/GG/
 }
 
 adbps() {
-	sudo adb push "$@" /sdcard/
+    sudo adb push "$@" /sdcard/
 }
 
 M() {
-	cd /media/"$@" || return
-	ls
+    cd /media/"$@" || return
+    ls
 }
 
 C() {
-	cd ~/"$@" || return
-	ls
+    cd ~/"$@" || return
+    ls
 }
 
 fz() {
-	"$@" "$(fzf)"
+    "$@" "$(fzf)"
 }
 
 alias zathura="zathura --fork"
 
 zat() {
-	if [ -z "$@" ]; then
-		if a=$(find . -regex '.*\.pdf' -type f | fzf); then
-			echo "zathura "$a""
-			zathura "$a"
-		fi
-	else
-		echo "zathura "$a""
-		zathura "$@"
-	fi
+    if [ -z "$@" ]; then
+        if a=$(find . -regex '.*\.pdf' -type f | fzf); then
+            echo "zathura "$a""
+            zathura "$a"
+        fi
+    else
+        echo "zathura "$a""
+        zathura "$@"
+    fi
 }
 
 alias poweroff='sudo poweroff'
 alias reboot='sudo reboot'
 
 if (type systemctl >/dev/null 2>&1); then
-	alias systemctl='sudo systemctl'
-	alias srestart='systemctl restart'
-	alias status='systemctl status'
-	alias senable='systemctl enable'
+    alias systemctl='sudo systemctl'
+    alias srestart='systemctl restart'
+    alias status='systemctl status'
+    alias senable='systemctl enable'
 fi
 if (type sv >/dev/null 2>&1); then
-	alias sv='sudo sv'
+    alias sv='sudo sv'
 fi
 
 # alias dstart='sudo systemctl restart docker'
@@ -290,14 +290,14 @@ alias pr='pacman -R'
 alias rmlock='sudo rm /var/lib/pacman/db.lck'
 
 organize() {
-	dir="${@:$#}"
-	mkdir -p "$dir"
-	mv "$@"
+    dir="${@:$#}"
+    mkdir -p "$dir"
+    mv "$@"
 }
 
 refresh() {
-	. ~/.bash_profile
-	. ~/.bashrc
+    . ~/.bash_profile
+    . ~/.bashrc
 }
 # alias docker='sudo docker'
 # alias dsh='sudo docker exec -it bash'
@@ -311,21 +311,21 @@ alias Dstop='sudo docker ps | cut -d\  -f 1 | tail +2 | xargs sudo docker kill'
 # (nohup bash -c 'systemctl status docker' &> /dev/null ) || (systemctl start docker) &
 
 dsh() {
-	sudo docker exec -it -u 0 "$@" bash
+    sudo docker exec -it -u 0 "$@" bash
 }
 
 apack() {
-	pacman -S --needed "$@" && (
-		echo "$@" >>~/.local/.packlist
-		sort ~/.local/.packlist | uniq >~/.local/.packlist.new
-		mv -f ~/.local/.packlist.new ~/.local/.packlist
-	)
+    pacman -S --needed "$@" && (
+        echo "$@" >>~/.local/.packlist
+        sort ~/.local/.packlist | uniq >~/.local/.packlist.new
+        mv -f ~/.local/.packlist.new ~/.local/.packlist
+    )
 }
 alias epack='e ~/.local/.packlist'
 alias restow='sudo stow -vvv -R -d /home g -t /root'
 
 astack() {
-	echo "$@" >>~/.local/.stack
+    echo "$@" >>~/.local/.stack
 }
 
 alias estack='e .local/.stack'
@@ -364,7 +364,7 @@ alias tftp='secho "timeout 1\nrexmt 1\nmode octet" | tftp 127.0.0.1'
 alias mpcr='mpc update; mpc crop; mpc ls | mpc add'
 
 putf() {
-	sudo cp -r "$@" /mnt/1
+    sudo cp -r "$@" /mnt/1
 }
 
 alias clone='git clone'
@@ -393,7 +393,7 @@ alias gdotc='gdot commit -m'
 alias gdotp='gdot push origin'
 
 ggraph() {
-	git "$@" log --graph --abbrev-commit --decorate '--format=format:'"'"'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'"'"' ' --all
+    git "$@" log --graph --abbrev-commit --decorate '--format=format:'"'"'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'"'"' ' --all
 }
 
 # Change directory aliases
@@ -479,290 +479,290 @@ alias sha1='openssl sha1'
 #######################################################
 # SPECIAL FUNCTIONS
 #######################################################
-secho() {
-	(echo -e "$@" && cat)
-}
+# secho() {
+# 	(echo -e "$@" && cat)
+# }
 
 bashflux() {
-	"$HOME"/.go/bin/bashflux "$@" 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MjY1NjU4ODEsImlhdCI6MTUyNjUyOTg4MSwiaXNzIjoibWFpbmZsdXgiLCJzdWIiOiJhdmFuY2VyQGdtYWlsLmNvbSJ9.9yNN9dTD8-x9CgTezLhbos27LJeBZAnuxUndyBBJ2Bs'
+    "$HOME"/.go/bin/bashflux "$@" 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MjY1NjU4ODEsImlhdCI6MTUyNjUyOTg4MSwiaXNzIjoibWFpbmZsdXgiLCJzdWIiOiJhdmFuY2VyQGdtYWlsLmNvbSJ9.9yNN9dTD8-x9CgTezLhbos27LJeBZAnuxUndyBBJ2Bs'
 }
 
 # Searches for text in all files in the current folder
 ftext() {
-	# -i case-insensitive
-	# -I ignore binary files
-	# -H causes filename to be printed
-	# -r recursive search
-	# -n causes line number to be printed
-	# optional: -F treat search term as a literal, not a regular expression
-	# optional: -l only print filenames and not the matching lines ex. grep -irl "$1" *
-	grep -iIHrn --color=always "$1" . | less -r
+    # -i case-insensitive
+    # -I ignore binary files
+    # -H causes filename to be printed
+    # -r recursive search
+    # -n causes line number to be printed
+    # optional: -F treat search term as a literal, not a regular expression
+    # optional: -l only print filenames and not the matching lines ex. grep -irl "$1" *
+    grep -iIHrn --color=always "$1" . | less -r
 }
 
 # Returns the last 2 fields of the working directory
 pwdtail() {
-	pwd | awk -F/ '{nlast = NF -1;print $nlast"/"$NF}'
+    pwd | awk -F/ '{nlast = NF -1;print $nlast"/"$NF}'
 }
 
 # IP address lookup
 whatsmyip() {
-	# Dumps a list of all IP addresses for every device
-	# /sbin/ifconfig |grep -B1 "inet addr" |awk '{ if ( $1 == "inet" ) { print $2 } else if ( $2 == "Link" ) { printf "%s:" ,$1 } }' |awk -F: '{ print $1 ": " $3 }';
+    # Dumps a list of all IP addresses for every device
+    # /sbin/ifconfig |grep -B1 "inet addr" |awk '{ if ( $1 == "inet" ) { print $2 } else if ( $2 == "Link" ) { printf "%s:" ,$1 } }' |awk -F: '{ print $1 ": " $3 }';
 
-	# Internal IP Lookup
-	echo -ne "Internal IP:\n"
-	ip a | grep inet | awk '{print $2}'
+    # Internal IP Lookup
+    echo -ne "Internal IP:\n"
+    ip a | grep inet | awk '{print $2}'
 
-	# External IP Lookup
-	echo -ne "External IP:\n"
-	curl ipecho.net/plain
-	echo
+    # External IP Lookup
+    echo -ne "External IP:\n"
+    curl ipecho.net/plain
+    echo
 }
 
 cl() {
-	local dir="$1"
-	local dir="${dir:=$HOME}"
-	if [[ -d "$dir" ]]; then
-		cd "$dir" >/dev/null
-		ls
-	else
-		echo "bash: cl: $dir: Directory not found"
-	fi
+    local dir="$1"
+    local dir="${dir:=$HOME}"
+    if [[ -d "$dir" ]]; then
+        cd "$dir" >/dev/null
+        ls
+    else
+        echo "bash: cl: $dir: Directory not found"
+    fi
 }
 
 tempcd() {
-	local cddir=~/.local/tempcd
-	if [ -z "$@" ]; then
-		rm "$cddir"
-	else
-		a=$(realpath "$@")
-		if [ "$?" -eq 0 ]; then
-			echo "cd" "$a" >"$cddir"
-		fi
-	fi
+    local cddir=~/.local/tempcd
+    if [ -z "$@" ]; then
+        rm "$cddir"
+    else
+        a=$(realpath "$@")
+        if [ "$?" -eq 0 ]; then
+            echo "cd" "$a" >"$cddir"
+        fi
+    fi
 }
 
 getdir() {
-	echo "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+    echo "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 }
 
 alias stripColors="sed 's/\x1b\[[0-9;]*[a-zA-Z]//g'"
 
 # For some reason, rot13 pops up everywhere
 rot13() {
-	if [ $# -eq 0 ]; then
-		tr '[a-m][n-z][A-M][N-Z]' '[n-z][a-m][N-Z][A-M]'
-	else
-		echo "$@" | tr '[a-m][n-z][A-M][N-Z]' '[n-z][a-m][N-Z][A-M]'
-	fi
+    if [ $# -eq 0 ]; then
+        tr '[a-m][n-z][A-M][N-Z]' '[n-z][a-m][N-Z][A-M]'
+    else
+        echo "$@" | tr '[a-m][n-z][A-M][N-Z]' '[n-z][a-m][N-Z][A-M]'
+    fi
 }
 
 motdupdate() {
-	if [ -n "$*" ]; then
-		curl -s --connect-timeout 1 \
-			-A 'chrome' \
-			'https://www.reddit.com/r/quotes/top.json?sort=top&t=month&limit=100' >/tmp/motd
-	fi
+    if [ -n "$*" ]; then
+        curl -s --connect-timeout 1 \
+            -A 'chrome' \
+            'https://www.reddit.com/r/quotes/top.json?sort=top&t=month&limit=100' >/tmp/motd
+    fi
 
-	if [ ! -s /tmp/motd ] && [ ! -e /tmp/.motdlock ]; then
-		if curl -s --connect-timeout 1 \
-			-A 'chrome' \
-			'https://www.reddit.com/r/quotes/top.json?sort=top&t=month&limit=100' >/tmp/motd; then
-			true
-		else
-			touch /tmp/.motdlock
+    if [ ! -s /tmp/motd ] && [ ! -e /tmp/.motdlock ]; then
+        if curl -s --connect-timeout 1 \
+            -A 'chrome' \
+            'https://www.reddit.com/r/quotes/top.json?sort=top&t=month&limit=100' >/tmp/motd; then
+            true
+        else
+            touch /tmp/.motdlock
 
-		fi
-	fi
-	if [ ! -e /tmp/.motdlock ]; then
-		motd 2>/dev/null | cowsay | sudo tee /etc/motd
-	fi
+        fi
+    fi
+    if [ ! -e /tmp/.motdlock ]; then
+        motd 2>/dev/null | cowsay | sudo tee /etc/motd
+    fi
 }
 
 # Trim leading and trailing spaces (for scripts)
 trim() {
-	local var="$@"
-	var="${var#"${var%%[![:space:]]*}"}" # remove leading whitespace characters
-	var="${var%"${var##*[![:space:]]}"}" # remove trailing whitespace characters
-	echo -n "$var"
+    local var="$@"
+    var="${var#"${var%%[![:space:]]*}"}" # remove leading whitespace characters
+    var="${var%"${var##*[![:space:]]}"}" # remove trailing whitespace characters
+    echo -n "$var"
 }
 
 rpiBackup() {
-	sudo mount /media/rpi &&
-		sudo rsync -aAXvr --partial /media/rpi / --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/tmp,/var/tmp/*,/run/*,/mnt/*,/media/*,/lost+found,/var,/home/g/Downloads,/boot,'*.cache*'}
-	sudo umount /media/rpi
+    sudo mount /media/rpi &&
+        sudo rsync -aAXvr --partial /media/rpi / --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/tmp,/var/tmp/*,/run/*,/mnt/*,/media/*,/lost+found,/var,/home/g/Downloads,/boot,'*.cache*'}
+    sudo umount /media/rpi
 }
 
 rpiRestore() {
-	sudo mount /media/rpi &&
-		sudo rsync -aAXvr --partial /rpi /media/ --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/tmp,/var/tmp/*,/run/*,/mnt/*,/media/*,/lost+found,/var,/home/g/Downloads,/boot,'*.cache*'}
-	sudo umount /media/rpi
+    sudo mount /media/rpi &&
+        sudo rsync -aAXvr --partial /rpi /media/ --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/tmp,/var/tmp/*,/run/*,/mnt/*,/media/*,/lost+found,/var,/home/g/Downloads,/boot,'*.cache*'}
+    sudo umount /media/rpi
 }
 
 backup() {
-	sudo mount /media/LBackup &&
-		sudo rsync -aAXvr --partial /* /media/LBackup --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/tmp,/var/tmp/*,/run/*,/mnt/*,/media/*,/lost+found,/var,/home/g/Downloads,/boot,'*.cache*'}
-	sudo umount /media/LBackup
+    sudo mount /media/LBackup &&
+        sudo rsync -aAXvr --partial /* /media/LBackup --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/tmp,/var/tmp/*,/run/*,/mnt/*,/media/*,/lost+found,/var,/home/g/Downloads,/boot,'*.cache*'}
+    sudo umount /media/LBackup
 }
 
 fe() {
-	local files
-	IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
-	[[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+    local files
+    IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+    [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
 
 #######################################################
 # Set the ultimate amazing command prompt
 #######################################################
 __setprompt() {
-	local LAST_COMMAND=$? # Must come first!
+    local LAST_COMMAND=$? # Must come first!
 
-	# Define colors
-	local LIGHTGRAY="\033[0;37m"
-	local WHITE="\033[1;37m"
-	local BLACK="\033[0;30m"
-	local DARKGRAY="\033[1;30m"
-	local RED="\033[0;31m"
-	local LIGHTRED="\033[1;31m"
-	local GREEN="\033[0;32m"
-	local LIGHTGREEN="\033[1;32m"
-	local BROWN="\033[0;33m"
-	local YELLOW="\033[1;33m"
-	local BLUE="\033[0;34m"
-	local LIGHTBLUE="\033[1;34m"
-	local MAGENTA="\033[0;35m"
-	local LIGHTMAGENTA="\033[1;35m"
-	local CYAN="\033[0;36m"
-	local LIGHTCYAN="\033[1;36m"
-	local NOCOLOR="\033[0m"
+    # Define colors
+    local LIGHTGRAY="\033[0;37m"
+    local WHITE="\033[1;37m"
+    local BLACK="\033[0;30m"
+    local DARKGRAY="\033[1;30m"
+    local RED="\033[0;31m"
+    local LIGHTRED="\033[1;31m"
+    local GREEN="\033[0;32m"
+    local LIGHTGREEN="\033[1;32m"
+    local BROWN="\033[0;33m"
+    local YELLOW="\033[1;33m"
+    local BLUE="\033[0;34m"
+    local LIGHTBLUE="\033[1;34m"
+    local MAGENTA="\033[0;35m"
+    local LIGHTMAGENTA="\033[1;35m"
+    local CYAN="\033[0;36m"
+    local LIGHTCYAN="\033[1;36m"
+    local NOCOLOR="\033[0m"
 
-	# Show error exit code if there is one
-	if [[ $LAST_COMMAND != 0 ]]; then
-		# PS1="\[${RED}\](\[${LIGHTRED}\]ERROR\[${RED}\])-(\[${LIGHTRED}\]Exit Code \[${WHITE}\]${LAST_COMMAND}\[${RED}\])-(\[${LIGHTRED}\]"
-		PS1="\[${DARKGRAY}\](\[${LIGHTRED}\]ERROR\[${DARKGRAY}\])-(\[${RED}\]Exit Code \[${LIGHTRED}\]${LAST_COMMAND}\[${DARKGRAY}\])-(\[${RED}\]"
-		if [[ $LAST_COMMAND == 1 ]]; then
-			PS1+="General error"
-		elif [ $LAST_COMMAND == 2 ]; then
-			PS1+="Missing keyword, command, or permission problem"
-		elif [ $LAST_COMMAND == 126 ]; then
-			PS1+="Permission problem or command is not an executable"
-		elif [ $LAST_COMMAND == 127 ]; then
-			PS1+="Command not found"
-		elif [ $LAST_COMMAND == 128 ]; then
-			PS1+="Invalid argument to exit"
-		elif [ $LAST_COMMAND == 129 ]; then
-			PS1+="Fatal error signal 1"
-		elif [ $LAST_COMMAND == 130 ]; then
-			PS1+="Script terminated by Control-C"
-		elif [ $LAST_COMMAND == 131 ]; then
-			PS1+="Fatal error signal 3"
-		elif [ $LAST_COMMAND == 132 ]; then
-			PS1+="Fatal error signal 4"
-		elif [ $LAST_COMMAND == 133 ]; then
-			PS1+="Fatal error signal 5"
-		elif [ $LAST_COMMAND == 134 ]; then
-			PS1+="Fatal error signal 6"
-		elif [ $LAST_COMMAND == 135 ]; then
-			PS1+="Fatal error signal 7"
-		elif [ $LAST_COMMAND == 136 ]; then
-			PS1+="Fatal error signal 8"
-		elif [ $LAST_COMMAND == 137 ]; then
-			PS1+="Fatal error signal 9"
-		elif [ $LAST_COMMAND -gt 255 ]; then
-			PS1+="Exit status out of range"
-		else
-			PS1+="Unknown error code"
-		fi
-		PS1+="\[${DARKGRAY}\])\[${NOCOLOR}\]\n"
-	else
-		PS1=""
-	fi
+    # Show error exit code if there is one
+    if [[ $LAST_COMMAND != 0 ]]; then
+        # PS1="\[${RED}\](\[${LIGHTRED}\]ERROR\[${RED}\])-(\[${LIGHTRED}\]Exit Code \[${WHITE}\]${LAST_COMMAND}\[${RED}\])-(\[${LIGHTRED}\]"
+        PS1="\[${DARKGRAY}\](\[${LIGHTRED}\]ERROR\[${DARKGRAY}\])-(\[${RED}\]Exit Code \[${LIGHTRED}\]${LAST_COMMAND}\[${DARKGRAY}\])-(\[${RED}\]"
+        if [[ $LAST_COMMAND == 1 ]]; then
+            PS1+="General error"
+        elif [ $LAST_COMMAND == 2 ]; then
+            PS1+="Missing keyword, command, or permission problem"
+        elif [ $LAST_COMMAND == 126 ]; then
+            PS1+="Permission problem or command is not an executable"
+        elif [ $LAST_COMMAND == 127 ]; then
+            PS1+="Command not found"
+        elif [ $LAST_COMMAND == 128 ]; then
+            PS1+="Invalid argument to exit"
+        elif [ $LAST_COMMAND == 129 ]; then
+            PS1+="Fatal error signal 1"
+        elif [ $LAST_COMMAND == 130 ]; then
+            PS1+="Script terminated by Control-C"
+        elif [ $LAST_COMMAND == 131 ]; then
+            PS1+="Fatal error signal 3"
+        elif [ $LAST_COMMAND == 132 ]; then
+            PS1+="Fatal error signal 4"
+        elif [ $LAST_COMMAND == 133 ]; then
+            PS1+="Fatal error signal 5"
+        elif [ $LAST_COMMAND == 134 ]; then
+            PS1+="Fatal error signal 6"
+        elif [ $LAST_COMMAND == 135 ]; then
+            PS1+="Fatal error signal 7"
+        elif [ $LAST_COMMAND == 136 ]; then
+            PS1+="Fatal error signal 8"
+        elif [ $LAST_COMMAND == 137 ]; then
+            PS1+="Fatal error signal 9"
+        elif [ $LAST_COMMAND -gt 255 ]; then
+            PS1+="Exit status out of range"
+        else
+            PS1+="Unknown error code"
+        fi
+        PS1+="\[${DARKGRAY}\])\[${NOCOLOR}\]\n"
+    else
+        PS1=""
+    fi
 
-	# Date
-	PS1+="\[${DARKGRAY}\](\[${CYAN}\]\$(date +%a), $(date +%B\ '%-d')" # Date
-	PS1+="${BLUE} $(date +'%H':%M:%S)\[${DARKGRAY}\])-"                # Time
+    # Date
+    PS1+="\[${DARKGRAY}\](\[${CYAN}\]\$(date +%a), $(date +%B\ '%-d')" # Date
+    PS1+="${BLUE} $(date +'%H':%M:%S)\[${DARKGRAY}\])-"                # Time
 
-	## CPU
-	#PS1+="\[${MAGENTA}\]CPU $(cpu)%"
+    ## CPU
+    #PS1+="\[${MAGENTA}\]CPU $(cpu)%"
 
-	# Jobs
-	PS1+="\[${DARKGRAY}\](\[${MAGENTA}\]\j"
+    # Jobs
+    PS1+="\[${DARKGRAY}\](\[${MAGENTA}\]\j"
 
-	## Network Connections (for a server - comment out for non-server)
-	#PS1+="\[${DARKGRAY}\]:\[${MAGENTA}\]Net $(awk 'END {print NR}' /proc/net/tcp)"
+    ## Network Connections (for a server - comment out for non-server)
+    #PS1+="\[${DARKGRAY}\]:\[${MAGENTA}\]Net $(awk 'END {print NR}' /proc/net/tcp)"
 
-	PS1+="\[${DARKGRAY}\])-"
+    PS1+="\[${DARKGRAY}\])-"
 
-	# User and server
-	local SSH_IP=$(echo "$SSH_CONNECTION" | awk '{ print $3 }')
-	local SSH_PORT=$(echo "$SSH_CONNECTION" | awk '{ print $4 }')
-	if [ -n "$SSH_IP" ]; then
-		PS1+="(\[${RED}\]\u@$SSH_IP:$SSH_PORT"
-	else
-		PS1+="(\[${RED}\]\u"
-	fi
+    # User and server
+    local SSH_IP=$(echo "$SSH_CONNECTION" | awk '{ print $3 }')
+    local SSH_PORT=$(echo "$SSH_CONNECTION" | awk '{ print $4 }')
+    if [ -n "$SSH_IP" ]; then
+        PS1+="(\[${RED}\]\u@$SSH_IP:$SSH_PORT"
+    else
+        PS1+="(\[${RED}\]\u"
+    fi
 
-	# Current directory
-	PS1+="\[${DARKGRAY}\]:\[${BROWN}\]\w\[${DARKGRAY}\])-"
+    # Current directory
+    PS1+="\[${DARKGRAY}\]:\[${BROWN}\]\w\[${DARKGRAY}\])-"
 
-	# Total size of files in current directory
-	PS1+="(\[${GREEN}\]$(/bin/ls -lah | /bin/grep -m 1 total | /bin/sed 's/total //')\[${DARKGRAY}\]:"
+    # Total size of files in current directory
+    PS1+="(\[${GREEN}\]$(/bin/ls -lah | /bin/grep -m 1 total | /bin/sed 's/total //')\[${DARKGRAY}\]:"
 
-	# Number of files
-	PS1+="\[${GREEN}\]\$(/bin/ls -A -1 | /usr/bin/wc -l)\[${DARKGRAY}\])"
+    # Number of files
+    PS1+="\[${GREEN}\]\$(/bin/ls -A -1 | /usr/bin/wc -l)\[${DARKGRAY}\])"
 
-	if [ -n "$SSH_IP" ]; then
-		PS1+="\[${RED}\] - SSH"
-	fi
+    if [ -n "$SSH_IP" ]; then
+        PS1+="\[${RED}\] - SSH"
+    fi
 
-	# Skip to the next line
-	PS1+="\n"
+    # Skip to the next line
+    PS1+="\n"
 
-	if [[ $EUID -ne 0 ]]; then
-		PS1+="\[${GREEN}\]>\[${NOCOLOR}\] " # Normal user
-	else
-		PS1+="\[${RED}\]>\[${NOCOLOR}\] " # Root user
-	fi
+    if [[ $EUID -ne 0 ]]; then
+        PS1+="\[${GREEN}\]>\[${NOCOLOR}\] " # Normal user
+    else
+        PS1+="\[${RED}\]>\[${NOCOLOR}\] " # Root user
+    fi
 
-	# PS2 is used to continue a command using the \ character
-	PS2="\[${DARKGRAY}\]>\[${NOCOLOR}\] "
+    # PS2 is used to continue a command using the \ character
+    PS2="\[${DARKGRAY}\]>\[${NOCOLOR}\] "
 
-	# PS3 is used to enter a number choice in a script
-	PS3='Please enter a number from above list: '
+    # PS3 is used to enter a number choice in a script
+    PS3='Please enter a number from above list: '
 
-	# PS4 is used for tracing a script in debug mode
-	PS4='\[${DARKGRAY}\]+\[${NOCOLOR}\] '
-	if [[ $TERM == xterm-termite ]]; then
-		source /etc/profile.d/vte.sh
-		__vte_prompt_command
-	fi
+    # PS4 is used for tracing a script in debug mode
+    PS4='\[${DARKGRAY}\]+\[${NOCOLOR}\] '
+    if [[ $TERM == xterm-termite ]]; then
+        source /etc/profile.d/vte.sh
+        __vte_prompt_command
+    fi
 }
 PROMPT_COMMAND='__setprompt'
 
 if [ -z "$ZSH_SOURCING" ]; then
-	if [ "$(basename "$SHELL")" = "bash" ]; then
-		if type fzf &>/dev/null; then
-			source /usr/share/fzf/key-bindings.bash
-			source /usr/share/fzf/completion.bash
-			if type rg &>/dev/null; then
-				export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
-				export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-				# export FZF_ALT_C_COMMAND='rg --files --no-ignore --hidden --type d --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+    if [ "$(basename "$SHELL")" = "bash" ]; then
+        if type fzf &>/dev/null; then
+            source /usr/share/fzf/key-bindings.bash
+            source /usr/share/fzf/completion.bash
+            if type rg &>/dev/null; then
+                export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+                export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+                # export FZF_ALT_C_COMMAND='rg --files --no-ignore --hidden --type d --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 
-			fi
-		fi
+            fi
+        fi
 
-	fi
-	# motdupdate
-	# if [ -f ~/.local/tempcd ]; then
-	# 	. ~/.local/tempcd
-	# fi
+    fi
+    # motdupdate
+    if [ -f ~/.local/tempcd ]; then
+        . ~/.local/tempcd
+    fi
 
-	if [ -n "$DISPLAY" ]; then
-		xmodmap -e 'keycode 0x42=Escape' #remaps the keyboard so CAPS LOCK=ESC
-	fi
+    if [ -n "$DISPLAY" ]; then
+        xmodmap -e 'keycode 0x42=Escape' #remaps the keyboard so CAPS LOCK=ESC
+    fi
 
-	if [ -z "$BASH_EXECUTION_STRING" ] && [ "$SHLVL" -eq 3 ]; then
-		exec fish
-	fi
+    if [ -z "$BASH_EXECUTION_STRING" ] && [ "$SHLVL" -eq 3 ]; then
+        exec fish
+    fi
 fi
