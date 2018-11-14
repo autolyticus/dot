@@ -101,7 +101,7 @@ screens = [
                 widget.Systray(),
                 # widget.Sep(),
                 # widget.Sep(),
-                widget.Mpd(fmt_stopped='◼ [%t]', fmt_playing='⏯ %a / %t', foreground_progress='00ff00'),
+                widget.Mpd(fmt_stopped='', fmt_playing='⏯ %a / %t', foreground_progress='00ff00'),
                 widget.Volume(),
                 # widget.Notify(),
                 widget.Pomodoro(),
