@@ -1,12 +1,12 @@
 [submodule ".config/termite"]
 	path = .config/termite
-	url = git@gitlab.com:reisub0/termite-color
+	url = https://gitlab.com/reisub0/termite-color
 [submodule ".local/.repos/gitlab-init"]
 	path = .local/.repos/gitlab-init
-	url = git@gitlab.com:reisub0/gitlab-init
+	url = https://gitlab.com/reisub0/gitlab-init
 [submodule ".local/.repos/tungsten"]
 	path = .local/.repos/tungsten
-	url = git@github.com:ASzc/tungsten
+	url = https://github.com/ASzc/tungsten
 [submodule ".local/.repos/competitive-helper"]
 	path = .local/.repos/competitive-helper
-	url = git@github.com:reisub0/competitive-helper
+	url = https://github.com/reisub0/competitive-helper
