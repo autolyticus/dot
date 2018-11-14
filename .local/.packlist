@@ -1,6 +1,7 @@
 abduco
 acl
 adobe-source-code-pro-fonts
+adobe-source-sans-pro-fonts
 adwaita-icon-theme
 alacritty-scrollback-git
 alsa-firmware
@@ -90,6 +91,7 @@ dnssec-anchors
 dnssec-tools
 docker
 docker-runit
+dos2unix
 double-conversion
 e2fsprogs
 efibootmgr
@@ -109,6 +111,7 @@ fftw
 file
 filesystem
 findutils
+firefox
 fish
 flac
 flex
@@ -166,6 +169,8 @@ gtkmm
 gtk-sharp-2
 gtk-update-icon-cache
 guile
+gunicorn
+gwenview
 gzip
 harfbuzz
 headset-bin
@@ -199,6 +204,7 @@ java-runtime-common
 jdk8-openjdk
 jemalloc
 jfsutils
+jq
 jre8-openjdk
 jre8-openjdk-headless
 js52
@@ -442,6 +448,7 @@ opus
 orc
 os-prober
 p11-kit
+p7zip
 pacman
 pam
 pambase
@@ -487,7 +494,11 @@ python
 python2
 python2-cairo
 python2-gobject2
+python-eventlet
 python-greenlet
+python-iwlib
+python-keyring
+python-mpd2
 python-msgpack
 python-neovim
 python-pip
@@ -533,6 +544,7 @@ strace
 sudo
 sv-helper
 sysfsutils
+sysstat
 systemd-dummy
 talloc
 tar
@@ -591,6 +603,7 @@ xdg-utils
 xf86-input-libinput
 xf86-video-nouveau
 xf86-video-vesa
+xfce4-notifyd
 xfsprogs
 xkeyboard-config
 xorg-bdftopcf
@@ -650,6 +663,7 @@ xorg-xvinfo
 xorg-xwd
 xorg-xwininfo
 xorg-xwud
+xsel
 xvidcore
 xz
 yajl
