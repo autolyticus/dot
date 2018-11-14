@@ -55,13 +55,13 @@ if [ $(xrandr --listmonitors | wc -l) -eq 3 ]; then
 	# esac
 fi
 export touchID=$(xinput list | grep Touchpad | cut -f 2 | cut -d'=' -f 2)
-xinput disable $touchID
+(xinput disable $touchID) &
 
 # remap caps to escape
-xmodmap -e 'clear Lock' -e 'keycode 0x42=Escape' #remaps the keyboard so CAPS LOCK=ESC
+(xmodmap -e 'clear Lock' -e 'keycode 0x42=Escape') &
 
 
-xset dpms 0 0 0 && xset s noblank && xset s off
+(xset dpms 0 0 0 && xset s noblank && xset s off) &
 (xautolock -time 5 -locker ~/.local/bin/locker -corners +000 -cornerdelay 1 -cornerredelay 5) &
 
 exec awesome > /tmp/awesome.log 2>&1
