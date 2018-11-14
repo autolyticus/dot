@@ -119,23 +119,23 @@ local curTime = updateClock()
 
 gears.timer.start_new(60, updateClock)
 
-local iCWidget = wibox.widget.textbox(markup("#de5e1e", "init"))
+-- local iCWidget = wibox.widget.textbox(markup("#de5e1e", "init"))
 
-function updateiCWidget()
-    local fuzScript = '/home/g/.local/bin/iCWidget'
-    local fd = io.popen(fuzScript)
-    local output = fd:read('*all')
-    fd:close()
-    iCWidget.font = 'Source Sans Pro 14'
-    iCWidget.markup = markup("#5ede1e", output)
-    if string.find(output, '✖') then
-        iCWidget.markup = markup("#992222", output)
-    end
-    return output
-end
-local curTime = updateiCWidget()
+-- function updateiCWidget()
+--     local fuzScript = '/home/g/.local/bin/iCWidget'
+--     local fd = io.popen(fuzScript)
+--     local output = fd:read('*all')
+--     fd:close()
+--     iCWidget.font = 'Source Sans Pro 14'
+--     iCWidget.markup = markup("#5ede1e", output)
+--     if string.find(output, '✖') then
+--         iCWidget.markup = markup("#992222", output)
+--     end
+--     return output
+-- end
+-- local curTime = updateiCWidget()
 
-gears.timer.start_new(60, updateiCWidget)
+-- gears.timer.start_new(60, updateiCWidget)
 
 -- Calendar
 -- theme.cal = lain.widget.calendar({
@@ -341,7 +341,7 @@ function theme.at_screen_connect(s)
             theme.volume.widget,
             mpdicon,
             theme.mpd.widget,
-            iCWidget,
+            -- iCWidget,
             --mailicon,
             --mail.widget,
             -- netdownicon,
