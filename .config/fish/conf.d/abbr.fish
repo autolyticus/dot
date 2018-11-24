@@ -80,7 +80,7 @@ if not set -q abbrs_initialized
     abbr ping 'prettyping --nolegend -c 10'
     abbr pipi 'pip install --user'
     abbr pm 'pacman -S'
-    abbr pmm 'pacman -Syu'
+    abbr pmm 'pacman -Su'
     abbr pmr 'pacman -Rns'
     abbr pq 'pacman -Q'
     abbr pr 'pacman -R'
