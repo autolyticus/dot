@@ -51,6 +51,11 @@ keys = [
     Key([mod, "control"], "l", lazy.spawn('locker')),
     Key([mod, "control"], "q", lazy.shutdown()),
 
+    # Misc
+    Key([], "Print", lazy.spawn(
+        'scrot -e \'mkdir -p ~/screenshots; mv $f ~/screenshots/\'')),
+
+
     # Key([mod, "shift"], "space", lazy.next_()),
     # Toggle between different layouts as defined below
 
