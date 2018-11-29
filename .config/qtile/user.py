@@ -21,6 +21,11 @@ def fuzClock():
 def usedMem():
     return getOutput(''' free -h | awk '/Mem/{print $3}' ''')
 
+
+def pacmanUpdates():
+    return getOutput(''' pacman -Sy &>/dev/null ; pacman -Qu | wc -l ''', empty='0')
+
+
 @hook.subscribe.startup_once
 def autostart():
     home = os.path.expanduser('~/.config/qtile/autostart.sh')

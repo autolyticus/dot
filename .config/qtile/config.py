@@ -105,6 +105,8 @@ screens = [
                 # widget.Sep(),
                 # widget.Sep(),
                 widget.Systray(),
+                widget.GenPollText(func=user.pacmanUpdates,
+                                   update_interval=60),
                 # widget.Sep(),
                 # widget.Sep(),
                 widget.Mpd(fmt_stopped='', fmt_playing='⏯ %a / %t',
