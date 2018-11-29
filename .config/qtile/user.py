@@ -9,14 +9,19 @@ from io import StringIO
 
 from libqtile import hook
 
-def getOutput(command):
-    print(f'Running command {command}')
+
+def getOutput(command, empty=''):
+    # print(f'Running command {command}')
     out = subprocess.check_output(command, shell=True)
+    # print(f"Got output '{out}'")
+    if out.decode().strip() == empty:
+        return ''
     return out.decode().strip()
 
 
 def fuzClock():
     return getOutput('fuzClock')
+
 
 def usedMem():
     return getOutput(''' free -h | awk '/Mem/{print $3}' ''')
@@ -33,6 +38,8 @@ def autostart():
 
 # thanks to rogerduran for the implementation of my idea (borrowed
 # from stumpwm)
+
+
 class PrevFocus(object):
     """Store last focus per group and go back when called"""
 
