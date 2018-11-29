@@ -35,7 +35,8 @@ keys = [
 
     # Rofi keys
     Key([mod], "d", lazy.spawn('rofi -show window')),
-    Key([mod], "s", lazy.spawn('''bash -c 'termite --class "fzf-menu" -e ~/.local/bin/songChooser' ''')),
+    Key([mod], "s", lazy.spawn(
+        '''bash -c 'termite --class "fzf-menu" -e ~/.local/bin/songChooser' ''')),
     Key([mod], "g", lazy.spawn('rofi -show run')),
     Key([mod], "r", lazy.spawn('rofi -modi combi -show combi -combi-modi drun,run')),
 
