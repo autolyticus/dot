@@ -131,6 +131,7 @@ gcc-libs
 gconf
 gcr
 gd
+gdb
 gdbm
 gdk-pixbuf2
 geoclue2
@@ -481,6 +482,7 @@ pinta
 pixman
 pkgconf
 polkit
+poppler
 popt
 prettyping
 procps-ng
@@ -494,6 +496,7 @@ python
 python2
 python2-cairo
 python2-gobject2
+python-coverage
 python-eventlet
 python-greenlet
 python-iwlib
@@ -501,9 +504,13 @@ python-keyring
 python-mpd2
 python-msgpack
 python-neovim
+python-pandas
 python-pip
 python-requests
+python-seaborn
+python-selenium
 python-sh
+python-yaml
 ranger
 readline
 redshift
