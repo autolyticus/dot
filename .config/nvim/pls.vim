@@ -49,6 +49,9 @@ call plug#begin('~/.config/nvim/plugins')
     Plug 'slashmili/alchemist.vim'
     Plug 'AndrewRadev/splitjoin.vim'
 
+    " LaTeX
+    Plug 'lervag/vimtex'
+
     " Plug 'jalvesaq/Nvim-R' , { 'for': [ 'r' ] }
     " Plug 'vim-scripts/armasm'
     " Plug 'neovim/node-host', { 'do': 'npm install' }
