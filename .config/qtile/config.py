@@ -89,7 +89,7 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font='Source Sans Pro',
+    font='Ubuntu-C',
     fontsize=13,
     padding=4,
 )
@@ -127,6 +127,8 @@ screens = [
                 # widget.Sep(),
                 # widget.CPUGraph(),
                 # widget.Memory(),
+                # widget.Image(
+                #     filename='~/config/awesome/themes/multicolor/icons/mem.png'),
                 widget.GenPollText(func=user.usedMem, update_interval=5),
                 # widget.Sep(),
                 # widget.GenPollText(func=user.fuzClockFunction),
