@@ -8,6 +8,7 @@ from shlex import split
 from io import StringIO
 
 from libqtile import hook
+from rescuetime import allDistractingTime, productivityPulse
 
 
 def getOutput(command, empty=''):
