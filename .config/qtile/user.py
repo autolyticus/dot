@@ -29,7 +29,12 @@ def usedMem():
 
 
 def pacmanUpdates():
-    return getOutput(''' pacman -Sy &>/dev/null ; pacman -Qu | wc -l ''', empty='0')
+    s = getOutput(
+        ''' pacman -Sy &>/dev/null ; pacman -Qu | wc -l ''', empty='0')
+    if s == '':
+        return s
+    else:
+        return 'Updates: ' + s
 
 
 @hook.subscribe.startup_once
