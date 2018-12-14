@@ -23,55 +23,57 @@ keys = [
     Key([mod], 'j', lazy.layout.up()),
 
     # Move windows up or down in current stack
-    Key([mod, 'control'], "k", lazy.layout.shuffle_down()),
-    Key([mod, 'control'], "j", lazy.layout.shuffle_up()),
+    Key([mod, 'control'], 'k', lazy.layout.shuffle_down()),
+    Key([mod, 'control'], 'j', lazy.layout.shuffle_up()),
 
     # Switch window focus to other pane(s) of stack
-    Key([mod], "space", lazy.next_layout()),
-    Key([alt], "Tab", lazy.function(user.PrevFocus())),
-    Key([mod], "q", lazy.window.kill()),
-    Key([mod, "control"], "f", lazy.window.toggle_floating()),
-    Key([mod], "f", lazy.window.toggle_fullscreen()),
+    Key([mod], 'space', lazy.next_layout()),
+    Key([alt], 'Tab', lazy.function(user.PrevFocus())),
+    Key([mod], 'q', lazy.window.kill()),
+    Key([mod, 'control'], 'f', lazy.window.toggle_floating()),
+    Key([mod], 'f', lazy.window.toggle_fullscreen()),
 
     # Rofi keys
-    Key([mod], "d", lazy.spawn('rofi -show window')),
-    Key([mod], "s", lazy.spawn(
+    Key([mod], 'd', lazy.spawn('rofi -show window')),
+    Key([mod], 's', lazy.spawn(
         '''bash -c 'termite --class "fzf-menu" -e ~/.local/bin/songChooser' ''')),
-    Key([mod], "g", lazy.spawn('rofi -show run')),
-    Key([mod], "r", lazy.spawn('rofi -modi combi -show combi -combi-modi drun,run')),
+    Key([mod], 'g', lazy.spawn('rofi -show run')),
+    Key([mod], 'r', lazy.spawn('rofi -modi combi -show combi -combi-modi drun,run')),
 
     # Launchers
-    Key([mod], "Return", lazy.spawn(terminal)),
-    Key([mod], "KP_Enter", lazy.spawn(terminal)),
-    Key([mod], "w", lazy.spawn(browser)),
+    Key([mod], 'Return', lazy.spawn(terminal)),
+    Key([mod], 'KP_Enter', lazy.spawn(terminal)),
+    Key([mod], 'w', lazy.spawn(browser)),
+    Key([], 'XF86Calculator', lazy.spawn(
+        '''bash -c 'termite --class "fzf-menu" -e calc' ''')),
 
     # Management
-    Key([mod, "control"], "s", lazy.spawn('susp')),
-    Key([mod, "control"], "r", lazy.restart()),
-    Key([mod, "control"], "l", lazy.spawn('locker')),
-    Key([mod, "control"], "q", lazy.shutdown()),
+    Key([mod, 'control'], 's', lazy.spawn('susp')),
+    Key([mod, 'control'], 'r', lazy.restart()),
+    Key([mod, 'control'], 'l', lazy.spawn('locker')),
+    Key([mod, 'control'], 'q', lazy.shutdown()),
 
     # Misc
-    Key([], "Print", lazy.spawn(
+    Key([], 'Print', lazy.spawn(
         'scrot -e \'mkdir -p ~/screenshots; mv $f ~/screenshots/\'')),
 
 
-    # Key([mod, "shift"], "space", lazy.next_()),
+    # Key([mod, 'shift'], 'space', lazy.next_()),
     # Toggle between different layouts as defined below
 
     # Swap panes of split stack
-    # Key([mod, "shift"], "space", lazy.layout.rotate()),
+    # Key([mod, 'shift'], 'space', lazy.layout.rotate()),
 
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
     # multiple stack panes
-    # Key([mod, "shift"], "Return", lazy.layout.toggle_split()),
+    # Key([mod, 'shift'], 'Return', lazy.layout.toggle_split()),
 
 
 ]
 
-groups = [Group(i) for i in "123456"]
+groups = [Group(i) for i in '123456']
 
 for i in groups:
     keys.extend([
@@ -79,7 +81,7 @@ for i in groups:
         Key([mod], i.name, lazy.group[i.name].toscreen()),
 
         # mod1 + shift + letter of group = switch to & move focused window to group
-        Key([mod, "shift"], i.name, lazy.window.togroup(i.name)),
+        Key([mod, 'shift'], i.name, lazy.window.togroup(i.name)),
     ])
 
 layouts = [
@@ -107,7 +109,9 @@ screens = [
                 widget.Systray(),
                 widget.Mpd(fmt_stopped='', fmt_playing='⏯ %a / %t',
                            foreground_progress='00ff00'),
+                widget.TextBox(text='🔊', padding=0),
                 widget.Volume(),
+                widget.TextBox(text=' ', padding=4),
                 widget.TextBox(text='↓', padding=0),
                 widget.GenPollText(
                     func=user.allDistractingTime, update_interval=300),
@@ -142,11 +146,11 @@ screens = [
 
 # Drag floating layouts.
 mouse = [
-    Drag([mod], "Button1", lazy.window.set_position_floating(),
+    Drag([mod], 'Button1', lazy.window.set_position_floating(),
          start=lazy.window.get_position()),
-    Drag([mod], "Button3", lazy.window.set_size_floating(),
+    Drag([mod], 'Button3', lazy.window.set_size_floating(),
          start=lazy.window.get_size()),
-    Click([mod], "Button2", lazy.window.bring_to_front())
+    Click([mod], 'Button2', lazy.window.bring_to_front())
 ]
 
 dgroups_key_binder = None
@@ -173,7 +177,7 @@ floating_layout = layout.Floating(float_rules=[
     {'wmclass': 'fzf-menu'},  # ssh-askpass
 ])
 auto_fullscreen = True
-focus_on_window_activation = "smart"
+focus_on_window_activation = 'smart'
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
@@ -183,4 +187,4 @@ focus_on_window_activation = "smart"
 #
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
-wmname = "LG3D"
+wmname = 'LG3D'
