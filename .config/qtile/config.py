@@ -73,7 +73,8 @@ keys = [
 
 ]
 
-groups = [Group(i) for i in '123456']
+groups = [Group('1', matches=[Match(wm_class=['Firefox', 'Chromium'])])
+          ] + [Group(i) for i in '23456']
 
 for i in groups:
     keys.extend([
