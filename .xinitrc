@@ -58,7 +58,7 @@ export touchID=$(xinput list | grep Touchpad | cut -f 2 | cut -d'=' -f 2)
 (xinput disable $touchID) &
 
 # remap caps to escape
-(xmodmap -e 'clear Lock' -e 'keycode 0x42=Escape') &
+# (xmodmap -e 'clear Lock' -e 'keycode 0x42=Escape') &
 
 
 (xset dpms 0 0 0 && xset s noblank && xset s off) &
