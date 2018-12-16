@@ -119,6 +119,7 @@ screens = [
                 widget.TextBox(text='📈', padding=0),
                 widget.GenPollText(
                     func=user.productivityPulse, update_interval=300),
+                widget.GenPollText(func=user.inbox, update_interval=300),
                 widget.GenPollText(func=user.pacmanUpdates,
                                    update_interval=60),
                 # widget.Sep(),

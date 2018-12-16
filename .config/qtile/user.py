@@ -28,6 +28,10 @@ def usedMem():
     return getOutput(''' free -h | awk '/Mem/{print $3}' ''')
 
 
+def inbox():
+    return 'Inbox: ' + str(int(getOutput('''wunderline list inbox | wc -l''')) - 2)
+
+
 def pacmanUpdates():
     s = getOutput(
         ''' pacman -Sy &>/dev/null ; pacman -Qu | wc -l ''', empty='0')
