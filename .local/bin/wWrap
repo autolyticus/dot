@@ -33,7 +33,7 @@ echo -ne "$YELLOW""$ALIGNC"
 echo -e '1-NOW'
 echo "$HR2"
 echo -e "$now"
-echo
+# echo
 echo "$HR2"
 echo -n "$RED"
 echo "$todaynotnow"
