@@ -489,6 +489,7 @@ procps-ng
 psmisc
 pth
 pulseview
+pygmentize
 pygobject2-devel
 pygtk
 pympd
@@ -496,11 +497,13 @@ python
 python2
 python2-cairo
 python2-gobject2
+python-beautifulsoup4
 python-coverage
 python-eventlet
 python-greenlet
 python-iwlib
 python-keyring
+python-markdown
 python-mpd2
 python-msgpack
 python-neovim
