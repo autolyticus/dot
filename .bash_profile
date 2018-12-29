@@ -34,6 +34,7 @@ export PATH="$HOME/.local/bin:$PATH"
 appendpath "$HOME/.pub-cache/bin"
 appendpath "$XDG_DATA_HOME/go/bin"
 appendpath "$XDG_DATA_HOME/npm/bin"
+appendpath "$XDG_DATA_HOME/cargo/bin"
 export PATH
 
 unset appendpath
