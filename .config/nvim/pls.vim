@@ -52,8 +52,10 @@ call plug#begin('~/.config/nvim/plugins')
     " LaTeX
     Plug 'lervag/vimtex'
 
-    " Plug 'jalvesaq/Nvim-R' , { 'for': [ 'r' ] }
+    " ARM asm
+    Plug 'ARM9/arm-syntax-vim'
     " Plug 'vim-scripts/armasm'
+    " Plug 'jalvesaq/Nvim-R' , { 'for': [ 'r' ] }
     " Plug 'neovim/node-host', { 'do': 'npm install' }
     " Plug 'vimlab/mdown.vim', { 'do': 'npm install' }
     " Plug 'arakashic/chromatica.nvim'
