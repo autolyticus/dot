@@ -22,6 +22,7 @@ artix-mirrorlist
 artix-sysvcompat
 atk
 atkmm
+atool
 at-spi2-atk
 at-spi2-core
 attr
@@ -57,6 +58,7 @@ cairomm
 calc
 cantarell-fonts
 c-ares
+catimg
 cdparanoia
 cifs-utils
 clang
@@ -99,6 +101,7 @@ efivar
 elogind
 elogind-runit
 elvish
+entr
 eudev
 expat
 expect
@@ -414,6 +417,7 @@ mtdev
 nano
 ncdu
 ncurses
+neofetch
 neovim
 netstat-nat
 nettle
