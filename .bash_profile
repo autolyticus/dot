@@ -19,6 +19,8 @@ export WAKATIME_HOME="$XDG_DATA_HOME/wakatime"
 
 export ZDOTDIR="$HOME/.config/zsh"
 
+export SDL_AUDIODRIVER='alsa'
+
 appendpath () {
     case ":$PATH:" in
         *:"$1":*)
