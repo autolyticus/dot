@@ -40,3 +40,5 @@ clean:
 %.exs.out: %.exs
 	cp $< $@
 	chmod +x $@
+%.rs.out: %.rs
+	rustc -g -o $@ $<
