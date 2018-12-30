@@ -4,6 +4,7 @@ exec 2>/dev/null
 # all="$(cat ~/a)"
 all="$(wunderline all)"
 next="$(wunderline list Next)"
+side="$(wunderline list Side)"
 today="$(echo "$all" | grep Today)"
 starred="$(echo "$all" | grep ★)"
 # alltoday="$(wunderline today)"
@@ -36,7 +37,7 @@ echo -e "$now"
 # echo
 echo "$HR2"
 echo -n "$RED"
-echo "$todaynotnow"
+echo "$side"
 echo
 echo -n "$BLUE"
 echo "$next"
