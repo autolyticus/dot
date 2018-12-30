@@ -758,10 +758,6 @@ if [ -z "$ZSH_SOURCING" ]; then
         . ~/.local/tempcd
     fi
 
-    if [ -n "$DISPLAY" ]; then
-        xmodmap -e 'keycode 0x42=Escape' #remaps the keyboard so CAPS LOCK=ESC
-    fi
-
     if [ -z "$BASH_EXECUTION_STRING" ] && [ "$SHLVL" -eq 3 ]; then
         exec fish
     fi
