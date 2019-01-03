@@ -1,7 +1,7 @@
 import os
 import subprocess
 
-from libqtile.config import Key, Screen, Group, Drag, Click, Match
+from libqtile.config import Key, Screen, Group, Drag, Click, Match, ScratchPad, DropDown
 from libqtile.command import lazy
 from libqtile import layout, bar, widget
 
@@ -85,6 +85,25 @@ for i in groups:
         # mod1 + shift + letter of group = switch to & move focused window to group
         Key([mod, 'shift'], i.name, lazy.window.togroup(i.name)),
     ])
+
+groups += [
+    ScratchPad("scratchpad", [
+        DropDown(
+            "zeal",
+            "zeal",
+            x=0,
+            y=0,
+            width=1.0,
+            height=1.0,
+            on_focus_lost_hide=True)
+    ]),
+]
+
+keys.extend([
+    # toggle visibiliy of above defined DropDown named "term"
+    Key([mod, 'control'], 'z',
+        lazy.group['scratchpad'].dropdown_toggle('zeal')),
+])
 
 layouts = [
     layout.Max(),
