@@ -207,14 +207,6 @@ gdrived() {
     gdrive sync upload "$@" 0Bzq5TQN2ywxsNFhtaU1LUWNWQTQ
 }
 
-adbp() {
-    sudo adb push "$@" /sdcard/GG/
-}
-
-adbps() {
-    sudo adb push "$@" /sdcard/
-}
-
 M() {
     cd /media/"$@" || return
     ls
