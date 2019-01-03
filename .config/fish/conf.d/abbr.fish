@@ -35,6 +35,7 @@ if not set -q abbrs_initialized
     abbr eb 'e ~/.bashrc'
     abbr epack 'e ~/.local/.packlist'
     abbr estack 'e .local/.stack'
+    abbr fo 'fortilogin'
     abbr folders 'du -h --max-depth=1'
     abbr free 'free -h'
     abbr freshclam 'sudo freshclam'
