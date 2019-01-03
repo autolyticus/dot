@@ -35,17 +35,20 @@ keys = [
 
     # Rofi keys
     Key([mod], 'd', lazy.spawn('rofi -show window')),
-    Key([mod], 's', lazy.spawn(
-        '''bash -c 'termite --class "fzf-menu" -e ~/.local/bin/songChooser' ''')),
+    Key([mod], 's',
+        lazy.spawn(
+            '''bash -c 'termite --class "fzf-menu" -e ~/.local/bin/songChooser' '''
+        )),
     Key([mod], 'g', lazy.spawn('rofi -show run')),
-    Key([mod], 'r', lazy.spawn('rofi -modi combi -show combi -combi-modi drun,run')),
+    Key([mod], 'r',
+        lazy.spawn('rofi -modi combi -show combi -combi-modi drun,run')),
 
     # Launchers
     Key([mod], 'Return', lazy.spawn(terminal)),
     Key([mod], 'KP_Enter', lazy.spawn(terminal)),
     Key([mod], 'w', lazy.spawn(browser)),
-    Key([], 'XF86Calculator', lazy.spawn(
-        '''bash -c 'termite --class "fzf-menu" -e calc' ''')),
+    Key([], 'XF86Calculator',
+        lazy.spawn('''bash -c 'termite --class "fzf-menu" -e calc' ''')),
 
     # Management
     Key([mod, 'control'], 's', lazy.spawn('susp')),
@@ -54,9 +57,9 @@ keys = [
     Key([mod, 'control'], 'q', lazy.shutdown()),
 
     # Misc
-    Key([], 'Print', lazy.spawn(
-        'scrot -e \'mkdir -p ~/screenshots; mv $f ~/screenshots/\'')),
-
+    Key([], 'Print',
+        lazy.spawn('scrot -e \'mkdir -p ~/screenshots; mv $f ~/screenshots/\'')
+        ),
 
     # Key([mod, 'shift'], 'space', lazy.next_()),
     # Toggle between different layouts as defined below
@@ -69,8 +72,6 @@ keys = [
     # Unsplit = 1 window displayed, like Max layout, but still with
     # multiple stack panes
     # Key([mod, 'shift'], 'Return', lazy.layout.toggle_split()),
-
-
 ]
 
 groups = [Group('1', matches=[Match(wm_class=['Firefox', 'Chromium'])])
@@ -108,8 +109,10 @@ screens = [
                 # widget.Sep(),
                 # widget.Sep(),
                 widget.Systray(),
-                widget.Mpd(fmt_stopped='', fmt_playing='⏯ %a / %t',
-                           foreground_progress='00ff00'),
+                widget.Mpd(
+                    fmt_stopped='',
+                    fmt_playing='⏯ %a / %t',
+                    foreground_progress='00ff00'),
                 widget.TextBox(text='🔊', padding=0),
                 widget.Volume(),
                 widget.TextBox(text=' ', padding=4),
@@ -120,8 +123,8 @@ screens = [
                 widget.GenPollText(
                     func=user.productivityPulse, update_interval=300),
                 widget.GenPollText(func=user.inbox, update_interval=300),
-                widget.GenPollText(func=user.pacmanUpdates,
-                                   update_interval=60),
+                widget.GenPollText(
+                    func=user.pacmanUpdates, update_interval=60),
                 # widget.Sep(),
                 # widget.Sep(),
                 # widget.Notify(),
@@ -142,15 +145,18 @@ screens = [
                 # widget.TextBox('default config', name='default'),
             ],
             24,
-        ),
-    ),
+        ), ),
 ]
 
 # Drag floating layouts.
 mouse = [
-    Drag([mod], 'Button1', lazy.window.set_position_floating(),
+    Drag([mod],
+         'Button1',
+         lazy.window.set_position_floating(),
          start=lazy.window.get_position()),
-    Drag([mod], 'Button3', lazy.window.set_size_floating(),
+    Drag([mod],
+         'Button3',
+         lazy.window.set_size_floating(),
          start=lazy.window.get_size()),
     Click([mod], 'Button2', lazy.window.bring_to_front())
 ]
@@ -162,21 +168,51 @@ follow_mouse_focus = False
 bring_front_click = False
 cursor_warp = False
 floating_layout = layout.Floating(float_rules=[
-    {'wmclass': 'confirm'},
-    {'wmclass': 'dialog'},
-    {'wmclass': 'download'},
-    {'wmclass': 'error'},
-    {'wmclass': 'file_progress'},
-    {'wmclass': 'notification'},
-    {'wmclass': 'splash'},
-    {'wmclass': 'toolbar'},
-    {'wmclass': 'confirmreset'},  # gitk
-    {'wmclass': 'makebranch'},  # gitk
-    {'wmclass': 'maketag'},  # gitk
-    {'wname': 'branchdialog'},  # gitk
-    {'wname': 'pinentry'},  # GPG key password entry
-    {'wmclass': 'ssh-askpass'},  # ssh-askpass
-    {'wmclass': 'fzf-menu'},  # ssh-askpass
+    {
+        'wmclass': 'confirm'
+    },
+    {
+        'wmclass': 'dialog'
+    },
+    {
+        'wmclass': 'download'
+    },
+    {
+        'wmclass': 'error'
+    },
+    {
+        'wmclass': 'file_progress'
+    },
+    {
+        'wmclass': 'notification'
+    },
+    {
+        'wmclass': 'splash'
+    },
+    {
+        'wmclass': 'toolbar'
+    },
+    {
+        'wmclass': 'confirmreset'
+    },  # gitk
+    {
+        'wmclass': 'makebranch'
+    },  # gitk
+    {
+        'wmclass': 'maketag'
+    },  # gitk
+    {
+        'wname': 'branchdialog'
+    },  # gitk
+    {
+        'wname': 'pinentry'
+    },  # GPG key password entry
+    {
+        'wmclass': 'ssh-askpass'
+    },  # ssh-askpass
+    {
+        'wmclass': 'fzf-menu'
+    },  # ssh-askpass
 ])
 auto_fullscreen = True
 focus_on_window_activation = 'smart'
