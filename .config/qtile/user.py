@@ -29,7 +29,11 @@ def usedMem():
 
 
 def inbox():
-    return 'Inbox: ' + str(int(getOutput('''wunderline list inbox | wc -l''')) - 2)
+    inbox = int(getOutput('''wunderline list inbox | wc -l''')) - 2
+    if inbox >= 1:
+        return 'Inbox: ' + str(inbox)
+    else:
+        return ''
 
 
 def pacmanUpdates():
@@ -45,6 +49,7 @@ def pacmanUpdates():
 def autostart():
     home = os.path.expanduser('~/.config/qtile/autostart.sh')
     subprocess.call([home])
+
 
 # thanks to rogerduran for the implementation of my idea (borrowed
 # from stumpwm)
@@ -63,7 +68,8 @@ class PrevFocus(object):
         if not group:
             return
         group_focus = self.groups_focus.setdefault(group.name, {
-            "current": None, "prev": None
+            "current": None,
+            "prev": None
         })
         # don't change prev if the current focus is the same as before
         if group_focus["current"] == window:
