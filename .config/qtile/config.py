@@ -87,16 +87,15 @@ for i in groups:
     ])
 
 groups += [
-    ScratchPad("scratchpad", [
-        DropDown(
-            "zeal",
-            "zeal",
-            x=0,
-            y=0,
-            width=1.0,
-            height=1.0,
-            on_focus_lost_hide=True)
-    ]),
+    ScratchPad("scratchpad",
+               [DropDown(
+                   "zeal",
+                   "zeal",
+                   x=0,
+                   y=0,
+                   width=1.0,
+                   height=1.0,
+               )]),
 ]
 
 keys.extend([
