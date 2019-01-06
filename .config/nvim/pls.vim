@@ -17,10 +17,10 @@ call plug#begin('~/.config/nvim/plugins')
     " Plug 'yami-beta/asyncomplete-omni.vim'
 
     " Plug 'natebosch/vim-lsc'
-    " Plug 'autozimu/LanguageClient-neovim', {
-    "   \ 'branch': 'next',
-    "   \ 'do': 'bash install.sh',
-    "   \ }
+    Plug 'autozimu/LanguageClient-neovim', {
+      \ 'branch': 'next',
+      \ 'do': 'bash install.sh',
+      \ }
     " Plug 'roxma/nvim-completion-manager'
 
 
@@ -43,6 +43,8 @@ call plug#begin('~/.config/nvim/plugins')
     Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': [ 'lisp', 'clojure' ] }
     " Plug 'venantius/vim-cljfmt', { 'for': ['clojure'] }
     " Plug 'tpope/vim-fireplace'
+    " Rust
+    " Plug 'sebastianmarkow/deoplete-rust'
     " Godot
     Plug 'calviken/vim-gdscript3'
     " Elixir

@@ -20,8 +20,8 @@ if PlagCheck('LanguageClient-neovim')
 		\ 'sh': ['bash-lanuguage-server'],
 		\ 'go': ['go-langserver'],
 		\ 'dart': ['dart_language_server'],
+		\ 'rust': ['rustup', 'run', 'nightly', 'rls'],
 		\ }
-		" \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
 		" \ 'javascript': ['javascript-typescript-stdio'],
 		" \ 'javascript.jsx': ['javascript-typescript-stdio'],
 	let g:LanguageClient_loadSettings = 1
