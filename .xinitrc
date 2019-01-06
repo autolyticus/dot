@@ -62,7 +62,7 @@ export touchID=$(xinput list | grep Touchpad | cut -f 2 | cut -d'=' -f 2)
 
 
 (xset dpms 0 0 0 && xset s noblank && xset s off) &
-(xautolock -time 5 -locker ~/.local/bin/locker -corners +000 -cornerdelay 1 -cornerredelay 5) &
+(xautolock -time 5 -locker ~/.local/bin/locker) &
 
 # exec awesome > /tmp/awesome.log 2>&1
 
