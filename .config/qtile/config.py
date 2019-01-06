@@ -49,6 +49,7 @@ keys = [
     Key([mod], 'w', lazy.spawn(browser)),
     Key([], 'XF86Calculator',
         lazy.spawn('''bash -c 'termite --class "fzf-menu" -e calc' ''')),
+    Key([], 'XF86AudioStop', lazy.spawn('''bash -c 'mpc stop' ''')),
 
     # Management
     Key([mod, 'control'], 's', lazy.spawn('susp')),
