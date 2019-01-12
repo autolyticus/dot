@@ -9,6 +9,7 @@ function! LCUnMapper()
 	nunmap K
 	nunmap gd
 	nunmap <F2>
+	nunmap <F1>
 endfunction
 
 if PlagCheck('LanguageClient-neovim')
