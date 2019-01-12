@@ -3,12 +3,24 @@ call plug#begin('~/.config/nvim/plugins')
 
     " "AutoCompletion Framework"
 
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    let g:deoplete#enable_at_startup = 1
-    Plug 'Shougo/neco-syntax'
-    Plug 'Shougo/neoinclude.vim'
-    " Plug 'Shougo/neosnippet.vim' | Plug 'Shougo/neosnippet-snippets' | Plug 'honza/vim-snippets'
+    Plug 'ncm2/ncm2'
+    Plug 'roxma/nvim-yarp'
+    Plug 'ncm2/ncm2-syntax' | Plug 'Shougo/neco-syntax'
+    Plug 'ncm2/ncm2-neoinclude' | Plug 'Shougo/neoinclude.vim'
+    Plug 'ncm2/ncm2-path'
+    Plug 'ncm2/ncm2-bufword'
+    Plug 'ncm2/ncm2-gtags'
+
+    " Integration with other plugins
+    Plug 'ncm2/ncm2-ultisnips'
+    " Plug 'svermeulen/ncm2-yoink'
+
     Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+    " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    " let g:deoplete#enable_at_startup = 1
+    " Plug 'Shougo/neco-syntax'
+    " Plug 'Shougo/neoinclude.vim'
+    " Plug 'Shougo/neosnippet.vim' | Plug 'Shougo/neosnippet-snippets' | Plug 'honza/vim-snippets'
     " Plug 'prabirshrestha/async.vim' |  Plug 'prabirshrestha/vim-lsp'
     " Plug 'prabirshrestha/asyncomplete.vim'
     " Plug 'prabirshrestha/asyncomplete-buffer.vim'
