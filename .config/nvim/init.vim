@@ -63,7 +63,6 @@ if has('reltime')
         set inccommand=nosplit
     endif
 endif
-set gdefault
 
 " I like highlighting strings inside C comments.
 " Revert with ":unlet c_comment_strings".
