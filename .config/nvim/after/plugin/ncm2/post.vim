@@ -3,7 +3,4 @@ set completeopt=noinsert,menuone,noselect
 
 autocmd User Ncm2PopupOpen set completeopt=noinsert,menuone,noselect,preview
 autocmd User Ncm2PopupClose set completeopt=menuone
-if PlagCheck('ncm2')
-    echo "HEHEHEHEHEHEHEHEHE"
-    set shortmess+=c
-endif
+set shortmess+=c
