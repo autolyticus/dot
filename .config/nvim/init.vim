@@ -59,6 +59,9 @@ set mouse=a
 if has('reltime')
 	set incsearch
 	set hlsearch
+    if has('nvim')
+        set inccommand=nosplit
+    endif
 endif
 set gdefault
 
