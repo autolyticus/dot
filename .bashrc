@@ -731,18 +731,14 @@ __setprompt() {
 }
 PROMPT_COMMAND='__setprompt'
 
-if [ -z "$ZSH_SOURCING" ]; then
-    if [ "$(basename "$SHELL")" = "bash" ]; then
-        if type fzf &>/dev/null; then
-            source /usr/share/fzf/key-bindings.bash
-            source /usr/share/fzf/completion.bash
-            if type rg &>/dev/null; then
-                export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
-                export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-                # export FZF_ALT_C_COMMAND='rg --files --no-ignore --hidden --type d --follow -g "!{.git,node_modules}/*" 2> /dev/null'
-
-            fi
-        fi
+if [ "$(basename "$SHELL")" = "bash" ]; then
+    if type fzf &>/dev/null; then
+        source /usr/share/fzf/key-bindings.bash
+        source /usr/share/fzf/completion.bash
+        if type rg &>/dev/null; then
+            export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+            export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+            # export FZF_ALT_C_COMMAND='rg --files --no-ignore --hidden --type d --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 
     fi
     # motdupdate
