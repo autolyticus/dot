@@ -85,7 +85,7 @@ call plug#begin('~/.config/nvim/plugins')
     " Plug 'tpope/vim-sleuth'
     " Plug 'godlygeek/tabular'
 
-    " "Efficiency Helpers"
+    " "Text Objects, Movement, Selection"
 
     Plug 'easymotion/vim-easymotion'
     Plug 'tpope/vim-surround'
