@@ -171,6 +171,7 @@ call plug#begin('~/.config/nvim/plugins')
     Plug 'jlesquembre/base16-neovim'
     Plug 'rafi/awesome-vim-colorschemes'
     Plug 'Donearm/Ubaryd'
+    " Plug 'romainl/Apprentice'
     " Plug 'josuegaleas/jay'
     " Plug 'chriskempson/base16-vim'
     " Plug 'MaxSt/FlatColor'
