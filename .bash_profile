@@ -22,6 +22,10 @@ export ZDOTDIR="$HOME/.config/zsh"
 export SDL_AUDIODRIVER='alsa'
 
 appendpath () {
+    if [[ ! -d "$1" ]]; then
+        echo "Directory does not exist: $1"
+        return
+    fi
     case ":$PATH:" in
         *:"$1":*)
             ;;
