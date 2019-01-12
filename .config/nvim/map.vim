@@ -69,6 +69,10 @@ map <silent> <Space>d :term<CR>i
 map <F6> :botright<Space>vspl<CR>:terminal<Space>gdb<Space>./%.out<CR>
 map <F9> :botright<Space>vspl<CR>:terminal<Space>./%.out<CR>i
 map <F10> :botright<Space>vspl<CR>:terminal<Space>./tester<CR>
+" Go to the first non-blank character of a line
+noremap 0 ^
+" Just in case you need to go to the very beginning of a line
+noremap ^ 0
 
 
 " map <F12> :Neoformat<CR>:set<Space>ts=2<CR>:retab!<CR>:set<Space>ts=4<CR>
