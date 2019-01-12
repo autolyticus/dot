@@ -6,6 +6,7 @@ if PlagCheck('easymotion')
 	" let g:EasyMotion_inc_highlight = 0
 	map <Space>f <Plug>(easymotion-f)
 	map <Space><Space> <Plug>(easymotion-s)
+	map s <Plug>(easymotion-s)
 	map <Space>s <Plug>(easymotion-s2)
 	map <Space>t <Plug>(easymotion-t)
 	map <Space>j <Plug>(easymotion-j)
