@@ -101,6 +101,7 @@ call plug#begin('~/.config/nvim/plugins')
 
     Plug 'easymotion/vim-easymotion'
     Plug 'vim-scripts/argtextobj.vim'
+    Plug 'michaeljsmith/vim-indent-object'
     Plug 'wellle/targets.vim'
     Plug 'tweekmonster/braceless.vim'
 
