@@ -740,13 +740,16 @@ if [ "$(basename "$SHELL")" = "bash" ]; then
             export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
             # export FZF_ALT_C_COMMAND='rg --files --no-ignore --hidden --type d --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 
-    fi
-    # motdupdate
-    if [ -f ~/.local/tempcd ]; then
-        . ~/.local/tempcd
+        fi
     fi
 
-    if [ -z "$BASH_EXECUTION_STRING" ] && [ "$SHLVL" -eq 3 ]; then
-        exec fish
-    fi
+fi
+# motdupdate
+if [ -f ~/.local/tempcd ]; then
+    . ~/.local/tempcd
+fi
+
+(xset r off) &
+if [ -z "$BASH_EXECUTION_STRING" ] && [ "$SHLVL" -eq 3 ]; then
+    exec fish
 fi
