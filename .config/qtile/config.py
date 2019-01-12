@@ -144,7 +144,7 @@ screens = [
                 widget.GenPollText(
                     func=user.inbox, foreground='ff0000', update_interval=300),
                 widget.GenPollText(
-                    func=user.pacmanUpdates, update_interval=60),
+                    func=user.pacmanUpdates, update_interval=1800),
                 # widget.Sep(),
                 # widget.Sep(),
                 # widget.Notify(),
