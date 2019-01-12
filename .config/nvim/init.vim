@@ -42,8 +42,8 @@ set expandtab
 
 set lazyredraw
 set updatetime=2000
-" set rnu
-" set nuw=3
+set nu
+set nuw=3
 set scrolloff=4
 
 set title
