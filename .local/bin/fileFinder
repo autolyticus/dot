@@ -1,12 +1,12 @@
 #!/usr/bin/env sh
 
-FZFCOMMAND='fzf'
-RGCOMMAND='rg --files --hidden --no-ignore --color never -g "!{.git,node_modules,.cache}/*"'
+FZFCOMMAND='fzf --height 40'
+RGCOMMAND='rg --files --hidden --no-ignore --color never --line-buffered --iglob !.git/* --iglob !*cache*'
 if (type rg >/dev/null 2>&1); then
     if [ -z "$@" ]; then
-        $RGCOMMAND | $FZFCOMMAND
+        $RGCOMMAND 2>/dev/null | $FZFCOMMAND
     else
-        $RGCOMMAND -g "$@" | $FZFCOMMAND
+        $RGCOMMAND -g "$@" 2>/dev/null | $FZFCOMMAND
     fi
 else
 	find . -type f -regex "$@" | $FZFCOMMAND
