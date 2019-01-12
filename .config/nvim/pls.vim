@@ -158,6 +158,7 @@ call plug#begin('~/.config/nvim/plugins')
     Plug 'vim-airline/vim-airline'
     Plug 'majutsushi/tagbar'
     Plug 'mhinz/vim-startify'
+    Plug 'machakann/vim-highlightedyank'
     Plug 'Shougo/echodoc.vim'
     let g:echodoc_enable_at_startup = 1
     " Plug 'Shougo/denite.nvim'
