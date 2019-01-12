@@ -88,8 +88,7 @@ call plug#begin('~/.config/nvim/plugins')
     " "Text Objects, Movement, Selection"
 
     Plug 'easymotion/vim-easymotion'
-    Plug 'tpope/vim-surround'
-    Plug 'tweekmonster/braceless.vim'
+    Plug 'vim-scripts/argtextobj.vim'
     Plug 'wellle/targets.vim'
     Plug 'tpope/vim-repeat'
     Plug 'svermeulen/vim-easyclip'
