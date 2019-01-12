@@ -102,6 +102,7 @@ elogind
 elogind-runit
 elvish
 entr
+ethtool
 eudev
 expat
 expect
