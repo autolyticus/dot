@@ -37,6 +37,9 @@ clean:
 %.clj.out: %.clj
 	echo -e "#!/usr/bin/sh\nlein run" > $@
 	chmod +x $@
+%.cljs.out: %.cljs
+	cp $< $@
+	chmod +x $@
 %.exs.out: %.exs
 	cp $< $@
 	chmod +x $@
