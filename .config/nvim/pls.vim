@@ -99,6 +99,7 @@ call plug#begin('~/.config/nvim/plugins')
     Plug 'AndrewRadev/linediff.vim'
     Plug 'rhysd/accelerated-jk'
     Plug 'AndrewRadev/sideways.vim'
+    Plug 'tommcdo/vim-exchange'
     Plug 'FooSoft/vim-argwrap'
     Plug 'svermeulen/vim-cutlass'
     Plug 'svermeulen/vim-yoink'
