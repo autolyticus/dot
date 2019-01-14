@@ -16,14 +16,14 @@ if PlagCheck('LanguageClient-neovim')
 	set hidden
 	let g:LanguageClient_serverCommands = {
 		\ 'python': ['pyls'],
-		\ 'c': ['cquery'],
-		\ 'cpp': ['cquery', '--log-file=/tmp/cq.log'],
 		\ 'bash': ['bash-lanuguage-server'],
 		\ 'sh': ['bash-lanuguage-server'],
 		\ 'go': ['go-langserver'],
 		\ 'dart': ['dart_language_server'],
 		\ 'rust': ['rustup', 'run', 'nightly', 'rls'],
 		\ }
+		" \ 'c': ['cquery'],
+		" \ 'cpp': ['cquery', '--log-file=/tmp/cq.log'],
 		" \ 'javascript': ['javascript-typescript-stdio'],
 		" \ 'javascript.jsx': ['javascript-typescript-stdio'],
 	let g:LanguageClient_loadSettings = 1
