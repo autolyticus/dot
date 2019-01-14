@@ -176,6 +176,7 @@ call plug#begin('~/.config/nvim/plugins')
     Plug 'machakann/vim-highlightedyank'
     Plug 'Shougo/echodoc.vim'
     let g:echodoc_enable_at_startup = 1
+    Plug 'skywind3000/vim-preview'
     " Plug 'Shougo/denite.nvim'
     " Plug 'itchyny/lightline.vim'
 

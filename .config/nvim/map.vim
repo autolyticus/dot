@@ -56,6 +56,9 @@ map <expr> <Space>q &mod ? ':q!' : ':q<CR>'
 
 map <Space>` :w<CR>
 map <Space>w <C-w>
+
+" Quick preview close
+map <Space>z <C-w>z
 autocmd BufWinEnter,WinEnter,BufNewFile term://* startinsert
 autocmd BufWinEnter quickfix nnoremap <silent> <buffer>
 			\   q :cclose<cr>:lclose<cr>
