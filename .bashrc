@@ -749,7 +749,8 @@ if [ -f ~/.local/tempcd ]; then
     . ~/.local/tempcd
 fi
 
-(xset r off) &
+xset r rate 200 30
+
 if [ -z "$BASH_EXECUTION_STRING" ] && [ "$SHLVL" -eq 3 ]; then
     exec fish
 fi
