@@ -82,6 +82,7 @@ if not set -q abbrs_initialized
     abbr pipi 'pip install --user'
     abbr pm 'pacman -S'
     abbr pmm 'pacman -Su'
+    abbr pl 'pacman -Ql'
     abbr pmr 'pacman -Rns'
     abbr pq 'pacman -Q'
     abbr pr 'pacman -R'
