@@ -81,5 +81,8 @@ class PrevFocus(object):
         group = qtile.currentGroup
         group_focus = self.groups_focus.get(group.name, {"prev": None})
         prev = group_focus["prev"]
-        if prev and group.name == prev.group.name:
-            group.focus(prev, False)
+        try:
+            if prev and group.name == prev.group.name:
+                group.focus(prev, False)
+        except:
+            pass
