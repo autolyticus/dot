@@ -1,4 +1,5 @@
 set cindent
+set cscopetag
 
 " Now we set some defaults for the editor
 set history=50					" keep 50 lines of command line history

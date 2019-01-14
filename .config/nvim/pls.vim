@@ -84,7 +84,9 @@ call plug#begin('~/.config/nvim/plugins')
 
     " "Coding helpers"
 
-    Plug 'fntlnz/atags.vim'
+    Plug 'ludovicchabant/vim-gutentags'
+    Plug 'skywind3000/gutentags_plus'
+    " Plug 'fntlnz/atags.vim'
     " Plug 'jsfaint/gen_tags.vim'
     " Plug 'c0r73x/neotags.nvim'
 
