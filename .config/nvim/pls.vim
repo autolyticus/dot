@@ -33,7 +33,6 @@ call plug#begin('~/.config/nvim/plugins')
       \ 'branch': 'next',
       \ 'do': 'bash install.sh',
       \ }
-    " Plug 'roxma/nvim-completion-manager'
 
 
     " "Language specific"
