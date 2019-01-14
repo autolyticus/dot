@@ -150,7 +150,7 @@ screens = [
                 # widget.Notify(),
                 # widget.Pomodoro(),
                 # widget.Sep(),
-                widget.Battery(),
+                # widget.Battery(),
                 # widget.Sep(),
                 # widget.Net(),
                 # widget.Sep(),
