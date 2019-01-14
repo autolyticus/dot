@@ -32,9 +32,12 @@ nnoremap k gk
 
 " SPACE IS THE LEADER!
 map <Space> <Leader>
+
+" Quick macros
 map <Space>o @o
 map <Space>p @p
 map <Space>i @i
+
 
 " Quick copy-paste
 vmap <Space>y "+y
