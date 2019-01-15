@@ -505,6 +505,7 @@ python2-gobject2
 python-beautifulsoup4
 python-coverage
 python-eventlet
+python-gevent
 python-greenlet
 python-iwlib
 python-keyring
