@@ -49,6 +49,7 @@ if not set -q abbrs_initialized
     abbr gitp 'git push origin'
     abbr gitpom 'git push --set-upstream origin master'
     abbr gits 'git status'
+    abbr g 'googler --notweak --noua'
     abbr h 'history | grep '
     abbr hlp 'less /etc/bash.bashrc_help'
     abbr ip 'sudo ip'
