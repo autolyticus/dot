@@ -1,7 +1,7 @@
 #!/usr/bin/sh
 
 if [ -z "$@" ]; then
-	fileToView="$(fileFinder '*.pdf')"
+	fileToView="$(ff '*.pdf')"
 	# echo "Opening Zathura on $fileToView"
 	zathura --fork "$fileToView"
 else
