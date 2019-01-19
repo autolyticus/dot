@@ -14,7 +14,7 @@ except ImportError:
 
 mod = 'mod4'
 alt = 'mod1'
-terminal = 'kitty'
+terminal = 'kitty --single-instance'
 browser = 'firefox'
 
 keys = [
