@@ -14,7 +14,7 @@ except ImportError:
 
 mod = 'mod4'
 alt = 'mod1'
-terminal = 'termite'
+terminal = 'kitty'
 browser = 'firefox'
 
 keys = [
