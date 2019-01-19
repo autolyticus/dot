@@ -161,7 +161,7 @@ screens = [
                 widget.GenPollText(func=user.usedMem, update_interval=5),
                 # widget.Sep(),
                 widget.Clock(format='%a, %d'),
-                widget.GenPollText(func=user.fuzClock),
+                widget.GenPollText(func=user.fuzClock, update_interval=60),
                 # widget.TextBox('default config', name='default'),
             ],
             24,
