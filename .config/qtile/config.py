@@ -29,6 +29,7 @@ keys = [
     # Switch window focus to other pane(s) of stack
     Key([mod], 'space', lazy.next_layout()),
     Key([alt], 'Tab', lazy.function(user.PrevFocus())),
+    Key([mod], 'u', lazy.function(user.to_urgent)),
     Key([mod], 'q', lazy.window.kill()),
     Key([mod, 'control'], 'f', lazy.window.toggle_floating()),
     Key([mod], 'f', lazy.window.toggle_fullscreen()),
