@@ -36,20 +36,18 @@ keys = [
 
     # Rofi keys
     Key([mod], 'd', lazy.spawn('rofi -show window')),
-    Key([mod], 's',
-        lazy.spawn(
-            '''bash -c 'termite --class "fzf-menu" -e ~/.local/bin/songChooser' '''
-        )),
+    Key([mod], 's', lazy.spawn('''bash -c '~/.local/bin/songChooser' ''')),
     Key([mod], 'g', lazy.spawn('rofi -show run')),
     Key([mod], 'r',
-        lazy.spawn('rofi -modi combi -show combi -combi-modi drun,run')),
+        lazy.spawn(
+            'rofi -modi combi -show-icons -show combi -combi-modi drun,run')),
 
     # Launchers
     Key([mod], 'Return', lazy.spawn(terminal)),
     Key([mod], 'KP_Enter', lazy.spawn(terminal)),
     Key([mod], 'w', lazy.spawn(browser)),
     Key([], 'XF86Calculator',
-        lazy.spawn('''bash -c 'termite --class "fzf-menu" -e calc' ''')),
+        lazy.spawn('''bash -c 'kitty --class "fzf-menu" calc' ''')),
     Key([], 'XF86AudioStop', lazy.spawn('''bash -c 'mpc stop' ''')),
 
     # Management
