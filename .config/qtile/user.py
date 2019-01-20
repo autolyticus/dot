@@ -38,7 +38,11 @@ def inbox():
 
 def pacmanUpdates():
     s = getOutput(
-        ''' pacman -Sy &>/dev/null ; pacman -Qu | wc -l ''', empty='0')
+        '''
+        iChecker &&
+        pacman -Sy &>/dev/null &&
+        pacman -Qu | wc -l ''',
+        empty='0')
     if s == '' or int(s) <= 5:
         return ''
     else:
