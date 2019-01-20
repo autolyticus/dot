@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+if [[  "$TERM" == 'xterm-termite' ]]; then
+    wget https://raw.githubusercontent.com/thestinger/termite/master/termite.terminfo
+    tic -x termite.terminfo
+else
+    if [[ "$TERM" == 'xterm-kitty' ]]; then
+        wget https://raw.githubusercontent.com/kovidgoyal/kitty/master/kitty/kitty.terminfo
+        tic -x kitty.terminfo
+    fi
+fi
