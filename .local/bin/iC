@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 echo "iCheck is running..."
 
@@ -6,6 +6,8 @@ while true; do
     if iChecker; then
         echo 'Internet is up'
         if [ -z "$@" ]; then
+            :
+        else
             alarm
         fi
     else
