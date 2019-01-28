@@ -4,7 +4,7 @@ if [[  "$TERM" == 'xterm-termite' ]]; then
     tic -x termite.terminfo
 else
     if [[ "$TERM" == 'xterm-kitty' ]]; then
-        wget https://raw.githubusercontent.com/kovidgoyal/kitty/master/kitty/kitty.terminfo
+        wget https://raw.githubusercontent.com/kovidgoyal/kitty/master/terminfo/kitty.terminfo
         tic -x kitty.terminfo
     fi
 fi
