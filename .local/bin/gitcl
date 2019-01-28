@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-if (echo "$@" | grep com); then
+if (echo "$@" | egrep 'com|org'); then
     git clone "$@"
 else
     git clone git@github.com:"$@"
