@@ -437,6 +437,7 @@ npm
 npth
 nspr
 nss
+nss-mdns
 ntfs-3g
 ntop
 ntp
@@ -503,6 +504,7 @@ python
 python2
 python2-cairo
 python2-gobject2
+python-argparse
 python-beautifulsoup4
 python-coverage
 python-eventlet
