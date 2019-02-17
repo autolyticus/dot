@@ -5,9 +5,9 @@ if ! (type play); then
 	echo "Please install sox"
 	exit 1
 fi
-for _ in $(seq 3); do
+# for _ in $(seq 3); do
 	play ~/.local/.notif.ogg
-done
+# done
 if (type beep); then
 	for _ in $(seq 3); do
 		beep -f 500 -l 20
