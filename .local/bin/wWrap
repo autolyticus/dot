@@ -1,22 +1,14 @@
 #!/usr/bin/env bash
 
 exec 2>/dev/null
-# all="$(cat ~/a)"
 all="$(wunderline all)"
 next="$(wunderline list Next)"
 side="$(wunderline list Side)"
 today="$(echo "$all" | grep Today)"
 starred="$(echo "$all" | grep ★)"
-# alltoday="$(wunderline today)"
 now="$(echo "$today" | grep ★)"
 next="$(echo "$next" | grep -v Today)"
 todaynotnow="$(echo "$today" | grep -v ★)"
-
-# if iCheck; then
-# 	script
-# else
-
-# fi
 
 DEF='${color7}'
 RED='${color red}'
@@ -33,7 +25,7 @@ ALIGNC='${alignc}'
 echo -ne "$YELLOW""$ALIGNC"
 echo -e '1-NOW'
 echo "$HR2"
-echo -e "$now"
+echo -e "$starred"
 # echo
 echo "$HR2"
 echo -n "$RED"
