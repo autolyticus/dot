@@ -52,7 +52,6 @@ if not set -q abbrs_initialized
     abbr g 'googler --notweak --noua'
     abbr h 'history | grep '
     abbr hlp 'less /etc/bash.bashrc_help'
-    abbr ic 'iC c'
     abbr ip 'sudo ip'
     abbr ipa 'sudo ip a'
     abbr mkbz2 'tar -cvjf'
