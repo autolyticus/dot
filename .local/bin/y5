@@ -7,10 +7,10 @@ if [ -n "$1" ]; then
 fi
 
 if [ -n "$(type tmux)" ]; then
-        {
-            echo "Starting hotspot in background"
-            tmux new-session -Ad -s y5 $y5Command
-        }
+    {
+        echo "Starting hotspot in background"
+        tmux new-session -Ad -s y5 $y5Command
+    }
 else
     echo "Please install tmux"
     $y5Command
