@@ -9,6 +9,16 @@ function! PlagCheck(plg)
 	endif
 endfunction
 
+function! PlagCheckDict(plg)
+    for [key,value] in items(g:plugs)
+        let l:match = matchstr(key, a:plg)
+        if !empty(l:match)
+            return 1
+        endif
+    endfor
+    return 0
+endfunction
+
 if PlagCheck('ultisnips')
     let g:UltisnipsMappingsToIgnore = ["<Tab>"]
     " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
