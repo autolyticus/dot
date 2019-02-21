@@ -1,15 +1,10 @@
 " Check if plugin is loaded, The only reliable way to do it
 function! PlagCheck(plg)
 	let l:searchReg = 'v:val =~? "' . a:plg . '"'
-	" echom l:searchReg
 	let l:nMatches = len(filter(split(execute(':scriptnames'), "\n"), l:searchReg))
-	" let l:nMatches = split(execute('echo &rtp'), "\n")
-	" echom string(l:nMatches)
 	if l:nMatches > 1
-		" echo "SUCCESS"
 		return 1
 	else
-		" echom "FAILED"
 		return 0
 	endif
 endfunction
