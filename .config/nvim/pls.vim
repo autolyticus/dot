@@ -3,16 +3,16 @@ call plug#begin('~/.config/nvim/plugins')
 
     " "AutoCompletion Framework"
 
-    Plug 'ncm2/ncm2'
-    Plug 'roxma/nvim-yarp'
-    Plug 'ncm2/ncm2-syntax' | Plug 'Shougo/neco-syntax'
-    Plug 'ncm2/ncm2-neoinclude' | Plug 'Shougo/neoinclude.vim'
-    Plug 'ncm2/ncm2-path'
-    Plug 'ncm2/ncm2-bufword'
-    Plug 'ncm2/ncm2-gtags'
+    " Plug 'ncm2/ncm2'
+    " Plug 'roxma/nvim-yarp'
+    " Plug 'ncm2/ncm2-syntax' | Plug 'Shougo/neco-syntax'
+    " Plug 'ncm2/ncm2-neoinclude' | Plug 'Shougo/neoinclude.vim'
+    " Plug 'ncm2/ncm2-path'
+    " Plug 'ncm2/ncm2-bufword'
+    " Plug 'ncm2/ncm2-gtags'
 
     " Integration with other plugins
-    Plug 'ncm2/ncm2-ultisnips'
+    " Plug 'ncm2/ncm2-ultisnips'
     " Plug 'svermeulen/ncm2-yoink'
 
     Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
@@ -40,30 +40,30 @@ call plug#begin('~/.config/nvim/plugins')
     " Everything
     Plug 'sheerun/vim-polyglot'
     " Go
-    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+    " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     " C/C++
-    Plug 'zchee/deoplete-clang'
+    " Plug 'zchee/deoplete-clang'
     " Python
-    Plug 'zchee/deoplete-jedi'
+    " Plug 'zchee/deoplete-jedi'
     " Flutter/Dart
-    Plug 'reisub0/hot-reload.vim'
+    " Plug 'reisub0/hot-reload.vim'
     " ReSTFUL APIs
-    Plug 'diepm/vim-rest-console'
+    " Plug 'diepm/vim-rest-console'
     " LISPs
-    Plug 'guns/vim-sexp', { 'for': [ 'lisp', 'clojure' ] }
-    Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': [ 'lisp', 'clojure' ] }
+    " Plug 'guns/vim-sexp', { 'for': [ 'lisp', 'clojure' ] }
+    " Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': [ 'lisp', 'clojure' ] }
     " Plug 'venantius/vim-cljfmt', { 'for': ['clojure'] }
     " Plug 'tpope/vim-fireplace'
     " Rust
     " Plug 'sebastianmarkow/deoplete-rust'
     " Godot
-    Plug 'calviken/vim-gdscript3'
+    " Plug 'calviken/vim-gdscript3'
     " Elixir
-    Plug 'slashmili/alchemist.vim'
-    Plug 'AndrewRadev/splitjoin.vim'
+    " Plug 'slashmili/alchemist.vim'
+    " Plug 'AndrewRadev/splitjoin.vim'
 
     " LaTeX
-    Plug 'lervag/vimtex'
+    " Plug 'lervag/vimtex'
 
     " ARM asm
     Plug 'ARM9/arm-syntax-vim'
@@ -83,8 +83,8 @@ call plug#begin('~/.config/nvim/plugins')
 
     " "Coding helpers"
 
-    Plug 'ludovicchabant/vim-gutentags'
-    Plug 'skywind3000/gutentags_plus'
+    " Plug 'ludovicchabant/vim-gutentags'
+    " Plug 'skywind3000/gutentags_plus'
     " Plug 'fntlnz/atags.vim'
     " Plug 'jsfaint/gen_tags.vim'
     " Plug 'c0r73x/neotags.nvim'
@@ -94,7 +94,7 @@ call plug#begin('~/.config/nvim/plugins')
     Plug 'sbdchd/neoformat'
     Plug 'ntpeters/vim-better-whitespace'
     Plug 'Yggdroot/indentLine'
-    Plug 'junegunn/vim-easy-align'
+    " Plug 'junegunn/vim-easy-align'
     " Plug 'tpope/vim-sleuth'
     " Plug 'godlygeek/tabular'
 
@@ -130,8 +130,8 @@ call plug#begin('~/.config/nvim/plugins')
     " "Miscallaneous"
 
     " REPL
-    Plug 'metakirby5/codi.vim'
-    Plug 'Shougo/vinarise.vim'
+    " Plug 'metakirby5/codi.vim'
+    " Plug 'Shougo/vinarise.vim'
 
     Plug 'luochen1990/rainbow'
     let g:rainbow_active = 1
@@ -171,12 +171,12 @@ call plug#begin('~/.config/nvim/plugins')
     Plug 'scrooloose/nerdtree'
     Plug 'jistr/vim-nerdtree-tabs'
     Plug 'vim-airline/vim-airline'
-    Plug 'majutsushi/tagbar'
-    Plug 'mhinz/vim-startify'
+    " Plug 'majutsushi/tagbar'
+    " Plug 'mhinz/vim-startify'
     Plug 'machakann/vim-highlightedyank'
     Plug 'Shougo/echodoc.vim'
     let g:echodoc_enable_at_startup = 1
-    Plug 'skywind3000/vim-preview'
+    " Plug 'skywind3000/vim-preview'
     " Plug 'Shougo/denite.nvim'
     " Plug 'itchyny/lightline.vim'
 
