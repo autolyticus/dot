@@ -102,6 +102,7 @@ if not set -q abbrs_initialized
     abbr sha1 'openssl sha1'
     abbr sl 'ls'
     abbr spi 'ssh -Y root@reisub.ddns.net'
+    abbr sshpi 'setpidate; and ssh -Y ubuntu@(avahi-resolve -4n rpi3.local | cut -f2)'
     abbr spiy5 'ssh -Y root@192.168.1.7'
     abbr suu 'sudo -HEs'
     abbr sy 'sudo systemctl'
