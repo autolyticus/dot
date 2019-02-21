@@ -1,8 +1,6 @@
 #!/bin/bash
 # iatest=$(expr index "$-" i)
 
-# type fish &> /dev/null && exec fish
-
 # #######################################################
 # # SOURCED ALIAS'S AND SCRIPTS
 # #######################################################
@@ -752,5 +750,5 @@ fi
 xset r rate 250 30
 
 if [ -z "$BASH_EXECUTION_STRING" ] && [ "$SHLVL" -eq 3 ]; then
-    exec fish
+    type fish &> /dev/null && exec fish
 fi
