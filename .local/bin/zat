@@ -1,9 +1,12 @@
 #!/usr/bin/sh
 
 if [ -z "$@" ]; then
-	fileToView="$(ff '*.pdf')"
-	# echo "Opening Zathura on $fileToView"
-	zathura --fork "$fileToView"
+    RGCOMMAND='rg --files --hidden --no-ignore --color never --line-buffered --iglob !.git/* --iglob !*cache*'
+    if (type rg >/dev/null 2>&1); then
+        $RGCOMMAND -g '*.pdf' 2>/dev/null | fzf --height 40 --bind "enter:execute(zathura --fork {})+abort"
+    else
+        find . -type f -regex "$@" | fzf --height 40 --bind "enter:execute(zathura --fork {})+abort"
+    fi
 else
 	zathura --fork "$@"
 fi
