@@ -1,0 +1,11 @@
+#!/usr/bin/sh
+if type lsd > /dev/null 2>&1; then
+    args=()
+    for arg in "$@"; do
+        !(echo "$arg" | grep -- '--indicator-style' > /dev/null 2>/dev/null) && args+=("$arg")
+    done
+    lsd "${args[@]}"
+else
+    ls "$@"
+fi
+
