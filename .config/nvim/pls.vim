@@ -29,10 +29,10 @@ call plug#begin('~/.config/nvim/plugins')
     " Plug 'yami-beta/asyncomplete-omni.vim'
 
     " Plug 'natebosch/vim-lsc'
-    Plug 'autozimu/LanguageClient-neovim', {
-      \ 'branch': 'next',
-      \ 'do': 'bash install.sh',
-      \ }
+    " Plug 'autozimu/LanguageClient-neovim', {
+    "   \ 'branch': 'next',
+    "   \ 'do': 'bash install.sh',
+    "   \ }
 
 
     " "Language specific"
@@ -79,8 +79,8 @@ call plug#begin('~/.config/nvim/plugins')
     " "Linters/Builders"
 
     Plug 'neomake/neomake'
-    let g:ale_emit_conflict_warnings = 0
-    Plug 'w0rp/ale'
+    " let g:ale_emit_conflict_warnings = 0
+    " Plug 'w0rp/ale'
 
 
     " "Coding helpers"
