@@ -1,12 +1,13 @@
 #!/usr/bin/env sh
 
-FZFCOMMAND='fzf --height 40'
+FZFCOMMAND="fzf --height 40 --preview=\"bat --color always --decorations never {}\""
 RGCOMMAND='rg --files --hidden --no-ignore --color never --line-buffered --iglob !.git/* --iglob !*cache*'
 if (type rg >/dev/null 2>&1); then
+    echo "$FZFCOMMAND"
     if [ -z "$@" ]; then
-        $RGCOMMAND 2>/dev/null | $FZFCOMMAND
+        $RGCOMMAND 2>/dev/null | eval "$FZFCOMMAND"
     else
-        $RGCOMMAND -g "$@" 2>/dev/null | $FZFCOMMAND
+        $RGCOMMAND -g "$@" 2>/dev/null | eval "$FZFCOMMAND"
     fi
 else
 	find . -type f -regex "$@" | $FZFCOMMAND
