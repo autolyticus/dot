@@ -752,3 +752,5 @@ xset r rate 250 30
 if [ -z "$BASH_EXECUTION_STRING" ] && [ "$SHLVL" -eq 3 ]; then
     type fish &> /dev/null && exec fish
 fi
+alias sl=ls
+source /opt/ros/kinetic/setup.bash
