@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-sudo reboot
+sudo /sbin/reboot
