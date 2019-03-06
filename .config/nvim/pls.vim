@@ -61,6 +61,8 @@ call plug#begin('~/.config/nvim/plugins')
     " Elixir
     " Plug 'slashmili/alchemist.vim'
     " Plug 'AndrewRadev/splitjoin.vim'
+    " Arduino
+    Plug 'stevearc/vim-arduino'
 
     " LaTeX
     " Plug 'lervag/vimtex'
