@@ -65,7 +65,7 @@ if not set -q abbrs_initialized
     abbr mntd 'sudo mount LABEL=D'
     abbr mntf 'sudo mount /dev/sdc1 /media/1'
     abbr mntff 'sudo mount /dev/sdc2 /media/2; and sudo mount /dev/sdc1 /media/2/boot'
-    abbr mntpifs 'sshfs ubuntu@(avahi-resolve -4n rpi3.local | cut -f2):/ /rpi'
+    abbr mntpifs 'sshfs root@(avahi-resolve -4n rpi3.local | cut -f2):/ /rpi'
     abbr mntw 'sudo mount LABEL=W'
     abbr mpcr 'mpc update; mpc crop; mpc ls | mpc add'
     abbr multitail 'multitail --no-repeat -c'
