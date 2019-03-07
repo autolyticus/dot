@@ -6,6 +6,5 @@ if type lsd > /dev/null 2>&1; then
     done
     lsd "${args[@]}"
 else
-    ls "$@"
+    /usr/bin/ls "$@"
 fi
-
