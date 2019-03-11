@@ -12,9 +12,8 @@ fi
 
 tmpfile=/tmp/"$@".tmp
 prevtmpfile=/tmp/"$@"-prev.tmp
-iCheck='ping -w0 -c1 google.com'
 
-if $iCheck >/dev/null 2>&1; then
+if iChecker; then
 	# Execute the command and get the output along with the script overhead
 	script -qc "$@" "$tmpfile" 1>/dev/null 2>&1
 	dos2unix "$tmpfile" 2>/dev/null 1>/dev/null
