@@ -29,7 +29,7 @@ def usedMem():
 
 
 def inbox():
-    inbox = int(getOutput('''wunderline list inbox | wc -l''')) - 2
+    inbox = int(getOutput('''nzb inbox | wc -l''')) - 2
     if inbox >= 1:
         return 'Inbox: ' + str(inbox)
     else:
