@@ -43,9 +43,6 @@ if iChecker; then
 	output=$(echo -e "$output\n\nLast updated Now")
 
 	echo "$output" | ansifilter
-
-	# echo "$output" | tee "$tmpfile"
-
 else
 	output="$(cat "$tmpfile")"
 
@@ -68,5 +65,4 @@ else
 	fi
 
 	echo "$output" | ansifilter
-	# cat "$tmpfile"
 fi
