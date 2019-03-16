@@ -47,7 +47,7 @@ if not set -q abbrs_initialized
     abbr gdots 'sudo git --git-dir=/.dot/ --work-tree=/ status'
     abbr gita 'git add'
     abbr gitc 'git commit -s -m'
-    abbr gitp 'git push origin'
+    abbr gitp 'git push --tags origin master'
     abbr gitpom 'git push --set-upstream origin master'
     abbr gits 'git status'
     abbr g 'googler --notweak --noua'
