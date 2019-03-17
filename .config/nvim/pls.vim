@@ -62,7 +62,7 @@ call plug#begin('~/.config/nvim/plugins')
     Plug 'slashmili/alchemist.vim'
     Plug 'AndrewRadev/splitjoin.vim'
     " Arduino
-    Plug 'stevearc/vim-arduino'
+    Plug 'stevearc/vim-arduino', { 'for': [ 'arduino' ] }
 
     " LaTeX
     Plug 'lervag/vimtex'
