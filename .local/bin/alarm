@@ -1,6 +1,7 @@
 #!/bin/sh
 
 exec 1>/dev/null 2>&1
+sendNotification "$@"
 if ! (type play); then
 	echo "Please install sox"
 	exit 1
