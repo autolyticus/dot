@@ -9,7 +9,7 @@ while true; do
         if [ -z "$@" ]; then
             :
         else
-            alarm
+            alarm "Internet is up"
         fi
     else
         echo -ne 0,
