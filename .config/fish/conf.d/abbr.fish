@@ -50,7 +50,7 @@ if not set -q abbrs_initialized
     abbr gitp 'git push --tags origin master'
     abbr gitpom 'git push --set-upstream origin master'
     abbr gits 'git status'
-    abbr ls 'lsd'
+    abbr ls 'lsd -F --group-dirs first'
     abbr g 'googler --notweak --noua'
     abbr h 'history | grep '
     abbr hlp 'less /etc/bash.bashrc_help'
