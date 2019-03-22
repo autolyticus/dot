@@ -4,14 +4,16 @@ echo "iCheck is running..."
 
 while true; do
     if iChecker; then
-        echo 'Internet is up'
+        echo -ne 1,
+        date -Iseconds
         if [ -z "$@" ]; then
             :
         else
             alarm
         fi
     else
-        echo 'Internet is down'
+        echo -ne 0,
+        date -Iseconds
     fi
-    sleep 10
+    sleep 3
 done
