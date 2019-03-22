@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+IP="$(avahi-resolve -4n rpi3.local | cut -f2)"
+ssh ubuntu@$IP "echo ubuntu | sudo -S date -s @$(date +%s)"
