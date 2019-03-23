@@ -123,4 +123,5 @@ if not set -q abbrs_initialized
     abbr youtube-dl 'youtube-dl --external-downloader aria2c'
     abbr ys 'yay -S --noconfirm'
     abbr zathura 'zathura --fork'
+    abbr firefoxInit 'pushd .; and cd $HOME/.mozilla/firefox/*.default; and mkdir -p chrome; and cd chrome; and echo '"'"'#TabsToolbar { visibility: collapse !important; }'"'"' > userChrome.css ; popd'
 end
