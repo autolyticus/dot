@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-e "$HOME/.local/bin/$@"
+e "$HOME/.local/bin/$@" && chmod +x "$HOME/.local/bin/$@"
