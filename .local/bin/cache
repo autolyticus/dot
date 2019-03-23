@@ -40,7 +40,7 @@ if iChecker; then
 		exit 0
 	fi
 
-	output=$(echo -e "$output\n\nLast updated Now")
+	# output=$(echo -e "$output\n\nLast updated Now")
 
 	echo "$output" | ansifilter
 else
