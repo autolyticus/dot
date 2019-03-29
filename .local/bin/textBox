@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
+echo '${hr 5}'
 pushd . >/dev/null 2>&1 || exit
-cd ~/.local/textBox || exit
+cd $HOME/.local/textBox || exit
 find . -follow -type f -executable -exec \{\} \;
 popd >/dev/null 2>&1 || exit
