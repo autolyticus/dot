@@ -103,7 +103,7 @@ if not set -q abbrs_initialized
     abbr rmlock 'sudo rm /var/lib/pacman/db.lck'
     abbr rsync 'rsync -aAXvrPh --info=progress2'
     abbr sha1 'openssl sha1'
-    abbr sl 'ls'
+    abbr sl 'lsd'
     abbr spi 'ssh -Y root@reisub.ddns.net'
     abbr spiy5 'ssh -Y root@192.168.1.7'
     abbr sshpi 'setpidate; and ssh -Y ubuntu@(avahi-resolve -4n rpi3.local | cut -f2)'
