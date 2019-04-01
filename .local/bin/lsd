@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-/usr/bin/lsd -F --group-dirs first "$@"
+/usr/bin/lsd --group-dirs first -F "$@"
