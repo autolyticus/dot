@@ -149,6 +149,7 @@ screens = [
                 widget.TextBox(text='🔊', padding=0),
                 widget.Volume(),
                 widget.TextBox(text=' ', padding=4),
+                widget.GenPollText(func=user.iCWidget, update_interval=20),
                 widget.TextBox(text='↓', padding=0),
                 widget.GenPollText(
                     func=user.allDistractingTime, update_interval=300),

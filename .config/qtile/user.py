@@ -20,6 +20,10 @@ def getOutput(command, empty=''):
     return out.decode().strip()
 
 
+def iCWidget():
+    return getOutput('iCWidget')
+
+
 def fuzClock():
     return getOutput('fuzClock')
 
