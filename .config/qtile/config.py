@@ -50,7 +50,20 @@ keys = [
         lazy.spawn(
             '''bash -c 'kitty -o remember_window_size=no --class "fzf-menu" calc' '''
         )),
+
+    # Media
     Key([], 'XF86AudioStop', lazy.spawn('''bash -c 'mpc stop' ''')),
+    Key([], 'XF86AudioPlay', lazy.spawn('''bash -c 'mpc toggle' ''')),
+    Key([], 'XF86AudioPrev', lazy.spawn('''bash -c 'mpc prev' ''')),
+    Key([], 'XF86AudioNext', lazy.spawn('''bash -c 'mpc next' ''')),
+
+    # Volume
+    Key([], 'XF86AudioRaiseVolume',
+        lazy.spawn('''bash -c 'amixer -q set Master 2%+' ''')),
+    Key([], 'XF86AudioLowerVolume',
+        lazy.spawn('''bash -c 'amixer -q set Master 2%-' ''')),
+    Key([], 'XF86AudioMute',
+        lazy.spawn('''bash -c 'amixer -q set Master toggle' ''')),
 
     # Management
     Key([mod, 'control'], 's', lazy.spawn('susp')),
