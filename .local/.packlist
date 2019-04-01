@@ -86,6 +86,7 @@ dhclient
 dhcp
 dhcpcd
 dhcpcd-runit
+dialog
 diffutils
 dnsmasq
 dnsmasq-runit
