@@ -102,21 +102,32 @@ for i in groups:
     ])
 
 groups += [
-    ScratchPad("scratchpad",
+    ScratchPad('scratchpad',
                [DropDown(
-                   "zeal",
-                   "zeal",
+                   'zeal',
+                   'zeal',
                    x=0,
                    y=0,
                    width=1.0,
                    height=1.0,
                )]),
+    ScratchPad(
+        'mpsyt',
+        [DropDown(
+            'mpsyt',
+            'kitty mpsyt',
+            x=0,
+            y=0,
+            width=1.0,
+            height=1.0,
+        )]),
 ]
 
 keys.extend([
     # toggle visibiliy of above defined DropDown named "term"
     Key([mod, 'control'], 'z',
         lazy.group['scratchpad'].dropdown_toggle('zeal')),
+    Key([mod], 'y', lazy.group['mpsyt'].dropdown_toggle('mpsyt')),
 ])
 
 layouts = [
