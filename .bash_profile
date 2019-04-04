@@ -16,8 +16,7 @@ export LESSHISTFILE=-
 export STACK_ROOT="$XDG_DATA_HOME/stack"
 export WAKATIME_HOME="$XDG_DATA_HOME/wakatime"
 
-
-export ZDOTDIR="$HOME/.config/zsh"
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 export SDL_AUDIODRIVER='alsa'
 
