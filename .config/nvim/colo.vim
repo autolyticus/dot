@@ -1,1 +1,1 @@
-colo onedark
+colo ayu
