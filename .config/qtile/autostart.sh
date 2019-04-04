@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/usr/bin/env sh
 runCommand() {
     pname="$(echo "$@" | cut -d ' ' -f 1)"
     pkill "$pname"
