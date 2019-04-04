@@ -410,6 +410,7 @@ mkinitcpio-busybox
 mobile-broadband-provider-info
 mono
 mono-addins
+moreutils
 mozilla-common
 mpc
 mpd
