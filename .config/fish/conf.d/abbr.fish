@@ -76,6 +76,7 @@ if not set -q abbrs_initialized
     abbr ncdu 'ncdu -xq'
     abbr netctl 'sudo netctl'
     abbr nimc 'nim c'
+    abbr n 'nzb'
     abbr openports 'netstat -nape --inet'
     abbr pd 'builtin cd -'
     abbr pdot 'git --git-dir=$HOME/.pdot/ --work-tree=$HOME'
