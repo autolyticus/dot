@@ -1,0 +1,16 @@
+/opt
+/usr
+/dev
+/proc
+/sys
+/tmp
+/tmp
+/var/tmp
+/run
+/mnt
+/media
+/lost+found
+/var
+/home/g/Downloads
+/boot
+**cache**
