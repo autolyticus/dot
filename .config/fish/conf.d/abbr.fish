@@ -36,7 +36,7 @@ if not set -q abbrs_initialized
     abbr eb 'e ~/.bashrc'
     abbr epack 'e ~/.local/.packlist'
     abbr estack 'e .local/.stack'
-    abbr firefoxInit 'pushd .; and cd $HOME/.mozilla/firefox/*.default; and mkdir -p chrome; and cd chrome; and echo '"'"'#TabsToolbar { visibility: collapse !important; }'"'"' > userChrome.css ; popd'
+    abbr firefoxInit 'pushd .; and cd $HOME/.mozilla/firefox/*.default; and mkdir -p chrome; and cd chrome; and echo '"'"'#TabsToolbar { visibility: collapse !important; }'"'"' > userChrome.css; and echo '"'"'@-moz-document url-prefix(about:blank) {*{background-color:#000000;}}'"'"' > userContent.css; popd'
     abbr fo 'fortilogin'
     abbr folders 'du -h --max-depth=1'
     abbr free 'free -h'
