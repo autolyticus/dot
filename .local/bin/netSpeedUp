@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+ifaces="$(ip l | egrep -o '[[:digit:]]+: [[:alnum:]]+:' | cut -d ' ' -f 2 | tr -d ':' | grep -v lo | tr '\n' ' ')"
+bytesIn="$(parallel ifdata ::: -bops ::: $ifaces)"
+res="$(printf "%s" "$bytesIn" | tr '\n' '+')"
+((sum = $res))
+echo "$sum"
