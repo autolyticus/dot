@@ -248,6 +248,7 @@ libdaemon
 libdatrie
 libdmx
 libdrm
+libeatmydata
 libedit
 libelf
 libelogind
