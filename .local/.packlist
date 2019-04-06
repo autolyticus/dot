@@ -520,6 +520,7 @@ python-gevent
 python-greenlet
 python-iwlib
 python-keyring
+python-lxml
 python-markdown
 python-mpd2
 python-msgpack
