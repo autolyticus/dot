@@ -174,7 +174,7 @@ screens = [
                     func=user.productivityPulse, update_interval=300),
 
                 widget.GenPollText(
-                    func=user.inbox, foreground='e36209', update_interval=300),
+                    func=user.inbox, foreground='fe1b22', update_interval=300),
 
                 widget.GenPollText(
                     func=user.pacmanUpdates, update_interval=1800),
