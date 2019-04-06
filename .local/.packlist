@@ -532,6 +532,7 @@ python-seaborn
 python-selenium
 python-sh
 python-yaml
+qtile
 ranger
 readline
 redshift
