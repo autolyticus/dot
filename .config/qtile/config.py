@@ -153,16 +153,18 @@ screens = [
                 widget.Systray(),
                 widget.Mpd(
                     fmt_stopped='',
-                    fmt_playing='⏯ %a / %t',
-                    foreground_progress='00ff00'),
-                widget.TextBox(text='🔊', padding=0),
+                    fmt_playing='🎵 %a / %t',
+                    foreground_progress='7b5830'),
+                widget.Volume(emoji=True),
                 widget.Volume(),
                 widget.TextBox(text=' ', padding=4),
                 widget.GenPollText(func=user.iCWidget, update_interval=20),
-                widget.TextBox(text='↓', padding=0),
+
+                widget.TextBox(text='⌛', padding=0),
                 widget.GenPollText(
                     func=user.allDistractingTime, update_interval=300),
-                widget.TextBox(text='📈', padding=0),
+
+                widget.TextBox(text='💓', padding=0),
                 widget.GenPollText(
                     func=user.productivityPulse, update_interval=300),
                 widget.GenPollText(
