@@ -137,7 +137,7 @@ layouts = [
 widget_defaults = dict(
     font='Ubuntu-C',
     fontsize=12,
-    padding=2,
+    padding=4,
 )
 extension_defaults = widget_defaults.copy()
 
@@ -197,7 +197,7 @@ screens = [
                 widget.GenPollText(func=user.fuzClock, update_interval=60),
                 # widget.TextBox('default config', name='default'),
             ],
-            22,
+            24,
         ), ),
 ]
 
