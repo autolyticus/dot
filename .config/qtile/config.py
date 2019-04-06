@@ -145,10 +145,21 @@ screens = [
     Screen(
         bottom=bar.Bar(
             [
-                widget.GroupBox(hide_unused=True, disable_drag=True, center_aligned=True,
-                                highlight_method='line', this_current_screen_border='7b5830', urgent_alert_method='text'),
-                widget.TaskList(border='7b5830', borderwidth=1, txt_minimized='', txt_floating='',
-                                markup_focused='<span underline="low">{}</span>'),
+                widget.GroupBox(
+                    hide_unused=True,
+                    disable_drag=True,
+                    center_aligned=True,
+                    highlight_method='line',
+                    this_current_screen_border='7b5830',
+                    urgent_alert_method='text'
+                ),
+                widget.TaskList(
+                    border='7b5830',
+                    borderwidth=1,
+                    txt_minimized='',
+                    txt_floating='',
+                    markup_focused='<span underline="low">{}</span>'
+                ),
                 widget.Prompt(),
 
                 widget.Systray(icon_size=12),
