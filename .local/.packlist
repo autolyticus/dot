@@ -46,6 +46,7 @@ bison
 bluez-libs
 boost-libs
 bootlogd
+bpython
 bridge-utils
 broadcom-wl
 bzip2
