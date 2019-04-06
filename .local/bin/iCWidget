@@ -2,8 +2,8 @@
 
 if [ -z "$@" ]; then
     if iChecker; then
-        echo '✓'
+        echo ''
     else
-        echo '✖'
+        echo '❌'
     fi
 fi
