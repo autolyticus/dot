@@ -392,6 +392,7 @@ linux-firmware
 llvm-libs
 lm_sensors
 logrotate
+lsd
 lsof
 lua
 lua52
