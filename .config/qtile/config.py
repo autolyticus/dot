@@ -46,10 +46,8 @@ keys = [
     Key([mod], 'Return', lazy.spawn(terminal)),
     Key([mod], 'KP_Enter', lazy.spawn(terminal)),
     Key([mod], 'w', lazy.spawn(browser)),
-    Key([], 'XF86Calculator',
-        lazy.spawn(
-            '''bash -c 'kitty -o remember_window_size=no --class "fzf-menu" calc' '''
-        )),
+    Key([], 'XF86Calculator', lazy.spawn(
+        '''bash -c 'kitty -o remember_window_size=no --class "fzf-menu" calc' ''')),
 
     # Media
     Key([], 'XF86AudioStop', lazy.spawn('''bash -c 'mpc stop' ''')),
