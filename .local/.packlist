@@ -694,6 +694,7 @@ xorg-xvinfo
 xorg-xwd
 xorg-xwininfo
 xorg-xwud
+xprintidle
 xsel
 xvidcore
 xz
