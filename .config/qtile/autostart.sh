@@ -2,7 +2,7 @@
 runCommand() {
     pname="$(echo "$@" | cut -d ' ' -f 1)"
     pkill "$pname"
-    ("$@") &
+    ("$@" > /tmp/"$1.log" 2>&1) &
 }
 
 runCommand conky
