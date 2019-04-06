@@ -136,8 +136,8 @@ layouts = [
 
 widget_defaults = dict(
     font='Ubuntu-C',
-    fontsize=13,
-    padding=4,
+    fontsize=12,
+    padding=2,
 )
 extension_defaults = widget_defaults.copy()
 
@@ -145,19 +145,24 @@ screens = [
     Screen(
         bottom=bar.Bar(
             [
-                widget.GroupBox(),
-                widget.TaskList(),
+                widget.GroupBox(hide_unused=True, disable_drag=True, center_aligned=True,
+                                highlight_method='line', this_current_screen_border='7b5830', urgent_alert_method='text'),
+                widget.TaskList(border='7b5830', borderwidth=1, txt_minimized='', txt_floating='',
+                                markup_focused='<span underline="low">{}</span>'),
                 widget.Prompt(),
-                # widget.Sep(),
-                # widget.Sep(),
-                widget.Systray(),
+
+                widget.Systray(icon_size=12),
                 widget.Mpd(
                     fmt_stopped='',
                     fmt_playing='🎵 %a / %t',
                     foreground_progress='7b5830'),
                 widget.Volume(emoji=True),
                 widget.Volume(),
-                widget.TextBox(text=' ', padding=4),
+
+                widget.TextBox(text=' ', padding=1, foreground='75b830'),
+                widget.sep.Sep(foreground='7b5830'),
+                widget.TextBox(text=' ', padding=1, foreground='75b830'),
+
                 widget.GenPollText(func=user.iCWidget, update_interval=20),
 
                 widget.TextBox(text='⌛', padding=0),
@@ -167,8 +172,10 @@ screens = [
                 widget.TextBox(text='💓', padding=0),
                 widget.GenPollText(
                     func=user.productivityPulse, update_interval=300),
+
                 widget.GenPollText(
-                    func=user.inbox, foreground='ff0000', update_interval=300),
+                    func=user.inbox, foreground='e36209', update_interval=300),
+
                 widget.GenPollText(
                     func=user.pacmanUpdates, update_interval=1800),
                 # widget.Sep(),
@@ -190,7 +197,7 @@ screens = [
                 widget.GenPollText(func=user.fuzClock, update_interval=60),
                 # widget.TextBox('default config', name='default'),
             ],
-            24,
+            22,
         ), ),
 ]
 
