@@ -15,3 +15,5 @@ runCommand numlockx
 runCommand redshift -l 20.5937:78.9629 -t 6500:3000
 runCommand rescuetime
 runCommand unclutter -root
+runCommand delLock
+xidlehook --not-when-fullscreen --not-when-audio --timer primary 60 'locker' '' --timer normal 1 'xset dpms force off' '' &
