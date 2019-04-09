@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-sleep 1
-xautolock -locknow
+sleep 0.7
+locker
