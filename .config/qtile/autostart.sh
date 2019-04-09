@@ -1,7 +1,9 @@
 #!/usr/bin/env sh
+
+exec 1>/tmp/autostart.log 2>&1
+
 runCommand() {
-    pname="$(echo "$@" | cut -d ' ' -f 1)"
-    pkill "$pname"
+    pkill "$(echo "$@" | cut -d ' ' -f 1)"
     ("$@" > /tmp/"$1.log" 2>&1) &
 }
 
