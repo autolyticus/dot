@@ -150,7 +150,6 @@ screens = [
                 widget.GroupBox(
                     hide_unused=True,
                     disable_drag=True,
-                    center_aligned=True,
                     highlight_method='line',
                     this_current_screen_border='7b5830',
                     urgent_alert_method='text'
