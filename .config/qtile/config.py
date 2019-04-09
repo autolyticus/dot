@@ -163,39 +163,48 @@ screens = [
                 ),
                 widget.Prompt(),
 
-                widget.Systray(icon_size=12),
+                widget.GenPollText(
+                    func=user.inbox, foreground='fe1b22', update_interval=300),
+                widget.GenPollText(func=user.iCWidget, update_interval=20),
+                widget.Battery(hide_threshold=90),
+
+                widget.GenPollText(func=user.netSpeedUp, update_interval=1),
+                widget.TextBox(text='⇅', padding=0),
+                widget.GenPollText(func=user.netSpeedDown, update_interval=1),
+
+                widget.GenPollText(
+                    func=user.pacmanUpdates, update_interval=1800),
+
                 widget.Mpd(
                     fmt_stopped='',
                     fmt_playing='🎵 %a / %t',
                     foreground_progress='7b5830'),
-                widget.Volume(emoji=True),
-                widget.Volume(),
 
-                widget.TextBox(text=' ', padding=1, foreground='75b830'),
-                widget.sep.Sep(foreground='7b5830'),
-                widget.TextBox(text=' ', padding=1, foreground='75b830'),
+                widget.Volume(emoji=True, padding=0),
+                widget.Volume(padding=0),
+                widget.TextBox(text=' ', padding=1),
+                widget.Systray(icon_size=14),
+                widget.TextBox(text=' ', padding=1),
 
-                widget.GenPollText(func=user.iCWidget, update_interval=20),
-
-                widget.TextBox(text='⌛', padding=0),
-                widget.GenPollText(
-                    func=user.allDistractingTime, update_interval=300),
+                widget.GenPollText(func=user.usedMem, update_interval=5),
 
                 widget.TextBox(text='💓', padding=0),
                 widget.GenPollText(
                     func=user.productivityPulse, update_interval=300),
 
+                widget.TextBox(text='⌛', padding=0),
                 widget.GenPollText(
-                    func=user.inbox, foreground='fe1b22', update_interval=300),
+                    func=user.allDistractingTime, update_interval=300),
 
-                widget.GenPollText(
-                    func=user.pacmanUpdates, update_interval=1800),
+                widget.Clock(format='%a, %d, ',
+                             update_interval=300, padding=0),
+                widget.GenPollText(func=user.fuzClock,
+                                   update_interval=60, padding=2),
                 # widget.Sep(),
                 # widget.Sep(),
                 # widget.Notify(),
                 # widget.Pomodoro(),
                 # widget.Sep(),
-                widget.Battery(hide_threshold=90),
                 # widget.Sep(),
                 # widget.Net(),
                 # widget.Sep(),
@@ -203,10 +212,9 @@ screens = [
                 # widget.Memory(),
                 # widget.Image(
                 #     filename='~/config/awesome/themes/multicolor/icons/mem.png'),
-                widget.GenPollText(func=user.usedMem, update_interval=5),
                 # widget.Sep(),
-                widget.Clock(format='%a, %d'),
-                widget.GenPollText(func=user.fuzClock, update_interval=60),
+                # widget.sep.Sep(foreground='7b5830'),
+                # widget.sep.Sep(foreground='7b5830'),
                 # widget.TextBox('default config', name='default'),
             ],
             24,
