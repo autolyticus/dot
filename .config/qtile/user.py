@@ -61,12 +61,15 @@ def netSpeedUp():
 
 
 def pacmanUpdates():
-    s = getOutput(
-        '''
-        iChecker &&
-        pacman -Sy &>/dev/null &&
-        pacman -Qu | wc -l ''',
-        empty='0')
+    try:
+        s = getOutput(
+            '''
+            iChecker &&
+            pacman -Sy &>/dev/null &&
+            pacman -Qu | wc -l ''',
+            empty='0')
+    except:
+        return ''
     if s == '' or int(s) <= 5:
         return ''
     else:
