@@ -11,6 +11,18 @@ from libqtile import hook
 from rescuetime import allDistractingTime, productivityPulse
 
 
+def bytes2human(n, syms=('B', 'K', 'M', 'G', 'T'), prefix={}):
+    n = int(n)
+    assert(n >= 0)
+    for i, s in enumerate(syms[1:]):
+        prefix[s] = 1 << (i+1)*10
+    for sym in reversed(syms[1:]):
+        if n >= prefix[sym]:
+            val = n / prefix[sym]
+            return f'{int(val)}{sym}'
+    return f'{n}{syms[0]}'
+
+
 def getOutput(command, empty=''):
     # print(f'Running command {command}')
     out = subprocess.check_output(command, shell=True)
@@ -38,6 +50,14 @@ def inbox():
         return 'Inbox: ' + str(inbox)
     else:
         return ''
+
+
+def netSpeedDown():
+    return bytes2human(getOutput('netSpeedDown'))
+
+
+def netSpeedUp():
+    return bytes2human(getOutput('netSpeedUp'))
 
 
 def pacmanUpdates():
