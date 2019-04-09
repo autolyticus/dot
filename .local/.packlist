@@ -185,6 +185,7 @@ headset-bin
 hicolor-icon-theme
 hostapd
 htop
+httpie
 http-parser
 hunspell
 hwids
@@ -704,6 +705,7 @@ zathura
 zathura-pdf-poppler
 zeal
 zeromq
+zip
 zita-alsa-pcmi
 zita-resampler
 zlib
