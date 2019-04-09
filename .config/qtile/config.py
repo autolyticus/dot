@@ -36,6 +36,7 @@ keys = [
     Key([mod], 'f', lazy.window.toggle_fullscreen()),
 
     # Rofi keys
+    Key([mod], 'a', lazy.spawn('''bash -c '~/.local/bin/addTask' ''')),
     Key([mod], 'd', lazy.spawn('rofi -show window')),
     Key([mod], 's', lazy.spawn('''bash -c '~/.local/bin/songChooser' ''')),
     Key([mod], 'g', lazy.spawn('rofi -show run')),
