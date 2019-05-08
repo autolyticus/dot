@@ -53,10 +53,10 @@ set notification-fg "#151515" #00
 # unmap <C-Button4>
 # map <C-Button5> zoom in
 # map <C-Button4> zoom out
-# set recolor "true"
+set recolor "true"
 # set recolor-lightcolor "#000000" #00
 # set recolor-darkcolor "#E0E0E0" #06
-# set recolor-reverse-video "true"
+set recolor-reverse-video "true"
 # set recolor-keephue "true"
 
 
