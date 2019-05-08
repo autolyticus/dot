@@ -168,9 +168,9 @@ screens = [
                 widget.GenPollText(func=user.iCWidget, update_interval=20),
                 widget.Battery(hide_threshold=90),
 
-                widget.GenPollText(func=user.netSpeedUp, update_interval=1),
-                widget.TextBox(text='⇅', padding=0),
-                widget.GenPollText(func=user.netSpeedDown, update_interval=1),
+                # widget.GenPollText(func=user.netSpeedUp, update_interval=2),
+                # widget.TextBox(text='⇅', padding=0),
+                # widget.GenPollText(func=user.netSpeedDown, update_interval=2),
 
                 widget.GenPollText(
                     func=user.pacmanUpdates, update_interval=1800),
