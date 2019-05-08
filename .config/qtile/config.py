@@ -188,15 +188,15 @@ screens = [
 
                 widget.GenPollText(func=user.usedMem, update_interval=5),
 
-                widget.TextBox(text='💓', padding=0),
-                widget.GenPollText(
-                    func=user.productivityPulse, update_interval=300),
-
                 widget.TextBox(text='⌛', padding=0),
                 widget.GenPollText(
                     func=user.allDistractingTime, update_interval=300),
 
-                widget.Clock(format='%a, %d, ',
+                widget.TextBox(text='💓', padding=0),
+                widget.GenPollText(
+                    func=user.productivityPulse, update_interval=300),
+
+                widget.Clock(format='%a, %d ',
                              update_interval=300, padding=0),
                 widget.GenPollText(func=user.fuzClock,
                                    update_interval=60, padding=2),
