@@ -1,4 +1,5 @@
 #!/bin/sh
+exec 1>/tmp/xinit.log 2>&1
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
