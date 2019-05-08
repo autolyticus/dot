@@ -43,10 +43,10 @@ unset appendpath
 
 
 # Make keyboard not wake up the pc on sleep
-if [ ! -e /tmp/usbWakeup.lck ] ; then
-    echo XHC | sudo tee /proc/acpi/wakeup
-    touch /tmp/usbWakeup.lck
-fi
+# if [ ! -e /tmp/usbWakeup.lck ] ; then
+#     echo XHC | sudo tee /proc/acpi/wakeup
+#     touch /tmp/usbWakeup.lck
+# fi
 
 
 if [ "$(basename "$(tty)")" = 'tty1' ]; then
