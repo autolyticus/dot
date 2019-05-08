@@ -499,6 +499,7 @@ pkgconf
 polkit
 poppler
 popt
+powertop
 prettyping
 procps-ng
 psmisc
@@ -601,6 +602,7 @@ ttf-ubuntu-font-family
 tzdata
 unclutter
 unibilium
+unrar
 unzip
 usbutils
 util-linux
