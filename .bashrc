@@ -1,4 +1,5 @@
 #!/bin/bash
+source .bash_profile
 # iatest=$(expr index "$-" i)
 
 # #######################################################
@@ -747,7 +748,11 @@ if [ -f ~/.local/tempcd ]; then
     . ~/.local/tempcd
 fi
 
-xset r rate 250 30
+export DISPLAY=:0
+if [ -z "$BASH_EXECUTION_STRING" ] && [ "$SHLVL" -eq 2 ]; then
+    xset r rate 250 30
+    kitty
+fi
 
 if [ -z "$BASH_EXECUTION_STRING" ] && [ "$SHLVL" -eq 3 ]; then
     type fish &> /dev/null && exec fish

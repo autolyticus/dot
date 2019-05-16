@@ -49,7 +49,7 @@ unset appendpath
 # fi
 
 
-if [ "$(basename "$(tty)")" = 'tty1' ]; then
-	startx
-fi
-[[ -f "$HOME/.bashrc" ]] && . "$HOME/.bashrc"
+# if [ "$(basename "$(tty)")" = 'tty1' ]; then
+# 	startx
+# fi
+# [[ -f "$HOME/.bashrc" ]] && . "$HOME/.bashrc"
