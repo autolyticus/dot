@@ -129,7 +129,7 @@ if not set -q abbrs_initialized
     abbr wifi-menu 'sudo wifi-menu'
     abbr wireshark 'sudo wireshark'
     abbr yay 'yay --aur'
-    abbr yd 'youtube-dl --embed-thumbnail -o '"'"'/media/d/Music/%(title)s.%(ext)s'"'"' -x --audio-format mp3 --audio-quality 0'
+    abbr yd 'youtube-dl -o '"'"'/media/d/Music/%(title)s.%(ext)s'"'"' -x --audio-format mp3 --audio-quality 0'
     abbr youtube-dl 'youtube-dl --external-downloader aria2c'
     abbr ys 'yay -S --noconfirm'
     abbr zathura 'zathura --fork'
