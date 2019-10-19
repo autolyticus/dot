@@ -102,7 +102,16 @@ for i in groups:
     ])
 
 groups += [
-    ScratchPad('scratchpad',
+    ScratchPad('todoist',
+               [DropDown(
+                   'todoist',
+                   'todoist',
+                   x=0,
+                   y=0,
+                   width=1.0,
+                   height=1.0,
+               )]),
+    ScratchPad('zeal',
                [DropDown(
                    'zeal',
                    'zeal',
@@ -124,9 +133,10 @@ groups += [
 ]
 
 keys.extend([
-    # toggle visibiliy of above defined DropDown named "term"
+    Key([mod], 't',
+        lazy.group['todoist'].dropdown_toggle('todoist')),
     Key([mod, 'control'], 'z',
-        lazy.group['scratchpad'].dropdown_toggle('zeal')),
+        lazy.group['zeal'].dropdown_toggle('zeal')),
     Key([mod], 'y', lazy.group['mpsyt'].dropdown_toggle('mpsyt')),
 ])
 
@@ -163,8 +173,8 @@ screens = [
                 ),
                 widget.Prompt(),
 
-                widget.GenPollText(
-                    func=user.inbox, foreground='fe1b22', update_interval=300),
+                # widget.GenPollText(
+                #     func=user.inbox, foreground='fe1b22', update_interval=300),
                 widget.GenPollText(func=user.iCWidget, update_interval=20),
                 widget.Battery(hide_threshold=90),
 
