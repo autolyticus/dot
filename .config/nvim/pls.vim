@@ -107,6 +107,7 @@ call plug#begin('~/.config/nvim/plugins')
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'wellle/targets.vim'
     Plug 'tweekmonster/braceless.vim'
+    Plug 'chaoren/vim-wordmotion'
     " Plug 'rhysd/clever-f.vim'
 
     " "Efficiency Helpers"
