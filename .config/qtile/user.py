@@ -87,7 +87,7 @@ def autostart():
 
 
 def to_urgent(qtile):
-    cg = qtile.currentGroup
+    cg = qtile.current_group
     for group in qtile.groupMap.values():
         if group == cg:
             continue
@@ -119,7 +119,7 @@ class PrevFocus(object):
         group_focus["current"] = window
 
     def __call__(self, qtile):
-        group = qtile.currentGroup
+        group = qtile.current_group
         group_focus = self.groups_focus.get(group.name, {"prev": None})
         prev = group_focus["prev"]
         try:
