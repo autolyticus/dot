@@ -1,12 +1,12 @@
 " Check if plugin is loaded, The only reliable way to do it
 function! PlagCheck(plg)
-	let l:searchReg = 'v:val =~? "' . a:plg . '"'
-	let l:nMatches = len(filter(split(execute(':scriptnames'), "\n"), l:searchReg))
-	if l:nMatches > 1
-		return 1
-	else
-		return 0
-	endif
+    let l:searchReg = 'v:val =~? "' . a:plg . '"'
+    let l:nMatches = len(filter(split(execute(':scriptnames'), "\n"), l:searchReg))
+    if l:nMatches > 1
+        return 1
+    else
+        return 0
+    endif
 endfunction
 
 function! PlagCheckDict(plg)
