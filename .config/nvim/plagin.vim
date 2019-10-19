@@ -25,7 +25,7 @@ if PlagCheckDict('neoformat')
 endif
 
 if PlagCheckDict('commentary')
-    nmap <C-_> gc
+    nmap <C-_> gcc
     vmap <C-_> gc
     xmap <C-_> gc
 endif
