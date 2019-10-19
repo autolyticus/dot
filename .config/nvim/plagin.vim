@@ -19,6 +19,17 @@ function! PlagCheckDict(plg)
     return 0
 endfunction
 
+if PlagCheckDict('neoformat')
+    nnoremap <silent> <A-S-f> :Neoformat<CR>
+    vnoremap <silent> <A-S-f> :Neoformat<CR>
+endif
+
+if PlagCheckDict('commentary')
+    nmap <C-_> gc
+    vmap <C-_> gc
+    xmap <C-_> gc
+endif
+
 if PlagCheck('ultisnips')
     let g:UltisnipsMappingsToIgnore = ["<Tab>"]
     " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
