@@ -15,6 +15,7 @@ endfunction
 if PlagCheck('LanguageClient-neovim')
     set hidden
     let g:LanguageClient_serverCommands = {
+        \ 'c': ['clangd'],
         \ 'python': ['pyls'],
         \ 'bash': ['bash-lanuguage-server'],
         \ 'sh': ['bash-lanuguage-server'],
