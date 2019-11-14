@@ -67,6 +67,9 @@ call plug#begin('~/.config/nvim/plugins')
     " LaTeX
     Plug 'lervag/vimtex'
 
+    " HTML/CSS
+    Plug 'mattn/emmet-vim'
+
     " ARM asm
     Plug 'ARM9/arm-syntax-vim'
     " Plug 'vim-scripts/armasm'
