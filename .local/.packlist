@@ -264,6 +264,7 @@ libfontenc
 libftdi
 libgcrypt
 libgdiplus
+libgit2
 libglade
 libglvnd
 libgme
