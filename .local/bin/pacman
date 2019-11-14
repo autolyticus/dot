@@ -1,8 +1,13 @@
 #!/usr/bin/sh
 
+powerpill=true
 
 if (type powerpill > /dev/null 2>&1); then
-    sudo powerpill "$@"
+    if [ "$powerpill" = true ]; then
+        sudo powerpill "$@"
+    else
+        sudo /usr/bin/pacman "$@"
+    fi
 else
     sudo /usr/bin/pacman "$@"
 fi
