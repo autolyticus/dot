@@ -16,9 +16,15 @@ export LESSHISTFILE=-
 export STACK_ROOT="$XDG_DATA_HOME/stack"
 export WAKATIME_HOME="$XDG_DATA_HOME/wakatime"
 
+
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 export SDL_AUDIODRIVER='alsa'
+
+# Set up Node Version Manager
+export NVM_DIR="$XDG_CONFIG_HOME/nvm"
+export NVM_SOURCE="/usr/share/nvm"
+# [ -s "$NVM_SOURCE/nvm.sh" ] && . "$NVM_SOURCE/nvm.sh"
 
 appendpath () {
     if [[ ! -d "$1" ]]; then
