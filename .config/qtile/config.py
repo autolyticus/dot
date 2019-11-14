@@ -89,7 +89,7 @@ keys = [
     # Key([mod, 'shift'], 'Return', lazy.layout.toggle_split()),
 ]
 
-groups = [Group('1', matches=[Match(wm_class=['Firefox', 'Chromium'])])
+groups = [Group('1', matches=[Match(wm_class=['firefox', 'Chromium'])])
           ] + [Group(i) for i in '23456']
 
 for i in groups:
