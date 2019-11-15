@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+if [ -n "$(type tmux)" ]; then
+    {
+        echo "Starting background process with TMUX: " "$@"
+        tmux new-session -Ad -s $1 "$@"
+        sleep 0.07
+        tmux ls | cut -d: -f1 | grep $1 >/dev/null 2>&1 || echo "Background process died!"
+    }
+else
+    echo "Please install tmux"
+    "$@"
+fi
+
