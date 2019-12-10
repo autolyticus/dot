@@ -16,6 +16,8 @@ export LESSHISTFILE=-
 export STACK_ROOT="$XDG_DATA_HOME/stack"
 export WAKATIME_HOME="$XDG_DATA_HOME/wakatime"
 
+export RUSTC_WRAPPER=sccache
+
 
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
