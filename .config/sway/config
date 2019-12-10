@@ -6,4 +6,3 @@ include variables.config
 include keys.config
 include cosmetic.config
 include input.config
-include colors.config
