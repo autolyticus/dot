@@ -6,6 +6,7 @@ endif
 
 
 inoremap jj <Esc>
+inoremap JJ <Esc>ZZ
 if has('nvim')
     tnoremap <C-w> <C-\><C-n>
     tnoremap <A-h> <C-\><C-n><C-w>h
