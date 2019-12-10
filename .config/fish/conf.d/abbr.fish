@@ -93,6 +93,7 @@ if not set -q abbrs_initialized
     abbr pipi 'pip install --user'
     abbr pl 'pacman -Ql'
     abbr pm 'pacman -S'
+    abbr pmy 'pacman -Sy'
     abbr pmm 'pacman -Su'
     abbr pmr 'pacman -Rns'
     abbr pq 'pacman -Q'
@@ -132,5 +133,6 @@ if not set -q abbrs_initialized
     abbr yd 'youtube-dl -o '"'"'/media/d/Music/%(title)s.%(ext)s'"'"' -x --audio-format mp3 --audio-quality 0'
     abbr youtube-dl 'youtube-dl --external-downloader aria2c'
     abbr ys 'yay -S --noconfirm'
+    abbr yu 'yay -Syu --aur --noconfirm'
     abbr zathura 'zathura --fork'
 end
