@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+taskName=$(rofi -p 'Enter task' -dmenu)
+[[ -z "$taskName" ]] && exit 1
+td "$taskName"
