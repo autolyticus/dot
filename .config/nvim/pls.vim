@@ -67,9 +67,10 @@ call plug#begin('~/.config/nvim/plugins')
     Plug 'AndrewRadev/splitjoin.vim'
     " Arduino
     Plug 'stevearc/vim-arduino', { 'for': [ 'arduino' ] }
-
     " LaTeX
     Plug 'lervag/vimtex'
+    " Sway config syntax
+    Plug 'terminalnode/sway-vim-syntax'
 
     " HTML/CSS
     Plug 'mattn/emmet-vim'
