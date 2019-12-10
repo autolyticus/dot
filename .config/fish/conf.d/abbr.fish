@@ -99,7 +99,6 @@ if not set -q abbrs_initialized
     abbr pq 'pacman -Q'
     abbr pr 'pacman -R'
     abbr ps 'ps auxf'
-    abbr py 'python3'
     abbr py2off deactivate
     abbr py2on 'workon py2env'
     abbr r ranger
