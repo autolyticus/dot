@@ -61,7 +61,7 @@ call plug#begin('~/.config/nvim/plugins')
     " Rust
     " Plug 'sebastianmarkow/deoplete-rust'
     " Godot
-    Plug 'calviken/vim-gdscript3'
+    " Plug 'calviken/vim-gdscript3'
     " Elixir
     Plug 'slashmili/alchemist.vim'
     Plug 'AndrewRadev/splitjoin.vim'
