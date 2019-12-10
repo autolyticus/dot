@@ -5,6 +5,7 @@ if has('gui_running')
 endif
 
 
+inoremap jj <Esc>
 if has('nvim')
     tnoremap <C-w> <C-\><C-n>
     tnoremap <A-h> <C-\><C-n><C-w>h
