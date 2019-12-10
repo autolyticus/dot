@@ -59,5 +59,5 @@ unset appendpath
 
 [[ -f "$HOME/.bashrc" ]] && . "$HOME/.bashrc"
 if [ "$(basename "$(tty)")" = 'tty1' ]; then
-	startx
+	sway-run
 fi

@@ -90,15 +90,15 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
 # Get x - ID of touchpad for easy enable/disable
-export touchID=$( (
-    xinput list 2>/dev/null
-    true
-) | grep Touchpad | cut -f 2 | cut -d'=' -f 2)
+# export touchID=$( (
+#     xinput list 2>/dev/null
+#     true
+# ) | grep Touchpad | cut -f 2 | cut -d'=' -f 2)
 
-export trackBallID=$( (
-    xinput list 2>/dev/null
-    true
-) | grep M570 | cut -f 2 | cut -d'=' -f 2)
+# export trackBallID=$( (
+#     xinput list 2>/dev/null
+#     true
+# ) | grep M570 | cut -f 2 | cut -d'=' -f 2)
 
 #######################################################
 # MACHINE SPECIFIC ALIAS'S
@@ -334,13 +334,13 @@ alias reboot='sudo reboot'
 # alias hibernate='(sleep 2; systemctl hibernate)&'
 alias vis='vim "+set si"'
 
-alias touchstart='xinput enable "$touchID"; xinput set-prop "$touchID" 317 1; xinput set-prop "$touchID" 324 1; xinput set-prop "$touchID" 309 1'
-alias touchstop='xinput disable $touchID'
+# alias touchstart='xinput enable "$touchID"; xinput set-prop "$touchID" 317 1; xinput set-prop "$touchID" 324 1; xinput set-prop "$touchID" 309 1'
+# alias touchstop='xinput disable $touchID'
 
 # Set up trackball accel and transform matrix settings
-xinput set-prop $trackBallID "Coordinate Transformation Matrix" .6 0 0 0 .6 0 0 0 2.5
-xinput set-prop $trackBallID "libinput Accel Speed" .8
-xinput set-prop $trackBallID "libinput Middle Emulation Enabled" 1
+# xinput set-prop $trackBallID "Coordinate Transformation Matrix" .6 0 0 0 .6 0 0 0 2.5
+# xinput set-prop $trackBallID "libinput Accel Speed" .8
+# xinput set-prop $trackBallID "libinput Middle Emulation Enabled" 1
 
 alias umnt='sudo umount'
 alias mntd='sudo mount LABEL=D'
@@ -443,8 +443,8 @@ alias h="history | grep "
 # alias p="ps aux | grep "
 alias topcpu="/bin/ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10"
 
-# Search files in the current folder
-alias f="find -regex "
+# # Search files in the current folder
+# alias f="find -regex "
 
 # Count all files (recursively) in the current folder
 alias countfiles="for t in files links directories; do echo \`find . -type \${t:0:1} | wc -l\` \$t; done 2> /dev/null"
@@ -752,13 +752,15 @@ if [ "$(basename "$SHELL")" = "bash" ]; then
     fi
 
 fi
+
 # motdupdate
 if [ -f ~/.local/tempcd ]; then
     . ~/.local/tempcd
 fi
 
-xset r rate 250 30
+# xset r rate 250 30
 
+alias f=fish
 if [ -z "$BASH_EXECUTION_STRING" ] && [ "$SHLVL" -eq 3 ]; then
     type fish &> /dev/null && exec fish
 fi

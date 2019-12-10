@@ -388,6 +388,7 @@ libxxf86dga
 libxxf86vm
 libzip
 licenses
+light
 linux
 linux-api-headers
 linux-firmware

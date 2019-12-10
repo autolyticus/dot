@@ -1,0 +1,15 @@
+daemonize
+ignore-empty-password
+indicator
+disable-caps-lock-text
+font=Source Sans Pro
+clock
+ring-color=0f1419
+key-hl-color=330033
+line-color=00000000
+inside-color=00000088
+separator-color=00000000
+screenshots
+effect-scale=0.2
+effect-blur=2x5
+effect-vignette=1:0.5

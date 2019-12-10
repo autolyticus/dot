@@ -1,0 +1,90 @@
+// vim:ft=jsonc
+
+{
+    "layer": "top",
+    "position": "bottom",
+    "height": 30,
+
+    "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
+    "modules-right": ["tray", "backlight", "pulseaudio", "network", "idle_inhibitor", "battery", "clock"],
+    "sway/mode": {
+        "format": " {}"
+    },
+    "sway/workspaces": {
+        "format": "{name}",
+        "disable-scroll": true
+    },
+    "sway/window": {
+        "max-length": 80,
+        "tooltip": false
+    },
+    "clock": {
+        "format": "{:%a %d %b %H:%M}",
+        "tooltip": false
+    },
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""],
+        "format-charging": "{capacity}% ",
+        "interval": 30,
+        "states": {
+            "warning": 25,
+            "critical": 10
+        },
+        "tooltip": false
+    },
+    "network": {
+        "format": "{ipaddr}/{cidr} {icon}",
+        "format-alt": "{icon}",
+        "format-alt-click": "click-right",
+        "format-icons": {
+            "wifi": ["", "" ,""],
+            "ethernet": [""],
+            "disconnected": [""]
+        },
+        "on-click": "termite -e nmtui",
+    "tooltip": false
+    },
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-alt": "{volume} {icon}",
+        "format-alt-click": "click-right",
+        "format-muted": "",
+        "format-icons": {
+            "phone": [" ", " ", " ", " "],
+            "default": ["", "", "", ""]
+        },
+        "scroll-step": 10,
+        "on-click": "pavucontrol",
+        "tooltip": false
+    },
+    "backlight": {
+        "format": "{icon}",
+        "format-alt": "{percent}% {icon}",
+        "format-alt-click": "click-right",
+        "format-icons": ["", ""],
+        "on-scroll-down": "sudo light -U 2",
+        "on-scroll-up": "sudo light -A 2"
+    },
+    /* "custom/weather": { */
+    /*     "format": "{}", */
+    /*     "format-alt": "{alt}: {}", */
+    /*     "format-alt-click": "click-right", */
+    /*     "interval": 1800, */
+    /*     "return-type": "json", */
+    /*     "exec": "~/.config/waybar/modules/weather.sh", */
+    /*     "exec-if": "ping wttr.in -c1" */
+    /* }, */
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        },
+        "tooltip": true
+    },
+    "tray": {
+        "icon-size": 18
+    }
+}
