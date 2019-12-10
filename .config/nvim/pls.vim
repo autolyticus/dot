@@ -3,19 +3,23 @@ call plug#begin('~/.config/nvim/plugins')
 
     " "AutoCompletion Framework"
 
-    Plug 'ncm2/ncm2'
-    Plug 'roxma/nvim-yarp'
-    Plug 'ncm2/ncm2-syntax' | Plug 'Shougo/neco-syntax'
-    Plug 'ncm2/ncm2-neoinclude' | Plug 'Shougo/neoinclude.vim'
-    Plug 'ncm2/ncm2-path'
-    Plug 'ncm2/ncm2-bufword'
-    Plug 'ncm2/ncm2-gtags'
+    " Plug 'ncm2/ncm2'
+    " Plug 'roxma/nvim-yarp'
+    " Plug 'ncm2/ncm2-syntax' | Plug 'Shougo/neco-syntax'
+    " Plug 'ncm2/ncm2-neoinclude' | Plug 'Shougo/neoinclude.vim'
+    " Plug 'ncm2/ncm2-path'
+    " Plug 'ncm2/ncm2-bufword'
+    " Plug 'ncm2/ncm2-gtags'
+    Plug 'neoclide/coc.nvim', {
+    \ 'branch': 'release',
+    \ 'do': ':CocInstall coc-syntax coc-omni coc-tag coc-snippets coc-markdownlint coc-gitignore coc-json coc-vimlsp'
+    \ }
 
     " Integration with other plugins
-    Plug 'ncm2/ncm2-ultisnips'
+    " Plug 'ncm2/ncm2-ultisnips'
     " Plug 'svermeulen/ncm2-yoink'
 
-    Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+    " Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
     " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     " let g:deoplete#enable_at_startup = 1
     " Plug 'Shougo/neco-syntax'
@@ -29,10 +33,10 @@ call plug#begin('~/.config/nvim/plugins')
     " Plug 'yami-beta/asyncomplete-omni.vim'
 
     " Plug 'natebosch/vim-lsc'
-    Plug 'autozimu/LanguageClient-neovim', {
-      \ 'branch': 'next',
-      \ 'do': 'bash install.sh',
-      \ }
+    " Plug 'autozimu/LanguageClient-neovim', {
+    "   \ 'branch': 'next',
+    "   \ 'do': 'bash install.sh',
+    "   \ }
 
 
     " "Language specific"
@@ -42,9 +46,9 @@ call plug#begin('~/.config/nvim/plugins')
     " Go
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     " C/C++
-    Plug 'zchee/deoplete-clang'
+    " Plug 'zchee/deoplete-clang'
     " Python
-    Plug 'zchee/deoplete-jedi'
+    " Plug 'zchee/deoplete-jedi'
     " Flutter/Dart
     Plug 'reisub0/hot-reload.vim'
     " ReSTFUL APIs
@@ -82,8 +86,8 @@ call plug#begin('~/.config/nvim/plugins')
     " "Linters/Builders"
 
     Plug 'neomake/neomake'
-    let g:ale_emit_conflict_warnings = 0
-    Plug 'w0rp/ale'
+    " let g:ale_emit_conflict_warnings = 0
+    " Plug 'w0rp/ale'
 
 
     " "Coding helpers"
@@ -150,14 +154,11 @@ call plug#begin('~/.config/nvim/plugins')
     " Plug 'scrooloose/nerdcommenter'
 
     " "Files"
-    Plug 'wincent/command-t', {
-                \   'do': 'sudo gem install --no-user-install neovim; cd ruby/command-t/ext/command-t; ruby extconf.rb && make'
-                \ }
     " Templates
     Plug 'aperezdc/vim-template'
-    " Plug '/bin/fzf'
-    " Plug 'junegunn/fzf.vim'
-    " Plug 'junegunn/fzf'
+    Plug '/bin/fzf'
+    Plug 'junegunn/fzf.vim'
+    Plug 'junegunn/fzf'
 
     " "Git"
 

@@ -1,18 +1,18 @@
 if has('gui_running')
-	" Make shift-insert work like in Xterm
-	map <S-Insert> <MiddleMouse>
-	map! <S-Insert> <MiddleMouse>
+    " Make shift-insert work like in Xterm
+    map <S-Insert> <MiddleMouse>
+    map! <S-Insert> <MiddleMouse>
 endif
 
 
 if has('nvim')
-	tnoremap <C-w> <C-\><C-n>
-	tnoremap <A-h> <C-\><C-n><C-w>h
-	tnoremap <A-j> <C-\><C-n><C-w>j
-	tnoremap <A-k> <C-\><C-n><C-w>k
-	tnoremap <A-l> <C-\><C-n><C-w>l
-	tnoremap jj <C-\><C-n>
-	map <A-r> :w<CR>:source<Space>%<CR>:PlugInstall<CR>
+    tnoremap <C-w> <C-\><C-n>
+    tnoremap <A-h> <C-\><C-n><C-w>h
+    tnoremap <A-j> <C-\><C-n><C-w>j
+    tnoremap <A-k> <C-\><C-n><C-w>k
+    tnoremap <A-l> <C-\><C-n><C-w>l
+    tnoremap jj <C-\><C-n>
+    map <A-r> :w<CR>:source<Space>%<CR>:PlugInstall<CR>
 endif
 
 nnoremap <A-h> <C-w>h
@@ -22,7 +22,7 @@ nnoremap <A-l> <C-w>l
 
 " KEY MAPPINGS
 " <Ctrl-l> redraws the screen and removes any search highlighting.
-nnoremap <silent> <C-l> :nohl<CR><C-l>
+nnoremap <silent> <C-l> :nohl<CR><C-l><C-w>z<C-w>o
 
 " Force write! If you're not logged in as sudo
 cmap fw w !sudo tee % >/dev/null <CR> <Space>q
@@ -61,13 +61,13 @@ map <Space>` :w<CR>
 map <Space>w <C-w>
 
 " Quick preview close
-map <Space>z <C-w>z
+map <Space>z <C-w>z<C-w>o
 autocmd BufWinEnter,WinEnter,BufNewFile term://* startinsert
 autocmd BufWinEnter quickfix nnoremap <silent> <buffer>
-			\   q :cclose<cr>:lclose<cr>
+            \   q :cclose<cr>:lclose<cr>
 autocmd BufEnter * if (winnr('$') == 1 && &buftype ==# 'quickfix' ) |
-			\   bd|
-			\   q | endif
+            \   bd|
+            \   q | endif
 
 map <F5> :w<CR>:execute<Space>g:mp<CR>
 
@@ -95,7 +95,7 @@ nnoremap <Leader>j <C-w>j
 nnoremap <Leader>k <C-w>k
 nnoremap <Leader>l <C-w>l
 
-" CTRL-U in insert mode deletes a lot.	Use CTRL-G u to first break undo,
+" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 " Revert with ":iunmap <C-U>".
 inoremap <C-U> <C-G>u<C-U>
