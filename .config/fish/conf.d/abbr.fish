@@ -120,6 +120,7 @@ if not set -q abbrs_initialized
     abbr treed 'tree -CAFd'
     abbr umnt 'sudo umount'
     abbr umntb 'sudo umount -R /media/b'
+    abbr umntd 'sudo umount -R /media/d'
     abbr umntf 'sudo umount -R /media/1'
     abbr umntff 'sudo umount -R /media/2'
     abbr unbz2 'tar -xvjf'
