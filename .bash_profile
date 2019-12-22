@@ -50,6 +50,23 @@ export PATH
 
 unset appendpath
 
+# Color for manpages in less makes manpages a little easier to read
+export LESS=-R
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
+if type fd &>/dev/null; then
+    export FZF_DEFAULT_COMMAND='fd --no-ignore-vcs --hidden --follow --exclude .git --exclude node_modules 2> /dev/null'
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+    # export FZF_ALT_C_COMMAND='rg --files --no-ignore --hidden --type d --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+else
+    echo "Please install fd"
+fi
+
 
 # Make keyboard not wake up the pc on sleep
 # if [ ! -e /tmp/usbWakeup.lck ] ; then
