@@ -33,6 +33,7 @@ if not set -q abbrs_initialized
     abbr dots 'git --git-dir=$HOME/.dot/ --work-tree=$HOME status'
     abbr du 'du -hs'
     abbr eabbr 'e ~/.config/fish/conf.d/abbr.fish; and set -e abbrs_initialized'
+    abbr evar 'e ~/.config/fish/conf.d/00-vars.fish; and set -e vars_initialized'
     abbr eat eatmydata
     abbr eb 'e ~/.bashrc'
     abbr epack 'e ~/.local/.packlist'
