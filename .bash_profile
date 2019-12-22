@@ -75,7 +75,7 @@ fi
 # fi
 
 
-[[ -f "$HOME/.bashrc" ]] && . "$HOME/.bashrc"
+# [[ -f "$HOME/.bashrc" ]] && . "$HOME/.bashrc"
 if [ "$(basename "$(tty)")" = 'tty1' ]; then
 	sway-run
 fi
