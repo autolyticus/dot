@@ -23,6 +23,7 @@ if not set -q abbrs_initialized
     abbr compose 'sudo docker-compose'
     abbr d 'sudo docker'
     abbr da 'date "+%Y-%m-%d %A %T %Z"'
+    abbr diff 'diff --color=auto'
     abbr df 'df -hT'
     abbr diskspace 'du -S | sort -n -r |more'
     abbr dot 'git --git-dir=$HOME/.dot/ --work-tree=$HOME'
