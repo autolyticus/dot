@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+sway -V --my-next-gpu-wont-be-nvidia &> /tmp/sway.log
