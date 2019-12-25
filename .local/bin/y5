@@ -6,7 +6,7 @@ if [ -n "$1" ]; then
     exit 0
 fi
 
-if [ -n "$(type tmux)" ]; then
+if (type tmux 2>&1 > /dev/null ); then
     {
         echo "Starting hotspot in background"
         tmux new-session -Ad -s y5 $y5Command
