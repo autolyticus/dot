@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-swaylock &
+swaylock
 killall -USR1 swayidle >/dev/null 2>&1

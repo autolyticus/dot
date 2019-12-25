@@ -5,13 +5,17 @@ sleeper() {
     sleep 2
     sudo "$@"
     sleep 5
-    tmux kill-session -t y5
-    y5
+    if (type tmux 2>&1 >/dev/null); then
+        if [ -n "$(tmux list-sessions | grep y5)" ]; then
+            tmux kill-session -t y5
+            y5
+        fi
+    fi
 }
 
-if (type zzz); then
+if (type zzz >/dev/null 2>&1); then
     sleeper zzz
-else if (type systemctl); then
+else if (type systemctl 2>&1 >/dev/null); then
         sleeper systemctl suspend
     else
         sleeper pm-suspend
