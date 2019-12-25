@@ -1,0 +1,15 @@
+font=Source Sans Pro 16
+border-size=0
+default-timeout=5000
+
+background-color=#111111
+text-color=#DDDDDD
+
+[urgency=low]
+background-color=#111111
+text-color=#DDDDDD
+
+[urgency=high]
+background-color=#47090C
+default-timeout=0
+ignore-timeout=1
