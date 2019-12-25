@@ -1,13 +1,14 @@
+anchor=bottom-right
+
 font=Source Sans Pro 16
+default-timeout=10000
+
+background-color=#111111
+text-color=#DDDDDD
+
+margin=10,22,10,10
+border-radius=3
 border-size=0
-default-timeout=5000
-
-background-color=#111111
-text-color=#DDDDDD
-
-[urgency=low]
-background-color=#111111
-text-color=#DDDDDD
 
 [urgency=high]
 background-color=#47090C
