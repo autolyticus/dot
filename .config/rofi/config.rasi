@@ -1,0 +1,12 @@
+configuration {
+        bw: 0;
+        icon-theme: "Arc-Dark";
+        font: "Source Code Pro Semibold 16";
+        matching: "fuzzy";
+        padding: 0;
+        show-icons: false;
+        sort: true;
+        tokenize: false;
+        sorting-method: "fzf";
+        theme: "gruvbox-dark-hard";
+}
