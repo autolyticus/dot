@@ -99,7 +99,7 @@ if not set -q abbrs_initialized
     abbr pl 'pacman -Ql'
     abbr pm 'pacman -S'
     abbr pmy 'pacman -Sy'
-    abbr pmm 'pacman -Su'
+    abbr pmm 'pacman -Syu'
     abbr pmr 'pacman -Rns'
     abbr pq 'pacman -Q'
     abbr pr 'pacman -R'
