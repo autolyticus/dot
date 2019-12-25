@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
+cHost 8.8.8.8
 host -W1 google.com 8.8.8.8 >/dev/null 2>&1 &&
 # fortilogin &&
-ping -w1 -W1 -c1 8.8.8.8 >/dev/null 2>&1
