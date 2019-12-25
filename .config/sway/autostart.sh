@@ -8,9 +8,11 @@ runCommand() {
 }
 
 runCommand mpd
-runCommand nm-applet --indicator
+# runCommand nm-applet --indicator
 runCommand waybar
 runCommand sway-alttab
+runCommand mako
+runCommand idler
 # runCommand rescuetime
 # runCommand delLock
 # runCommand xidlehook --not-when-audio --timer primary 240 'locker' 'killall i3lock' --timer normal 5 'xset dpms force off' ''

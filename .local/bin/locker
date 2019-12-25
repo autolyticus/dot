@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
-i3lock-next "Type password to unlock" "Source Sans Pro" "20" "$@"
-sleep 1 && xset dpms force off &
+
+swaylock &
+killall -USR1 swayidle >/dev/null 2>&1
