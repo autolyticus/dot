@@ -1,5 +1,8 @@
 if not set -q vars_initialized
     set -U vars_initialized
+    for i in (cat (status filename) | sed '/set -U/s/^\s*#//' | egrep '^\s*set -U' | awk '{print $3}')
+        set -e $i
+    end
 
     # TODO Re-enable completion when stabilised
     # set -U FZF_COMPLETE 0
