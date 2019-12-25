@@ -1,5 +1,8 @@
 if not set -q abbrs_initialized
     set -U abbrs_initialized
+    for i in (abbr | awk '{print $5}')
+        abbr -e $i
+    end
     abbr .. 'cd ..'
     abbr ... 'cd ../..'
     abbr .... 'cd ../../..'
