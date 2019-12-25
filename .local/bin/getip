@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+echo "Internal IP:"
+sudo ip a | grep inet | awk '{print $2}'
+echo "External IP:"
+curl ipecho.net/plain
+echo
