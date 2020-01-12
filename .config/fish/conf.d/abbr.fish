@@ -63,6 +63,7 @@ if not set -q abbrs_initialized
     abbr ipa 'sudo ip a'
     abbr l 'lsd'
     abbr ls 'lsd'
+    abbr lsblk 'lsblk -o NAME,PARTUUID,FSSIZE,FSTYPE,LABEL'
     abbr ll 'lsd -l'
     abbr la 'lsd -la'
     abbr m 'cd /media'
@@ -135,4 +136,5 @@ if not set -q abbrs_initialized
     abbr ys 'yay -S --noconfirm'
     abbr yu 'yay -Syu --aur --noconfirm'
     abbr zathura 'zathura --fork'
+    abbr zt 'sudo zerotier-cli'
 end
