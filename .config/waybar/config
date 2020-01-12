@@ -23,12 +23,16 @@
         "tooltip": false
     },
     "battery": {
-        "format": "{capacity}% {icon}",
+        "bat": "BAT0",
+        "adapter": "ADP1",
+        "format": "",
+        "format-charging-normal": "",
+        "format-normal": "{capacity}% {icon}",
         "format-alt": "{time} {icon}",
         "format-icons": ["", "", "", "", ""],
-        "format-charging": "{capacity}% ",
         "interval": 30,
         "states": {
+            "normal": 99,
             "warning": 25,
             "critical": 10
         },
