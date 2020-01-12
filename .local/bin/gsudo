@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+xhost +SI:localuser:root; sudo "$@"
