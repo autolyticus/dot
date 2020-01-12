@@ -1,2 +1,3 @@
 #!/usr/bin/env sh
 ping -w1 -W1 -c1 "$@" >/dev/null 2>&1
+eval 'echo "$?"; exit '"$?"
