@@ -103,7 +103,7 @@ if not set -q abbrs_initialized
     abbr pmm 'pacman -Syu'
     abbr pmr 'pacman -Rns'
     abbr pq 'pacman -Q'
-    abbr pr 'pacman -R'
+    abbr pr 'pacman -Rns'
     abbr ps 'ps auxf'
     abbr py2off deactivate
     abbr py2on 'workon py2env'
