@@ -9,9 +9,3 @@ fi
 play ~/.local/.notif.ogg &
 sendNotification "$@"
 
-if (type beep); then
-	for _ in $(seq 3); do
-		beep -f 500 -l 20
-		sleep 0.5
-	done
-fi
