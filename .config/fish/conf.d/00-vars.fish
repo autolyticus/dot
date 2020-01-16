@@ -5,7 +5,7 @@ if not set -q vars_initialized
     end
 
     # Completion still has some bugs
-    set -U FZF_COMPLETE 0
+    # set -U FZF_COMPLETE 0
 
     set -U FZF_FIND_FILE_COMMAND "fd --hidden --no-ignore-vcs --exclude .git . \$dir"
     set -U FZF_CD_COMMAND "fd --hidden --no-ignore-vcs --exclude .git --type d"
