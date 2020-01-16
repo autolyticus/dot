@@ -88,7 +88,7 @@ if not set -q abbrs_initialized
     abbr netctl 'sudo netctl'
     abbr nimc 'nim c'
     abbr n 'nzb'
-    abbr openports 'netstat -nape --inet'
+    abbr openports 'sudo netstat -nape --inet'
     abbr pd 'builtin cd -'
     abbr pdot 'git --git-dir=$HOME/.pdot/ --work-tree=$HOME'
     abbr pdota 'git --git-dir=$HOME/.pdot/ --work-tree=$HOME add'
