@@ -148,7 +148,7 @@ layouts = [
 
 widget_defaults = dict(
     font='Ubuntu-C',
-    fontsize=12,
+    fontsize=16,
     padding=4,
 )
 extension_defaults = widget_defaults.copy()
@@ -193,7 +193,7 @@ screens = [
                 widget.Volume(emoji=True, padding=0),
                 widget.Volume(padding=0),
                 widget.TextBox(text=' ', padding=1),
-                widget.Systray(icon_size=14),
+                widget.Systray(icon_size=16),
                 widget.TextBox(text=' ', padding=1),
 
                 widget.GenPollText(func=user.usedMem, update_interval=5),
@@ -227,7 +227,7 @@ screens = [
                 # widget.sep.Sep(foreground='7b5830'),
                 # widget.TextBox('default config', name='default'),
             ],
-            24,
+            28,
         ), ),
 ]
 
