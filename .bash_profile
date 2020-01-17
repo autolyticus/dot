@@ -28,6 +28,7 @@ export SDL_AUDIODRIVER='alsa'
 export NVM_DIR="$XDG_CONFIG_HOME/nvm"
 export NVM_SOURCE="/usr/share/nvm"
 # [ -s "$NVM_SOURCE/nvm.sh" ] && . "$NVM_SOURCE/nvm.sh"
+export CALIBRE_LIBRARY="$HOME/.local/share/Library"
 
 appendpath () {
     if [[ ! -d "$1" ]]; then
