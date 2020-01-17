@@ -176,7 +176,7 @@ screens = [
                 # widget.GenPollText(
                 #     func=user.inbox, foreground='fe1b22', update_interval=300),
                 widget.GenPollText(func=user.iCWidget, update_interval=20),
-                widget.Battery(hide_threshold=90),
+                widget.Battery(hide_threshold=0.9),
 
                 # widget.GenPollText(func=user.netSpeedUp, update_interval=2),
                 # widget.TextBox(text='⇅', padding=0),
