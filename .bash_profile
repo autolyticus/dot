@@ -77,5 +77,6 @@ fi
 
 # [[ -f "$HOME/.bashrc" ]] && . "$HOME/.bashrc"
 if [ "$(basename "$(tty)")" = 'tty1' ]; then
-	sway-run
+    startx &> /tmp/startx.log
+	# sway-run
 fi
