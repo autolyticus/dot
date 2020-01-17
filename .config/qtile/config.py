@@ -13,6 +13,7 @@ except ImportError:
     pass
 
 mod = 'mod4'
+ctrl = 'control'
 alt = 'mod1'
 terminal = 'kitty --single-instance'
 browser = 'firefox'
@@ -23,15 +24,15 @@ keys = [
     Key([mod], 'j', lazy.layout.up()),
 
     # Move windows up or down in current stack
-    Key([mod, 'control'], 'k', lazy.layout.shuffle_down()),
-    Key([mod, 'control'], 'j', lazy.layout.shuffle_up()),
+    Key([mod, ctrl], 'k', lazy.layout.shuffle_down()),
+    Key([mod, ctrl], 'j', lazy.layout.shuffle_up()),
 
     # Switch window focus to other pane(s) of stack
     Key([mod], 'space', lazy.next_layout()),
     Key([alt], 'Tab', lazy.function(user.PrevFocus())),
     Key([mod], 'u', lazy.function(user.to_urgent)),
-    Key([mod], 'q', lazy.window.kill()),
-    Key([mod, 'control'], 'f', lazy.window.toggle_floating()),
+    Key([mod, ctrl], 'q', lazy.window.kill()),
+    Key([mod, ctrl], 'f', lazy.window.toggle_floating()),
     Key([mod], 'n', lazy.window.toggle_minimize()),
     Key([mod], 'f', lazy.window.toggle_fullscreen()),
 
@@ -66,10 +67,10 @@ keys = [
         lazy.spawn('''bash -c 'amixer -q set Master toggle' ''')),
 
     # Management
-    Key([mod, 'control'], 's', lazy.spawn('susp')),
-    Key([mod, 'control'], 'r', lazy.restart()),
-    Key([mod, 'control'], 'l', lazy.spawn('locker')),
-    Key([mod, 'control'], 'q', lazy.shutdown()),
+    Key([mod, ctrl], 's', lazy.spawn('susp')),
+    Key([mod, ctrl], 'r', lazy.restart()),
+    Key([mod, ctrl], 'l', lazy.spawn('locker')),
+    Key([mod, ctrl], 'F4', lazy.shutdown()),
 
     # Misc
     Key([], 'Print',
@@ -135,7 +136,7 @@ groups += [
 keys.extend([
     Key([mod], 't',
         lazy.group['todoist'].dropdown_toggle('todoist')),
-    Key([mod, 'control'], 'z',
+    Key([mod, ctrl], 'z',
         lazy.group['zeal'].dropdown_toggle('zeal')),
     Key([mod], 'y', lazy.group['mpsyt'].dropdown_toggle('mpsyt')),
 ])
