@@ -1,5 +1,8 @@
 #!/bin/bash
 # iatest=$(expr index "$-" i)
+# PS4='+ $EPOCHREALTIME\011 '
+# exec 3>&2 2>/tmp/bashstart.$$.log
+# set -x
 
 # #######################################################
 # # SOURCED ALIAS'S AND SCRIPTS
@@ -747,6 +750,8 @@ fi
 # xset r rate 250 30
 
 alias f=fish
+# set +x
+# exec 2>&3 3>&-
 if [ -z "$BASH_EXECUTION_STRING" ] && [ "$SHLVL" -eq 3 ]; then
     type fish &> /dev/null && exec fish
 fi
