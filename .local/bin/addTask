@@ -2,4 +2,4 @@
 
 taskName=$(rofi -p 'Enter task' -dmenu)
 [[ -z "$taskName" ]] && exit 1
-td "$taskName"
+td q "$taskName"
