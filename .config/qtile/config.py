@@ -228,7 +228,7 @@ screens = [
                 # widget.sep.Sep(foreground='7b5830'),
                 # widget.TextBox('default config', name='default'),
             ],
-            28,
+            30,
         ), ),
 ]
 
