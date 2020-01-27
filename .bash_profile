@@ -29,6 +29,7 @@ export NVM_DIR="$XDG_CONFIG_HOME/nvm"
 export NVM_SOURCE="/usr/share/nvm"
 # [ -s "$NVM_SOURCE/nvm.sh" ] && . "$NVM_SOURCE/nvm.sh"
 export CALIBRE_LIBRARY="$HOME/.local/share/Library"
+export MUSIC_LIBRARY="$HOME/.local/share/Music"
 
 appendpath () {
     if [[ ! -d "$1" ]]; then
