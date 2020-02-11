@@ -83,7 +83,7 @@ if not set -q abbrs_initialized
     abbr mntL 'sudo mount LABEL=LBackup'
     abbr mpcr 'mpc update; mpc crop; mpc ls | mpc add'
     abbr multitail 'multitail --no-repeat -c'
-    abbr mv 'mv -i'
+    abbr mv 'mv -vi'
     abbr mx 'chmod a+x'
     abbr ncdu 'ncdu -xq'
     abbr netctl 'sudo netctl'
