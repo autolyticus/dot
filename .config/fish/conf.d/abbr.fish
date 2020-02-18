@@ -120,6 +120,7 @@ if not set -q abbrs_initialized
     abbr sl 'lsd'
     abbr spi 'ssh -Y root@reisub.ddns.net'
     abbr spiy5 'ssh -Y root@192.168.1.7'
+    abbr sshdo 'env DISPLAY=localhost:0 ssh -Y do'
     abbr sshpi 'setpidate; and ssh -Y ubuntu@(avahi-resolve -4n rpi3.local | cut -f2)'
     abbr suu 'sudo -HEs'
     abbr sy 'sudo systemctl'
