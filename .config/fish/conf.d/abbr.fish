@@ -1,5 +1,4 @@
 if not set -q abbrs_initialized
-    set -U abbrs_initialized ''
     for i in (abbr | awk '{print $5}')
         abbr -e $i
     end
@@ -140,4 +139,6 @@ if not set -q abbrs_initialized
     abbr yu 'yay -Syu --aur --noconfirm'
     abbr zathura 'zathura --fork'
     abbr zt 'sudo zerotier-cli'
+
+    set -U abbrs_initialized ''
 end
