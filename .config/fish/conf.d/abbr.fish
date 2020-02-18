@@ -123,6 +123,7 @@ if not set -q abbrs_initialized
     abbr sshpi 'setpidate; and ssh -Y ubuntu@(avahi-resolve -4n rpi3.local | cut -f2)'
     abbr suu 'sudo -HEs'
     abbr sy 'sudo systemctl'
+    abbr sye 'sudo -E systemctl edit'
     abbr topcpu '/bin/ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10'
     abbr tree 'tree -CAhF --dirsfirst'
     abbr treed 'tree -CAFd'
