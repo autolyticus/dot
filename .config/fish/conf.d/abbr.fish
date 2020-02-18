@@ -131,6 +131,7 @@ if not set -q abbrs_initialized
     abbr unbz2 'tar -xvjf'
     abbr ungz 'tar -xvzf'
     abbr untar 'tar -xvf'
+    abbr vid 'vidir --verbose .'
     abbr vis 'vim "+set si"'
     abbr wifi-menu 'sudo wifi-menu'
     abbr wireshark 'sudo wireshark'
