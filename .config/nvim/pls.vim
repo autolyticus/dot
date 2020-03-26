@@ -12,7 +12,7 @@ call plug#begin('~/.config/nvim/plugins')
     " Plug 'ncm2/ncm2-gtags'
     Plug 'neoclide/coc.nvim', {
     \ 'branch': 'release',
-    \ 'do': ':CocInstall coc-syntax coc-omni coc-tag coc-snippets coc-markdownlint coc-gitignore coc-json coc-vimlsp'
+    \ 'do': ':CocInstall coc-syntax coc-omni coc-tag coc-snippets coc-markdownlint coc-gitignore coc-json coc-vimlsp coc-explorer coc-marketplace'
     \ }
 
     " Integration with other plugins
