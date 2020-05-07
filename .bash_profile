@@ -77,7 +77,7 @@ fi
 # fi
 
 
-tmux
+tmux new-session -As sesh fish
 # [[ -f "$HOME/.bashrc" ]] && . "$HOME/.bashrc"
 if [ "$(basename "$(tty)")" = 'tty1' ]; then
     startx &> /tmp/startx.log
