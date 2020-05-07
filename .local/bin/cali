@@ -1,4 +1,8 @@
 #!/usr/bin/env sh
 
+sudo systemctl stop rclone-mount-library
+sudo systemctl stop cali
+sudo systemctl start rclone-mount-library
+sudo systemctl start cali
 # tmux new-session -Ad -s cali sudo calibre-server --port 40080 --ssl-keyfile ~/sslforfree/private.key --ssl-certfile ~/sslforfree/certificate.crt --disable-use-bonjour "$CALIBRE_LIBRARY"
 tmux new-session -Ad -s cali sudo calibre-server --port 40080 --disable-use-bonjour "$CALIBRE_LIBRARY"
