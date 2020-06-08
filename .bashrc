@@ -752,6 +752,8 @@ fi
 alias f=fish
 # set +x
 # exec 2>&3 3>&-
-if [ -z "$BASH_EXECUTION_STRING" ] && [ "$SHLVL" -eq 3 ]; then
-    type fish &> /dev/null && exec fish
+if [ -z "$BASH_EXECUTION_STRING" ]; then
+    if [ "$SHLVL" -eq 3 ] || [ "$SHLVL" -eq 1 ]; then
+        type fish &> /dev/null && exec fish
+    fi
 fi
