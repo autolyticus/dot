@@ -16,6 +16,7 @@ export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME/httpie"
 export LESSHISTFILE=-
 export STACK_ROOT="$XDG_DATA_HOME/stack"
 export WAKATIME_HOME="$XDG_DATA_HOME/wakatime"
+export PUB_CACHE="$XDG_DATA_HOME/pub-cache"
 
 export RUSTC_WRAPPER=sccache
 
@@ -44,7 +45,7 @@ appendpath () {
 }
 
 export PATH="$HOME/.local/bin:$PATH"
-appendpath "$HOME/.pub-cache/bin"
+appendpath "$PUB_CACHE/bin"
 appendpath "$XDG_DATA_HOME/go/bin"
 appendpath "$XDG_DATA_HOME/npm/bin"
 appendpath "$XDG_DATA_HOME/cargo/bin"
