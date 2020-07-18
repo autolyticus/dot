@@ -396,6 +396,7 @@ llvm-libs
 lm_sensors
 logrotate
 lsd
+lshw
 lsof
 lua
 lua52
@@ -468,6 +469,7 @@ os-prober
 p11-kit
 p7zip
 pacman
+pacutils
 pam
 pambase
 pango
@@ -540,6 +542,7 @@ ranger
 readline
 redshift
 reiserfsprogs
+rescuetime2
 rest
 rhash
 ripgrep
