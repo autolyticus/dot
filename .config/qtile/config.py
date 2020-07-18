@@ -74,7 +74,7 @@ keys = [
 
     # Misc
     Key([], 'Print',
-        lazy.spawn('scrot -e \'mkdir -p ~/screenshots; mv $f ~/screenshots/\'')
+        lazy.spawn('bash -c "screenshot; sleep 3;"')
         ),
 
     # Key([mod, 'shift'], 'space', lazy.next_()),
@@ -186,7 +186,8 @@ screens = [
                 widget.GenPollText(
                     func=user.pacmanUpdates, update_interval=1800),
 
-                widget.Mpd(
+                widget.Mpd2(
+                    idle_message='',
                     fmt_stopped='',
                     fmt_playing='🎵 %a / %t',
                     foreground_progress='7b5830'),
