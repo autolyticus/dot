@@ -320,7 +320,6 @@ astack() {
 
 alias estack='e .local/.stack'
 
-alias apt='sudo apt'
 alias arch-chroot='sudo arch-chroot'
 alias multitail='multitail --no-repeat -c'
 alias freshclam='sudo freshclam'
