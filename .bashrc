@@ -747,11 +747,12 @@ if [ -f ~/.local/tempcd ]; then
     . ~/.local/tempcd
 fi
 
-# xset r rate 250 30
+xset r rate 250 30
 
 alias f=fish
 # set +x
 # exec 2>&3 3>&-
+. $HOME/.bash_profile
 if [ -z "$BASH_EXECUTION_STRING" ]; then
     if [ "$SHLVL" -eq 3 ] || [ "$SHLVL" -eq 1 ]; then
         type fish &> /dev/null && exec fish
