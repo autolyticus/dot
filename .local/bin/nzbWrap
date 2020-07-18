@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 # cat $HOME/d
 td s
-unbuffer td --color --csv l -f 'overdue | @habit | today | @next | (p1 & !#TICKLER & !@next & !today & !overdue)' | ansi2conky | sed 's|"\([^"]*\)"|\1|g' | sed 's|\(@\w*\),\(@\)|\1 @|g' | sed 's/#/\\#/g' | cut -d, -f 3- | sed 's/,,/, ,/g' | column -c 80 -s, -t
+unbuffer td --color --csv l -f 'overdue | @habit | today | @next | p1 & !#TICKLER & !@next & !today & !overdue | p2 & !p1 & !#TICKLER & !@next & !today & !overdue' | ansi2conky | sed 's|"\([^"]*\)"|\1|g' | sed 's|\(@\w*\),\(@\)|\1 @|g' | sed 's/#/\\#/g' | cut -d, -f 3- | sed 's/,,/, ,/g' | column -c 80 -s, -t
