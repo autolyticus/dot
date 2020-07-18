@@ -15,7 +15,7 @@ default_border pixel 1
 default_floating_border pixel 1
 hide_edge_borders smart
 #autostart
-exec_always $XDG_CONFIG_HOME/sway/autostart.sh
+exec_always $XDG_CONFIG_HOME/i3/autostart.sh
 
 # Launchers
 bindsym $super+Return exec $terminal
