@@ -1,2 +1,3 @@
 #!/usr/bin/env sh
-sway -V --my-next-gpu-wont-be-nvidia &> /tmp/sway.log
+export XDG_CURRENT_DESKTOP=unity
+sway -V &> /tmp/sway.log
