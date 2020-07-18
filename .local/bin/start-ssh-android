@@ -63,10 +63,10 @@ if isFirstRun "$@"; then
     runCommandInTermux 'termux-setup-storage'
     waitForCommand
     runCommandInTermux '(apt update) && (yes | apt upgrade) &&
-                        (yes | apt install dropbear rsync)'
+                        (yes | apt install openssh rsync)'
 fi
 
-runCommandInTermux 'dropbear; exit'
+runCommandInTermux '/usr/bin/sshd; exit'
 echo 'Forwarding port TCP:8022 to localhost:8022'
 adb forward tcp:8022 tcp:8022
 echo
