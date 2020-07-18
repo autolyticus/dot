@@ -2,6 +2,7 @@ if not set -q vars_initialized
     for i in (cat (status filename) | sed '/set -U/s/^\s*#//' | egrep '^\s*set -U' | awk '{print $3}')
         set -e $i
     end
+    bax source $HOME/.bash_profile
 
     # Completion still has some bugs
     # set -U FZF_COMPLETE 0
