@@ -17,3 +17,5 @@ runCommand rescuetime
 runCommand unclutter -root
 runCommand delLock
 runCommand xidlehook --not-when-audio --timer primary 240 'locker' 'killall i3lock' --timer normal 5 'xset dpms force off' ''
+runCommand sudo systemctl restart ckb-next-daemon
+runCommand ckb-next -b
