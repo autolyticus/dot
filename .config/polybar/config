@@ -1,0 +1,272 @@
+; vim: set commentstring=;\ %s:
+[colors]
+cool-gray = #8B91AB
+light-red = #D95B5B
+light-green = #249824
+light-purple = #A44BA0
+
+menucol-yellow = #F7F272
+menucol-blue = #1771F1
+menucol-orange = #FFAF60
+menucol-red = #F85C50
+menucol-green = #77BD8B
+menucol-sealine = #00CF91
+menucol-purple = #9A76B3
+menucol-pink = #FF77BF
+menucol-deepblue = #6560FF
+menucol-lightblue = #60FFF7
+
+fav-purple = #6633FF
+dark = #111
+dark-red = #311
+dark-green = #131
+dark-purple = #201134
+light = #eee
+gray = #999
+dark-gray = #333
+
+
+; -------------------------
+[bar/main]
+enable-ipc = true
+override-redirect = false
+
+bottom = false
+width = 100%
+height = 24 ;px
+
+background = ${colors.dark}
+foreground = ${colors.light}
+
+line-color = ${colors.light-purple}
+line-size = 1
+
+separator = "   "
+
+; -------------------------
+font-0 = SF UI Display:style=Light
+font-1 = Meslo LGMDZ Nerd Font Mono
+font-2 = Symbola
+; font-3 = Font Awesome 5 Free:style=solid
+; font-3 = PragmataPro Mono Liga
+
+wm-restack = i3
+tray-position = left
+
+modules-left = workspaces title
+modules-center = temperature battery
+modules-right = mpd memory cpu brightness sound date
+
+
+; -------------------------
+[module/mpd]
+type = internal/mpd
+
+; Host where mpd is running (either ip or domain name)
+; Can also be the full path to a unix socket where mpd is running.
+host = 127.0.0.1
+port = 6600
+
+; Seconds to sleep between progressbar/song timer sync
+; Default: 1
+interval = 0.9
+format-online = <label-song> 🎜 <label-time>
+format-stopped=
+
+label-song = %artist% - %title%
+label-time=%elapsed%
+format-online-underline = ${colors.menucol-sealine}
+format-online-padding = 2
+; format-online-foreground = ${colors.menucol-orange}
+
+
+; -------------------------
+[module/title]
+type = internal/xwindow
+format-underline=${colors.cool-gray}
+format-padding=2
+
+; -------------------------
+[module/workspaces]
+type = internal/i3
+
+pin-workspaces = true
+strip-wsnumbers = true
+index-sort = true
+
+format = <label-state> <label-mode>
+
+label-dimmed-underline = ${colors.background}
+
+;On editing mode (resize for ex)
+label-mode = %mode%
+label-mode-background = ${colors.dark-purple}
+label-mode-underline = ${colors.fav-purple}
+label-mode-padding = 2
+
+label-focused = %index%
+label-focused-background = ${colors.dark-green}
+label-focused-underline = ${colors.light-green}
+label-focused-padding = 3
+
+label-unfocused = %index%
+label-unfocused-foreground = ${colors.gray}
+label-unfocused-padding = 3
+
+label-visible = %index%
+label-visible-background = ${colors.dark-purple}
+label-visible-underline = ${colors.light-purple}
+label-visible-padding = 3
+
+label-urgent = %index%
+label-urgent-background = ${colors.dark-red}
+label-urgent-underline = ${colors.light-red}
+label-urgent-padding = 3
+
+
+; -------------------------
+[module/date]
+type = internal/date
+
+time = %H:%M
+date = %A, %B %d
+date-alt = %A, %B %d, %Y
+time-alt = %H:%M:%S
+
+format-prefix = "  "
+format-padding = 2
+format-underline = ${colors.menucol-orange}
+format-foreground = ${colors.menucol-orange}
+interval = 20
+
+label = %date%, %time%
+label-foreground = ${colors.light}
+
+
+; -------------------------
+[module/sound]
+type = internal/pulseaudio
+
+format-volume = <ramp-volume> <label-volume>
+format-volume-padding = 2
+format-volume-underline = ${colors.menucol-blue}
+
+label-volume = %percentage%
+
+label-muted =  (%percentage%)
+label-muted-padding = 2
+label-muted-foreground = ${colors.gray}
+label-muted-underline = ${colors.gray}
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-foreground = ${colors.menucol-blue}
+click-right = pavucontrol &
+
+
+; ; -------------------------
+; [module/brightness]
+; type = internal/xbacklight
+; format = <label>
+; format-padding = 2
+; format-prefix = 
+; format-underline = ${colors.menucol-yellow}
+; format-prefix-foreground = ${colors.menucol-yellow}
+
+; label = " %percentage%"
+
+; -------------------------
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP1
+full-at = 75
+format-full=
+
+format-charging = <ramp-capacity> <label-charging>
+format-charging-padding = 2
+
+time-format = %H:%M
+
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-padding = 2
+format-discharging-underline = ${colors.menucol-orange}
+
+label-charging = %percentage%
+
+label-discharging = %percentage% (%time%)
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+animation-charging-foreground = ${colors.menucol-orange}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-5 = 
+ramp-capacity-6 = 
+ramp-capacity-7 = 
+ramp-capacity-8 = 
+ramp-capacity-9 = 
+ramp-capacity-foreground = ${colors.menucol-orange}
+
+
+; -------------------------
+[module/cpu]
+type = internal/cpu
+interval = 1
+format = <label>
+format-padding = 2
+format-underline = ${colors.menucol-red}
+
+format-prefix = 
+format-prefix-foreground = ${colors.menucol-red}
+
+label = " %percentage%"
+
+
+; -------------------------
+[module/memory]
+type = internal/memory
+interval = 3
+format = <label>
+format-padding = 2
+format-underline = ${colors.menucol-purple}
+
+format-prefix = 
+format-prefix-foreground = ${colors.menucol-purple}
+
+label = " %gb_used%"
+
+
+; -------------------------
+[module/temperature]
+type = internal/temperature
+interval = 0.5
+warn-temperature = 60
+
+format =
+format-padding = 2
+format-underline = ${colors.menucol-red}
+
+format-warn = <ramp> <label-warn>
+format-warn-underline = ${colors.menucol-red}
+label-warn-foreground = ${colors.menucol-red}
+label = %temperature-c%
+
+label-warn = "%temperature-c% "
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
+ramp-foreground = ${colors.menucol-red}
