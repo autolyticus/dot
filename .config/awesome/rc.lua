@@ -60,12 +60,16 @@ end
 
 run_once({
         "unclutter -root",
-        "nm-applet", "numlockx",
+        "nm-applet",
+        "numlockx",
         "mpd",
         -- "delLock",
         "rescuetime",
         "conky",
         "redshift -l 20.5937:78.9629",
+        "ckb-next",
+        "sleep 2; sudo systemctl restart ckb-next-daemon",
+        "xset r rate 250 30",
     }) -- entries must be comma-separated
 
 -- {{{ Variable definitions
@@ -84,14 +88,14 @@ themes = {
     "multicolor-icons",  -- 11
 }
 
-themeIndex   = 5
+themeIndex   = 7
 chosen_theme = themes[themeIndex]
 modkey       = "Mod4"
 altkey       = "Mod1"
-terminal     = "termite"
+terminal     = "kitty"
 editor       = os.getenv("EDITOR") or "nano"
 gui_editor   = "termite -e -- nvim"
-browser      = "chromium"
+browser      = "firefox"
 guieditor    = "oni"
 
 awful.util.terminal = terminal
@@ -242,8 +246,6 @@ root.buttons(awful.util.table.join(
 globalkeys = awful.util.table.join(
     -- Take a screenshot
     -- https://github.com/lcpz/dots/blob/master/bin/screenshot
-    awful.key({ }, "Print", function() os.execute("scrot -e 'mv $f ~/screenshots/'") end,
-              {description = "take a screenshot", group = "hotkeys"}),
 
     -- Hotkeys
     awful.key({ modkey,           }, "F1",      hotkeys_popup.show_help,
@@ -377,7 +379,7 @@ globalkeys = awful.util.table.join(
               {description = "Open a terminal", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
-    awful.key({ modkey, "Control"   }, "q", awesome.quit,
+    awful.key({ modkey, "Control"   }, "F4", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
 
     awful.key({ altkey, "Shift"   }, "l",     function () awful.tag.incmwfact( 0.05)          end,
@@ -504,6 +506,12 @@ globalkeys = awful.util.table.join(
             beautiful.mpd.update()
         end,
         {description = "mpc next", group = "widgets"}),
+    awful.key({  }, "XF86AudioStop",
+        function ()
+            awful.spawn.with_shell("mpc stop")
+            beautiful.mpd.update()
+        end,
+        {description = "mpc next", group = "widgets"}),
     awful.key({ altkey }, "0",
         function ()
             local common = { text = "MPD widget ", position = "top_middle", timeout = 2 }
@@ -574,10 +582,19 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "s", function () awful.spawn.with_shell("termite --class 'fzf-menu' --geometry 640x480 -e ~/.local/bin/songChooser") end,
         {description = "Fzf based Song Chooser", group = "launcher"}),
 
+    awful.key({ modkey }, "s", function () awful.spawn.with_shell("songChooser") end,
+        {description = "Song Chooser", group = "launcher"}),
+
+    awful.key({ modkey }, "a", function () awful.spawn.with_shell("addTask") end,
+        {description = "Add Task", group = "launcher"}),
+
+    awful.key({ modkey }, "p", function () awful.spawn.with_shell("bash -c 'screenshot; sleep 3;'") end,
+        {description = "Take a screenshot", group = "launcher"}),
+
     awful.key({ modkey }, "z", function () awful.spawn.with_shell("termite --class 'fzf-menu' --geometry 640x480 -e ~/.local/bin/scratche") end,
         {description = "ScratchPad", group = "launcher"}),
 
-    awful.key({ modkey }, "a",
+    awful.key({ modkey }, "F12",
         function ()
             awful.prompt.run {
                 prompt       = "Run Lua code: ",
@@ -599,7 +616,7 @@ clientkeys = awful.util.table.join(
             c:raise()
         end,
         {description = "toggle fullscreen", group = "client"}),
-    awful.key({ modkey,           }, "q",      function (c) c:kill()                         end,
+    awful.key({ modkey, "Control" }, "q",      function (c) c:kill()                         end,
               {description = "close", group = "client"}),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
