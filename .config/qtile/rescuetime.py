@@ -12,7 +12,7 @@ def getData():
         key = f.read().strip()
 
     csvStr = requests.get(
-        f'https://rescuetime.com/anapi/data?key={key}&format=csv').content
+        f'https://rescuetime.com/anapi/data?key={key}&format=csv', verify=False).content
 
     csvFile = StringIO(csvStr.decode())
     data = []
