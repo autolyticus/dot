@@ -45,7 +45,8 @@ line-size = 1
 separator = "   "
 
 ; -------------------------
-font-0 = SF UI Display:style=Light
+; font-0 = SF UI Display:style=Light
+font-0 = Segoe UI
 font-1 = Meslo LGMDZ Nerd Font Mono
 font-2 = Symbola
 ; font-3 = Font Awesome 5 Free:style=solid
