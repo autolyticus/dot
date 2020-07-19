@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+pkill -USR1 -F $XDG_RUNTIME_DIR/i3-alttab.pid || killall -USR1 i3-alttab

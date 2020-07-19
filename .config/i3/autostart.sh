@@ -12,7 +12,7 @@ runCommand nm-applet
 runCommand ckb-next
 runCommand rescuetime
 runCommand numlockx
-runCommand sway-alttab
+runCommand i3-alttab
 runCommand feh --bg-scale ~/.config/awesome/themes/powerarrow-dark/wall.jpg
 $HOME/.config/polybar/launch.sh
 # runCommand waybar -l trace
