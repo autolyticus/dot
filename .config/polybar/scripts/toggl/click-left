@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+descr="$(rofi -dmenu -p "Enter description")"
+if [ -n "$descr" ]; then
+    tags="$(rofi -dmenu -p "Enter tags")"
+    if [ -n "$tags" ]; then
+        toggl start -a "$tags" "$descr"
+    fi
+    toggl start "$descr"
+fi
