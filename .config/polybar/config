@@ -45,12 +45,14 @@ line-size = 1
 separator = "   "
 
 ; -------------------------
+font-0 = Source Sans Pro
+font-1 = Meslo LGMDZ Nerd Font Mono:size=16
+font-2 = Meslo LGMDZ Nerd Font Mono:size=11
+font-3 = Symbola
+
 ; font-0 = SF UI Display:style=Light
 ; font-0 = Segoe UI
-font-0 = Source Sans Pro
-font-1 = Meslo LGMDZ Nerd Font Mono
-font-2 = Symbola
-; font-3 = Font Awesome 5 Free:style=solid
+; font-2 = Font Awesome 5 Free:style=solid
 ; font-3 = PragmataPro Mono Liga
 
 wm-restack = i3
@@ -205,7 +207,7 @@ format-charging-foreground = ${colors.menucol-green}
 time-format = %H:%M
 
 
-format-discharging = <ramp-capacity> <label-discharging>
+format-discharging = %{T3}<ramp-capacity>%{T-} <label-discharging>
 format-discharging-padding = 2
 format-discharging-underline = ${colors.menucol-orange}
 
@@ -221,16 +223,16 @@ animation-charging-4 = 
 animation-charging-framerate = 750
 animation-charging-foreground = ${colors.menucol-orange}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-ramp-capacity-5 = 
-ramp-capacity-6 = 
-ramp-capacity-7 = 
-ramp-capacity-8 = 
-ramp-capacity-9 = 
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-5 = 
+ramp-capacity-6 = 
+ramp-capacity-7 = 
+ramp-capacity-8 = 
+ramp-capacity-9 = 
 ramp-capacity-foreground = ${colors.menucol-orange}
 
 
@@ -242,7 +244,7 @@ format = <label>
 format-padding = 2
 format-underline = ${colors.menucol-red}
 
-format-prefix = 
+format-prefix = 
 format-prefix-foreground = ${colors.menucol-red}
 
 label = " %percentage%"
