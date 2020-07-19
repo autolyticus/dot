@@ -197,8 +197,10 @@ adapter = ADP1
 full-at = 75
 format-full=
 
-format-charging = <ramp-capacity> <label-charging>
+format-charging = <ramp-capacity> %{F#eee}<label-charging>%{F-}
 format-charging-padding = 2
+format-charging-underline = ${colors.menucol-green}
+format-charging-foreground = ${colors.menucol-green}
 
 time-format = %H:%M
 
