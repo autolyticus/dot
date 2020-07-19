@@ -85,7 +85,7 @@ xinput set-prop $touchID "libinput Natural Scrolling Enabled" 1 &
 
 systemctl --user start xfce4-notifyd &
 
-exec awesome > /tmp/awesome.log 2>&1
-# exec i3 > /tmp/i3.log 2>&1
+# exec awesome > /tmp/awesome.log 2>&1
+exec i3 > /tmp/i3.log 2>&1
 xset r rate 250 30
 # exec qtile > /tmp/qtile.log 2>&1
