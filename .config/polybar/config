@@ -28,6 +28,7 @@ dark-gray = #333
 
 ; -------------------------
 [bar/main]
+monitor = ${env:MONITOR:}
 enable-ipc = true
 override-redirect = false
 
