@@ -46,6 +46,7 @@ bindsym XF86AudioStop exec mpc stop
 bindsym $super+$ctrl+q kill
 bindsym $alt+F4 kill
 
+bindsym $alt+Tab exec pkill -USR1 -F $XDG_RUNTIME_DIR/sway-alttab.pid
 # change focus
 bindsym $super+Left focus left
 bindsym $super+Down focus down

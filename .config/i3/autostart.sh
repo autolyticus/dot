@@ -11,6 +11,7 @@ runCommand mpd
 runCommand nm-applet
 runCommand ckb-next
 runCommand rescuetime
+runCommand sway-alttab
 $HOME/.config/polybar/launch.sh
 # runCommand waybar -l trace
 # runCommand sway-alttab
