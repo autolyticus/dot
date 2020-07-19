@@ -57,9 +57,19 @@ wm-restack = i3
 tray-position = left
 
 modules-left = workspaces title
-modules-center = temperature battery
+modules-center = temperature battery toggl
 modules-right = mpd memory cpu brightness sound date
 
+; -------------------------
+[module/toggl]
+type = custom/script
+
+exec = "python3 $XDG_CONFIG_HOME/polybar/scripts/toggl.py"
+interval = 20.0
+format = <label>
+format-padding = 1
+; Add this line if you have xdg-utils
+click-left = "xdg-open https://toggl.com/app/timer"
 
 ; -------------------------
 [module/mpd]
