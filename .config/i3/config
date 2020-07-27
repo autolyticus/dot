@@ -45,6 +45,11 @@ bindsym XF86AudioPrev exec mpc prev
 bindsym XF86AudioPlay exec mpc toggle
 bindsym XF86AudioStop exec mpc stop
 
+# Make the currently focused window a scratchpad
+bindsym $super+Shift+grave move scratchpad
+bindsym $super+grave scratchpad show
+
+
 # kill focused window
 bindsym $super+$ctrl+q kill
 bindsym $alt+F4 kill
