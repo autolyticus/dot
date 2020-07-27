@@ -31,6 +31,8 @@ bindsym $super+d exec rofi -lines 12 -padding 18 -width 60 -location 0 -show dru
 
 # common apps keybinds
 bindsym Print exec ~/.local/bin/screenshot
+bindsym $super+a exec addTask
+bindsym $super+s exec songChooser
 
 #change volume
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 1%+
