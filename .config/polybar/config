@@ -1,4 +1,4 @@
-; vim: set commentstring=;\ %s:
+; vim: set commentstring=;\ %s ft=dosini:
 [colors]
 cool-gray = #8B91AB
 light-red = #D95B5B
