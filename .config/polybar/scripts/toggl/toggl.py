@@ -34,4 +34,4 @@ if current['data'] is not None and ("pid" in current["data"]
     out = name + " " + '(' + h + ':' + m + ')'
     print(out)
 else:
-    print('Not time-tracking')
+    print('%{F#F85C50}Not time-tracking%{F-}')

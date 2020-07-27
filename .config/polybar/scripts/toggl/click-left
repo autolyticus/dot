@@ -4,6 +4,7 @@ if [ -n "$descr" ]; then
     tags="$(rofi -dmenu -p "Enter tags")"
     if [ -n "$tags" ]; then
         toggl start -a "$tags" "$descr"
+    else
+        toggl start "$descr"
     fi
-    toggl start "$descr"
 fi

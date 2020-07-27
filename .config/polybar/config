@@ -66,12 +66,13 @@ modules-right = mpd memory cpu brightness sound date
 [module/toggl]
 type = custom/script
 
-exec = "$XDG_CONFIG_HOME/polybar/scripts/toggl/toggl.py"
-interval = 20.0
+exec = "python $XDG_CONFIG_HOME/polybar/scripts/toggl/toggl.py"
+interval = 5
 format = <label>
+format-underline = ${colors.menucol-pink}
 format-padding = 1
-; Add this line if you have xdg-utils
 click-left = "$XDG_CONFIG_HOME/polybar/scripts/toggl/click-left" &
+click-right = "$XDG_CONFIG_HOME/polybar/scripts/toggl/click-right" &
 click-middle = "xdg-open https://toggl.com/app/timer &"
 
 ; -------------------------
