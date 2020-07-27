@@ -85,7 +85,9 @@ bindsym $super+Shift+l move right
 bindsym $super+f fullscreen toggle
 
 # change container layout split
-bindsym $super+s layout toggle split
+bindsym $super+$ctrl+1 layout toggle split
+bindsym $super+$ctrl+2 layout tabbed
+bindsym $super+$ctrl+3 layout stacking
 
 # toggle tiling / floating
 bindsym $super+space floating toggle
