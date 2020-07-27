@@ -10,12 +10,13 @@ runCommand() {
 runCommand mpd
 runCommand conky
 runCommand nm-applet
-runCommand ckb-next
 runCommand rescuetime
 runCommand numlockx
 runCommand i3-alttab
 runCommand feh --bg-scale ~/.config/awesome/themes/powerarrow-dark/wall.jpg
-$HOME/.config/polybar/launch.sh
+$HOME/.config/polybar/launch.sh &
+sudo systemctl restart ckb-next-daemon &
+runCommand ckb-next
 # runCommand waybar -l trace
 # runCommand sway-alttab
 # runCommand mako
