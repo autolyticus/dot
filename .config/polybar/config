@@ -45,10 +45,10 @@ line-size = 1
 separator = "   "
 
 ; -------------------------
-font-0 = Source Sans Pro
-font-1 = Meslo LGMDZ Nerd Font Mono:size=16
-font-2 = Meslo LGMDZ Nerd Font Mono:size=11
-font-3 = Symbola
+font-0 = Source Sans Pro;2
+font-1 = Meslo LGMDZ Nerd Font Mono:size=16;2
+font-2 = Meslo LGMDZ Nerd Font Mono:size=11;2
+font-3 = Symbola;2
 
 ; font-0 = SF UI Display:style=Light
 ; font-0 = Segoe UI
