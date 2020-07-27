@@ -7,7 +7,7 @@ set $terminal kitty --single-instance
 set $browser eatmydata firefox
 
 # set font
-# font pango: Noto Sans 8
+font pango: Source Sans Pro: 8
 
 # Use Mouse+$super to drag floating windows to their wanted position
 floating_modifier $super
