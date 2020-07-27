@@ -8,6 +8,7 @@ runCommand() {
 }
 
 runCommand mpd
+runCommand conky
 runCommand nm-applet
 runCommand ckb-next
 runCommand rescuetime
