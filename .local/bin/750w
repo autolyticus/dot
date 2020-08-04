@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+FILENAME="/tmp/$(date +%Y%m%d).md"
+xmodmap -e 'keycode 22 = NoSymbol'
+e "$FILENAME"
+xmodmap -e 'keycode 22 = BackSpace'
+
+rclone copy "$FILENAME" Drive:750Words &&
+rm "$FILENAME"
