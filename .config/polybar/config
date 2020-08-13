@@ -56,7 +56,7 @@ font-3 = Symbola;2
 ; font-3 = PragmataPro Mono Liga
 
 wm-restack = i3
-tray-position = left
+tray-position = ${env:TRAY_POS}
 
 modules-left = workspaces title
 modules-center = temperature battery toggl
