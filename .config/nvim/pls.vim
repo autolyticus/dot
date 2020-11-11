@@ -67,7 +67,7 @@ call plug#begin('~/.config/nvim/plugins')
     Plug 'slashmili/alchemist.vim'
     Plug 'AndrewRadev/splitjoin.vim'
     " Arduino
-    Plug 'stevearc/vim-arduino', { 'for': [ 'arduino' ] }
+    " Plug 'stevearc/vim-arduino', { 'for': [ 'arduino' ] }
     " LaTeX
     " Plug 'lervag/vimtex'
     " Sway config syntax
@@ -195,7 +195,7 @@ call plug#begin('~/.config/nvim/plugins')
     Plug 'vim-airline/vim-airline-themes'
     Plug 'jlesquembre/base16-neovim'
     Plug 'rafi/awesome-vim-colorschemes'
-    Plug 'Donearm/Ubaryd'
+    " Plug 'Donearm/Ubaryd'
     Plug 'fenetikm/falcon'
     Plug 'ayu-theme/ayu-vim'
     " Plug 'romainl/Apprentice'
