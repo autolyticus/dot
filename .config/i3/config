@@ -16,6 +16,7 @@ default_floating_border pixel 1
 hide_edge_borders smart
 workspace_layout tabbed
 #autostart
+exec_once $XDG_CONFIG_HOME/i3/autostartonce.sh
 exec_always $XDG_CONFIG_HOME/i3/autostart.sh
 
 # Launchers
