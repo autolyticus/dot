@@ -4,7 +4,7 @@
 touchID=$( (
 	xinput list 2>/dev/null
 	true
-) | grep Touchpad | cut -f 2 | cut -d'=' -f 2)
+) | grep TouchPad | cut -f 2 | cut -d'=' -f 2)
 
 
 props="$(xinput list-props $touchID)"
