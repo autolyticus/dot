@@ -42,6 +42,7 @@ call plug#begin('~/.config/nvim/plugins')
     " "Language specific"
 
     " Everything
+    let g:polyglot_disabled = ['']
     Plug 'sheerun/vim-polyglot'
     " Go
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -68,7 +69,7 @@ call plug#begin('~/.config/nvim/plugins')
     " Arduino
     Plug 'stevearc/vim-arduino', { 'for': [ 'arduino' ] }
     " LaTeX
-    Plug 'lervag/vimtex'
+    " Plug 'lervag/vimtex'
     " Sway config syntax
     Plug 'terminalnode/sway-vim-syntax'
 
