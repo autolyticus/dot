@@ -59,7 +59,7 @@ wm-restack = i3
 tray-position = ${env:TRAY_POS}
 
 modules-left = workspaces title
-modules-center = temperature battery toggl
+modules-center = temperature battery
 modules-right = mpd memory cpu brightness sound date
 
 ; -------------------------
