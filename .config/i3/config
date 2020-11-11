@@ -90,6 +90,12 @@ bindsym $super+$ctrl+1 layout toggle split
 bindsym $super+$ctrl+2 layout tabbed
 bindsym $super+$ctrl+3 layout stacking
 
+# Switch monitor layouts
+bindsym $super+$alt+1 exec $HOME/.screenlayout/onlymonitor.sh
+bindsym $super+$alt+2 exec $HOME/.screenlayout/dualmonitor.sh
+bindsym $super+$alt+3 exec $HOME/.screenlayout/laptop.sh
+
+
 # toggle tiling / floating
 bindsym $super+space floating toggle
 
