@@ -19,6 +19,7 @@ export WAKATIME_HOME="$XDG_DATA_HOME/wakatime"
 export PUB_CACHE="$XDG_DATA_HOME/pub-cache"
 
 export RUSTC_WRAPPER=sccache
+export CALIBRE_USE_DARK_PALETTE=1
 
 
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
