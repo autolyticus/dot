@@ -1,4 +1,7 @@
 #!/bin/sh
+source $HOME/.bash_profile
+source $HOME/.bashrc
+
 exec 1>/tmp/xinit.log 2>&1
 
 userresources=$HOME/.Xresources
@@ -35,8 +38,8 @@ fi
 # Turn on numlock
 # xrandr --setprovideroutputsource modesetting NVIDIA-0
 xrandr --auto
-xrandr --dpi 96
-xset r rate 250 30
+# xrandr --dpi 96
+# xset r rate 250 30
 # xrandr --output eDP-1-1 --off
 # if [ $(xrandr --listmonitors | wc -l) -eq 3 ]; then
 #     ;
@@ -75,7 +78,7 @@ touchID=$( (
 xinput set-prop $touchID "libinput Tapping Enabled" 1 &
 # xinput set-prop $touchID "libinput Tapping Drag Lock Enabled" 1
 xinput set-prop $touchID "libinput Natural Scrolling Enabled" 1 &
-# (xinput disable $touchID) &
+(xinput disable $touchID) &
 
 # remap caps to escape
 # (xmodmap -e 'clear Lock' -e 'keycode 0x42=Escape') &
@@ -83,9 +86,9 @@ xinput set-prop $touchID "libinput Natural Scrolling Enabled" 1 &
 
 # (xset dpms 0 0 0 && xset s noblank && xset s off) &
 
-systemctl --user start xfce4-notifyd &
+# systemctl --user start xfce4-notifyd &
 
 # exec awesome > /tmp/awesome.log 2>&1
 exec i3 > /tmp/i3.log 2>&1
-xset r rate 250 30
+# xset r rate 250 30
 # exec qtile > /tmp/qtile.log 2>&1
