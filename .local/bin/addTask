@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
-taskName=$(rofi -p 'Enter task' -dmenu)
+# sleep 0.01
+taskName=$(rofi -p 'Enter task' -dmenu </dev/null)
+# taskName=$(echo '' | dmenu -p 'Enter task')
 [[ -z "$taskName" ]] && exit 1
 td q "$taskName"
