@@ -96,7 +96,7 @@ if not set -q abbrs_initialized
     abbr pdotc 'git --git-dir=$HOME/.pdot/ --work-tree=$HOME commit -s -m'
     abbr pdotp 'git --git-dir=$HOME/.pdot/ --work-tree=$HOME push origin'
     abbr pdots 'git --git-dir=$HOME/.pdot/ --work-tree=$HOME status'
-    abbr ping 'prettyping --nolegend -c 10'
+    abbr ping 'prettyping --nolegend'
     abbr pipi 'pip install --user'
     abbr pl 'pacman -Ql'
     abbr pm 'pacman -S'
