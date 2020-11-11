@@ -46,6 +46,8 @@ appendpath () {
 }
 
 export PATH="$HOME/.local/bin:$PATH"
+appendpath "$HOME/.cabal/bin"
+appendpath "$HOME/.ghcup/bin"
 appendpath "$PUB_CACHE/bin"
 appendpath "$XDG_DATA_HOME/go/bin"
 appendpath "$XDG_DATA_HOME/npm/bin"
