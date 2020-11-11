@@ -76,6 +76,15 @@ click-right = "$XDG_CONFIG_HOME/polybar/scripts/toggl/click-right" &
 click-middle = "xdg-open https://toggl.com/app/timer &"
 
 ; -------------------------
+[module/todoist]
+type = custom/script
+tail = true
+exec = "bash $XDG_CONFIG_HOME/polybar/scripts/todoist/todoist-scroller.sh"
+interval = 0
+label-minlen = 15
+
+
+; -------------------------
 [module/mpd]
 type = internal/mpd
 
