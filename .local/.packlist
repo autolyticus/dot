@@ -106,6 +106,7 @@ elvish
 entr
 ethtool
 eudev
+evtest
 expat
 expect
 f2fs-tools
