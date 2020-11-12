@@ -1,4 +1,3 @@
-evanlucas/fish-kubectl-completions
 jorgebucaran/fish-bax
 oh-my-fish/plugin-bang-bang
 oh-my-fish/plugin-fasd
@@ -7,3 +6,4 @@ oh-my-fish/plugin-hash
 oh-my-fish/theme-bobthefish
 reisub0/done
 reisub0/fzf
+evanlucas/fish-kubectl-completions
