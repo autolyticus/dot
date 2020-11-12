@@ -42,7 +42,7 @@ call plug#begin('~/.config/nvim/plugins')
     " "Language specific"
 
     " Everything
-    let g:polyglot_disabled = ['']
+    let g:polyglot_disabled = ['latex', 'markdown']
     Plug 'sheerun/vim-polyglot'
     " Go
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
