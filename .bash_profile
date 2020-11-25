@@ -34,9 +34,9 @@ export CALIBRE_LIBRARY="$HOME/.local/share/Library"
 export MUSIC_LIBRARY="$HOME/.local/share/Music"
 
 appendpath () {
-    if [[ ! -d "$1" ]]; then
-        echo "Directory does not exist: $1"
-    fi
+    # if [[ ! -d "$1" ]]; then
+    #     echo "Directory does not exist: $1"
+    # fi
     case ":$PATH:" in
         *:"$1":*)
             ;;
