@@ -3,6 +3,7 @@
 #
 export USE_SDK_WRAPPER=yes
 export EDITOR="nvim"
+export PYTHONDONTWRITEBYTECODE=1
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
