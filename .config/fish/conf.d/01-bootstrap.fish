@@ -8,4 +8,4 @@ if not functions -q fisher
     fish -c fisher
 end
 bax source $HOME/.bash_profile
-cd $HOME
+# cd $HOME

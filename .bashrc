@@ -751,8 +751,8 @@ xset r rate 250 30
 alias f=fish
 # set +x
 # exec 2>&3 3>&-
-cd $HOME
-$HOME/.bash_profile
+# cd $HOME
+# $HOME/.bash_profile
 if [ -z "$BASH_EXECUTION_STRING" ]; then
     if [ "$SHLVL" -eq 3 ] || [ "$SHLVL" -eq 1 ]; then
         type fish &> /dev/null && exec fish
