@@ -1,2 +1,7 @@
 #!/usr/bin/env sh
-/usr/bin/lsd --group-dirs first -F "$@"
+LSDPATHS=$(which -a lsd)
+SPLIT=($LSDPATHS)
+# Assuming this binary is under the first path, then
+# we let's find the second path
+LSD="${SPLIT[1]}"
+"$LSD" --group-dirs first -F "$@"
