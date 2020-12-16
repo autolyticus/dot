@@ -7,5 +7,5 @@ if not functions -q fisher
     curl https://raw.githubusercontent.com/reisub0/dot/master/.config/fish/fishfile -o ~/.config/fish/fishfile
     fish -c fisher
 end
-bax source $HOME/.bash_profile
+replay source $HOME/.bash_profile
 # cd $HOME
