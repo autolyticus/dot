@@ -46,8 +46,6 @@ appendpath () {
 }
 
 if [[ "$PATH" != *"$HOME/.local/bin"* ]]; then
-    echo "$PATH"
-    echo Adding .local bin to path
     export PATH="$HOME/.local/bin:$PATH"
 fi
 appendpath "$HOME/.cabal/bin"
