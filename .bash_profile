@@ -45,7 +45,11 @@ appendpath () {
     esac
 }
 
-export PATH="$HOME/.local/bin:$PATH"
+if [[ "$PATH" != *"$HOME/.local/bin"* ]]; then
+    echo "$PATH"
+    echo Adding .local bin to path
+    export PATH="$HOME/.local/bin:$PATH"
+fi
 appendpath "$HOME/.cabal/bin"
 appendpath "$HOME/.ghcup/bin"
 appendpath "$PUB_CACHE/bin"
