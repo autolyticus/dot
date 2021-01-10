@@ -14,7 +14,7 @@ if not set -q abbrs_initialized
     abbr 755 'chmod -R 755'
     abbr 777 'chmod -R 777'
     abbr abs 'abduco -A sudo sudo -HEs'
-    abbr adb 'sudo adb'
+    # abbr adb 'sudo adb'
     abbr adbsh 'sudo adb shell'
     abbr arch-chroot 'sudo arch-chroot'
     abbr bd 'prevd'
