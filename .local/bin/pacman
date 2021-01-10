@@ -1,13 +1,19 @@
-#!/usr/bin/sh
+#!/usr/bin/env sh
 
 powerpill=true
+
+PACMANPATHS=$(which -a pacman)
+SPLIT=($PACMANPATHS)
+# Assuming this binary is under the first path, then
+# we let's find the second path
+PACMAN="${SPLIT[1]}"
 
 if (type powerpill > /dev/null 2>&1); then
     if [ "$powerpill" = true ]; then
         sudo powerpill "$@"
     else
-        sudo /usr/bin/pacman "$@"
+        "$PACMAN" "$@"
     fi
 else
-    sudo /usr/bin/pacman "$@"
+    "$PACMAN" "$@"
 fi
