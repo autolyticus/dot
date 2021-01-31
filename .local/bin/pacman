@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 
 powerpill=true
+sudo=sudo
 
 PACMANPATHS=$(which -a pacman)
 SPLIT=($PACMANPATHS)
@@ -10,10 +11,10 @@ PACMAN="${SPLIT[1]}"
 
 if (type powerpill > /dev/null 2>&1); then
     if [ "$powerpill" = true ]; then
-        sudo powerpill "$@"
+        $sudo powerpill "$@"
     else
-        "$PACMAN" "$@"
+        $sudo "$PACMAN" "$@"
     fi
 else
-    "$PACMAN" "$@"
+    $sudo "$PACMAN" "$@"
 fi
