@@ -10,10 +10,10 @@ call plug#begin('~/.config/nvim/plugins')
     " Plug 'ncm2/ncm2-path'
     " Plug 'ncm2/ncm2-bufword'
     " Plug 'ncm2/ncm2-gtags'
-    Plug 'neoclide/coc.nvim', {
-    \ 'branch': 'release',
-    \ 'do': ':CocInstall coc-syntax coc-omni coc-tag coc-snippets coc-markdownlint coc-gitignore coc-json coc-vimlsp'
-    \ }
+    " Plug 'neoclide/coc.nvim', {
+    " \ 'branch': 'release',
+    " \ 'do': ':CocInstall coc-syntax coc-omni coc-tag coc-snippets coc-markdownlint coc-gitignore coc-json coc-vimlsp'
+    " \ }
 
     " Integration with other plugins
     " Plug 'ncm2/ncm2-ultisnips'
@@ -51,12 +51,12 @@ call plug#begin('~/.config/nvim/plugins')
     " Python
     " Plug 'zchee/deoplete-jedi'
     " Flutter/Dart
-    Plug 'reisub0/hot-reload.vim'
+    " Plug 'reisub0/hot-reload.vim'
     " ReSTFUL APIs
-    Plug 'diepm/vim-rest-console'
+    " Plug 'diepm/vim-rest-console'
     " LISPs
-    Plug 'guns/vim-sexp', { 'for': [ 'lisp', 'clojure' ] }
-    Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': [ 'lisp', 'clojure' ] }
+    " Plug 'guns/vim-sexp', { 'for': [ 'lisp', 'clojure' ] }
+    " Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': [ 'lisp', 'clojure' ] }
     " Plug 'venantius/vim-cljfmt', { 'for': ['clojure'] }
     " Plug 'tpope/vim-fireplace'
     " Rust
@@ -64,20 +64,20 @@ call plug#begin('~/.config/nvim/plugins')
     " Godot
     " Plug 'calviken/vim-gdscript3'
     " Elixir
-    Plug 'slashmili/alchemist.vim'
-    Plug 'AndrewRadev/splitjoin.vim'
+    " Plug 'slashmili/alchemist.vim'
+    " Plug 'AndrewRadev/splitjoin.vim'
     " Arduino
     " Plug 'stevearc/vim-arduino', { 'for': [ 'arduino' ] }
     " LaTeX
     " Plug 'lervag/vimtex'
     " Sway config syntax
-    Plug 'terminalnode/sway-vim-syntax'
+    " Plug 'terminalnode/sway-vim-syntax'
 
     " HTML/CSS
-    Plug 'mattn/emmet-vim'
+    " Plug 'mattn/emmet-vim'
 
     " ARM asm
-    Plug 'ARM9/arm-syntax-vim'
+    " Plug 'ARM9/arm-syntax-vim'
     " Plug 'vim-scripts/armasm'
     " Plug 'jalvesaq/Nvim-R' , { 'for': [ 'r' ] }
     " Plug 'neovim/node-host', { 'do': 'npm install' }
@@ -87,7 +87,7 @@ call plug#begin('~/.config/nvim/plugins')
 
     " "Linters/Builders"
 
-    Plug 'neomake/neomake'
+    " Plug 'neomake/neomake'
     " let g:ale_emit_conflict_warnings = 0
     " Plug 'w0rp/ale'
 
@@ -102,7 +102,7 @@ call plug#begin('~/.config/nvim/plugins')
 
     " "Code Formatting"
 
-    Plug 'sbdchd/neoformat'
+    " Plug 'sbdchd/neoformat'
     Plug 'ntpeters/vim-better-whitespace'
     Plug 'Yggdroot/indentLine'
     Plug 'junegunn/vim-easy-align'
@@ -142,8 +142,8 @@ call plug#begin('~/.config/nvim/plugins')
     " "Miscallaneous"
 
     " REPL
-    Plug 'metakirby5/codi.vim'
-    Plug 'Shougo/vinarise.vim'
+    " Plug 'metakirby5/codi.vim'
+    " Plug 'Shougo/vinarise.vim'
 
     Plug 'luochen1990/rainbow'
     let g:rainbow_active = 1
@@ -157,10 +157,10 @@ call plug#begin('~/.config/nvim/plugins')
 
     " "Files"
     " Templates
-    Plug 'aperezdc/vim-template'
-    Plug '/bin/fzf'
-    Plug 'junegunn/fzf.vim'
-    Plug 'junegunn/fzf'
+    " Plug 'aperezdc/vim-template'
+    " Plug '/bin/fzf'
+    " Plug 'junegunn/fzf.vim'
+    " Plug 'junegunn/fzf'
 
     " "Git"
 
@@ -185,7 +185,7 @@ call plug#begin('~/.config/nvim/plugins')
     Plug 'machakann/vim-highlightedyank'
     Plug 'Shougo/echodoc.vim'
     let g:echodoc_enable_at_startup = 1
-    Plug 'skywind3000/vim-preview'
+    " Plug 'skywind3000/vim-preview'
     " Plug 'Shougo/denite.nvim'
     " Plug 'itchyny/lightline.vim'
 
