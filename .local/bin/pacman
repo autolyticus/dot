@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
-powerpill=true
-sudo=sudo
+powerpill=false
+sudo=
 
 PACMANPATHS=$(which -a pacman)
 SPLIT=($PACMANPATHS)
@@ -9,12 +9,20 @@ SPLIT=($PACMANPATHS)
 # we let's find the second path
 PACMAN="${SPLIT[1]}"
 
-if (type powerpill > /dev/null 2>&1); then
-    if [ "$powerpill" = true ]; then
-        $sudo powerpill "$@"
-    else
-        $sudo "$PACMAN" "$@"
-    fi
-else
-    $sudo "$PACMAN" "$@"
-fi
+OS="$(uname)"
+case "$OS" in
+    Darwin)
+        arch -arm64e pacapt "$@"
+        ;;
+    Linux)
+        if (type powerpill > /dev/null 2>&1); then
+            if [ "$powerpill" = true ]; then
+                $sudo powerpill "$@"
+            else
+                $sudo "$PACMAN" "$@"
+            fi
+        else
+            $sudo "$PACMAN" "$@"
+        fi
+        ;;
+esac
