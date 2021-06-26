@@ -1,0 +1,98 @@
+#!/usr/bin/env sh
+
+prevThemeFile="/var/tmp/systemThemeHandler.prevTheme.dat"
+
+if [ ! -f "$prevThemeFile" ]; then
+    prevTheme=""
+else
+    prevTheme="$(cat "$prevThemeFile")"
+fi
+
+setVariables_macOS() {
+    # The following command only succeeds (exit 0) when in dark mode
+    if (defaults read -g AppleInterfaceStyle >/dev/null 2>&1); then
+        currentTheme="Dark"
+    else
+        currentTheme="Light"
+    fi
+}
+
+handleThemeChange_macOS() {
+    sed="$(type -p gsed)"
+    kitty="$(type -p kitty)"
+    nvim="$(type -p nvim)"
+
+    case "$currentTheme" in
+        # Now is in light mode
+        Light)
+            if [ -n "$kitty" ]; then
+                ln -sf "$HOME/.config/kitty/kitty-themes/themes/Solarized_Light.conf" "$HOME/.config/kitty/color.conf"
+                kitty @set-colors --all --configured ~/.config/kitty/color.conf
+            fi
+            if [ -n "$nvim" ]; then
+                "$sed" -ie 's|dark|light|' "$HOME/.config/nvim/colo.vim"
+            fi
+            ;;
+
+        # Now is in dark mode
+        Dark)
+            if [ -n "$kitty" ]; then
+                ln -sf "$HOME/.config/kitty/kitty-themes/themes/SpaceGray_Eighties_Dull.conf" "$HOME/.config/kitty/color.conf"
+                kitty @set-colors --all --configured ~/.config/kitty/color.conf
+            fi
+            if [ -n "$nvim" ]; then
+                "$sed" -ie 's|light|dark|' "$HOME/.config/nvim/colo.vim"
+            fi
+            ;;
+    esac
+}
+
+setVariables_WSL() {
+    # Ugly workaround but was facing some weird issues with newlines otherwise
+    powershell.exe \(Get-ItemProperty -Path HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize \
+-Name AppsUseLightTheme\).AppsUseLightTheme | grep 1
+
+    # If the command exited successfully, it is a light theme
+    if [ "$?" -eq 0 ]; then
+        currentTheme="Light"
+    else
+        currentTheme="Dark"
+    fi
+}
+
+# OS Specific Stuff
+case "$(uname -a)" in
+
+    # MacOS
+    *Darwin*)
+        setVariables_macOS
+        # Code specific for MacOS
+        handleThemeChange() {
+            handleThemeChange_macOS
+            echo "Theme changed from $prevTheme to $currentTheme"
+        }
+        ;;
+
+    # Linux on Windows (WSL)
+    *Microsoft*)
+        setVariables_WSL
+        handleThemeChange() {
+            echo "Theme changed from $prevTheme to $currentTheme"
+        }
+        ;;
+
+    # Linux-specific
+    *Linux*)
+        handleThemeChange() {
+            echo "Theme changed from $prevTheme to $currentTheme"
+        }
+        ;;
+esac
+
+if [ "$currentTheme" != "$prevTheme" ]; then
+    echo "System theme has changed since last run"
+    handleThemeChange
+fi
+
+# Save the current theme
+echo "$currentTheme" > "$prevThemeFile"
