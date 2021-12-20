@@ -25,6 +25,15 @@ $HOME/.config/polybar/launch.sh &
 systemctl --user start xfce4-notifyd &
 sleep 3 && sudo systemctl restart ckb-next-daemon &
 xset r rate 250 35 &
+echo 0 | sudo tee /sys/module/snd_hda_intel/parameters/power_save_controller
+echo 0 | sudo tee /sys/module/snd_hda_intel/parameters/power_save
+setxkbmap -option caps:escape
+touchID=$( (
+    xinput list 2>/dev/null
+    true
+) | grep Touch | cut -f 2 | cut -d'=' -f 2)
+xinput set-prop $touchID "libinput Natural Scrolling Enabled" 1 &
+/usr/lib/kdeconnectd &
 # runCommand waybar -l trace
 # runCommand sway-alttab
 # runCommand mako

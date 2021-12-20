@@ -57,6 +57,8 @@ font-3 = Symbola;2
 
 wm-restack = i3
 tray-position = ${env:TRAY_POS}
+tray-scale = 1.0
+tray-maxsize = 20
 
 modules-left = workspaces title
 modules-center = temperature battery

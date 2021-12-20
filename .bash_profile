@@ -4,6 +4,10 @@
 export USE_SDK_WRAPPER=yes
 export EDITOR="nvim"
 export PYTHONDONTWRITEBYTECODE=1
+export GDK_SCALE=1.25
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"

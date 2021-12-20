@@ -1,3 +1,5 @@
 function ansdec
-    pass mathworks/dynapro-ansible-vault-pass | ansible-vault decrypt --vault-password-file /dev/stdin $argv
+    set temp (mktemp)
+    pass mathworks/dynapro-ansible-vault-pass > $temp
+    ansible-vault decrypt --vault-password-file $temp $argv
 end

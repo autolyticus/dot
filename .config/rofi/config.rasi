@@ -8,5 +8,6 @@ configuration {
         sort: true;
         tokenize: false;
         sorting-method: "fzf";
-        theme: "gruvbox-dark-hard";
+        /* theme: "gruvbox-dark-hard"; */
 }
+@theme "gruvbox-dark-hard"

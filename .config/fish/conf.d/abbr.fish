@@ -137,7 +137,7 @@ if not set -q abbrs_initialized
     abbr vis 'vim "+set si"'
     abbr wifi-menu 'sudo wifi-menu'
     abbr wireshark 'sudo wireshark'
-    abbr work 'cd ~/work'
+    abbr work 'tmux new-session -At work -c ~/0/1.MathWorks'
     abbr yay 'yay --aur'
     abbr yd 'youtube-dl -o "$MUSIC_LIBRARY/%(title)s.%(ext)s" -x --audio-format mp3 --audio-quality 0'
     abbr youtube-dl 'youtube-dl --external-downloader aria2c'
